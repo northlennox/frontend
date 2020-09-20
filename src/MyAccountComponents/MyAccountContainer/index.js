@@ -22,7 +22,7 @@ class MyAccountContainer extends Component {
     const userId = localStorage.getItem('userId');
 
     try{
-      const response = await fetch(`http://localhost:9000/api/v1/users/` + userId, {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + userId, {
         credentials: 'include'
       });
 
@@ -48,7 +48,7 @@ class MyAccountContainer extends Component {
     e.preventDefault();
     const userId = localStorage.getItem('userId');
 
-    const response = await fetch(`http://localhost:9000/api/v1/auth/` + userId, {
+    const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/` + userId, {
       method: 'PUT',
       credentials: 'include',
       body: JSON.stringify(this.state.userinfo),

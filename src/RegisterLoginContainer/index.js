@@ -59,7 +59,7 @@ class RegisterLoginContainer extends Component {
   fetchRegister = async(updatedRegister) => {
 
     try{
-      const response = await fetch(`http://localhost:9000/api/v1/auth`, {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth`, {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(updatedRegister),
@@ -110,7 +110,7 @@ handleLoginChange = (e) => {
 fetchLogin = async(updatedLogin) => {
 
   try {
-    const response = await fetch(`http://localhost:9000/api/v1/auth/login`, {
+    const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/login`, {
       method: 'POST',
       credentials: 'include',
       body: JSON.stringify(updatedLogin),
