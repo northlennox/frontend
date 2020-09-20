@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component }  from 'react';
 import './App.css';
+import { Route, Switch, withRouter } from 'react-router-dom'
 
-function App() {
+import MainContainer from './MainContainer';
+import RegisterLoginContainer from './RegisterLoginContainer';
+import HomeContainer from './HomeContainer';
+import MyCasaDashboard from './MyCasaComponents/MyCasaDashboard';
+
+const My404 = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <div>
+    It cho ke!
+   </div>
+  )
 }
 
-export default App;
+const App = (props) => {
+
+  // if (localStorage.getItem('userId') !== null) {
+  //   console.log('USER IS LOGGED IN')
+  // } else if(props.location.pathname !== '/') {
+  //   props.history.push('/')
+  // }
+
+
+  return(
+    <main>
+      <Switch>
+        <Route exact path="/" component = { MainContainer } />
+        <Route exact path="/signup" component = { RegisterLoginContainer } />
+        <Route exact path="/home" component = { HomeContainer } />
+
+        //MyCasa
+        <Route exact path="/mycasa" component = { MyCasaDashboard } />
+      </Switch>
+    </main>
+  )
+}
+
+export default withRouter(App);
