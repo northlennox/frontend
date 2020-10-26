@@ -7,6 +7,9 @@ import RegisterLoginContainer from './RegisterLoginContainer';
 import HomeContainer from './HomeContainer';
 import MyCasaDashboard from './MyCasaComponents/MyCasaDashboard';
 
+import HouseContainer from './MyCasaComponents/HouseContainer';
+import AtticContainer from './MyCasaComponents/AtticContainer/CreateAttic';
+
 const My404 = () => {
   return (
    <div>
@@ -33,6 +36,9 @@ const App = (props) => {
 
         //MyCasa
         <Route exact path="/mycasa" component = { MyCasaDashboard } />
+        <Route exact path="/mycasa/house/create" component = { HouseContainer } />
+        <Route exact path="/mycasa/attic/create" component = { AtticContainer } />
+
       </Switch>
     </main>
   )

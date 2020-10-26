@@ -3,12 +3,10 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 const Nav = (props) => {
-
   const userId = localStorage.getItem('userId');
-
   const logout = async() => {
-    try{
-      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/logout`, {
+    try{  
+      const response = await fetch(`http://localhost:9000/api/v1/auth/logout`, {
         credentials: 'include'
       });
 

@@ -11,8 +11,8 @@ class MyCasaDashboard extends Component {
     super()
     this.state = {
       roof: '',
-      spheater:'',
-      waheater:'',
+      spHeater:'',
+      waHeater:'',
       attic:'',
       house: '',
       utility: '',
@@ -21,57 +21,164 @@ class MyCasaDashboard extends Component {
   }
 
   componentDidMount(){
-    // this.getOneHouse();
+    this.getHouseInfo();
   }
+  //
+  // getOneHouse = async() => {
+  //   // const userId = window.location.pathname.split('/')[2];
+  //   // const userId = localStorage.getItem('userId')
+  //   const userId = '5f963f91fbe68a0d123c8664'
+  //   console.log(process.env.REACT_APP_API);
+  //   try{
+  //     const response = await fetch(`http://localhost:9000/api/v1/house/` + `${userId}`,  {
+  //       credentials: 'include'
+  //     })
+  //     console.log(response);
+  //
+  //     if(!response.ok){
+  //       throw Error(response.statusText)
+  //     }
+  //
+  //     const houseParsed = await response.json();
+  //
+  //     this.setState({
+  //         house: houseParsed.data,
+  //         // authorId: localStorage.getItem('authorId')
+  //     })
+  //
+  //   }catch(err){
+  //     return err
+  //   }
+  // }
 
-  getOneHouse = async() => {
-    // const userId = window.location.pathname.split('/')[2];
-    const userId = localStorage.getItem('userId')
 
-    try{
-      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/${userId}`,  {
-        credentials: 'include'
-      })
+    getHouseInfo = async() => {
+      console.log('jj');
+      // const userId = window.location.pathname.split('/')[2];
+      // const userId = localStorage.getItem('userId')
+      const userId = '5f963f91fbe68a0d123c8664'
 
-      if(!response.ok){
-        throw Error(response.statusText)
+      try{
+        const response = await fetch(`http://localhost:9000/api/v1/users/` + `${userId}`,  {
+          credentials: 'include'
+        })
+        console.log(response);
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        const userParsed = await response.json();
+        console.log('--',userParsed);
+        this.setState({
+            house: userParsed.house,
+            attic: userParsed.attic,
+            roof: userParsed.roof,
+            waHeater: userParsed.waHeater,
+            spHeater: userParsed.spHeater,
+            utility: userParsed.utility,
+        })
+
+      }catch(err){
+        return err
       }
-
-      const houseParsed = await response.json();
-
-      this.setState({
-          house: houseParsed.data,
-          // authorId: localStorage.getItem('authorId')
-      })
-
-    }catch(err){
-      return err
     }
-  }
-
 
 
 
   render(){
     return(
-      <div>
+      <>
         <Nav />
         <div id="title">My Casa</div>
         <div id="subtitle">Explore home energy improvements to increase comfort, efficiency, safety and health, and lower carbon footprint.</div>
 
+        <div className="container_mycasa_dashboard">
+          <div className="row_mycasa_dashboard">
+            <div className="items">
+              { this.state.house !== null
+              ?
+              <div>
+              <Link to="/mycasa/house/show">
+                <div><img src={`http://localhost:9000/` + this.state.house.houseImg } /></div>
+              </Link>
+                <div>{this.state.house.address}</div>
+              </div>
+              :
+              <Link to="/mycasa/house/create"><div className="no_posting"></div></Link>
+              }
+            </div>
+            <div className="items">
+              { this.state.attic !== null
+              ?
+              <div>
+              <Link to="/mycasa/attic/show">
+                <div><img src={`http://localhost:9000/` + this.state.attic.atticImg } /></div>
+              </Link>
+                <div>{}</div>
+              </div>
+              :
+              <Link to="/mycasa/attic/create"><div className="no_posting"></div></Link>
+              }
+            </div>
+            <div className="items">
+              { this.state.house !== null
+              ?
+              <div>
+              <Link to="/mycasa/house/show">
+                <div><img src={`http://localhost:9000/` + this.state.house.houseImg } /></div>
+              </Link>
+                <div>{this.state.house.address}</div>
+              </div>
+              :
+              <Link to="/mycasa/house/create"><div className="no_posting"></div></Link>
+              }
+            </div>
+          </div>
+          <div className="row_mycasa_dashboard">
+            <div className="items">
+              { this.state.house !== null
+              ?
+              <div>
+              <Link to="/mycasa/house/show">
+                <div><img src={`http://localhost:9000/` + this.state.house.houseImg } /></div>
+              </Link>
+                <div>{this.state.house.address}</div>
+              </div>
+              :
+              <Link to="/mycasa/house/create"><div className="no_posting"></div></Link>
+              }
+            </div>
+            <div className="items">
+              { this.state.house !== null
+              ?
+              <div>
+              <Link to="/mycasa/house/show">
+                <div><img src={`http://localhost:9000/` + this.state.house.houseImg } /></div>
+              </Link>
+                <div>{this.state.house.address}</div>
+              </div>
+              :
+              <Link to="/mycasa/house/create"><div className="no_posting"></div></Link>
+              }
+            </div>
+            <div className="items">
+              { this.state.house !== null
+              ?
+              <div>
+              <Link to="/mycasa/house/show">
+                <div><img src={`http://localhost:9000/` + this.state.house.houseImg } /></div>
+              </Link>
+                <div>{this.state.house.address}</div>
+              </div>
+              :
+              <Link to="/mycasa/house/create"><div className="no_posting"></div></Link>
+              }
+            </div>
+          </div>
+        </div>
 
-        { /*this.state.house !== null
-        ?
-        <Link to="/mycasa/show/house">
-          <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg } />
-        </Link>
-        :
-        <Link to="/mycasa/create/home"><div className="noposting"></div></Link>
-
-        */}
-
-        <div className="tag">Home Details</div>
-      </div>
+      </>
     )
   }
 }
