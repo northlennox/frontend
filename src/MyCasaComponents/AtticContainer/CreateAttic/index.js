@@ -10,7 +10,7 @@ class AtticContainer extends Component {
     super()
     this.state = {
       attic : {
-        atticImg: null,
+        atticImg: [],
         atticType : '',
         atticSqft: '',
         atticDepth: '',
@@ -31,8 +31,9 @@ class AtticContainer extends Component {
     }
     updatedChange[e.target.name] = e.target.value;
 
+    console.log(e.target.value);
     this.setState({
-      house: updatedChange
+      attic: updatedChange
     })
   }
 
@@ -89,8 +90,8 @@ class AtticContainer extends Component {
 
       this.setState({
         attic: {
-          ...this.state.house,
-          houseImg: [...this.state.attic.atticImg, e.target.files[0]]
+          ...this.state.attic,
+          atticImg: [...this.state.attic.atticImg, e.target.files[0]]
         }
       })
     }
@@ -99,14 +100,14 @@ class AtticContainer extends Component {
     addAttic = async(updatedHouse) => {
         const data = new FormData();
         for(let i = 0; i < this.state.attic.atticImg.length; i++){
-            data.append('houseImg', this.state.attic.atticImg[i]);
+            data.append('atticImg', this.state.attic.atticImg[i]);
         }
 
-        data.append('atticType', this.state.house.atticType);
-        data.append('atticSqft', this.state.house.atticSqft);
-        data.append('atticDepth', this.state.house.atticDepth);
-        data.append('insulMaterial', this.state.house.insulMaterial);
-        data.append('airSealed', this.state.house.airSealed);
+        data.append('atticType', this.state.attic.atticType);
+        data.append('atticSqft', this.state.attic.atticSqft);
+        data.append('atticDepth', this.state.attic.atticDepth);
+        data.append('insulMaterial', this.state.attic.insulMaterial);
+        data.append('airSealed', this.state.attic.airSealed);
         // data.append('time', this.state.house.time);
 
         let userId = localStorage.getItem('userId');
@@ -127,6 +128,9 @@ class AtticContainer extends Component {
 
 
   render(){
+    const atticTypeOptions = ["Select", "Unconditioned Attic", "Conditioned Attic", "Cathedral Ceiling"];
+    const atticDepthOptions = ["Select", "1", "2", "3", "4"];
+    const insulMaterialOptions = ["Select", "Fiberglass Batt", "Fiberglass Blown", "Cellulose", "Not Sure"];
 
     return(
 
@@ -139,24 +143,34 @@ class AtticContainer extends Component {
               <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
 
               <label htmlFor="atticType">PRIMARY ATTIC TYPE</label>
-              <input name="atticType" id="atticType" type="text" onChange={this.handleInput} value={this.state.attic.atticType} />
+              <select name="atticType" id="atticType" type="text" onChange={this.handleInput} value={this.state.attic.atticType}>
+                {atticTypeOptions.map(atticTypeOption => {
+                    return <option value={atticTypeOption} key={atticTypeOption} >{atticTypeOption}</option>
+                })}
+              </select>
 
               <label htmlFor="atticSqft">ATTIC SQUARE FOOTAGE(GUESS)</label>
               <input name="atticSqft" id="atticSqft" type="text" onChange={this.handleInput} value={this.state.attic.atticSqft} />
 
               <label htmlFor="atticDepth">ESTIMATED AVERAGE DEPTH(INCHES)*</label>
-              <input name="atticDepth" id="atticDepth" type="text" onChange={this.handleInput} value={this.state.attic.atticDepth} />
+              <select name="atticDepth" id="atticDepth" type="text" onChange={this.handleInput} value={this.state.attic.atticDepth}>
+                {atticDepthOptions.map(atticDepthOption => {
+                    return <option value={atticDepthOption} key={atticDepthOption} >{atticDepthOption}</option>
+                })}
+              </select>
 
               <label htmlFor="insulMaterial">INSULATION MATERIAL</label>
-              <input name="insulMaterial" id="insulMaterial" type="text" onChange={this.handleInput} value={this.state.attic.insulMaterial}  />
-
-              <label htmlFor="airSealed">HAS THE HOUSE BEEN PROFESSIONALLY AIR SEALED?</label>
-              <select name="airSealed" id="airSealed" type="text" onChange={this.handleInput} value={this.state.attic.airSealed}>
-                <option value="yes">YES</option>
-                <option value="no">NO</option>
+              <select name="insulMaterial" id="insulMaterial" type="text" onChange={this.handleInput} value={this.state.attic.insulMaterial}>
+                {insulMaterialOptions.map(insulMaterialOption => {
+                  return <option value={insulMaterialOption} key={insulMaterialOption} >{insulMaterialOption}</option>
+                })}
               </select>
+              <label htmlFor="airSealed">HAS THE HOUSE BEEN PROFESSIONALLY AIR SEALED?</label>
+              <div id="airSealed" >
+                <input name="airSealed" type="radio" checked={this.state.attic.airSealed === "yes"} value="yes" onChange={this.handleInput}/>YES
+                <input name="airSealed" type="radio" checked={this.state.attic.airSealed === "no"} value="no" onChange={this.handleInput}/>NO
+              </div>
               <button type="submit" className="btn">SAVE</button>
-
           </form>
       </div>
     )
