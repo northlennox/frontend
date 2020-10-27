@@ -8,7 +8,8 @@ import HomeContainer from './HomeContainer';
 import MyCasaDashboard from './MyCasaComponents/MyCasaDashboard';
 
 import HouseContainer from './MyCasaComponents/HouseContainer';
-import AtticContainer from './MyCasaComponents/AtticContainer/CreateAttic';
+import CreateAttic from './MyCasaComponents/AtticContainer/CreateAttic';
+import EditAttic from './MyCasaComponents/AtticContainer/EditAttic';
 
 const My404 = () => {
   return (
@@ -37,7 +38,9 @@ const App = (props) => {
         //MyCasa
         <Route exact path="/mycasa" component = { MyCasaDashboard } />
         <Route exact path="/mycasa/house/create" component = { HouseContainer } />
-        <Route exact path="/mycasa/attic/create" component = { AtticContainer } />
+        <Route exact path="/mycasa/attic/create" component = { CreateAttic } />
+        <Route exact path="/mycasa/attic/edit" component = { EditAttic } />
+
 
       </Switch>
     </main>

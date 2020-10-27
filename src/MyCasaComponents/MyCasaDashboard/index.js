@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Nav from './../../Nav';
 import { Link } from 'react-router-dom';
+import ShowAttic from '../AtticContainer/ShowAttic';
 // import axios from 'axios'
 // import Moment from 'react-moment';
 
@@ -87,6 +88,7 @@ class MyCasaDashboard extends Component {
 
 
   render(){
+    console.log('00', this.state.attic);
     return(
       <>
         <Nav />
@@ -112,10 +114,7 @@ class MyCasaDashboard extends Component {
               { this.state.attic !== null
               ?
               <div>
-              <Link to="/mycasa/attic/show">
-                <div><img src={`http://localhost:9000/` + this.state.attic.atticImg } /></div>
-              </Link>
-                <div>{}</div>
+                <ShowAttic attic={this.state.attic} />
               </div>
               :
               <Link to="/mycasa/attic/create"><div className="no_posting"></div></Link>

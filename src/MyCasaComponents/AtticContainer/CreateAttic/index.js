@@ -5,7 +5,7 @@ import axios from 'axios'
 import Nav from '../../../Nav'
 
 
-class AtticContainer extends Component {
+class CreateAttic extends Component {
   constructor(){
     super()
     this.state = {
@@ -176,4 +176,4 @@ class AtticContainer extends Component {
     )
   }
 }
-export default withRouter(AtticContainer)
+export default withRouter(CreateAttic)
