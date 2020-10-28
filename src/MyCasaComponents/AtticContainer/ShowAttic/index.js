@@ -11,6 +11,7 @@ const ShowAttic = (props) => {
       <div>{props.attic.atticDepth}</div>
       <div>{props.attic.insulMaterial}</div>
       <div>{props.attic.airSealed}</div>
+      <Link to={"/mycasa/attic/edit"}>Edit</Link>
     </div>
   )
 }

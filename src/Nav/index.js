@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 const Nav = (props) => {
   const userId = localStorage.getItem('userId');
   const logout = async() => {
-    try{  
+    try{
       const response = await fetch(`http://localhost:9000/api/v1/auth/logout`, {
         credentials: 'include'
       });
@@ -40,7 +40,10 @@ const Nav = (props) => {
           <Link to="/home">Home</Link>
         </li>
         <li className="nav-item">
-          <Link to="/mycasa">My Casa</Link>
+          <Link to={`/mycasa/${userId}`}>My Casa</Link>
+        </li>
+        <li className="nav-item">
+          <Link to={`/myproject/${userId}`}>My Project</Link>
         </li>
         <li className="nav-item">
           <Link to={`/myaccount/${userId}`}>My Account</Link>

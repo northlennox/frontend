@@ -24,40 +24,14 @@ class MyCasaDashboard extends Component {
   componentDidMount(){
     this.getHouseInfo();
   }
-  //
-  // getOneHouse = async() => {
-  //   // const userId = window.location.pathname.split('/')[2];
-  //   // const userId = localStorage.getItem('userId')
-  //   const userId = '5f963f91fbe68a0d123c8664'
-  //   console.log(process.env.REACT_APP_API);
-  //   try{
-  //     const response = await fetch(`http://localhost:9000/api/v1/house/` + `${userId}`,  {
-  //       credentials: 'include'
-  //     })
-  //     console.log(response);
-  //
-  //     if(!response.ok){
-  //       throw Error(response.statusText)
-  //     }
-  //
-  //     const houseParsed = await response.json();
-  //
-  //     this.setState({
-  //         house: houseParsed.data,
-  //         // authorId: localStorage.getItem('authorId')
-  //     })
-  //
-  //   }catch(err){
-  //     return err
-  //   }
-  // }
+
+
 
 
     getHouseInfo = async() => {
       console.log('jj');
       // const userId = window.location.pathname.split('/')[2];
-      // const userId = localStorage.getItem('userId')
-      const userId = '5f963f91fbe68a0d123c8664'
+      const userId = localStorage.getItem('userId')
 
       try{
         const response = await fetch(`http://localhost:9000/api/v1/users/` + `${userId}`,  {

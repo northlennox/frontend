@@ -36,7 +36,7 @@ const App = (props) => {
         <Route exact path="/home" component = { HomeContainer } />
 
         //MyCasa
-        <Route exact path="/mycasa" component = { MyCasaDashboard } />
+        <Route exact path="/mycasa/:id" component = { MyCasaDashboard } />
         <Route exact path="/mycasa/house/create" component = { HouseContainer } />
         <Route exact path="/mycasa/attic/create" component = { CreateAttic } />
         <Route exact path="/mycasa/attic/edit" component = { EditAttic } />

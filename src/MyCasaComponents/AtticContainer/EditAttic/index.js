@@ -10,7 +10,7 @@ class EditAttic extends Component {
     super()
     this.state = {
       attic : {
-        atticImg: [],
+        atticImg: null,
         atticType : '',
         atticSqft: '',
         atticDepth: '',
@@ -18,8 +18,7 @@ class EditAttic extends Component {
         airSealed: '',
         userId: '',
       },
-      attics: '',
-      preview: null,
+      preview1: null,
       selectedFile : null,
     }
   }
@@ -32,29 +31,29 @@ class EditAttic extends Component {
 
   getHouseInfo = async() => {
     // const userId = window.location.pathname.split('/')[2];
-    // const userId = localStorage.getItem('userId')
-    const userId = '5f963f91fbe68a0d123c8664'
-    console.log('ii');
+    const userId = localStorage.getItem('userId');
 
     try{
       const response = await fetch(`http://localhost:9000/api/v1/users/` + `${userId}`,  {
         credentials: 'include'
       })
-      console.log(response);
 
       if(!response.ok){
         throw Error(response.statusText)
       }
 
       const userParsed = await response.json();
-      console.log('--',userParsed);
       this.setState({
           attic: {
+            atticImg: userParsed.attic.atticImg,
             atticType: userParsed.attic.atticType,
-            atticSqft: userParsed.attic.atticSqft
-          }
-      })
+            atticSqft: userParsed.attic.atticSqft,
+            atticDepth: userParsed.attic.atticDepth,
+            insulMaterial: userParsed.attic.insulMaterial,
+            airSealed: userParsed.attic.airSealed
+          },
 
+      })
     }catch(err){
       return err
     }
@@ -67,7 +66,6 @@ class EditAttic extends Component {
     }
     updatedChange[e.target.name] = e.target.value;
 
-    console.log(e.target.value);
     this.setState({
       attic: updatedChange
     })
@@ -84,8 +82,8 @@ class EditAttic extends Component {
       ...this.state.attic
     }
 
-    this.addAttic(updatedAttic)
-
+    this.editAttic(updatedAttic)
+    //set empty after call the function
     this.setState({
       attic : {
         atticImg: null,
@@ -118,22 +116,27 @@ class EditAttic extends Component {
 
       reader1.onloadend = function(e){
 
-      this.setState({
+        this.setState({
           preview1: [reader1.result || null],
         })
       }.bind(this)
 
+      console.log('1', e.target.files[0]);
 
       this.setState({
         attic: {
           ...this.state.attic,
           atticImg: [...this.state.attic.atticImg, e.target.files[0]]
+          // atticImg: e.target.files[0]
         }
       })
+
+      console.log('2', this.state.attic.atticImg);
     }
 
     handleEditFormInput = (e) => {
 
+      e.preventDefault()
       this.setState({
         attic: {
           ...this.state.attic,
@@ -142,13 +145,17 @@ class EditAttic extends Component {
       })
     }
 
-    updatedAttic = async(updatedHouse) => {
+    editAttic = async(e) => {
+      e.preventDefault();
         const data = new FormData();
+
         for(let i = 0; i < this.state.attic.atticImg.length; i++){
             data.append('atticImg', this.state.attic.atticImg[i]);
         }
-
+        // console.log('---->', this.state.attic.atticType);
+        // data.append('atticImg', this.state.attic.atticImg);
         data.append('atticType', this.state.attic.atticType);
+        console.log('why?', data);
         data.append('atticSqft', this.state.attic.atticSqft);
         data.append('atticDepth', this.state.attic.atticDepth);
         data.append('insulMaterial', this.state.attic.insulMaterial);
@@ -158,16 +165,17 @@ class EditAttic extends Component {
         let userId = localStorage.getItem('userId');
         data.append('userId', userId)
 
-        const time = new Date();
-        data.append('postingTime', time)
-
-        axios.post(`http://localhost:9000/api/v1/attic`, data, {
+        // const time = new Date();
+        // data.append('postingTime', time)
+        console.log('999999', data);
+        axios.put(`http://localhost:9000/api/v1/attic/${userId}`, data, {
           headers: {
-            'content-type': 'multipart/form-data'
+            'Content-type': 'multipart/form-data'
           }
         })
         .then(res => {
-          this.props.history.push('/mycasa');
+          console.log(userId);
+          // this.props.history.push(`/mycasa/${userId}` );
         })
     }
 
@@ -176,15 +184,20 @@ class EditAttic extends Component {
     const atticTypeOptions = ["Select", "Unconditioned Attic", "Conditioned Attic", "Cathedral Ceiling"];
     const atticDepthOptions = ["Select", "1", "2", "3", "4"];
     const insulMaterialOptions = ["Select", "Fiberglass Batt", "Fiberglass Blown", "Cellulose", "Not Sure"];
-    console.log(this.state.attic.atticSqft);
+    const atticImgState = `http://localhost:9000/` + this.state.attic.atticImg;
+    console.log('preview1', this.state.preview1 )
     return(
 
       <div>
         <Nav />
           <div>Attic Insulation Edit page</div>
-          <form onSubmit={this.updatedAttic}>
+          <form onSubmit={this.editAttic}>
               <div>PHOTO</div>
-              <div><img className="frames" id="photoOne" src={this.state.preview1} onClick={this.handleClick } /></div>
+              <div>
+                <img className="frames"
+                     id="photoOne"
+                     src={this.state.preview1 === null ? atticImgState : this.state.preview1}
+                     onClick={this.handleClick} /></div>
               <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
 
               <label htmlFor="atticType">PRIMARY ATTIC TYPE</label>
@@ -222,3 +235,5 @@ class EditAttic extends Component {
   }
 }
 export default withRouter(EditAttic)
+
+// src={this.state.preview1 === null? atticImgState : this.state.preview1}
