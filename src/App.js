@@ -7,7 +7,7 @@ import RegisterLoginContainer from './RegisterLoginContainer';
 import HomeContainer from './HomeContainer';
 import MyCasaDashboard from './MyCasaComponents/MyCasaDashboard';
 
-import HouseContainer from './MyCasaComponents/HouseContainer';
+import CreateHouse from './MyCasaComponents/HouseContainer/CreateHouse';
 import CreateAttic from './MyCasaComponents/AtticContainer/CreateAttic';
 import EditAttic from './MyCasaComponents/AtticContainer/EditAttic';
 
@@ -37,7 +37,7 @@ const App = (props) => {
 
         //MyCasa
         <Route exact path="/mycasa/:id" component = { MyCasaDashboard } />
-        <Route exact path="/mycasa/house/create" component = { HouseContainer } />
+        <Route exact path="/mycasa/house/create" component = { CreateHouse } />
         <Route exact path="/mycasa/attic/create" component = { CreateAttic } />
         <Route exact path="/mycasa/attic/edit" component = { EditAttic } />
 

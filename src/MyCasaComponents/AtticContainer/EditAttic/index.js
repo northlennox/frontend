@@ -99,7 +99,7 @@ class EditAttic extends Component {
 
     fileSelectHandler = (e) => {
       var file1
-
+        console.log('files', e.target.files);
       switch (e.target.id) {
         case 'input-photoOne':
             file1 = e.target.files[0];
@@ -126,8 +126,8 @@ class EditAttic extends Component {
       this.setState({
         attic: {
           ...this.state.attic,
-          atticImg: [...this.state.attic.atticImg, e.target.files[0]]
-          // atticImg: e.target.files[0]
+          // atticImg: [this.state.attic.atticImg, e.target.files[0]]
+          atticImg: e.target.files[0]
         }
       })
 
@@ -147,15 +147,22 @@ class EditAttic extends Component {
 
     editAttic = async(e) => {
       e.preventDefault();
-        const data = new FormData();
+      console.log('000000', this.state.attic.atticType);
+      console.log('000000', this.state.attic.atticSqft);
+      console.log('000000', this.state.attic.atticDepth);
+      console.log('000000', this.state.attic.insulMaterial);
+      console.log('000000', this.state.attic.airSealed);
 
-        for(let i = 0; i < this.state.attic.atticImg.length; i++){
-            data.append('atticImg', this.state.attic.atticImg[i]);
-        }
+        const data = new FormData();
+        data.append('atticType', this.state.attic.atticType);
+        data.append('sample', 'hi')
+        // for(let i = 0; i < this.state.attic.atticImg.length; i++){
+        //     data.append('atticImg', this.state.attic.atticImg[i]);
+        // }
         // console.log('---->', this.state.attic.atticType);
         // data.append('atticImg', this.state.attic.atticImg);
-        data.append('atticType', this.state.attic.atticType);
-        console.log('why?', data);
+        // data.append('atticType', this.state.attic.atticType);
+
         data.append('atticSqft', this.state.attic.atticSqft);
         data.append('atticDepth', this.state.attic.atticDepth);
         data.append('insulMaterial', this.state.attic.insulMaterial);
@@ -167,7 +174,7 @@ class EditAttic extends Component {
 
         // const time = new Date();
         // data.append('postingTime', time)
-        console.log('999999', data);
+        console.log(data);
         axios.put(`http://localhost:9000/api/v1/attic/${userId}`, data, {
           headers: {
             'Content-type': 'multipart/form-data'

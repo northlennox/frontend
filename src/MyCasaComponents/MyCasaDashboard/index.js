@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Nav from './../../Nav';
 import { Link } from 'react-router-dom';
+import ShowHouse from '../HouseContainer/ShowHouse';
 import ShowAttic from '../AtticContainer/ShowAttic';
 // import axios from 'axios'
 // import Moment from 'react-moment';
@@ -44,7 +45,7 @@ class MyCasaDashboard extends Component {
         }
 
         const userParsed = await response.json();
-        console.log('--',userParsed);
+
         this.setState({
             house: userParsed.house,
             attic: userParsed.attic,
@@ -59,10 +60,34 @@ class MyCasaDashboard extends Component {
       }
     }
 
+    deleteMyHouse = async(id, e) => {
+      e.preventDefault()
+
+      try{
+        const userId = localStorage.getItem('userId');
+
+        const response = await fetch(`http://localhost:9000/api/v1/house/` + `${userId}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        const responseParsed = await response.json();
+
+        this.props.history.push('/mycasa/' + userId);
+      }catch(err){
+        alert('Something went wrong. Please try again')
+      }
+
+    }
+
 
 
   render(){
-    console.log('00', this.state.attic);
+    console.log('00', this.state.spHeater);
     return(
       <>
         <Nav />
@@ -75,10 +100,7 @@ class MyCasaDashboard extends Component {
               { this.state.house !== null
               ?
               <div>
-              <Link to="/mycasa/house/show">
-                <div><img src={`http://localhost:9000/` + this.state.house.houseImg } /></div>
-              </Link>
-                <div>{this.state.house.address}</div>
+                <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>
               </div>
               :
               <Link to="/mycasa/house/create"><div className="no_posting"></div></Link>

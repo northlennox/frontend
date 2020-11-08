@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
 // import Moment from 'react-moment';
-import Nav from '../../Nav'
+import Nav from '../../../Nav'
 
 
 class HouseContainer extends Component {
@@ -123,7 +123,7 @@ class HouseContainer extends Component {
           }
         })
         .then(res => {
-          this.props.history.push('/home');
+          this.props.history.push('/mycasa/' + userId);
         })
     }
 
