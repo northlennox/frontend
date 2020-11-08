@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ShowRoof = (props) => {
+  console.log('showRoof');
   const photo = props.roof.roofImg;
   const userId = localStorage.getItem('userId');
   return(

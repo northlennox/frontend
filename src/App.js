@@ -6,6 +6,7 @@ import MainContainer from './MainContainer';
 import RegisterLoginContainer from './RegisterLoginContainer';
 import HomeContainer from './HomeContainer';
 import MyCasaDashboard from './MyCasaComponents/MyCasaDashboard';
+import MyProjectComponent from './MyProjectComponents';
 
 import CreateHouse from './MyCasaComponents/HouseContainer/CreateHouse';
 import CreateRoof from './MyCasaComponents/RoofContainer/CreateRoof';
@@ -51,7 +52,8 @@ const App = (props) => {
 
         <Route exact path="/mycasa/attic/edit" component = { EditAttic } />
 
-
+        //MyProject
+        <Route exact path="/MyProject/:id" component = { MyProjectComponent } />
       </Switch>
     </main>
   )
