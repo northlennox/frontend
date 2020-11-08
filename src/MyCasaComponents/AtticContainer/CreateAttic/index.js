@@ -122,7 +122,7 @@ class CreateAttic extends Component {
           }
         })
         .then(res => {
-          this.props.history.push('/mycasa');
+          this.props.history.push('/mycasa/' +  userId);
         })
     }
 

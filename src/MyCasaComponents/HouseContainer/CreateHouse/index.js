@@ -129,6 +129,55 @@ class HouseContainer extends Component {
 
 
   render(){
+    const states = [
+      'Alabama',
+      'Alaska',
+      'Arizona',
+      'Arkansas',
+      'California',
+      'Colorado',
+      'Connecticut',
+      'Delaware',
+      'Florida',
+      'Georgia',
+      'Hawaii',
+      'Idaho',
+      'IllinoisIndiana',
+      'Iowa',
+      'Kansas',
+      'Kentucky',
+      'Louisiana',
+      'Maine',
+      'Maryland',
+      'Massachusetts',
+      'Michigan',
+      'Minnesota',
+      'Mississippi',
+      'Missouri',
+      'MontanaNebraska',
+      'Nevada',
+      'New Hampshire',
+      'New Jersey',
+      'New Mexico',
+      'New York',
+      'North Carolina',
+      'North Dakota',
+      'Ohio',
+      'Oklahoma',
+      'Oregon',
+      'PennsylvaniaRhode Island',
+      'South Carolina',
+      'South Dakota',
+      'Tennessee',
+      'Texas',
+      'Utah',
+      'Vermont',
+      'Virginia',
+      'Washington',
+      'West Virginia',
+      'Wisconsin',
+      'Wyoming',
+    ]
 
     return(
 
@@ -147,8 +196,11 @@ class HouseContainer extends Component {
               <input name="city" id="city" type="text" onChange={this.handleInput} value={this.state.house.city} placeholder="ex)San Francisco" />
 
               <label className="" htmlFor="state">STATE</label>
-              <input name="state" id="state" type="text" onChange={this.handleInput} value={this.state.house.state} />
-
+              <select name="state" id="state" type="text" onChange={this.handleInput} value={this.state.house.state}>
+                {states.map(st => {
+                    return <option value={st} key={st} >{st}</option>
+                })}
+              </select>
               <label className="" htmlFor="zipcode">ZIPCODE</label>
               <input name="zipcode" id="zipcode" type="text" onChange={this.handleInput} value={this.state.house.zipcode}  />
 

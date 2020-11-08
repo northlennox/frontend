@@ -4,6 +4,10 @@ import Nav from './../../Nav';
 import { Link } from 'react-router-dom';
 import ShowHouse from '../HouseContainer/ShowHouse';
 import ShowAttic from '../AtticContainer/ShowAttic';
+import ShowRoof from '../RoofContainer/ShowRoof';
+import ShowSpHeater from '../SpHeaterContainer/ShowSpHeater';
+import ShowWaHeater from '../WaHeaterContainer/ShowWaHeater';
+import ShowUtility from '../UtilityContainer/ShowUtility';
 // import axios from 'axios'
 // import Moment from 'react-moment';
 
@@ -60,6 +64,7 @@ class MyCasaDashboard extends Component {
       }
     }
 
+
     deleteMyHouse = async(id, e) => {
       e.preventDefault()
 
@@ -84,10 +89,125 @@ class MyCasaDashboard extends Component {
 
     }
 
+    deleteMyAttic = async(id, e) => {
+      e.preventDefault()
+
+      try{
+        const userId = localStorage.getItem('userId');
+
+        const response = await fetch(`http://localhost:9000/api/v1/Attic/` + `${userId}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        const responseParsed = await response.json();
+
+        this.props.history.push('/mycasa/' + userId);
+      }catch(err){
+        alert('Something went wrong. Please try again')
+      }
+
+    }
+    deleteMyRoof = async(id, e) => {
+      e.preventDefault()
+
+      try{
+        const userId = localStorage.getItem('userId');
+
+        const response = await fetch(`http://localhost:9000/api/v1/roof/` + `${userId}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        const responseParsed = await response.json();
+
+        this.props.history.push('/mycasa/' + userId);
+      }catch(err){
+        alert('Something went wrong. Please try again')
+      }
+
+    }
+    deleteWaHeater = async(id, e) => {
+      e.preventDefault()
+
+      try{
+        const userId = localStorage.getItem('userId');
+
+        const response = await fetch(`http://localhost:9000/api/v1/waheater/` + `${userId}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        const responseParsed = await response.json();
+
+        this.props.history.push('/mycasa/' + userId);
+      }catch(err){
+        alert('Something went wrong. Please try again')
+      }
+
+    }
+    deleteSpHeater = async(id, e) => {
+      e.preventDefault()
+
+      try{
+        const userId = localStorage.getItem('userId');
+
+        const response = await fetch(`http://localhost:9000/api/v1/spheater/` + `${userId}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        const responseParsed = await response.json();
+
+        this.props.history.push('/mycasa/' + userId);
+      }catch(err){
+        alert('Something went wrong. Please try again')
+      }
+
+    }
+    deleteMyUtility = async(id, e) => {
+      e.preventDefault()
+
+      try{
+        const userId = localStorage.getItem('userId');
+
+        const response = await fetch(`http://localhost:9000/api/v1/utility/` + `${userId}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        const responseParsed = await response.json();
+
+        this.props.history.push('/mycasa/' + userId);
+      }catch(err){
+        alert('Something went wrong. Please try again')
+      }
+
+    }
 
 
   render(){
-    console.log('00', this.state.spHeater);
+
     return(
       <>
         <Nav />
@@ -99,75 +219,51 @@ class MyCasaDashboard extends Component {
             <div className="items">
               { this.state.house !== null
               ?
-              <div>
-                <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>
-              </div>
+              <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>
               :
               <Link to="/mycasa/house/create"><div className="no_posting"></div></Link>
+              }
+            </div>
+            <div className="items">
+              { this.state.roof !== null
+              ?
+              <ShowRoof roof={this.state.roof} deleteMyRoof={this.deleteMyRoof} />
+              :
+              <Link to="/mycasa/roof/create"><div className="no_posting"></div></Link>
               }
             </div>
             <div className="items">
               { this.state.attic !== null
               ?
-              <div>
-                <ShowAttic attic={this.state.attic} />
-              </div>
+              <ShowAttic attic={this.state.attic} deleteMyAttic={this.deleteMyAttic}/>
               :
               <Link to="/mycasa/attic/create"><div className="no_posting"></div></Link>
-              }
-            </div>
-            <div className="items">
-              { this.state.house !== null
-              ?
-              <div>
-              <Link to="/mycasa/house/show">
-                <div><img src={`http://localhost:9000/` + this.state.house.houseImg } /></div>
-              </Link>
-                <div>{this.state.house.address}</div>
-              </div>
-              :
-              <Link to="/mycasa/house/create"><div className="no_posting"></div></Link>
               }
             </div>
           </div>
           <div className="row_mycasa_dashboard">
             <div className="items">
-              { this.state.house !== null
+              { this.state.waHeater !== null
               ?
-              <div>
-              <Link to="/mycasa/house/show">
-                <div><img src={`http://localhost:9000/` + this.state.house.houseImg } /></div>
-              </Link>
-                <div>{this.state.house.address}</div>
-              </div>
+              <ShowWaHeater waHeater={this.state.waHeater} deleteMyWaHeater={this.deleteMyWaHeater}/>
               :
-              <Link to="/mycasa/house/create"><div className="no_posting"></div></Link>
+              <Link to="/mycasa/waheater/create"><div className="no_posting"></div></Link>
               }
             </div>
             <div className="items">
-              { this.state.house !== null
+              { this.state.spHeater !== null
               ?
-              <div>
-              <Link to="/mycasa/house/show">
-                <div><img src={`http://localhost:9000/` + this.state.house.houseImg } /></div>
-              </Link>
-                <div>{this.state.house.address}</div>
-              </div>
+              <ShowSpHeater spHeater={this.state.spHeater} deleteMySpHeater={this.deleteMySpHeater}/>
               :
-              <Link to="/mycasa/house/create"><div className="no_posting"></div></Link>
+              <Link to="/mycasa/spheater/create"><div className="no_posting"></div></Link>
               }
             </div>
             <div className="items">
-              { this.state.house !== null
+              { this.state.utility !== null
               ?
-              <div>
-              <Link to="/mycasa/house/show">
-                <div><img src={`http://localhost:9000/` + this.state.house.houseImg } /></div>
-              </Link>
-                <div>{this.state.house.address}</div>
-              </div>
+              <ShowUtility utility={this.state.utility} deleteMyUtility={this.deleteMyUtility}/>
               :
-              <Link to="/mycasa/house/create"><div className="no_posting"></div></Link>
+              <Link to="/mycasa/utility/create"><div className="no_posting"></div></Link>
               }
             </div>
           </div>

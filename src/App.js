@@ -8,7 +8,12 @@ import HomeContainer from './HomeContainer';
 import MyCasaDashboard from './MyCasaComponents/MyCasaDashboard';
 
 import CreateHouse from './MyCasaComponents/HouseContainer/CreateHouse';
+import CreateRoof from './MyCasaComponents/RoofContainer/CreateRoof';
 import CreateAttic from './MyCasaComponents/AtticContainer/CreateAttic';
+import CreateWaHeater from './MyCasaComponents/WaHeaterContainer/CreateWaHeater';
+import CreateSpHeater from './MyCasaComponents/SpHeaterContainer/CreateSpHeater';
+import CreateUtility from './MyCasaComponents/UtilityContainer/CreateUtility';
+
 import EditAttic from './MyCasaComponents/AtticContainer/EditAttic';
 
 const My404 = () => {
@@ -38,7 +43,12 @@ const App = (props) => {
         //MyCasa
         <Route exact path="/mycasa/:id" component = { MyCasaDashboard } />
         <Route exact path="/mycasa/house/create" component = { CreateHouse } />
+        <Route exact path="/mycasa/roof/create" component = { CreateRoof } />
         <Route exact path="/mycasa/attic/create" component = { CreateAttic } />
+        <Route exact path="/mycasa/waheater/create" component = { CreateWaHeater } />
+        <Route exact path="/mycasa/spheater/create" component = { CreateSpHeater } />
+        <Route exact path="/mycasa/utility/create" component = { CreateUtility } />
+
         <Route exact path="/mycasa/attic/edit" component = { EditAttic } />
 
 
