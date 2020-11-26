@@ -28,3 +28,15 @@ img {
   display: flex;
   flex-direction: row;
 }
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.col {
+  border: 1px solid;
+  width: 100%;
+}

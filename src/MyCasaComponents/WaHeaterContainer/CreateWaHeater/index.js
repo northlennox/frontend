@@ -29,7 +29,7 @@ class CreateWaHeater extends Component {
       ...this.state.waHeater
     }
     updatedChange[e.target.name] = e.target.value;
-
+    console.log('here', updatedChange);
     this.setState({
       waHeater: updatedChange
     })
@@ -96,6 +96,7 @@ class CreateWaHeater extends Component {
 
 
     addWaHeater = async(updatedWaHeater) => {
+      console.log('add function', this.state.waHeater.waHeatertype);
         const data = new FormData();
         for(let i = 0; i < this.state.waHeater.waHeaterImg.length; i++){
             data.append('waHeaterImg', this.state.waHeater.waHeaterImg[i]);
@@ -139,8 +140,8 @@ class CreateWaHeater extends Component {
               <div><img className="frames" id="photoOne" src={this.state.preview1} onClick={this.handleClick } /></div>
               <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
 
-              <label htmlFor="waHeaterType">TYPE OF WATER HEATER</label>
-              <select name="waHeaterType" id="waHeaterType" type="text" onChange={this.handleInput} value={this.state.waHeater.waHeaterType}>
+              <label htmlFor="waHeatertype">TYPE OF WATER HEATER</label>
+              <select name="waHeatertype" id="waHeatertype" type="text" onChange={this.handleInput} value={this.state.waHeater.waHeatertype}>
                 {waHeaterTypeOptions.map(waHeaterTypeOption => {
                     return <option value={waHeaterTypeOption} key={waHeaterTypeOption} >{waHeaterTypeOption}</option>
                 })}

@@ -1,15 +1,8 @@
-//if no house, add house please page
-//otherwise, exam result
-//show -> edit button ->  MyCasaDashboard
-//this is where we can create Casa
 import React, { Component } from 'react';
-import Nav from '../Nav';
+import Nav from '../../Nav';
 import { Link } from 'react-router-dom';
-import Exam from './Exam';
 
-
-
-class MyProjectComponent extends Component {
+class ProjectPlan extends Component {
   constructor(){
     super()
     this.state = {
@@ -19,7 +12,6 @@ class MyProjectComponent extends Component {
       attic:'',
       house: '',
       utility: '',
-      // open: false
     }
   }
 
@@ -65,29 +57,14 @@ class MyProjectComponent extends Component {
     const userId = localStorage.getItem('userId')
     return(
       <>
-        <Nav />
-        <div id="title">My Project</div>
-        <div id="subtitle">Schedule repairs and upgrades at optimal times to maximize savings and prior to emergencies.</div>
-        {
-          true
-          ?
-          <div>
-            <Exam house={this.state.house} attic={this.state.attic} spHeater={this.state.spHeater} waHeater={this.state.waHeater} />
-          </div>
-          :
-          <div>
-            <div>Please add house info</div>
-            <Link to={`/mycasa/${userId}`}>My Casa</Link>
-          </div>
-        }
-
+      <Nav />
+      <h1>Project</h1>
+      <div>Schedule repairs and upgrades at optimal times to maximize savings and prior to emergencies.</div>
+      <div>house info</div>
+      <h3>Recommended Timeline</h3>
+      <div></div>
       </>
     )
   }
 }
-export default MyProjectComponent
-
-
-// this.state.house && this.state.attic &&
-// this.state.roof && this.state.spHeater &&
-// this.state.waHeater && this.state.utility
+export default ProjectPlan
