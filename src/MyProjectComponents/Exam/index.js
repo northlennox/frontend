@@ -13,7 +13,7 @@ const Exam = (props) => {
 
   return(
     <div>
-      <h1>dd</h1>
+      <h1>My Project</h1>
       <div>{grade}</div>
 
     </div>

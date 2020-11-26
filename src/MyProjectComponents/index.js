@@ -72,13 +72,12 @@ class MyProjectComponent extends Component {
           true
           ?
           <div>
-            <Exam attic={this.state.attic} />
+            <Exam attic={this.state.attic} spHeater={this.state.spHeater} waHeater={this.state.waHeater} />
           </div>
           :
           <div>
             <div>Please add house info</div>
             <Link to={`/mycasa/${userId}`}>My Casa</Link>
-
           </div>
         }
 
