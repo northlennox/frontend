@@ -8,6 +8,8 @@ import HomeContainer from './HomeContainer';
 import MyCasaDashboard from './MyCasaComponents/MyCasaDashboard';
 import MyProjectComponent from './MyProjectComponents';
 import ProjectPlan from './MyProjectComponents/ProjectPlan';
+import MyAccountContainer from './MyAccountComponents/MyAccountContainer';
+import EditMyAccount from './MyAccountComponents/EditMyAccount';
 
 import CreateHouse from './MyCasaComponents/HouseContainer/CreateHouse';
 import CreateRoof from './MyCasaComponents/RoofContainer/CreateRoof';
@@ -49,6 +51,8 @@ const App = (props) => {
         <Route exact path="/" component = { MainContainer } />
         <Route exact path="/signup" component = { RegisterLoginContainer } />
         <Route exact path="/home" component = { HomeContainer } />
+        <Route exact path="/myaccount/:id" component = { MyAccountContainer } />
+        <Route exact path="/myaccount/:id/edit" component = { EditMyAccount } />
 
         //MyCasa
         <Route exact path="/mycasa/:id" component = { MyCasaDashboard } />

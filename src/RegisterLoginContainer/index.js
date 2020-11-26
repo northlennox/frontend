@@ -8,7 +8,11 @@ class RegisterLoginContainer extends Component {
       register: {
         email: '',
         password: '',
-
+        firstName: '',
+        lastName: '',
+        phNumber: '',
+        emailNotice: '',
+        mobileNotice: ''
       },
       login : {
         email: '',
@@ -34,6 +38,11 @@ class RegisterLoginContainer extends Component {
         register: {
           email: '',
           password: '',
+          firstName: '',
+          lastName: '',
+          phNumber: '',
+          emailNotice: '',
+          mobileNotice: ''
         }
       })
     }else{
@@ -161,6 +170,11 @@ fetchLogin = async(updatedLogin) => {
         <form onSubmit={this.handleRegisterSubmit}>
           <input type="email" name="email" placeholder="Email" value={this.state.register.email} onChange={this.handleRegisterChange}/>
           <input type="password" name="password" placeholder="Password" value={this.state.register.password} onChange={this.handleRegisterChange}/>
+          <input type="text" name="firstName" placeholder="firstName" value={this.state.register.firstName} onChange={this.handleRegisterChange}/>
+          <input type="text" name="lastName" placeholder="lastName" value={this.state.register.lastName} onChange={this.handleRegisterChange}/>
+          <input type="text" name="phNumber" placeholder="phNumber" value={this.state.register.phNumber} onChange={this.handleRegisterChange}/>
+          <input type="text" name="emailNotice" placeholder="emailNotice" value={this.state.register.emailNotice} onChange={this.handleRegisterChange}/>
+          <input type="text" name="mobileNotice" placeholder="mobileNotice" value={this.state.register.mobileNotice} onChange={this.handleRegisterChange}/>
           <button type="submit">Submit</button>
         </form>
       </div>
