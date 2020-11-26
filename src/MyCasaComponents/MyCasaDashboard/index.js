@@ -135,7 +135,7 @@ class MyCasaDashboard extends Component {
       }
 
     }
-    deleteWaHeater = async(id, e) => {
+    deleteMyWaHeater = async(id, e) => {
       e.preventDefault()
 
       try{
@@ -158,7 +158,7 @@ class MyCasaDashboard extends Component {
       }
 
     }
-    deleteSpHeater = async(id, e) => {
+    deleteMySpHeater = async(id, e) => {
       e.preventDefault()
 
       try{

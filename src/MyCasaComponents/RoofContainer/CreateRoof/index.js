@@ -156,8 +156,8 @@ class CreateAttic extends Component {
 
               <label htmlFor="pvSystem">IS THERE SOLAR PV SYSTEM INSTALLED?*</label>
               <div id="pvSystem" >
-                <input name="pvSystem" type="radio" checked={this.state.roof.pvSystem === "yes"} value="yes" onChange={this.handleInput}/>YES
-                <input name="pvSystem" type="radio" checked={this.state.roof.pvSystem === "no"} value="no" onChange={this.handleInput}/>NO
+                <input name="pvSystem" type="radio" checked={this.state.roof.pvSystem === "YES"} value="YES" onChange={this.handleInput}/>YES
+                <input name="pvSystem" type="radio" checked={this.state.roof.pvSystem === "NO"} value="NO" onChange={this.handleInput}/>NO
               </div>
 
               <label htmlFor="panels">NUMBER OF PANELS</label>

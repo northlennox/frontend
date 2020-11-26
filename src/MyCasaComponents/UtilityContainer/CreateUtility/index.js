@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+YESimport React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
 // import Moment from 'react-moment';
@@ -133,7 +133,7 @@ class CreateUtility extends Component {
 
 
   render(){
-  
+
     return(
 
       <div>
@@ -161,14 +161,14 @@ class CreateUtility extends Component {
 
               <label htmlFor="highBilling">ARE YOUR ENERGY BILLS TOO HIGH?</label>
               <div id="highBilling" >
-                <input name="highBilling" type="radio" checked={this.state.utility.highBilling === "yes"} value="yes" onChange={this.handleInput}/>YES
-                <input name="highBilling" type="radio" checked={this.state.utility.highBilling === "no"} value="no" onChange={this.handleInput}/>NO
+                <input name="highBilling" type="radio" checked={this.state.utility.highBilling === "YES"} value="YES" onChange={this.handleInput}/>YES
+                <input name="highBilling" type="radio" checked={this.state.utility.highBilling === "NO"} value="NO" onChange={this.handleInput}/>NO
               </div>
 
               <label htmlFor="oldEquipment">DO YOU HAVE ANY EQUIPMENT OLDER THAN 25 YEARS EG. AN OLD FREEZER?</label>
               <div id="oldEquipment" >
-                <input name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "yes"} value="yes" onChange={this.handleInput}/>YES
-                <input name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "no"} value="no" onChange={this.handleInput}/>NO
+                <input name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "YES"} value="YES" onChange={this.handleInput}/>YES
+                <input name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "NO"} value="NO" onChange={this.handleInput}/>NO
               </div>
               <button type="submit" className="btn">SAVE</button>
           </form>
