@@ -25,12 +25,10 @@ class CreateAttic extends Component {
 
 
   handleInput = (e) => {
-
     const updatedChange = {
       ...this.state.roof
     }
     updatedChange[e.target.name] = e.target.value;
-
     this.setState({
       roof: updatedChange
     })

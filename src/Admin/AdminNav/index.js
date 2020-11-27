@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link, withRouter } from 'react-router-dom';
 
-const Nav = (props) => {
+const AdminNav = (props) => {
   const userId = localStorage.getItem('userId');
   const logout = async() => {
     try{
@@ -16,12 +16,12 @@ const Nav = (props) => {
 
       const responseParsed = await response.json();
 
+
       if(responseParsed.status === 200){
-        // const cookies = new Cookies();
-        // cookies.remove('userId');
         localStorage.removeItem('userId')
         props.history.push('/')
       }
+
     }catch(err){
       console.log('fail to logout')
     }
@@ -33,13 +33,7 @@ const Nav = (props) => {
     <div>
       <ul className="nav">
         <li className="nav-item">
-          <Link to="/home">Home</Link>
-        </li>
-        <li className="nav-item">
-          <Link to={`/mycasa/${userId}`}>My Casa</Link>
-        </li>
-        <li className="nav-item">
-          <Link to={`/myproject/${userId}`}>My Project</Link>
+          <Link to="/adminhome">Home</Link>
         </li>
         <li className="nav-item">
           <Link to={`/myaccount/${userId}`}>My Account</Link>
@@ -52,4 +46,4 @@ const Nav = (props) => {
     )
 }
 
-export default withRouter(Nav);
+export default withRouter(AdminNav);
