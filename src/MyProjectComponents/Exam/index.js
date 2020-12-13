@@ -8,6 +8,7 @@ const Exam = (props) => {
   let grade = ''
   let waHeaterAge = 2020 - Number(props.waHeater.waHeaterYear);
   let waEfficency = ''
+  let waEfficencyGrade = ''
   let spHeaterAge = 2020 - Number(props.spHeater.spHeaterYear);
   let spEfficency = ''
 
@@ -23,15 +24,41 @@ const Exam = (props) => {
 // Water heater type “gas tankless” efficiency 0.9 range red grade C if year <15, else D
 // Water heater type “electric tank” efficiency 0.9 range green grade C if year <10, else D
 // Water heater type “heat pump” efficiency 2.5 range green grade A if year <10, else B
+
+
   if(props.waHeater.waHeatertype === "Natural Gas Storage"){
-    waEfficency = '0.55'
+      waEfficency = '0.55'
+    if(props.waHeater.waHeaterAge < 10){
+      waEfficencyGrade = 'C';
+    }else if(props.waHeater.waHeaterAge > 10){
+      waEfficencyGrade = 'D';
+    }
   }else if(props.waHeater.waHeatertype === "Natural Gas Thankless"){
     waEfficency = '0.9'
+    if(props.waHeater.waHeaterAge < 10){
+      waEfficencyGrade = 'C';
+    }else if(props.waHeater.waHeaterAge > 10){
+      waEfficencyGrade = 'D';
+    }
   }else if(props.waHeater.waHeatertype === "Electric Storage"){
     waEfficency = '0.9'
+    if(props.waHeater.waHeaterAge < 10){
+      waEfficencyGrade = 'C';
+    }else if(props.waHeater.waHeaterAge > 10){
+      waEfficencyGrade = 'D';
+    }
   }else if(props.waHeater.waHeatertype === "Electric Heat Pump"){
     waEfficency = '2.5'
+    if(props.waHeater.waHeaterAge < 10){
+      console.log('here');
+      waEfficencyGrade = 'A';
+    }else if(props.waHeater.waHeaterAge > 10){
+      waEfficencyGrade = 'B';
+    }
   }
+
+
+
 
   // const spHeaterTypeOptions = ["Select", "Central Gas Furnace", "Room Gas Furnace", "Oil Furnace", "Electric Furnace", "Electric Heat Pump", "Electric Mini-Split", "Gas Boiler/Radiant", "Geothermal Heat Pump", "Wood Stove", "Pellet Stove"];
   // Space heater type “furnace” efficiency 0.8 range red grade C if year<10, else D
@@ -43,7 +70,7 @@ const Exam = (props) => {
    spEfficency = '3.0'
  }
 
-
+   console.log('-----', waEfficencyGrade)
   return(
     <div>
       <h1>My Casa</h1>
@@ -67,7 +94,7 @@ const Exam = (props) => {
           <div>{grade}</div>
           <h4>Water Heater</h4>
           <label>Age:</label><div>{waHeaterAge}</div>
-          <label>Energy Efficiency Factor:</label><div>{waEfficency}</div>
+          <label>Energy Efficiency Factor:</label><div>{waEfficencyGrade}</div>
           <h4>Space Heater</h4>
           <label>Age:</label><div>{spHeaterAge} - need to fix</div>
           <label>Energy Efficiency Factor:</label><div>{spEfficency}</div>

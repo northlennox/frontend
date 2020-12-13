@@ -7,6 +7,7 @@ const ShowAttic = (props) => {
   return(
     <div>
       <img src={`http://localhost:9000/` + photo}/>
+      <div className="smtitle">Attic Details</div>
       <div>{props.attic.atticType}</div>
       <div>{props.attic.atticSqft}</div>
       <div>{props.attic.atticDepth}</div>

@@ -40,3 +40,8 @@ img {
   border: 1px solid;
   width: 100%;
 }
+
+.smtitle {
+  font-size: 30;
+  font-weight: bold;
+}

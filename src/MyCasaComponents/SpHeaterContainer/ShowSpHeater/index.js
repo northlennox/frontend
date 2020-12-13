@@ -8,6 +8,7 @@ const ShowSpHeater = (props) => {
   return(
     <div>
       <img src={`http://localhost:9000/` + photo}/>
+      <div className="smtitle">Space Heater Details</div>
       <div>{props.spHeater.spHeaterType}</div>
       <div>{props.spHeater.atticSqft}</div>
       <div>{props.spHeater.spHeaterYear}</div>

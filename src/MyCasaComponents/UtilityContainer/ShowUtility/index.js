@@ -8,6 +8,7 @@ const ShowUtility = (props) => {
   return(
     <div>
       <img src={`http://localhost:9000/` + photo}/>
+      <div className="smtitle">Utility Details</div>
       <div>{props.utility.utilityName}</div>
       <div>{props.utility.electricityUsageKwh}</div>
       <div>{props.utility.electricityUsageDollar}</div>

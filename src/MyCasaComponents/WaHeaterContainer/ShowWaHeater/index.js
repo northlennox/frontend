@@ -7,6 +7,7 @@ const ShowWaHeater = (props) => {
   return(
     <div>
       <img src={`http://localhost:9000/` + photo}/>
+      <div className="smtitle">Water Heater Details</div>
       <div>{props.waHeater.waHeatertype}</div>
       <div>{props.waHeater.waHeaterBrand}</div>
       <div>{props.waHeater.waHeaterYear}</div>

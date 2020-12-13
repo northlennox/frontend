@@ -20,8 +20,6 @@ class ProjectPlan extends Component {
   }
 
 
-
-
     getHouseInfo = async() => {
       console.log('jj');
       // const userId = window.location.pathname.split('/')[2];

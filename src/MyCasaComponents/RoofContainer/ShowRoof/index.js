@@ -8,6 +8,7 @@ const ShowRoof = (props) => {
   return(
     <div>
       <img src={`http://localhost:9000/` + photo}/>
+      <div className="smtitle">Roof Details</div>
       <div>{props.roof.exterior}</div>
       <div>{props.roof.roofColor}</div>
       <div>{props.roof.pvSystem}</div>
