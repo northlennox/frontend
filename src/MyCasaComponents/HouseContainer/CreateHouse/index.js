@@ -117,7 +117,7 @@ class HouseContainer extends Component {
         const time = new Date();
         data.append('postingTime', time)
 
-        axios.post(`http://localhost:9000/api/v1/house`, data, {
+        axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
           headers: {
             'content-type': 'multipart/form-data'
           }
