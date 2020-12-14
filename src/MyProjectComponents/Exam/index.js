@@ -24,35 +24,35 @@ const Exam = (props) => {
 // Water heater type “gas tankless” efficiency 0.9 range red grade C if year <15, else D
 // Water heater type “electric tank” efficiency 0.9 range green grade C if year <10, else D
 // Water heater type “heat pump” efficiency 2.5 range green grade A if year <10, else B
-
+  console.log('ddd', waHeaterAge);
 
   if(props.waHeater.waHeatertype === "Natural Gas Storage"){
       waEfficency = '0.55'
-    if(props.waHeater.waHeaterAge < 10){
+    if(waHeaterAge < 10){
       waEfficencyGrade = 'C';
-    }else if(props.waHeater.waHeaterAge > 10){
+    }else if(waHeaterAge > 10){
       waEfficencyGrade = 'D';
     }
-  }else if(props.waHeater.waHeatertype === "Natural Gas Thankless"){
+  }else if(props.waHeater.waHeatertype === "Natural Gas Tankless"){
     waEfficency = '0.9'
-    if(props.waHeater.waHeaterAge < 10){
+    if(waHeaterAge < 10){
       waEfficencyGrade = 'C';
-    }else if(props.waHeater.waHeaterAge > 10){
+    }else if(waHeaterAge > 10){
       waEfficencyGrade = 'D';
     }
   }else if(props.waHeater.waHeatertype === "Electric Storage"){
     waEfficency = '0.9'
-    if(props.waHeater.waHeaterAge < 10){
+    if(waHeaterAge < 10){
       waEfficencyGrade = 'C';
-    }else if(props.waHeater.waHeaterAge > 10){
+    }else if(waHeaterAge > 10){
       waEfficencyGrade = 'D';
     }
   }else if(props.waHeater.waHeatertype === "Electric Heat Pump"){
     waEfficency = '2.5'
-    if(props.waHeater.waHeaterAge < 10){
+    if(waHeaterAge < 10){
       console.log('here');
       waEfficencyGrade = 'A';
-    }else if(props.waHeater.waHeaterAge > 10){
+    }else if(waHeaterAge > 10){
       waEfficencyGrade = 'B';
     }
   }
