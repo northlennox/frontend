@@ -3,6 +3,7 @@ import './App.css';
 import { Route, Switch, withRouter } from 'react-router-dom'
 
 import MainContainer from './MainContainer';
+import WelcomeComponent from './WelcomeComponent';
 import RegisterLoginContainer from './RegisterLoginContainer';
 import HomeContainer from './HomeContainer';
 import MyCasaDashboard from './MyCasaComponents/MyCasaDashboard';
@@ -10,6 +11,15 @@ import MyProjectComponent from './MyProjectComponents';
 import ProjectPlan from './MyProjectComponents/ProjectPlan';
 import MyAccountContainer from './MyAccountComponents/MyAccountContainer';
 import EditMyAccount from './MyAccountComponents/EditMyAccount';
+
+import ClothesDrying from './ElectrifyComponents/ClothesDrying';
+import Cooking from './ElectrifyComponents/Cooking';
+import ElectricalPanel from './ElectrifyComponents/ElectricalPanel';
+import ElectricVehicle from './ElectrifyComponents/ElectricVehicle';
+import EnergyGeneration from './ElectrifyComponents/EnergyGeneration';
+import HeatingCooling from './ElectrifyComponents/HeatingCooling';
+import HotWater from './ElectrifyComponents/HotWater';
+import Weatherization from './ElectrifyComponents/Weatherization';
 
 import CreateHouse from './MyCasaComponents/HouseContainer/CreateHouse';
 import CreateRoof from './MyCasaComponents/RoofContainer/CreateRoof';
@@ -51,8 +61,20 @@ const App = (props) => {
         <Route exact path="/" component = { MainContainer } />
         <Route exact path="/signup" component = { RegisterLoginContainer } />
         <Route exact path="/home" component = { HomeContainer } />
+        <Route exact path="/home/welcome" component = { WelcomeComponent } />
         <Route exact path="/myaccount/:id" component = { MyAccountContainer } />
         <Route exact path="/myaccount/:id/edit" component = { EditMyAccount } />
+
+        //Elecctrify
+        <Route exact path="/home/clothesdrying" component={ ClothesDrying } />
+        <Route exact path="/home/cooking" component={ Cooking } />
+        <Route exact path="/home/electricalpanel" component={ ElectricalPanel } />
+        <Route exact path="/home/electrivehicle" component={ ElectricVehicle } />
+        <Route exact path="/home/energygeneration" component={ EnergyGeneration } />
+        <Route exact path="/home/heatingcooling" component={ HeatingCooling } />
+        <Route exact path="/home/hotwater" component={ HotWater } />
+        <Route exact path="/home/weatherization" component={ Weatherization } />
+
 
         //MyCasa
         <Route exact path="/mycasa/:id" component = { MyCasaDashboard } />
