@@ -12,7 +12,7 @@ const ElectricVehicle = (props) => {
               <div className="title">Electric Vehicle</div>
               <div className="item_container">
                 <div className="img_sub">
-                  <div className="electri_box"><img src="./../web/ElectricVehicle_web.png" /></div>
+                  <div className="electri_box"><img src="../Electrify/ElectricVehicle.svg" /></div>
                   <div className="electri_text">Impacts Carbon Footprint Rating</div>
                 </div>
                 <div className="text_sub">

@@ -19,7 +19,7 @@ class MyProjectComponent extends Component {
       attic:'',
       house: '',
       utility: '',
-      // open: false
+      open: false
     }
   }
 
@@ -63,22 +63,26 @@ class MyProjectComponent extends Component {
 
   render(){
     const userId = localStorage.getItem('userId')
+    if(this.state.attic && this.state.house && this.state.waHeater && this.state.spHeater){
+      this.state.open = true;
+    }
     return(
       <>
         <Nav />
         <div id="title">My Project</div>
         <div id="subtitle">Schedule repairs and upgrades at optimal times to maximize savings and prior to emergencies.</div>
         {
-          true
+          this.state.open
           ?
-          <div>
-            <Exam house={this.state.house} attic={this.state.attic} spHeater={this.state.spHeater} waHeater={this.state.waHeater} />
-          </div>
-          :
           <div>
             <div>Please add house info</div>
             <Link to={`/mycasa/${userId}`}>My Casa</Link>
           </div>
+          :
+          <div>
+            <Exam house={this.state.house} attic={this.state.attic} spHeater={this.state.spHeater} waHeater={this.state.waHeater} />
+          </div>
+
         }
 
       </>

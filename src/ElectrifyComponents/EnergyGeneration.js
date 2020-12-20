@@ -12,7 +12,7 @@ const EnergyGeneration = (props) => {
               <div className="title">Energy Generation</div>
               <div className="item_container">
                 <div className="img_sub">
-                  <div className="electri_box"><img src="./../web/EnergyGeneration_web.png" /></div>
+                  <div className="electri_box"><img src="../Electrify/EnergyGeneration.svg" /></div>
                   <div className="electri_text">Impacts Carbon Footprint Rating</div>
                 </div>
                 <div className="text_sub">

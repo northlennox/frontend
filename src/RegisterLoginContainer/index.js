@@ -133,7 +133,7 @@ fetchLogin = async(updatedLogin) => {
     }
 
     const parsedResponse = await response.json();
-
+    console.log(parsedResponse.status);
     if(parsedResponse.status !== 401){
       updatedLogin.successful = true;
       this.setState({

@@ -12,7 +12,7 @@ const HeatingCooling = (props) => {
               <div className="title">Heating and Cooling</div>
               <div className="item_container">
                 <div className="img_sub">
-                  <div className="electri_box"><img src="./../web/HeatingCooling_web.png" /></div>
+                  <div className="electri_box"><img src="../Electrify/HeatingCooling.svg" /></div>
                   <div className="electri_text">Impacts Carbon Footprint Rating</div>
                 </div>
                 <div className="text_sub">

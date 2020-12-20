@@ -12,7 +12,7 @@ const HotWater = (props) => {
               <div className="title">Hot Water</div>
               <div className="item_container">
                 <div className="img_sub">
-                  <div className="electri_box"><img src="./../web/HotWater_web.png" /></div>
+                  <div className="electri_box"><img src="../Electrify/HotWater.svg" /></div>
                   <div className="electri_text">Impacts Building Energy Efficiency Rating</div>
                 </div>
                 <div className="text_sub">
