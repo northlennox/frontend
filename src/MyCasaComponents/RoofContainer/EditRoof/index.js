@@ -31,7 +31,7 @@ class EditRoof extends Component {
     const userId = localStorage.getItem('userId');
 
     try{
-      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/${userId}`,  {
         credentials: 'include'
       })
 
@@ -40,6 +40,7 @@ class EditRoof extends Component {
       }
 
       const userParsed = await response.json();
+      console.log(userParsed.roof.roofImg);
       this.setState({
           roof: {
             roofImg: userParsed.roof.roofImg,
@@ -79,7 +80,7 @@ class EditRoof extends Component {
     this.editRoof(updatedRoof)
     this.setState({
       roof : {
-        roofImg: [],
+        roofImg: null,
         exterior : '',
         roofColor: '',
         pvSystem: '',
@@ -115,7 +116,7 @@ class EditRoof extends Component {
     this.setState({
       roof: {
         ...this.state.roof,
-        roofImg: [...this.state.roof.roofImg, e.target.files[0]]
+        roofImg: e.target.files[0]
       }
     })
   }
@@ -143,7 +144,7 @@ class EditRoof extends Component {
       data.append('userId', userId)
       // const time = new Date();
       // data.append('postingTime', time)
-      console.log('-----');
+      console.log('before put request', data);
       axios.put(`${process.env.REACT_APP_API}/api/v1/roof/${userId}`, data, {
         headers: {
           'Content-type': 'multipart/form-data'
@@ -160,7 +161,7 @@ class EditRoof extends Component {
     const extriorOptions = ["Select", "Composition Shingles or Metal", "Wood Shakes", "Clay Title", "Concreate Title", "Tar & Gravel"];
     const colorOptions = ["Select", "White", "Light", "Medium", "Dark", "Cool Color With Reflectivity"];
     const roofImgState = `${process.env.REACT_APP_API}/` + this.state.roof.roofImg;
-
+    console.log(roofImgState);
     return(
       <div>
         <Nav />
