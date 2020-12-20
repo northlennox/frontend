@@ -6,7 +6,7 @@ const Nav = (props) => {
   const userId = localStorage.getItem('userId');
   const logout = async() => {
     try{
-      const response = await fetch(`http://localhost:9000/api/v1/auth/logout`, {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/logout`, {
         credentials: 'include'
       });
 

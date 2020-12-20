@@ -39,7 +39,7 @@ class MyCasaDashboard extends Component {
       const userId = localStorage.getItem('userId')
 
       try{
-        const response = await fetch(`http://localhost:9000/api/v1/users/` + `${userId}`,  {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
           credentials: 'include'
         })
         console.log(response);
@@ -71,7 +71,7 @@ class MyCasaDashboard extends Component {
       try{
         const userId = localStorage.getItem('userId');
 
-        const response = await fetch(`http://localhost:9000/api/v1/house/` + `${userId}`, {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/` + `${userId}`, {
           method: 'DELETE',
           credentials: 'include'
         });
@@ -95,7 +95,7 @@ class MyCasaDashboard extends Component {
       try{
         const userId = localStorage.getItem('userId');
 
-        const response = await fetch(`http://localhost:9000/api/v1/Attic/` + `${userId}`, {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/Attic/` + `${userId}`, {
           method: 'DELETE',
           credentials: 'include'
         });
@@ -118,7 +118,7 @@ class MyCasaDashboard extends Component {
       try{
         const userId = localStorage.getItem('userId');
 
-        const response = await fetch(`http://localhost:9000/api/v1/roof/` + `${userId}`, {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/roof/` + `${userId}`, {
           method: 'DELETE',
           credentials: 'include'
         });
@@ -141,7 +141,7 @@ class MyCasaDashboard extends Component {
       try{
         const userId = localStorage.getItem('userId');
 
-        const response = await fetch(`http://localhost:9000/api/v1/waheater/` + `${userId}`, {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/waheater/` + `${userId}`, {
           method: 'DELETE',
           credentials: 'include'
         });
@@ -164,7 +164,7 @@ class MyCasaDashboard extends Component {
       try{
         const userId = localStorage.getItem('userId');
 
-        const response = await fetch(`http://localhost:9000/api/v1/spheater/` + `${userId}`, {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/spheater/` + `${userId}`, {
           method: 'DELETE',
           credentials: 'include'
         });
@@ -187,7 +187,7 @@ class MyCasaDashboard extends Component {
       try{
         const userId = localStorage.getItem('userId');
 
-        const response = await fetch(`http://localhost:9000/api/v1/utility/` + `${userId}`, {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/utility/` + `${userId}`, {
           method: 'DELETE',
           credentials: 'include'
         });

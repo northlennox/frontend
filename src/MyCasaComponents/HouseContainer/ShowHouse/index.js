@@ -8,7 +8,7 @@ const ShowHouse = (props) => {
 
   return(
     <div>
-      <img src={`http://localhost:9000/` + photo}/>
+      <img src={`${process.env.REACT_APP_API}/` + photo}/>
       <div className="smtitle">House Details</div>
       <div>{props.house.address}</div>
       <div>{props.house.city}</div>

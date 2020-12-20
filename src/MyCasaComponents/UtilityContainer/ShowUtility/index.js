@@ -7,7 +7,7 @@ const ShowUtility = (props) => {
   const userId = localStorage.getItem('userId');
   return(
     <div>
-      <img src={`http://localhost:9000/` + photo}/>
+      <img src={`${process.env.REACT_APP_API}/` + photo}/>
       <div className="smtitle">Utility Details</div>
       <div>{props.utility.utilityName}</div>
       <div>{props.utility.electricityUsageKwh}</div>

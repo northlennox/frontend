@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 const ShowSpHeater = (props) => {
   const photo = props.spHeater.spHeaterImg;
   const userId = localStorage.getItem('userId');
-  console.log('props in sp', props);
   return(
     <div>
-      <img src={`http://localhost:9000/` + photo}/>
+      <img src={`${process.env.REACT_APP_API}/` + photo}/>
       <div className="smtitle">Space Heater Details</div>
       <div>{props.spHeater.spHeaterType}</div>
       <div>{props.spHeater.atticSqft}</div>

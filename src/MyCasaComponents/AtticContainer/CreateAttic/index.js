@@ -116,7 +116,7 @@ class CreateAttic extends Component {
         const time = new Date();
         data.append('postingTime', time)
 
-        axios.post(`http://localhost:9000/api/v1/attic`, data, {
+        axios.post(`${process.env.REACT_APP_API}/api/v1/attic`, data, {
           headers: {
             'content-type': 'multipart/form-data'
           }

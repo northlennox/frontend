@@ -31,7 +31,7 @@ class EditRoof extends Component {
     const userId = localStorage.getItem('userId');
 
     try{
-      const response = await fetch(`http://localhost:9000/api/v1/users/` + `${userId}`,  {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
         credentials: 'include'
       })
 
@@ -130,7 +130,6 @@ class EditRoof extends Component {
   }
 
     editRoof = async(e) => {
-      console.log('hh');
       e.preventDefault();
       const data = new FormData();
       data.append('roofImg', this.state.roof.roofImg);
@@ -145,7 +144,7 @@ class EditRoof extends Component {
       // const time = new Date();
       // data.append('postingTime', time)
       console.log('-----');
-      axios.put(`http://localhost:9000/api/v1/roof/${userId}`, data, {
+      axios.put(`${process.env.REACT_APP_API}/api/v1/roof/${userId}`, data, {
         headers: {
           'Content-type': 'multipart/form-data'
         }
@@ -160,7 +159,7 @@ class EditRoof extends Component {
   render(){
     const extriorOptions = ["Select", "Composition Shingles or Metal", "Wood Shakes", "Clay Title", "Concreate Title", "Tar & Gravel"];
     const colorOptions = ["Select", "White", "Light", "Medium", "Dark", "Cool Color With Reflectivity"];
-    const roofImgState = `http://localhost:9000/` + this.state.roof.roofImg;
+    const roofImgState = `${process.env.REACT_APP_API}/` + this.state.roof.roofImg;
 
     return(
       <div>

@@ -26,7 +26,7 @@ class ProjectPlan extends Component {
       const userId = localStorage.getItem('userId')
 
       try{
-        const response = await fetch(`http://localhost:9000/api/v1/users/` + `${userId}`,  {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
           credentials: 'include'
         })
         console.log(response);

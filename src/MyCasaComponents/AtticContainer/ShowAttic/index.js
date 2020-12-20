@@ -6,7 +6,7 @@ const ShowAttic = (props) => {
   const userId = localStorage.getItem('userId');
   return(
     <div>
-      <img src={`http://localhost:9000/` + photo}/>
+      <img src={`${process.env.REACT_APP_API}/` + photo}/>
       <div className="smtitle">Attic Details</div>
       <div>{props.attic.atticType}</div>
       <div>{props.attic.atticSqft}</div>

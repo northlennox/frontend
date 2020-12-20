@@ -34,7 +34,7 @@ class EditSpHeater extends Component {
     const userId = localStorage.getItem('userId');
 
     try{
-      const response = await fetch(`http://localhost:9000/api/v1/users/` + `${userId}`,  {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
         credentials: 'include'
       })
 
@@ -44,13 +44,13 @@ class EditSpHeater extends Component {
 
       const userParsed = await response.json();
       this.setState({
-          attic: {
-            atticImg: userParsed.attic.atticImg,
-            atticType: userParsed.attic.atticType,
-            atticSqft: userParsed.attic.atticSqft,
-            atticDepth: userParsed.attic.atticDepth,
-            insulMaterial: userParsed.attic.insulMaterial,
-            airSealed: userParsed.attic.airSealed
+          spHeater: {
+            spHeaterImg: userParsed.spHeater.spHeaterImg,
+            spHeaterType: userParsed.spHeater.spHeaterType,
+            atticSqft: userParsed.spHeater.atticSqft,
+            spHeaterYear: userParsed.spHeater.spHeaterYear,
+            spHeaterCondition: userParsed.spHeater.spHeaterCondition,
+            coolingSystem: userParsed.spHeater.coolingSystem
           },
 
       })
@@ -145,18 +145,12 @@ class EditSpHeater extends Component {
       e.preventDefault();
 
         const data = new FormData();
-        data.append('atticType', this.state.attic.atticType);
-        // for(let i = 0; i < this.state.attic.atticImg.length; i++){
-        //     data.append('atticImg', this.state.attic.atticImg[i]);
-        // }
-        // console.log('---->', this.state.attic.atticType);
-        // data.append('atticImg', this.state.attic.atticImg);
-        // data.append('atticType', this.state.attic.atticType);
-
-        data.append('atticSqft', this.state.attic.atticSqft);
-        data.append('atticDepth', this.state.attic.atticDepth);
-        data.append('insulMaterial', this.state.attic.insulMaterial);
-        data.append('airSealed', this.state.attic.airSealed);
+        data.append('spHeaterImg', this.state.spHeater.spHeaterImg);
+        data.append('spHeaterType', this.state.spHeater.spHeaterType);
+        data.append('atticSqft', this.state.spHeater.atticSqft);
+        data.append('spHeaterYear', this.state.spHeater.spHeaterYear);
+        data.append('spHeaterCondition', this.state.spHeater.spHeaterCondition);
+        data.append('coolingSystem', this.state.spHeater.coolingSystem);
         // data.append('time', this.state.house.time);
 
         let userId = localStorage.getItem('userId');
@@ -164,8 +158,8 @@ class EditSpHeater extends Component {
 
         // const time = new Date();
         // data.append('postingTime', time)
-        console.log(data);
-        axios.put(`http://localhost:9000/api/v1/attic/${userId}`, data, {
+
+        axios.put(`${process.env.REACT_APP_API}/api/v1/spHeater/${userId}`, data, {
           headers: {
             'Content-type': 'multipart/form-data'
           }
@@ -181,7 +175,7 @@ class EditSpHeater extends Component {
     const spHeaterTypeOptions = ["Select", "Central Gas Furnace", "Room Gas Furnace", "Oil Furnace", "Electric Furnace", "Electric Heat Pump", "Electric Mini-Split", "Gas Boiler/Radiant", "Geothermal Heat Pump", "Wood Stove", "Pellet Stove"];
     const spHeaterYearOptions = ["Select", "None", "Room Unit", "Central Air"];
     const coolingSystemOptions = ["Select", "2020", "2019", "2018", "2017", "2016", "2015"];
-    const spHeaterImgState = `http://localhost:9000/` + this.state.spHeater.spHeaterImg;
+    const spHeaterImgState = `${process.env.REACT_APP_API}/` + this.state.spHeater.spHeaterImg;
 
     return(
 

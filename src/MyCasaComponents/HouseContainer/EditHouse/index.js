@@ -29,7 +29,7 @@ class EditHouse extends Component {
   getHouseInfo = async() => {
     let userId = localStorage.getItem('userId');
     try{
-      const response = await fetch(`http://localhost:9000/api/v1/users/${userId}`, {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/${userId}`, {
         credentials: 'include',
       });
 
@@ -177,7 +177,7 @@ class EditHouse extends Component {
 
         console.log('here data', data);
 
-        axios.put(`http://localhost:9000/api/v1/house/${userId}`, data, {
+        axios.put(`${process.env.REACT_APP_API}/api/v1/house/${userId}`, data, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -190,7 +190,7 @@ class EditHouse extends Component {
     }
 
   render(){
-    const houseImgState = `http://localhost:9000/` + this.state.house.houseImg;
+    const houseImgState = `${process.env.REACT_APP_API}/` + this.state.house.houseImg;
     return(
       <div>
         <Nav />

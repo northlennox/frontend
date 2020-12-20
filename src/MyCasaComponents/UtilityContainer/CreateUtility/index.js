@@ -121,7 +121,7 @@ class CreateUtility extends Component {
         const time = new Date();
         data.append('postingTime', time)
 
-        axios.post(`http://localhost:9000/api/v1/utility`, data, {
+        axios.post(`${process.env.REACT_APP_API}/api/v1/utility`, data, {
           headers: {
             'content-type': 'multipart/form-data'
           }

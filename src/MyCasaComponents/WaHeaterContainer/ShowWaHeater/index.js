@@ -6,7 +6,7 @@ const ShowWaHeater = (props) => {
   const userId = localStorage.getItem('userId');
   return(
     <div>
-      <img src={`http://localhost:9000/` + photo}/>
+      <img src={`${process.env.REACT_APP_API}/` + photo}/>
       <div className="smtitle">Water Heater Details</div>
       <div>{props.waHeater.waHeatertype}</div>
       <div>{props.waHeater.waHeaterBrand}</div>

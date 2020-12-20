@@ -96,7 +96,6 @@ class CreateWaHeater extends Component {
 
 
     addWaHeater = async(updatedWaHeater) => {
-      console.log('add function', this.state.waHeater.waHeatertype);
         const data = new FormData();
         for(let i = 0; i < this.state.waHeater.waHeaterImg.length; i++){
             data.append('waHeaterImg', this.state.waHeater.waHeaterImg[i]);
@@ -115,7 +114,7 @@ class CreateWaHeater extends Component {
         const time = new Date();
         data.append('postingTime', time)
 
-        axios.post(`http://localhost:9000/api/v1/waHeater`, data, {
+        axios.post(`${process.env.REACT_APP_API}/api/v1/waHeater`, data, {
           headers: {
             'content-type': 'multipart/form-data'
           }
