@@ -66,7 +66,7 @@ class MyCasaDashboard extends Component {
 
 
     deleteMyHouse = async(id, e) => {
-      e.preventDefault()
+      // e.preventDefault()
 
       try{
         const userId = localStorage.getItem('userId');
@@ -113,6 +113,7 @@ class MyCasaDashboard extends Component {
 
     }
     deleteMyRoof = async(id, e) => {
+
       e.preventDefault()
 
       try{
@@ -129,7 +130,7 @@ class MyCasaDashboard extends Component {
 
         const responseParsed = await response.json();
 
-        this.props.history.push('/mycasa/' + userId);
+        // this.props.history.push('/mycasa/' + userId);
       }catch(err){
         alert('Something went wrong. Please try again')
       }
