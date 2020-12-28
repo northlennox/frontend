@@ -56,6 +56,11 @@ class MyProjectComponent extends Component {
             utility: userParsed.utility,
         })
 
+        console.log('$$$',this.state.house);
+        if(this.state.house !== null && this.state.attic !== null && this.state.waHeater !== null){
+          this.state.open = true
+        }
+
       }catch(err){
         return err
       }
@@ -63,16 +68,14 @@ class MyProjectComponent extends Component {
 
   render(){
     const userId = localStorage.getItem('userId')
-    if(this.state.attic && this.state.house && this.state.waHeater && this.state.spHeater){
-      this.state.open = true;
-    }
+
     return(
       <>
         <Nav />
         <div id="title">My Project</div>
         <div id="subtitle">Schedule repairs and upgrades at optimal times to maximize savings and prior to emergencies.</div>
         {
-          this.state.open
+          !this.state.open
           ?
           <div>
             <div>Please add house info</div>
