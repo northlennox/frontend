@@ -9,7 +9,7 @@ const Weatherization = (props) => {
           <div>
             <Nav />
             <div className="electrify_container">
-              <div className="title">Weatherization</div>
+              <div className="h3">Weatherization</div>
               <div className="item_container">
                 <div className="img_sub">
                   <div className="electri_box"><img className="img" src="../Electrify/Weatherization.svg" /></div>

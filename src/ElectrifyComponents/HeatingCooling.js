@@ -9,7 +9,7 @@ const HeatingCooling = (props) => {
           <div>
             <Nav />
             <div className="electrify_container">
-              <div className="title">Heating and Cooling</div>
+              <div className="h3">Heating and Cooling</div>
               <div className="item_container">
                 <div className="img_sub">
                   <div className="electri_box"><img className="img" src="../Electrify/HeatingCooling.svg" /></div>

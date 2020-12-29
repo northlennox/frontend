@@ -50,29 +50,31 @@ class HomeContainer extends Component {
       <div>
         <Nav />
         <div className="homeContainer">
-          <div className="title">Electrify</div>
-          <div className="subtitle">Explore home energy improvements to increase comfort, efficiency, safety and health, and lower carbon footprint.</div>
+          <div className="titleContainer">
+            <div className="title h2">Electrify</div>
+            <div className="subtitle h4">Explore home energy improvements to increase comfort, efficiency, safety and health, and lower carbon footprint.</div>
+          </div>
           <div className="electrifyContainer">
             <div className="electrifyRow" id="electrifyTop">
-              <Link to="/home/weatherization" style={{ textDecoration: "none", color: "black"}}>
+              <Link to="/home/weatherization" className="links">
                 <div className="iconContainer">
                   <div className="iconBox"><img className="iconImg" src="./Electrify/Weatherization.svg" /></div>
                   <div className="iconText">Weatherization</div>
                 </div>
               </Link>
-              <Link to="/home/hotwater" style={{ textDecoration: "none", color: "black"}}>
+              <Link to="/home/hotwater" className="links">
                 <div className="iconContainer">
                   <div className="iconBox"><img className="iconImg" src="./Electrify/HotWater.svg"/></div>
                   <div className="iconText">Hot Water</div>
                 </div>
               </Link>
-              <Link to="/home/heatingcooling" style={{ textDecoration: "none", color: "black"}}>
+              <Link to="/home/heatingcooling" className="links">
                 <div className="iconContainer">
                   <div className="iconBox"><img className="iconImg" src="./Electrify/HeatingCooling.svg" /></div>
                   <div className="iconText">Heating Cooling</div>
                 </div>
               </Link>
-              <Link to="/home/cooking" style={{ textDecoration: "none", color: "black"}}>
+              <Link to="/home/cooking" className="links">
                 <div className="iconContainer">
                   <div className="iconBox"><img className="iconImg" src="./Electrify/Cooking.svg"/></div>
                   <div className="iconText">Cooking</div>
@@ -80,25 +82,25 @@ class HomeContainer extends Component {
               </Link>
             </div>
             <div className="electrifyRow" id="electrifyBtm">
-              <Link to="/home/clothesdrying" style={{ textDecoration: "none", color: "black"}}>
+              <Link to="/home/clothesdrying" className="links">
                 <div className="iconContainer">
                   <div className="iconBox"><img img className="iconImg" src="./Electrify/ClothesDrying.svg" /></div>
                   <div className="iconText">Clothes Drying</div>
                 </div>
               </Link>
-              <Link to="/home/energygeneration" style={{ textDecoration: "none", color: "black"}}>
+              <Link to="/home/energygeneration" className="links">
                 <div className="iconContainer">
                   <div className="iconBox"><img img className="iconImg" src="./Electrify/EnergyGeneration.svg"/></div>
                   <div className="iconText">Energy Generation</div>
                 </div>
               </Link>
-              <Link to="/home/electricalpanel" style={{ textDecoration: "none", color: "black"}}>
+              <Link to="/home/electricalpanel" className="links">
                 <div className="iconContainer">
                   <div className="iconBox"><img img className="iconImg" src="./Electrify/ElectricalPanel.svg"/></div>
                   <div className="iconText">Electrical Panel</div>
                 </div>
               </Link>
-              <Link to="/home/electrivehicle" style={{ textDecoration: "none", color: "black"}}>
+              <Link to="/home/electrivehicle" className="links">
                 <div className="iconContainer">
                   <div className="iconBox"><img img className="iconImg" src="./Electrify/ElectricVehicle.svg"/></div>
                   <div className="iconText">Electric Vehicle</div>

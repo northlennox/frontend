@@ -8,7 +8,7 @@ const ClothesDrying = (props) => {
           <div>
             <Nav />
             <div className="electrify_container">
-              <div className="title">Clothes Drying</div>
+              <div className="h3">Clothes Drying</div>
               <div className="item_container">
                 <div className="img_sub">
                   <div className="electri_box"><img className="img" src="../Electrify/ClothesDrying.svg" /></div>

@@ -1,11 +1,8 @@
-//if no house, add house please page
-//otherwise, exam result
-//show -> edit button ->  MyCasaDashboard
-//this is where we can create Casa
 import React, { Component } from 'react';
 import Nav from '../Nav';
 import { Link } from 'react-router-dom';
 import Exam from './Exam';
+import './MyProject.scss';
 
 
 
@@ -31,7 +28,7 @@ class MyProjectComponent extends Component {
 
 
     getHouseInfo = async() => {
-  
+
       const userId = localStorage.getItem('userId')
 
       try{
@@ -71,22 +68,25 @@ class MyProjectComponent extends Component {
     return(
       <>
         <Nav />
-        <div id="title">My Project</div>
-        <div id="subtitle">Schedule repairs and upgrades at optimal times to maximize savings and prior to emergencies.</div>
-        {
-          !this.state.open
-          ?
-          <div>
-            <div>Please add house info</div>
-            <Link to={`/mycasa/${userId}`}>My Casa</Link>
+        <div className="projectContainer">
+          <div className="titleContainer">
+            <div className="title h2">My Project</div>
+            <div className="subtitle h4">Schedule repairs and upgrades at optimal times to maximize savings and prior to emergencies.</div>
           </div>
-          :
-          <div>
-            <Exam house={this.state.house} attic={this.state.attic} spHeater={this.state.spHeater} waHeater={this.state.waHeater} />
-          </div>
+          {
+            !this.state.open?
+            <div className="addMessage">
+              <span style={{marginRight: '0.5vw'}}>Please, create a house first on</span>
+              <span style={{marginRight: '0.5vw'}}><Link to={`/mycasa/${userId}`} className="links">My Casa</Link></span>
+              <span>page</span>
+            </div>
+            :
+            <div>
+              <Exam house={this.state.house} attic={this.state.attic} spHeater={this.state.spHeater} waHeater={this.state.waHeater} />
+            </div>
 
-        }
-
+          }
+        </div>
       </>
     )
   }

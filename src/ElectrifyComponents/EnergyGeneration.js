@@ -9,7 +9,7 @@ const EnergyGeneration = (props) => {
           <div>
             <Nav />
             <div className="electrify_container">
-              <div className="title">Energy Generation</div>
+              <div className="h3">Energy Generation</div>
               <div className="item_container">
                 <div className="img_sub">
                   <div className="electri_box"><img className="img" src="../Electrify/EnergyGeneration.svg" /></div>

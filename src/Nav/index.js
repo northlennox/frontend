@@ -29,9 +29,8 @@ const Nav = (props) => {
 
 
   return(
-
     <>
-      { localStorage.getItem('userId') ?
+      { !localStorage.getItem('userId') ?
 
         <div className="navContainer">
           <div className="navRow" id="logo">
