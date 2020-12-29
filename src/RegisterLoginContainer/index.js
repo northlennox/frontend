@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import Nav from '../Nav';
+import './RegisterLogin.scss'
 
 class RegisterLoginContainer extends Component {
   constructor(){
@@ -159,24 +162,28 @@ fetchLogin = async(updatedLogin) => {
 
     return(
       <div>
-        <div>Login</div>
-        <form onSubmit={this.handleLoginSubmit}>
-          <input type="text" name="email" onChange={this.handleLoginChange} placeholder="email" />
-          <input type="password" name="password" onChange={this.handleLoginChange} placeholder="Password"/>
-          <button type="submit">Login</button>
-        </form>
-
-        <div>Register</div>
-        <form onSubmit={this.handleRegisterSubmit}>
-          <input type="email" name="email" placeholder="Email" value={this.state.register.email} onChange={this.handleRegisterChange}/>
-          <input type="password" name="password" placeholder="Password" value={this.state.register.password} onChange={this.handleRegisterChange}/>
-          <input type="text" name="firstName" placeholder="firstName" value={this.state.register.firstName} onChange={this.handleRegisterChange}/>
-          <input type="text" name="lastName" placeholder="lastName" value={this.state.register.lastName} onChange={this.handleRegisterChange}/>
-          <input type="text" name="phNumber" placeholder="phNumber" value={this.state.register.phNumber} onChange={this.handleRegisterChange}/>
-          <input type="text" name="emailNotice" placeholder="emailNotice" value={this.state.register.emailNotice} onChange={this.handleRegisterChange}/>
-          <input type="text" name="mobileNotice" placeholder="mobileNotice" value={this.state.register.mobileNotice} onChange={this.handleRegisterChange}/>
-          <button type="submit">Submit</button>
-        </form>
+        <div className="navContainer">
+          <div className="navRow" id="logo">
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <div className="logContainer">
+                <div className="logoImg" style={{ marginRight: '20px' }}><img src={process.env.PUBLIC_URL + '/logo.png'}/></div>
+                <div className="logoText"><img src={process.env.PUBLIC_URL + '/electricasa.png'}/></div>
+              </div>
+            </Link>
+          </div>
+        </div>
+        <div className="loginContainer">
+          <form onSubmit={this.handleLoginSubmit}>
+            <div className="formContainer">
+              <label style={{marginBottom: "6px", fontSize: "14px"}}>EMAIL</label>
+              <input className="loginInput" type="text" name="email" onChange={this.handleLoginChange} placeholder="email" />
+              <label style={{marginBottom: "6px", fontSize: "14px"}}>PASSWORD</label>
+              <input className="loginInput" type="password" name="password" onChange={this.handleLoginChange} placeholder="Password"/>
+              <button type="submit">Login</button>
+              <div id="registerBox">Don't have an account? <Link>Sign up</Link></div>
+            </div>
+          </form>
+       </div>
       </div>
     )
   }
