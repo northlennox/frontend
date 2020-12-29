@@ -1,5 +1,80 @@
-// .navComponent {
-//   border: 1px black solid;
-//
-//   // height: 10vh;
-// }
+.readfirst {
+  background: #007AFF;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section_one_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 5%;
+  margin-left: 5%;
+  .col_two {
+    margin-top: 7%;
+  }
+  #h1 {
+    font-size: 36px;
+    margin-left: 2%;
+    margin-right: 2%;
+    // margin-bottom: 4%;
+    text-align: center;
+  }
+  #text {
+    font-size: 16px;
+    padding: 7%;
+
+  }
+  #btn {
+    width: 60%;
+    margin-left: 20%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 5px;
+    background: #139929;
+    text-align: center;
+
+  }
+  .linkBtn {
+    color: white;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 18px;
+  }
+}
+
+.section_two_container {
+  margin-top: 15%;
+  margin-bottom: 100px;
+  width: 40%;
+  .col_one {
+
+  }
+  .col_two {
+    margin-top: 8%;
+    text-align: center;
+    #h1 {
+    font-weight: bold;
+    font-size: 28px;
+    width: 80%;
+    margin-left: 10%;
+    }
+    #text {
+    margin-top: 8%;
+    margin-left: 10%;
+    text-align: left;
+    width: 80%;
+
+    }
+  }
+}
+.left {
+  margin-left: 10%;
+}
+
+.right  {
+  margin-left: 50%;
+}

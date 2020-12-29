@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from './../Nav';
-// import './ElectrifyComponents.scss';
+import './ElectrifyComponents.scss';
 
 
 const Weatherization = (props) => {

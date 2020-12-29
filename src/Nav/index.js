@@ -29,41 +29,68 @@ const Nav = (props) => {
 
 
   return(
-    <div className="navContainer">
-      <div className="navRow" id="logo">
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          <div className="logContainer">
-            <div className="logoImg" style={{ marginRight: '20px' }}><img src={process.env.PUBLIC_URL + '/logo.png'}/></div>
-            <div className="logoText"><img src={process.env.PUBLIC_URL + '/electricasa.png'}/></div>
+
+    <>
+      { localStorage.getItem('userId') ?
+
+        <div className="navContainer">
+          <div className="navRow" id="logo">
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <div className="logContainer">
+                <div className="logoImg" style={{ marginRight: '20px' }}><img src={process.env.PUBLIC_URL + '/logo.png'}/></div>
+                <div className="logoText"><img src={process.env.PUBLIC_URL + '/electricasa.png'}/></div>
+              </div>
+            </Link>
           </div>
-        </Link>
+          <div className="navRow">
+          <div className="navItem">
+            <Link to={`/signup`} className="links" style={{ textDecoration: 'none' }}>
+              <div className="navItemText" id="electrify" style={{ color : '#979797'}}>Login</div>
+            </Link>
+          </div>
+          </div>
+        </div>
+      :
+      <div className="navContainer">
+        <div className="navRow" id="logo">
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <div className="logContainer">
+              <div className="logoImg" style={{ marginRight: '20px' }}><img src={process.env.PUBLIC_URL + '/logo.png'}/></div>
+              <div className="logoText"><img src={process.env.PUBLIC_URL + '/electricasa.png'}/></div>
+            </div>
+          </Link>
+        </div>
+        <div className="navRow">
+          <div className="navItem">
+            <Link to={`/home`} className="links" style={{ textDecoration: 'none' }}>
+              { window.location.pathname.split('/')[1] === 'home'? <div className="navItemText" id="electrify" style={{ color : 'black'}}>Electrify</div> : <div className="navItemText" id="electrify" style={{ color : '#979797'}}>Electrify</div> }
+            </Link>
+          </div>
+          <div className="navItem">
+            <Link to={`/mycasa/${userId}`} className="links" style={{ textDecoration: 'none' }}>
+              { window.location.pathname.split('/')[1] === 'mycasa'? <div className="navItemText" id="mycasa" style={{ color : 'black'}}>My Casa</div> : <div className="navItemText" id="mycasa" style={{ color : '#979797'}}>My Casa</div> }
+            </Link>
+          </div>
+          <div className="navItem">
+            <Link to={`/myproject/${userId}`} className="links" style={{ textDecoration: 'none' }}>
+             { window.location.pathname.split('/')[1] === 'myproject'? <div className="navItemText" id="myproject" style={{ color : 'black'}}>My Project</div> : <div className="navItemText" id="myproject" style={{ color : '#979797'}}>My Project</div> }
+            </Link>
+          </div>
+          <div className="navItem">
+            <Link to={`/myaccount/${userId}`} className="links" style={{ textDecoration: 'none' }}>
+              { window.location.pathname.split('/')[1] === 'myaccount'? <div className="navItemText" id="myaccount" style={{ color : 'black'}}>My Account</div> : <div className="navItemText" id="myaccount" style={{ color : '#979797'}}>My Account</div> }
+            </Link>
+          </div>
+          <div className="navItem">
+            <button onClick={logout} id="logout"><div className="navItemText">Logout</div></button>
+          </div>
+        </div>
       </div>
-      <div className="navRow">
-        <div className="navItem">
-          <Link to={`/home`} className="links" style={{ textDecoration: 'none' }}>
-            { window.location.pathname.split('/')[1] === 'home'? <div className="navItemText" id="electrify" style={{ color : 'black'}}>Electrify</div> : <div className="navItemText" id="electrify" style={{ color : '#979797'}}>Electrify</div> }
-          </Link>
-        </div>
-        <div className="navItem">
-          <Link to={`/mycasa/${userId}`} className="links" style={{ textDecoration: 'none' }}>
-            { window.location.pathname.split('/')[1] === 'mycasa'? <div className="navItemText" id="mycasa" style={{ color : 'black'}}>My Casa</div> : <div className="navItemText" id="mycasa" style={{ color : '#979797'}}>My Casa</div> }
-          </Link>
-        </div>
-        <div className="navItem">
-          <Link to={`/myproject/${userId}`} className="links" style={{ textDecoration: 'none' }}>
-           { window.location.pathname.split('/')[1] === 'myproject'? <div className="navItemText" id="myproject" style={{ color : 'black'}}>My Project</div> : <div className="navItemText" id="myproject" style={{ color : '#979797'}}>My Project</div> }
-          </Link>
-        </div>
-        <div className="navItem">
-          <Link to={`/myaccount/${userId}`} className="links" style={{ textDecoration: 'none' }}>
-            { window.location.pathname.split('/')[1] === 'myaccount'? <div className="navItemText" id="myaccount" style={{ color : 'black'}}>My Account</div> : <div className="navItemText" id="myaccount" style={{ color : '#979797'}}>My Account</div> }
-          </Link>
-        </div>
-        <div className="navItem">
-          <button onClick={logout} id="logout"><div className="navItemText">Logout</div></button>
-        </div>
-      </div>
-    </div>
+      }
+
+
+    </>
+
     )
 }
 
