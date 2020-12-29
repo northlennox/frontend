@@ -10,14 +10,22 @@ input {
   font-size: 16px;
 }
 /* button */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #139929;
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 900;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
 
 * {
   font-family: 'Mulish', sans-serif;
 }
-
-.btn {
-  border: 1px solid
-},
 
 .frames {
   border: 1px solid;
