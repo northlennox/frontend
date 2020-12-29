@@ -11,7 +11,7 @@ const ClothesDrying = (props) => {
               <div className="title">Clothes Drying</div>
               <div className="item_container">
                 <div className="img_sub">
-                  <div className="electri_box"><img src="../Electrify/ClothesDrying.svg" /></div>
+                  <div className="electri_box"><img className="img" src="../Electrify/ClothesDrying.svg" /></div>
                   <div className="electri_text">Not Currently Included in Rating</div>
                 </div>
                 <div className="text_sub">

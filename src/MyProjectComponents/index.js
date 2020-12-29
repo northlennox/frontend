@@ -31,8 +31,7 @@ class MyProjectComponent extends Component {
 
 
     getHouseInfo = async() => {
-      console.log('jj');
-      // const userId = window.location.pathname.split('/')[2];
+  
       const userId = localStorage.getItem('userId')
 
       try{

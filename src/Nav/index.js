@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { Link, withRouter } from 'react-router-dom';
+import './Nav.scss'
 
 const Nav = (props) => {
   const userId = localStorage.getItem('userId');
@@ -28,26 +28,36 @@ const Nav = (props) => {
   }
 
 
-
   return(
-    <div>
-      <ul className="nav">
-        <li className="nav-item">
-          <Link to="/home">Home</Link>
-        </li>
-        <li className="nav-item">
-          <Link to={`/mycasa/${userId}`}>My Casa</Link>
-        </li>
-        <li className="nav-item">
-          <Link to={`/myproject/${userId}`}>My Project</Link>
-        </li>
-        <li className="nav-item">
-          <Link to={`/myaccount/${userId}`}>My Account</Link>
-        </li>
-        <li className="nav-item">
-          <button onClick={logout}>Logout</button>
-        </li>
-      </ul>
+    <div className="navContainer">
+      <div className="navRow" id="logo">
+        <Link to="/home" style={{ textDecoration: 'none' }}>
+          <div className="logContainer">
+            <div className="logoImg" style={{ marginRight: '20px' }}><img src={process.env.PUBLIC_URL + '/logo.png'}/></div>
+            <div className="logoText"><img src={process.env.PUBLIC_URL + '/electricasa.png'}/></div>
+          </div>
+        </Link>
+      </div>
+      <div className="navRow">
+        <div className="navItem">
+          <Link to={`/mycasa/${userId}`} className="links" style={{ textDecoration: 'none' }}>
+            { window.location.pathname.split('/')[1] === 'mycasa'? <div className="navItemText" id="mycasa" style={{ color : 'black'}}>My Casa</div> : <div className="navItemText" id="mycasa" style={{ color : '#979797'}}>My Casa</div> }
+          </Link>
+        </div>
+        <div className="navItem">
+          <Link to={`/myproject/${userId}`} className="links" style={{ textDecoration: 'none' }}>
+           { window.location.pathname.split('/')[1] === 'myproject'? <div className="navItemText" id="myproject" style={{ color : 'black'}}>My Project</div> : <div className="navItemText" id="myproject" style={{ color : '#979797'}}>My Project</div> }
+          </Link>
+        </div>
+        <div className="navItem">
+          <Link to={`/myaccount/${userId}`} className="links" style={{ textDecoration: 'none' }}>
+            { window.location.pathname.split('/')[1] === 'myaccount'? <div className="navItemText" id="myaccount" style={{ color : 'black'}}>My Account</div> : <div className="navItemText" id="myaccount" style={{ color : '#979797'}}>My Account</div> }
+          </Link>
+        </div>
+        <div className="navItem">
+          <button onClick={logout} id="logout"><div className="navItemText">Logout</div></button>
+        </div>
+      </div>
     </div>
     )
 }

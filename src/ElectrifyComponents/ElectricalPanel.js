@@ -12,7 +12,7 @@ const ElectricalPanel = (props) => {
               <div className="title">Electrical Panel</div>
               <div className="item_container">
                 <div className="img_sub">
-                  <div className="electri_box"><img src="../Electrify/ElectricalPanel.svg" /></div>
+                  <div className="electri_box"><img className="img" src="../Electrify/ElectricalPanel.svg" /></div>
                   <div className="electri_text">Not Currently Included in Rating</div>
                 </div>
                 <div className="text_sub">

@@ -1,38 +1,8 @@
-// import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-// import Nav from '../Nav';
-//
-// class MainContainer extends Component {
-//   constructor(){
-//     super()
-//     this.state = {
-//
-//     }
-//   }
-//   render(){
-//     return(
-//       <div>
-//         <Nav />
-//         <div><Link to="welcome">Read First > <Link></div>
-//         <div>
-//           <ul>
-//           <li>intro</li>
-//           <li><Link to="/signup">Sign Up</Link></li>
-//           </ul>
-//         </div>
-//       </div>
-//     )
-//   }
-// }
-//
-//
-// export default MainContainer
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../Nav';
 // import Footer from '../Footer';
-// import './Main.scss';
+import './Main.scss';
 
 class MainContainer extends Component {
   constructor(){

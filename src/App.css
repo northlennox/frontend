@@ -1,10 +1,25 @@
+/* color palette */
+/* green :  #139929 */
+
+/* input */
+
+/* button */
+
+* {
+  font-family: 'Mulish', sans-serif;
+}
+
+.btn {
+  border: 1px solid
+},
+
 .frames {
   border: 1px solid;
   height: 200px;
   width: 200px;
 }
 
-img {
+.img {
   border: 1px solid;
   height: 200px;
   width: 200px;

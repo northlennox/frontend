@@ -12,7 +12,7 @@ const Cooking = (props) => {
               <div className="title">Cooking</div>
               <div className="item_container">
                 <div className="img_sub">
-                  <div className="electri_box"><img src="../Electrify/Cooking.svg" /></div>
+                  <div className="electri_box"><img className="img" src="../Electrify/Cooking.svg" /></div>
                   <div className="electri_text">Not Currently Included in Rating</div>
                 </div>
                 <div className="text_sub">
