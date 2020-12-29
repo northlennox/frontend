@@ -31,7 +31,7 @@ const Nav = (props) => {
   return(
     <div className="navContainer">
       <div className="navRow" id="logo">
-        <Link to="/home" style={{ textDecoration: 'none' }}>
+        <Link to="/" style={{ textDecoration: 'none' }}>
           <div className="logContainer">
             <div className="logoImg" style={{ marginRight: '20px' }}><img src={process.env.PUBLIC_URL + '/logo.png'}/></div>
             <div className="logoText"><img src={process.env.PUBLIC_URL + '/electricasa.png'}/></div>
@@ -39,6 +39,11 @@ const Nav = (props) => {
         </Link>
       </div>
       <div className="navRow">
+        <div className="navItem">
+          <Link to={`/home`} className="links" style={{ textDecoration: 'none' }}>
+            { window.location.pathname.split('/')[1] === 'home'? <div className="navItemText" id="electrify" style={{ color : 'black'}}>Electrify</div> : <div className="navItemText" id="electrify" style={{ color : '#979797'}}>Electrify</div> }
+          </Link>
+        </div>
         <div className="navItem">
           <Link to={`/mycasa/${userId}`} className="links" style={{ textDecoration: 'none' }}>
             { window.location.pathname.split('/')[1] === 'mycasa'? <div className="navItemText" id="mycasa" style={{ color : 'black'}}>My Casa</div> : <div className="navItemText" id="mycasa" style={{ color : '#979797'}}>My Casa</div> }
