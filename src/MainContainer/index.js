@@ -22,7 +22,7 @@ class MainContainer extends Component {
           </Link>
         </div>
         <div className="section_one_container">
-          <img className="col_one" src="./MainImg/ph6.png"/>
+          <img className="col_one" src="../MainImg/ph6.png"/>
           <div className="col_two">
             <div id="h1">Your Home Electrification Advisor</div>
             <div id="text">If you want to increase comfort and lower your carbon footprint, Electricasa is the leading app to guide you toward a better house with zero emissions.</div>
