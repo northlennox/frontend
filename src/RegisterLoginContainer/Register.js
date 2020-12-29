@@ -93,17 +93,25 @@ class RegisterLoginContainer extends Component {
     return(
       <div>
         <Nav />
-        <div>Register</div>
-        <form onSubmit={this.handleRegisterSubmit}>
-          <input type="email" name="email" placeholder="Email" value={this.state.register.email} onChange={this.handleRegisterChange}/>
-          <input type="password" name="password" placeholder="Password" value={this.state.register.password} onChange={this.handleRegisterChange}/>
-          <input type="text" name="firstName" placeholder="firstName" value={this.state.register.firstName} onChange={this.handleRegisterChange}/>
-          <input type="text" name="lastName" placeholder="lastName" value={this.state.register.lastName} onChange={this.handleRegisterChange}/>
-          <input type="text" name="phNumber" placeholder="phNumber" value={this.state.register.phNumber} onChange={this.handleRegisterChange}/>
-          <input type="text" name="emailNotice" placeholder="emailNotice" value={this.state.register.emailNotice} onChange={this.handleRegisterChange}/>
-          <input type="text" name="mobileNotice" placeholder="mobileNotice" value={this.state.register.mobileNotice} onChange={this.handleRegisterChange}/>
-          <button type="submit">Submit</button>
-        </form>
+        <div className="registerContainer">
+          <form onSubmit={this.handleRegisterSubmit}>
+            <div className="formContainer">
+              <label>EMAIL</label>
+              <input type="email" name="email" placeholder="Email" value={this.state.register.email} onChange={this.handleRegisterChange}/>
+              <label>PASSWORD</label>
+              <input type="password" name="password" placeholder="Password" value={this.state.register.password} onChange={this.handleRegisterChange}/>
+              <label>FIRST NAME</label>
+              <input type="text" name="firstName" placeholder="firstName" value={this.state.register.firstName} onChange={this.handleRegisterChange}/>
+              <label>LAST NAME</label>
+              <input type="text" name="lastName" placeholder="lastName" value={this.state.register.lastName} onChange={this.handleRegisterChange}/>
+              <label>PHONE NUMBER</label>
+              <input type="text" name="phNumber" placeholder="phNumber" value={this.state.register.phNumber} onChange={this.handleRegisterChange}/>          
+              <input type="text" name="emailNotice" placeholder="emailNotice" value={this.state.register.emailNotice} onChange={this.handleRegisterChange}/>
+              <input type="text" name="mobileNotice" placeholder="mobileNotice" value={this.state.register.mobileNotice} onChange={this.handleRegisterChange}/>
+              <button className="btn" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }

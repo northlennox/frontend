@@ -26,7 +26,7 @@ class MainContainer extends Component {
           <div className="col_two">
             <div id="h1">Your Home Electrification Advisor</div>
             <div id="text">If you want to increase comfort and lower your carbon footprint, Electricasa is the leading app to guide you toward a better house with zero emissions.</div>
-            <div id="btn"><Link to="/signup" style={{ textDecoration: "none", color: "white", fondWeight: "400"}}>Sign Up</Link></div>
+            <div id="btn"><Link to="/login" style={{ textDecoration: "none", color: "white", fondWeight: "400"}}>Sign Up</Link></div>
           </div>
         </div>
         <div className="section_two_container left">

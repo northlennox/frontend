@@ -44,7 +44,7 @@ const Nav = (props) => {
           </div>
           <div className="navRow">
           <div className="navItem">
-            <Link to={`/signup`} className="links" style={{ textDecoration: 'none' }}>
+            <Link to={`/login`} className="links" style={{ textDecoration: 'none' }}>
               <div className="navItemText" id="electrify" style={{ color : '#979797'}}>Login</div>
             </Link>
           </div>

@@ -5,6 +5,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 import MainContainer from './MainContainer';
 import WelcomeComponent from './WelcomeComponent';
 import RegisterLoginContainer from './RegisterLoginContainer';
+import Register from './RegisterLoginContainer/Register.js';
 import HomeContainer from './HomeContainer';
 import MyCasaDashboard from './MyCasaComponents/MyCasaDashboard';
 import MyProjectComponent from './MyProjectComponents';
@@ -59,7 +60,8 @@ const App = (props) => {
     <main>
       <Switch>
         <Route exact path="/" component = { MainContainer } />
-        <Route exact path="/signup" component = { RegisterLoginContainer } />
+        <Route exact path="/login" component = { RegisterLoginContainer } />
+        <Route exact path="/signup" component = { Register } />
         <Route exact path="/home" component = { HomeContainer } />
         <Route exact path="/home/welcome" component = { WelcomeComponent } />
         <Route exact path="/myaccount/:id" component = { MyAccountContainer } />

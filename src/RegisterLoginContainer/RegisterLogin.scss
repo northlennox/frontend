@@ -1,4 +1,4 @@
-.loginContainer {
+.loginContainer, .registerContainer {
   width: 40%;
   margin-top: 10%;
   margin-left: 30%;
@@ -16,6 +16,10 @@
 }
 
 #registerBox {
-  border: 1px solid red;
-  background-color: red;
+  background-color: #E9E9E9;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
 }
