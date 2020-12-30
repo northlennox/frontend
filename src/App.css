@@ -1,5 +1,6 @@
 /* color palette */
 /* green :  #139929 */
+/* orange : #FA910B */
 
 /* input */
 input {
@@ -50,37 +51,29 @@ input {
 .titleContainer {
   align-items: flex-start;
 }
+.subtitle {
+  margin-top: 3vh;
+}
 
 .links {
   text-decoration: none;
   color: black;
 }
 
-.frames {
+/* .frames {
   border: 1px solid;
   height: 200px;
   width: 200px;
-}
+} */
 
 
 .no_posting {
-  border: 1px solid;
-  height: 200px;
-  width: 200px;
+  /* border: 1px solid; */
+  width: 270px;
+  height: 150px;
   background-color: grey;
 }
 
-.items {
-  width: 230px;
-  height: auto;
-  padding: 15px;
-  border: 1px solid
-}
-
-.row_mycasa_dashboard {
-  display: flex;
-  flex-direction: row;
-}
 
 .container {
   display: flex;

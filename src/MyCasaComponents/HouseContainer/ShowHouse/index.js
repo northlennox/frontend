@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../MyCasaDashboard/MyCasaDashboard.scss';
 
 const ShowHouse = (props) => {
   console.log('here', props);
@@ -7,8 +8,8 @@ const ShowHouse = (props) => {
   const userId = localStorage.userId;
 
   return(
-    <div>
-      <img src={`${process.env.REACT_APP_API}/` + photo}/>
+    <div className="frameContainer">
+      <img className="showImg" src={`${process.env.REACT_APP_API}/` + photo}/>
       <div className="smtitle">House Details</div>
       <div>{props.house.address}</div>
       <div>{props.house.city}</div>

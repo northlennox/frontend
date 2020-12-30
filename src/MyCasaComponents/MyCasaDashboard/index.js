@@ -8,6 +8,7 @@ import ShowRoof from '../RoofContainer/ShowRoof';
 import ShowSpHeater from '../SpHeaterContainer/ShowSpHeater';
 import ShowWaHeater from '../WaHeaterContainer/ShowWaHeater';
 import ShowUtility from '../UtilityContainer/ShowUtility';
+import './MyCasaDashboard.scss';
 // import axios from 'axios'
 // import Moment from 'react-moment';
 
@@ -212,17 +213,22 @@ class MyCasaDashboard extends Component {
     return(
       <>
         <Nav />
-        <div id="title">My Casa</div>
-        <div id="subtitle">Explore home energy improvements to increase comfort, efficiency, safety and health, and lower carbon footprint.</div>
-
-        <div className="container_mycasa_dashboard">
-          <div className="row_mycasa_dashboard">
+        <div className="myCasaContainer">
+          <div className="titleContainer myCasaTitle">
+            <div className="title h2">My Casa</div>
+            <div className="subtitle h4">Explore home energy improvements to increase comfort, efficiency, safety and health, and lower carbon footprint.</div>
+          </div>
+        <div className="showContainer">
+          <div className="showRow">
             <div className="items">
               { this.state.house !== null
               ?
               <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>
               :
-              <Link to="/mycasa/house/create"><div className="no_posting"></div></Link>
+              <Link to="/mycasa/house/create" className="blankContainer">
+                <div className="blankFrame"></div>
+                <div className="blankLabel">House Details</div>
+              </Link>
               }
             </div>
             <div className="items">
@@ -230,7 +236,10 @@ class MyCasaDashboard extends Component {
               ?
               <ShowRoof roof={this.state.roof} deleteMyRoof={this.deleteMyRoof} />
               :
-              <Link to="/mycasa/roof/create"><div className="no_posting"></div></Link>
+              <Link to="/mycasa/roof/create" className="blankContainer">
+                <div className="blankFrame"></div>
+                <div className="blankLabel">Roof Details</div>
+              </Link>
               }
             </div>
             <div className="items">
@@ -238,17 +247,23 @@ class MyCasaDashboard extends Component {
               ?
               <ShowAttic attic={this.state.attic} deleteMyAttic={this.deleteMyAttic}/>
               :
-              <Link to="/mycasa/attic/create"><div className="no_posting"></div></Link>
+              <Link to="/mycasa/attic/create" className="blankContainer">
+                <div className="blankFrame"></div>
+                <div className="blankLabel">Attic Insulation Details</div>
+              </Link>
               }
             </div>
           </div>
-          <div className="row_mycasa_dashboard">
+          <div className="showRow">
             <div className="items">
               { this.state.waHeater !== null
               ?
               <ShowWaHeater waHeater={this.state.waHeater} deleteMyWaHeater={this.deleteMyWaHeater}/>
               :
-              <Link to="/mycasa/waheater/create"><div className="no_posting"></div></Link>
+              <Link to="/mycasa/waheater/create" className="blankContainer">
+                <div className="blankFrame"></div>
+                <div className="blankLabel">Water Heater Details</div>
+              </Link>
               }
             </div>
             <div className="items">
@@ -256,7 +271,10 @@ class MyCasaDashboard extends Component {
               ?
               <ShowSpHeater spHeater={this.state.spHeater} deleteMySpHeater={this.deleteMySpHeater}/>
               :
-              <Link to="/mycasa/spheater/create"><div className="no_posting"></div></Link>
+              <Link to="/mycasa/spheater/create" className="blankContainer">
+                <div className="blankFrame"></div>
+                <div className="blankLabel">Primary Heater Details</div>
+              </Link>
               }
             </div>
             <div className="items">
@@ -264,12 +282,15 @@ class MyCasaDashboard extends Component {
               ?
               <ShowUtility utility={this.state.utility} deleteMyUtility={this.deleteMyUtility}/>
               :
-              <Link to="/mycasa/utility/create"><div className="no_posting"></div></Link>
+              <Link to="/mycasa/utility/create" className="blankContainer">
+                <div className="blankFrame"></div>
+                <div className="blankLabel">Utility Bills</div>
+              </Link>
               }
             </div>
           </div>
         </div>
-
+        </div>
       </>
     )
   }
