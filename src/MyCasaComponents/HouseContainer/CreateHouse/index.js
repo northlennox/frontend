@@ -183,10 +183,12 @@ class HouseContainer extends Component {
 
       <div>
         <Nav />
-          <div>Home Details</div>
+        <div className="createContainer">
+          <div className="createTitle">Home Details</div>
           <form onSubmit={this.handleSubmit}>
+            <div className="createBox">
               <div className="photo_mark">PHOTO</div>
-              <div><img className="frames" id="photoOne" src={this.state.preview1} onClick={this.handleClick } /></div>
+                <div><img className="frames" id="photoOne" src={this.state.preview1} onClick={this.handleClick } /></div>
               <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
 
               <label htmlFor="address">ADDRESS</label>
@@ -211,8 +213,9 @@ class HouseContainer extends Component {
               <input name="houseSqft" id="houseSqft" type="text" onChange={this.handleInput} value={this.state.house.houseSqft}  />
 
               <button type="submit" className="btn">SAVE</button>
-
+            </div>
           </form>
+        </div>
       </div>
     )
   }
