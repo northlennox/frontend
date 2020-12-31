@@ -60,21 +60,6 @@ input {
   color: black;
 }
 
-/* .frames {
-  border: 1px solid;
-  height: 200px;
-  width: 200px;
-} */
-
-
-.no_posting {
-  /* border: 1px solid; */
-  width: 270px;
-  height: 150px;
-  background-color: grey;
-}
-
-
 .container {
   display: flex;
   flex-direction: row;

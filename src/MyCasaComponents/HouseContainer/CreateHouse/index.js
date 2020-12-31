@@ -187,32 +187,50 @@ class HouseContainer extends Component {
           <div className="createTitle">Home Details</div>
           <form onSubmit={this.handleSubmit}>
             <div className="createBox">
-              <div className="photo_mark">PHOTO</div>
-                <div><img className="frames" id="photoOne" src={this.state.preview1} onClick={this.handleClick } /></div>
-              <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
-
-              <label htmlFor="address">ADDRESS</label>
-              <input name="address" id="address" type="text" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
-
-              <label htmlFor="city">CITY</label>
-              <input name="city" id="city" type="text" onChange={this.handleInput} value={this.state.house.city} placeholder="ex)San Francisco" />
-
-              <label className="" htmlFor="state">STATE</label>
-              <select name="state" id="state" type="text" onChange={this.handleInput} value={this.state.house.state}>
-                {states.map(st => {
-                    return <option value={st} key={st} >{st}</option>
-                })}
-              </select>
-              <label className="" htmlFor="zipcode">ZIPCODE</label>
-              <input name="zipcode" id="zipcode" type="text" onChange={this.handleInput} value={this.state.house.zipcode}  />
-
-              <label htmlFor="houseYear">YEAR BUILT</label>
-              <input name="houseYear" id="houseYear" type="text" onChange={this.handleInput} value={this.state.house.houseYear}  />
-
-              <label className="" htmlFor="houseSqft">SQUARE FEET</label>
-              <input name="houseSqft" id="houseSqft" type="text" onChange={this.handleInput} value={this.state.house.houseSqft}  />
-
-              <button type="submit" className="btn">SAVE</button>
+              <div className="helpContainer">
+                <span className="inputLabel">PHOTO</span>
+                <img className="help" src="./../../help.svg"/>
+              </div>
+              <div className="frames">
+                { this.state.preview1 === undefined ?
+                  <img id="photoOne" className="upload" src="./../../placer.svg" /> :
+                  <img id="photoOne" className="imgAttached" src={this.state.preview1} onClick={this.handleClick} />
+                }
+                <input name="photoOne" className="FileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="address">ADDRESS</label>
+                <input name="address" id="address" type="text" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="city">CITY</label>
+                <input name="city" id="city" type="text" onChange={this.handleInput} value={this.state.house.city} placeholder="ex)San Francisco" />
+              </div>
+              <div className="inputRow">
+                <div className="inputItem">
+                  <label className="inputLabel" htmlFor="state">STATE</label>
+                  <select className="selectInput" name="state" id="state" type="text" onChange={this.handleInput} value={this.state.house.state}>
+                    {states.map(st => {
+                        return <option value={st} key={st} >{st}</option>
+                    })}
+                  </select>
+                </div>
+                <div className="inputItem">
+                  <label className="inputLabel" htmlFor="zipcode">ZIPCODE</label>
+                  <input name="zipcode" id="zipcode" type="text" onChange={this.handleInput} value={this.state.house.zipcode}  />
+                </div>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="houseYear">YEAR BUILT</label>
+                <input name="houseYear" id="houseYear" type="text" onChange={this.handleInput} value={this.state.house.houseYear}  />
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="houseSqft">SQUARE FEET</label>
+                <input name="houseSqft" id="houseSqft" type="text" onChange={this.handleInput} value={this.state.house.houseSqft}  />
+              </div>
+              <div className="inputContainer">
+                <button type="submit" className="btn">SAVE</button>
+              </div>
             </div>
           </form>
         </div>

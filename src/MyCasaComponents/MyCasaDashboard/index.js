@@ -226,7 +226,7 @@ class MyCasaDashboard extends Component {
               <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>
               :
               <Link to="/mycasa/house/create" className="blankContainer">
-                <div className="blankFrame"></div>
+                <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
                 <div className="blankLabel">House Details</div>
               </Link>
               }
@@ -237,7 +237,7 @@ class MyCasaDashboard extends Component {
               <ShowRoof roof={this.state.roof} deleteMyRoof={this.deleteMyRoof} />
               :
               <Link to="/mycasa/roof/create" className="blankContainer">
-                <div className="blankFrame"></div>
+                <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
                 <div className="blankLabel">Roof Details</div>
               </Link>
               }
@@ -248,7 +248,7 @@ class MyCasaDashboard extends Component {
               <ShowAttic attic={this.state.attic} deleteMyAttic={this.deleteMyAttic}/>
               :
               <Link to="/mycasa/attic/create" className="blankContainer">
-                <div className="blankFrame"></div>
+                <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
                 <div className="blankLabel">Attic Insulation Details</div>
               </Link>
               }
@@ -261,7 +261,7 @@ class MyCasaDashboard extends Component {
               <ShowWaHeater waHeater={this.state.waHeater} deleteMyWaHeater={this.deleteMyWaHeater}/>
               :
               <Link to="/mycasa/waheater/create" className="blankContainer">
-                <div className="blankFrame"></div>
+                <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
                 <div className="blankLabel">Water Heater Details</div>
               </Link>
               }
@@ -272,7 +272,7 @@ class MyCasaDashboard extends Component {
               <ShowSpHeater spHeater={this.state.spHeater} deleteMySpHeater={this.deleteMySpHeater}/>
               :
               <Link to="/mycasa/spheater/create" className="blankContainer">
-                <div className="blankFrame"></div>
+                <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
                 <div className="blankLabel">Primary Heater Details</div>
               </Link>
               }
@@ -283,7 +283,7 @@ class MyCasaDashboard extends Component {
               <ShowUtility utility={this.state.utility} deleteMyUtility={this.deleteMyUtility}/>
               :
               <Link to="/mycasa/utility/create" className="blankContainer">
-                <div className="blankFrame"></div>
+                <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
                 <div className="blankLabel">Utility Bills</div>
               </Link>
               }

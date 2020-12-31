@@ -54,6 +54,11 @@
     height: 150px;
     background-color: #E9E9E9;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    .placer {
+      width: 30%;
+    }
   }
   .blankLabel {
     margin-top: 10px;
@@ -64,6 +69,7 @@
 .createContainer {
   display: flex;
   flex-direction: column;
+  margin-bottom: 5%;
   .createTitle {
     margin: 6% auto 6% 20%;
     font-weight: 600;
@@ -71,7 +77,6 @@
     line-height: 25px;
   }
   .createBox {
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     width: 40%;
@@ -81,7 +86,66 @@
     padding: 40px;
   }
   .frames {
+    display: flex;
+    padding-left: 37%;
     height: 280px;
-    border: 1px green 1px;
+    border: 1px dashed #979797;
+    box-sizing: border-box;
+    border-radius: 10px;
+    // position: absolute;
+    .imgAttached {
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+    }
+    .upload {
+
+    }
+    .FileUpload {
+        // border: 1px solid red;
+        width: 10%;
+        // height: 100px;
+        display: inline-block;
+        overflow: hidden;
+        opacity: 0;
+        position: relative;
+        z-index: 1;
+    }
   }
+  .helpContainer {
+    display: flex;
+    align-items: baseline;
+    .help {
+      width: 16px;
+      height: 16px;
+      margin-left: 8px;
+    }
+  }
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+  .inputRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+    width: 100%;
+    .inputItem {
+      display: flex;
+      flex-direction: column;
+      width: 45%;
+    }
+  }
+}
+
+.selectInput {
+  height: 55px;
+}
+
+.inputLabel {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
