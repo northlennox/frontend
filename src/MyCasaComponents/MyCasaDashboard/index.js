@@ -9,6 +9,7 @@ import ShowSpHeater from '../SpHeaterContainer/ShowSpHeater';
 import ShowWaHeater from '../WaHeaterContainer/ShowWaHeater';
 import ShowUtility from '../UtilityContainer/ShowUtility';
 import './MyCasaDashboard.scss';
+import { Button, Card, Accordion } from 'react-bootstrap';
 // import axios from 'axios'
 // import Moment from 'react-moment';
 
@@ -235,9 +236,12 @@ class MyCasaDashboard extends Component {
               ?
                 <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>
               :
+
               <Link to="/mycasa/house/create" className="blankContainer">
                 <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
-                <div className="blankLabel">House Details</div>
+                <Accordion>
+                  <div className="blankLabel">House Details</div>
+                </Accordion>
               </Link>
               }
             </div>
@@ -300,7 +304,9 @@ class MyCasaDashboard extends Component {
             </div>
           </div>
         </div>
-        </div>
+      </div>
+      <div>
+      </div>
       </>
     )
   }
