@@ -131,41 +131,58 @@ class CreateAttic extends Component {
 
       <div>
         <Nav />
-          <div>Roof</div>
+        <div className="createContainer">
+          <div className="createTitle">Roof Details</div>
           <form onSubmit={this.handleSubmit}>
-              <div className="photo_mark">PHOTO</div>
-              <div><img className="frames" id="photoOne" src={this.state.preview1} onClick={this.handleClick } /></div>
-              <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
-
-              <label htmlFor="exterior">EXTERIOR FINISH</label>
-              <select name="exterior" id="exterior" type="text" onChange={this.handleInput} value={this.state.roof.exterior}>
+            <div className="createBox">
+              <div className="helpContainer">
+                <span className="inputLabel">PHOTO</span>
+                <img className="help" src="./../../help.svg"/>
+              </div>
+            <div className="frames">
+              { this.state.preview1 === undefined ?
+                <img className="upload" id="photoOne" src="./../../placer.svg" /> :
+                <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />
+              }
+              <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
+            </div>
+            <div className="inputContainer">
+              <label className="inputLabel" htmlFor="exterior">EXTERIOR FINISH</label>
+              <select className="selectInput" name="exterior" id="exterior" type="text" onChange={this.handleInput} value={this.state.roof.exterior}>
                 {extriorOptions.map(extriorOption => {
                     return <option value={extriorOption} key={extriorOption} >{extriorOption}</option>
                 })}
               </select>
-
-
-              <label htmlFor="roofColor">COLOR</label>
-              <select name="roofColor" id="roofColor" type="text" onChange={this.handleInput} value={this.state.roof.roofColor}>
+            </div>
+            <div className="inputContainer">
+              <label className="inputLabel" htmlFor="roofColor">COLOR</label>
+              <select className="selectInput" name="roofColor" id="roofColor" type="text" onChange={this.handleInput} value={this.state.roof.roofColor}>
                 {colorOptions.map(colorOption => {
                     return <option value={colorOption} key={colorOption} >{colorOption}</option>
                 })}
               </select>
-
-              <label htmlFor="pvSystem">IS THERE SOLAR PV SYSTEM INSTALLED?*</label>
+            </div>
+            <div className="inputContainer">
+              <label className="inputLabel" htmlFor="pvSystem">IS THERE SOLAR PV SYSTEM INSTALLED?*</label>
               <div id="pvSystem" >
-                <input name="pvSystem" type="radio" checked={this.state.roof.pvSystem === "YES"} value="YES" onChange={this.handleInput}/>YES
-                <input name="pvSystem" type="radio" checked={this.state.roof.pvSystem === "NO"} value="NO" onChange={this.handleInput}/>NO
+                <input className="radioInput" name="pvSystem" type="radio" checked={this.state.roof.pvSystem === "YES"} value="YES" onChange={this.handleInput}/>YES
+                <input className="radioInput-right" name="pvSystem" type="radio" checked={this.state.roof.pvSystem === "NO"} value="NO" onChange={this.handleInput}/>NO
               </div>
-
-              <label htmlFor="panels">NUMBER OF PANELS</label>
+            </div>
+            <div className="inputContainer">
+              <label className="inputLabel" htmlFor="panels">NUMBER OF PANELS</label>
               <input name="panels" id="panels" type="text" onChange={this.handleInput} value={this.state.roof.panels} />
-
-              <label htmlFor="dcCapacity">SIZE(KW)</label>
+            </div>
+            <div className="inputContainer">
+              <label className="inputLabel" htmlFor="dcCapacity">SIZE(KW)</label>
               <input name="dcCapacity" id="dcCapacity" type="text" onChange={this.handleInput} value={this.state.roof.dcCapacity} />
-
+            </div>
+            <div className="inputContainer">
               <button type="submit" className="btn">SAVE</button>
+            </div>
+            </div>
           </form>
+        </div>
       </div>
     )
   }

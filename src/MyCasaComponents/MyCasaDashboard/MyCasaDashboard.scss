@@ -101,7 +101,7 @@
     .upload {
 
     }
-    .FileUpload {
+    .fileUpload {
         // border: 1px solid red;
         width: 10%;
         // height: 100px;
@@ -142,6 +142,12 @@
 
 .selectInput {
   height: 55px;
+  border-radius: 5px;
+  border: 1px solid #979797;
+}
+
+.radioInput-right {
+  margin-left: 30%;
 }
 
 .inputLabel {

@@ -138,40 +138,61 @@ class CreateUtility extends Component {
 
       <div>
         <Nav />
+        <div className="createContainer">
           <div>Utility Details</div>
           <form onSubmit={this.handleSubmit}>
-              <div className="photo_mark">PHOTO</div>
-              <div><img className="frames" id="photoOne" src={this.state.preview1} onClick={this.handleClick } /></div>
-              <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
-
-              <label htmlFor="utilityName">UTILITY NAME</label>
-              <input name="utilityName" id="utilityName" type="text" onChange={this.handleInput} value={this.state.utility.utilityName} />
-
-              <label htmlFor="electricityUsageKwh">ELECTRICITY USAGE, KWH</label>
-              <input name="electricityUsageKwh" id="electricityUsageKwh" type="text" onChange={this.handleInput} value={this.state.utility.electricityUsageKwh} />
-
-              <label htmlFor="electricityUsageDollar">ELECTRICITY USAGE, $</label>
-              <input name="electricityUsageDollar" id="electricityUsageDollar" type="text" onChange={this.handleInput} value={this.state.utility.electricityUsageDollar} />
-
-              <label htmlFor="gasUsageTherms">GAS USAGE, THERMS</label>
-              <input name="gasUsageTherms" id="gasUsageTherms" type="text" onChange={this.handleInput} value={this.state.utility.gasUsageTherms} />
-
-              <label htmlFor="gasUsageDollar">GAS USAGE, $</label>
-              <input name="gasUsageDollar" id="gasUsageDollar" type="text" onChange={this.handleInput} value={this.state.utility.gasUsageDollar} />
-
-              <label htmlFor="highBilling">ARE YOUR ENERGY BILLS TOO HIGH?</label>
-              <div id="highBilling" >
-                <input name="highBilling" type="radio" checked={this.state.utility.highBilling === "YES"} value="YES" onChange={this.handleInput}/>YES
-                <input name="highBilling" type="radio" checked={this.state.utility.highBilling === "NO"} value="NO" onChange={this.handleInput}/>NO
+            <div className="createBox">
+              <div className="helpContainer">
+                <span className="inputLabel">PHOTO</span>
+                <img className="help" src="./../../help.svg"/>
               </div>
-
-              <label htmlFor="oldEquipment">DO YOU HAVE ANY EQUIPMENT OLDER THAN 25 YEARS EG. AN OLD FREEZER?</label>
-              <div id="oldEquipment" >
-                <input name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "YES"} value="YES" onChange={this.handleInput}/>YES
-                <input name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "NO"} value="NO" onChange={this.handleInput}/>NO
+              <div className="frames" >
+                { this.state.preview1 === undefined ?
+                  <img className="upload" id="photoOne" src="./../../placer.svg" /> :
+                  <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />
+                }
+                <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
-              <button type="submit" className="btn">SAVE</button>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="utilityName">UTILITY NAME</label>
+                <input name="utilityName" id="utilityName" type="text" onChange={this.handleInput} value={this.state.utility.utilityName} />
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="electricityUsageKwh">ELECTRICITY USAGE, KWH</label>
+                <input name="electricityUsageKwh" id="electricityUsageKwh" type="text" onChange={this.handleInput} value={this.state.utility.electricityUsageKwh} />
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="electricityUsageDollar">ELECTRICITY USAGE, $</label>
+                <input name="electricityUsageDollar" id="electricityUsageDollar" type="text" onChange={this.handleInput} value={this.state.utility.electricityUsageDollar} />
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="gasUsageTherms">GAS USAGE, THERMS</label>
+                <input name="gasUsageTherms" id="gasUsageTherms" type="text" onChange={this.handleInput} value={this.state.utility.gasUsageTherms} />
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="gasUsageDollar">GAS USAGE, $</label>
+                <input name="gasUsageDollar" id="gasUsageDollar" type="text" onChange={this.handleInput} value={this.state.utility.gasUsageDollar} />
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="highBilling">ARE YOUR ENERGY BILLS TOO HIGH?</label>
+                <div id="highBilling" >
+                  <input name="highBilling" type="radio" checked={this.state.utility.highBilling === "YES"} value="YES" onChange={this.handleInput}/>YES
+                  <input className="radioInput-right" name="highBilling" type="radio" checked={this.state.utility.highBilling === "NO"} value="NO" onChange={this.handleInput}/>NO
+                </div>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="oldEquipment">DO YOU HAVE ANY EQUIPMENT OLDER THAN 25 YEARS EG. AN OLD FREEZER?</label>
+                <div id="oldEquipment" >
+                  <input name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "YES"} value="YES" onChange={this.handleInput}/>YES
+                  <input className="radioInput-right" name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "NO"} value="NO" onChange={this.handleInput}/>NO
+                </div>
+              </div>
+              <div className="inputContainer">
+                <button type="submit" className="btn">SAVE</button>
+              </div>
+            </div>
           </form>
+        </div>
       </div>
     )
   }

@@ -133,41 +133,61 @@ class CreateWaHeater extends Component {
 
       <div>
         <Nav />
-          <div>Water Heater Details</div>
+        <div className="createContainer">
+          <div className="createTitle">Water Heater Details</div>
           <form onSubmit={this.handleSubmit}>
-              <div className="photo_mark">PHOTO</div>
-              <div><img className="frames" id="photoOne" src={this.state.preview1} onClick={this.handleClick } /></div>
-              <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
-
-              <label htmlFor="waHeatertype">TYPE OF WATER HEATER</label>
-              <select name="waHeatertype" id="waHeatertype" type="text" onChange={this.handleInput} value={this.state.waHeater.waHeatertype}>
-                {waHeaterTypeOptions.map(waHeaterTypeOption => {
-                    return <option value={waHeaterTypeOption} key={waHeaterTypeOption} >{waHeaterTypeOption}</option>
-                })}
-              </select>
-
-              <label htmlFor="waHeaterBrand">BRAND</label>
-              <input name="waHeaterBrand" id="waHeaterBrand" type="text" onChange={this.handleInput} value={this.state.waHeater.waHeaterBrand} />
-
-              <label htmlFor="waHeaterYear">YEAR OF MANUFACTURE*</label>
-              <select name="waHeaterYear" id="waHeaterYear" type="text" onChange={this.handleInput} value={this.state.waHeater.waHeaterYear}>
-                {waHeaterYearOptions.map(waHeaterYearOption => {
-                    return <option value={waHeaterYearOption} key={waHeaterYearOption} >{waHeaterYearOption}</option>
-                })}
-              </select>
-              <label htmlFor="waHeaterCondition">IS THE SYSTEM WORKING WELL?</label>
-              <div id="waHeaterCondition" >
-                <input name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "YES"} value="YES" onChange={this.handleInput}/>YES
-                <input name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "NO"} value="NO" onChange={this.handleInput}/>NO
+            <div className="createBox">
+              <div className="helpContainer">
+                <span className="inputLabel">PHOTO</span>
+                <img className="help" src="./../../help.svg"/>
               </div>
-
-              <label htmlFor="waHeaterSingle">IS THERE A COOLING SYSTEM?</label>
-              <div id="waHeaterSingle" >
-                <input name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "YES"} value="YES" onChange={this.handleInput}/>YES
-                <input name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "NO"} value="NO" onChange={this.handleInput}/>NO
+              <div className="frames">
+                { this.state.preview1 === undefined ?
+                  <img className="upload" id="photoOne" src="./../../placer.svg" /> :
+                  <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />
+                }
+                <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
-              <button type="submit" className="btn">SAVE</button>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="waHeatertype">TYPE OF WATER HEATER</label>
+                <select className="selectInput" name="waHeatertype" id="waHeatertype" type="text" onChange={this.handleInput} value={this.state.waHeater.waHeatertype}>
+                  {waHeaterTypeOptions.map(waHeaterTypeOption => {
+                      return <option value={waHeaterTypeOption} key={waHeaterTypeOption} >{waHeaterTypeOption}</option>
+                  })}
+                </select>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="waHeaterBrand">BRAND</label>
+                <input name="waHeaterBrand" id="waHeaterBrand" type="text" onChange={this.handleInput} value={this.state.waHeater.waHeaterBrand} />
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="waHeaterYear">YEAR OF MANUFACTURE*</label>
+                <select className="selectInput" name="waHeaterYear" id="waHeaterYear" type="text" onChange={this.handleInput} value={this.state.waHeater.waHeaterYear}>
+                  {waHeaterYearOptions.map(waHeaterYearOption => {
+                      return <option value={waHeaterYearOption} key={waHeaterYearOption} >{waHeaterYearOption}</option>
+                  })}
+                </select>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="waHeaterCondition">IS THE SYSTEM WORKING WELL?</label>
+                <div id="waHeaterCondition" >
+                  <input name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "YES"} value="YES" onChange={this.handleInput}/>YES
+                  <input className="radioInput-right" name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "NO"} value="NO" onChange={this.handleInput}/>NO
+                </div>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="waHeaterSingle">IS THERE A COOLING SYSTEM?</label>
+                <div id="waHeaterSingle" >
+                  <input name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "YES"} value="YES" onChange={this.handleInput}/>YES
+                  <input className="radioInput-right" name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "NO"} value="NO" onChange={this.handleInput}/>NO
+                </div>
+              </div>
+              <div className="inputContainer">
+                <button type="submit" className="btn">SAVE</button>
+              </div>
+            </div>
           </form>
+        </div>
       </div>
     )
   }
