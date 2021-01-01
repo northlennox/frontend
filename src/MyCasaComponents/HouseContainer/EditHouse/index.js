@@ -191,45 +191,115 @@ class EditHouse extends Component {
 
   render(){
     const houseImgState = `${process.env.REACT_APP_API}/` + this.state.house.houseImg;
+    const states = [
+      'Alabama',
+      'Alaska',
+      'Arizona',
+      'Arkansas',
+      'California',
+      'Colorado',
+      'Connecticut',
+      'Delaware',
+      'Florida',
+      'Georgia',
+      'Hawaii',
+      'Idaho',
+      'IllinoisIndiana',
+      'Iowa',
+      'Kansas',
+      'Kentucky',
+      'Louisiana',
+      'Maine',
+      'Maryland',
+      'Massachusetts',
+      'Michigan',
+      'Minnesota',
+      'Mississippi',
+      'Missouri',
+      'MontanaNebraska',
+      'Nevada',
+      'New Hampshire',
+      'New Jersey',
+      'New Mexico',
+      'New York',
+      'North Carolina',
+      'North Dakota',
+      'Ohio',
+      'Oklahoma',
+      'Oregon',
+      'PennsylvaniaRhode Island',
+      'South Carolina',
+      'South Dakota',
+      'Tennessee',
+      'Texas',
+      'Utah',
+      'Vermont',
+      'Virginia',
+      'Washington',
+      'West Virginia',
+      'Wisconsin',
+      'Wyoming',
+    ]
     return(
       <div>
         <Nav />
-        <h1>Edit House</h1>
-        <form onSubmit={this.updateHouse}>
-          <div>
-            <img className="frames"
-                 id="photoOne"
-                 src={this.state.preview1 === null ? houseImgState : this.state.preview1}
-                 onClick={this.handleClick} />
-          </div>
-          <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
+        <div className="editContainer">
+          <div className="editTitle">Edit House</div>
+          <form onSubmit={this.updateHouse}>
+            <div className="editBox">
+              <div className="helpContainer">
+                <span className="inputLabel">PHOTO</span>
+                <img className="help" src="./../../help.svg"/>
+              </div>
+              <div className="frames">
+                <img className="imgAttached"
+                     id="photoOne"
+                     src={this.state.preview1 === null ? houseImgState : this.state.preview1}
+                     onClick={this.handleClick} />
+              </div>
+              <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
 
-          <div>
-            <label htmlFor="address">ADDRESS</label>
-              <input name="address" id="address" type="text" className="form-control" onChange={this.handleEditFormInput} value={this.state.house.address} />
-          </div>
-          <div>
-            <label htmlFor="city">CITY</label>
-              <input name="city" id="city" type="text" className="form-control" onChange={this.handleEditFormInput} value={this.state.house.city} />
-          </div>
-          <div>
-            <label htmlFor="state">STATE</label>
-              <input name="state" id="state" type="text" className="form-control" onChange={this.handleEditFormInput} value={this.state.house.state} />
-          </div>
-          <div>
-            <label htmlFor="zipcode">ZIPCODE</label>
-              <input name="zipcode" id="zipcode" type="text" className="form-control" onChange={this.handleEditFormInput} value={this.state.house.zipcode} />
-          </div>
-          <div>
-            <label htmlFor="houseYear">YEAR BUILT</label>
-              <input name="houseYear" id="houseYear" type="text" className="form-control" onChange={this.handleEditFormInput} value={this.state.house.houseYear} />
-          </div>
-          <div>
-            <label htmlFor="houseSqft">SQUARE FEET</label>
-              <input name="houseSqft" id="houseSqft" type="text" className="form-control" onChange={this.handleEditFormInput} value={this.state.house.houseSqft}  />
-          </div>
-          <button type="submit">Edit/update</button>
-        </form>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="address">ADDRESS</label>
+                <input name="address" id="address" type="text" onChange={this.handleEditFormInput} value={this.state.house.address} />
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="city">CITY</label>
+                <input name="city" id="city" type="text" onChange={this.handleEditFormInput} value={this.state.house.city} />
+              </div>
+              <div className="inputRow">
+                <div className="inputItem">
+                  <div className="inputContainer">
+                    <label className="inputLabel" htmlFor="state">STATE</label>
+                    <select className="selectInput" name="state" id="state" type="text" onChange={this.handleEditFormInput} value={this.state.house.state}>
+                      {states.map(st => {
+                          return <option value={st} key={st} >{st}</option>
+                      })}
+                    </select>
+
+                  </div>
+                </div>
+                <div className="inputItem">
+                  <div className="inputContainer">
+                    <label className="inputLabel" htmlFor="zipcode">ZIPCODE</label>
+                    <input name="zipcode" id="zipcode" type="text"  onChange={this.handleEditFormInput} value={this.state.house.zipcode} />
+                  </div>
+                </div>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="houseYear">YEAR BUILT</label>
+                <input name="houseYear" id="houseYear" type="text" onChange={this.handleEditFormInput} value={this.state.house.houseYear} />
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="houseSqft">SQUARE FEET</label>
+                <input name="houseSqft" id="houseSqft" type="text" onChange={this.handleEditFormInput} value={this.state.house.houseSqft}  />
+              </div>
+              <div className="inputContainer">
+                <button className="btn" type="submit">Edit/update</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }

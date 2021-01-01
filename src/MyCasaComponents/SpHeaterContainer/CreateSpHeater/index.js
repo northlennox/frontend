@@ -143,10 +143,7 @@ class CreateSpHeater extends Component {
                 <img className="help" src="./../../help.svg"/>
               </div>
               <div className="frames">
-                { this.state.preview1 === undefined ?
-                  <img className="upload" id="photoOne" src="./../../placer.svg" /> :
-                  <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />
-                }
+                <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />
                 <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
                <div className="inputContainer">

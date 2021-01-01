@@ -192,10 +192,7 @@ class HouseContainer extends Component {
                 <img className="help" src="./../../help.svg"/>
               </div>
               <div className="frames">
-                { this.state.preview1 === undefined ?
-                  <img id="photoOne" className="upload" src="./../../placer.svg" /> :
-                  <img id="photoOne" className="imgAttached" src={this.state.preview1} onClick={this.handleClick} />
-                }
+                <img id="photoOne" className="imgAttached" src={this.state.preview1} onClick={this.handleClick} />
                 <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
               <div className="inputContainer">

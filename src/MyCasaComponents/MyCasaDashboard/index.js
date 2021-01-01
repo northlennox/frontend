@@ -23,7 +23,8 @@ class MyCasaDashboard extends Component {
       attic:'',
       house: '',
       utility: '',
-      // open: false
+      myHouse: [],
+
     }
   }
 
@@ -58,6 +59,7 @@ class MyCasaDashboard extends Component {
             waHeater: userParsed.waHeater,
             spHeater: userParsed.spHeater,
             utility: userParsed.utility,
+            myHouse: userParsed.house
         })
 
       }catch(err){
@@ -81,9 +83,11 @@ class MyCasaDashboard extends Component {
           throw Error(response.statusText)
         }
 
-        const responseParsed = await response.json();
 
-        this.props.history.push('/mycasa/' + userId);
+        this.setState({
+          house : ''
+        })
+        // this.props.history.push('/mycasa/' + userId);
       }catch(err){
         alert('Something went wrong. Please try again')
       }
@@ -105,9 +109,11 @@ class MyCasaDashboard extends Component {
           throw Error(response.statusText)
         }
 
-        const responseParsed = await response.json();
+        this.setState({
+          attic : ''
+        })
 
-        this.props.history.push('/mycasa/' + userId);
+        // this.props.history.push('/mycasa/' + userId);
       }catch(err){
         alert('Something went wrong. Please try again')
       }
@@ -129,9 +135,10 @@ class MyCasaDashboard extends Component {
           throw Error(response.statusText)
         }
 
-        const responseParsed = await response.json();
+        this.setState({
+          roof : ''
+        })
 
-        // this.props.history.push('/mycasa/' + userId);
       }catch(err){
         alert('Something went wrong. Please try again')
       }
@@ -152,9 +159,10 @@ class MyCasaDashboard extends Component {
           throw Error(response.statusText)
         }
 
-        const responseParsed = await response.json();
+        this.setState({
+          waHeater : ''
+        })
 
-        this.props.history.push('/mycasa/' + userId);
       }catch(err){
         alert('Something went wrong. Please try again')
       }
@@ -175,9 +183,10 @@ class MyCasaDashboard extends Component {
           throw Error(response.statusText)
         }
 
-        const responseParsed = await response.json();
+        this.setState({
+          spHeater : ''
+        })
 
-        this.props.history.push('/mycasa/' + userId);
       }catch(err){
         alert('Something went wrong. Please try again')
       }
@@ -198,9 +207,9 @@ class MyCasaDashboard extends Component {
           throw Error(response.statusText)
         }
 
-        const responseParsed = await response.json();
-
-        this.props.history.push('/mycasa/' + userId);
+        this.setState({
+          utility : ''
+        })
       }catch(err){
         alert('Something went wrong. Please try again')
       }
@@ -209,7 +218,8 @@ class MyCasaDashboard extends Component {
 
 
   render(){
-
+      const userId = localStorage.userId;
+      console.log('hihi', this.state.myHouse);
     return(
       <>
         <Nav />
@@ -223,7 +233,7 @@ class MyCasaDashboard extends Component {
             <div className="items">
               { this.state.house !== null
               ?
-              <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>
+                <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>
               :
               <Link to="/mycasa/house/create" className="blankContainer">
                 <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
@@ -296,3 +306,8 @@ class MyCasaDashboard extends Component {
   }
 }
 export default MyCasaDashboard
+
+
+
+
+// <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>

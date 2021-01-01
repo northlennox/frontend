@@ -16,7 +16,7 @@
       align-items: center;
       .items {
         width: 300px;
-        height: 200px;
+        height: auto;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -39,6 +39,7 @@
     width: 270px;
     height: 150px;
   }
+
 }
 
 
@@ -59,9 +60,36 @@
     .placer {
       width: 30%;
     }
+    .postedImg {
+      width: 100%;
+      border-radius: 10px;
+    }
   }
   .blankLabel {
     margin-top: 10px;
+  }
+}
+
+
+.postedContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  .postedFrame {
+    width: 270px;
+    height: 150px;
+    background-color: #E9E9E9;
+    border-radius: 10px;
+    display: flex;
+    .postedImg {
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+  .postedLabel {
+    margin-top: 10px;
+    color: #FA910B;
   }
 }
 
@@ -154,4 +182,74 @@
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 8px;
+}
+
+.editContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5%;
+  .editTitle {
+    margin: 6% auto 6% 20%;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+  }
+  .editBox {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 30%;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 40px;
+  }
+  .helpContainer {
+    display: flex;
+    align-items: baseline;
+    .help {
+      width: 16px;
+      height: 16px;
+      margin-left: 8px;
+    }
+  }
+  .frames {
+    display: flex;
+    height: 280px;
+    border: 1px dashed #979797;
+    box-sizing: border-box;
+    border-radius: 10px;
+    .imgAttached {
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+    .fileUpload {
+      // border: 1px solid red;
+      width: 10%;
+      // height: 100px;
+      display: inline-block;
+      overflow: hidden;
+      opacity: 0;
+      position: relative;
+      z-index: 1;
+    }
+  }
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+  .inputRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+    width: 100%;
+    .inputItem {
+      display: flex;
+      flex-direction: column;
+      width: 45%;
+    }
+  }
 }
