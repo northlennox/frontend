@@ -68,25 +68,22 @@ class MyProjectComponent extends Component {
     return(
       <>
         <Nav />
-        <div className="projectContainer">
-          <div className="titleContainer">
-            <div className="title h2">My Project</div>
-            <div className="subtitle h4">Schedule repairs and upgrades at optimal times to maximize savings and prior to emergencies.</div>
-          </div>
           {
-            !this.state.open?
-            <div className="addMessage">
-              <span style={{marginRight: '0.5vw'}}>Please, create a house first on</span>
-              <span style={{marginRight: '0.5vw'}}><Link to={`/mycasa/${userId}`} className="links">My Casa</Link></span>
-              <span>page</span>
+            this.state.open?
+            <div className="projectContainer">
+              <div className="titleContainer">
+                <div className="title h2">My Project</div>
+                <div className="subtitle h4">Schedule repairs and upgrades at optimal times to maximize savings and prior to emergencies.</div>
+              </div>
+              <div className="addMessage">
+                <span style={{marginRight: '0.5vw'}}>Please, create a house first on</span>
+                <span style={{marginRight: '0.5vw'}}><Link to={`/mycasa/${userId}`} className="links">My Casa</Link></span>
+                <span>page</span>
+              </div>
             </div>
             :
-            <div>
-              <Exam house={this.state.house} attic={this.state.attic} spHeater={this.state.spHeater} waHeater={this.state.waHeater} />
-            </div>
-
+            <Exam house={this.state.house} attic={this.state.attic} spHeater={this.state.spHeater} waHeater={this.state.waHeater} />
           }
-        </div>
       </>
     )
   }

@@ -28,19 +28,21 @@ input {
   font-family: 'Mulish', sans-serif;
 }
 
-
+/* 28px */
 .h2 {
   font-style: normal;
   font-weight: bold;
   font-size: 1.75rem;
   line-height: 35px;
 }
+/* 20px */
 .h3 {
   font-style: normal;
   font-weight: 600;
   font-size: 1.25rem;
   line-height: 25px;
 }
+/* 16px */
 .h4 {
   font-style: normal;
   font-weight: normal;
@@ -58,21 +60,4 @@ input {
 .links {
   text-decoration: none;
   color: black;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  width: 80%;
-  margin-left: 10%;
-}
-
-.col {
-  border: 1px solid;
-  width: 100%;
-}
-
-.smtitle {
-  font-size: 30;
-  font-weight: bold;
 }

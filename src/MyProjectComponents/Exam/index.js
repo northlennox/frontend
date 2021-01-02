@@ -70,34 +70,113 @@ const Exam = (props) => {
    spEfficency = '3.0'
  }
 
-   console.log('-----', waEfficencyGrade)
   return(
-    <div>
-      <h1>My Casa</h1>
-      <div>See the status of your house energy assets and how they compare on quality, efficiency and age to new technologies.</div>
-      <div className="container">
-        <div className="col">
-          <img src={`http://localhost:9000/` + photo}/>
-          <div>{props.house.address}</div>
-          <div>{props.house.city}</div>
-          <div>{props.house.state}</div>
-          <div>{props.house.zipcode}</div>
-          <div>{props.house.houseSqft}</div>
-          <div>{props.house.houseYear}</div>
-          <Link to={"/mycasa/house/edit"}>Edit</Link>
+    <div className="examContainer">
+      <div className="titleContainer">
+        <div className="title h2">My Project</div>
+        <div className="subtitle h4">See the status of your house energy assets and how they compare on quality, efficiency and age to new technologies.</div>
+      </div>
+      <div className="gradeContainer">
+        <div className="gradeRow myGrade">
+          <div className="h3">My Casa Grade</div>
+          <div className="measureContainer">
+            <div className="measureItem">
+              <label>Energy Efficiency Rating</label>
+              <div>B</div>
+              <div>graph</div>
+            </div>
+            <div className="measureItem">
+              <label>Carbon Footprint Rating</label>
+              <div>B</div>
+              <div>graph</div>
+            </div>
+          </div>
         </div>
-        <div className="col">
-          <h3>Grades and Recommendations</h3>
-          <label>Energy Efficiency Rating:</label><div>?</div>
-          <label>Carborn Footprint Rating:</label><div>?</div>
-          <h4>Attic Insulation</h4>
-          <div>{grade}</div>
-          <h4>Water Heater</h4>
-          <label>Age:</label><div>{waHeaterAge}</div>
-          <label>Energy Efficiency Factor:</label><div>{waEfficencyGrade}</div>
-          <h4>Space Heater</h4>
-          <label>Age:</label><div>{spHeaterAge} - need to fix</div>
-          <label>Energy Efficiency Factor:</label><div>{spEfficency}</div>
+        <div className="gradeRow componentsMark">
+          <div className="h3">Components</div>
+          <div className="componentContainer">
+            <div className="componentCol">
+              <div className="markContainer">
+                <img className="marks" src="../Electrify/cooking.svg"/>
+                <span className="markName">Attic Insulation</span>
+                <span className="markStatus">N/A</span>
+              </div>
+              <div className="markContainer">
+                <img className="marks" src="../Electrify/cooking.svg"/>
+                <span className="markName">Wall Insulation</span>
+                <span className="markStatus">N/A</span>
+              </div>
+              <div className="markContainer">
+                <img className="marks" src="../Electrify/cooking.svg"/>
+                <span className="markName">Floor Insulation</span>
+                <span className="markStatus">N/A</span>
+              </div>
+              <div className="markContainer">
+                <img className="marks" src="../Electrify/cooking.svg"/>
+                <span className="markName">Windows quality</span>
+                <span className="markStatus">N/A</span>
+              </div>
+              <div className="markContainer">
+                <img className="marks" src="../Electrify/Weatherization.svg"/>
+                <span className="markName">Sealed?</span>
+                <span className="markStatus">N/A</span>
+              </div>
+            </div>
+            <div className="componentCol">
+              <div className="markContainer">
+                <img className="marks" src="../Electrify/HotWater.svg"/>
+                <span className="markName">Water Heater</span>
+                <span className="markStatus">N/A</span>
+              </div>
+              <div className="markContainer">
+                <img className="marks" src="../Electrify/HeatingCooling.svg"/>
+                <span className="markName">Space Heater</span>
+                <span className="markStatus">N/A</span>
+              </div>
+              <div className="markContainer">
+                <img className="marks" src="../Electrify/cooking.svg"/>
+                <span className="markName">Range</span>
+                <span className="markStatus">N/A</span>
+              </div>
+              <div className="markContainer">
+                <img className="marks" src="../Electrify/ClothesDrying.svg"/>
+                <span className="markName">Clothes Dryer</span>
+                <span className="markStatus">N/A</span>
+              </div>
+              <div className="markContainer">
+                <img className="marks" src="../Electrify/EnergyGeneration.svg"/>
+                <span className="markName">Solar?</span>
+                <span className="markStatus">N/A</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="gradeRow analysis">
+          <div className="h3">Analysis</div>
+            <div className="analysisSection">
+              <div className="analysisName h4">EFFICIENCY</div>
+              <div>graph</div>
+              <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
+            </div>
+            <div className="analysisSection">
+              <div className="analysisName h4">TECHNOLOGY</div>
+              <div>graph</div>
+              <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
+            </div>
+            <div className="analysisSection">
+              <div>graph</div>
+              <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
+            </div>
+            <div className="analysisSection recommendations">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          <div>Attic Insulation : {grade}</div>
+          <div>Water Heater : age - {waHeaterAge}</div>
+          <div>Energy Efficiency Factor: {waEfficencyGrade}</div>
+          <div>Space Heater : {spHeaterAge} </div>
+          <div>Energy Efficiency Factor: {spEfficency}</div>
         </div>
       </div>
     </div>
