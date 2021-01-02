@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../../Nav';
+import './../MyAccount.scss';
 
 class MyAccountContainer extends Component {
   constructor(){
@@ -56,17 +57,59 @@ class MyAccountContainer extends Component {
     return(
       <div>
         <Nav />
-        <h1>Account</h1>
-        <label>Name:</label><div>{this.state.userinfo.firstName + ' ' +this.state.userinfo.lastName}</div><Link to={`/myaccount/${userId}/edit`}>Edit</Link>
-        <label>Email:</label><div>{this.state.userinfo.email}</div>
-        <label>Phone Number:</label><div>{this.state.userinfo.phNumber}</div>
-        <label>Account Plan:</label><div>Free Plan</div>
-        <label>Email Notification:</label><div>{this.state.userinfo.emailNotice}</div>
-        <label>Text Notication:</label><div>{this.state.userinfo.mobileNotice}</div>
-        <label>Privacy and Setting:</label><Link to="">View Terms of Use</Link>
+        <div className="accountContainer">
+          <div className="titleContainer">
+            <div className="title h2">Account</div>
+          </div>
+          <div className="myInfoContainer">
+            <table>
+              <tr>
+                <th><div>Name:</div></th>
+                <th>{this.state.userinfo.firstName + ' ' +this.state.userinfo.lastName}<Link to={`/myaccount/${userId}/edit`}>Edit</Link></th>
+              </tr>
+              <tr>
+               <th><div>Email:</div></th>
+               <th>{this.state.userinfo.email}</th>
+              </tr>
+              <tr>
+                <th><div>Phone Number:</div></th>
+                <th>{this.state.userinfo.phNumber}</th>
+              </tr>
+              <tr>
+              </tr>
+              <tr>
+              </tr>
+              <tr>
+              </tr>
+              <tr>
+              </tr>
+              <tr>
+              </tr>
+              <tr>
+              </tr>
+
+            </table>
+          </div>
+        </div>
       </div>
     )
   }
 }
 
 export default MyAccountContainer;
+
+
+
+// <th><div>Email:</div></th>
+// <th><div>Phone Number:</div></th>
+// <th><div>Account Plan:</div></th>
+// <th><div>Email Notification:</div></th>
+// <th><div>Text Notication:</div></th>
+// <th><div>Privacy and Setting:</div></th>
+//
+// <td>{this.state.userinfo.email}</td>
+// <td>{this.state.userinfo.phNumber}</td>
+// <td>Free Plan</td>
+// <td>{this.state.userinfo.emailNotice}</td>
+// <td>{this.state.userinfo.mobileNotice}</td>
+// <td><Link to="">View Terms of Use</Link></td>
