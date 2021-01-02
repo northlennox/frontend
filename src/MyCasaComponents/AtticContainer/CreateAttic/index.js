@@ -146,8 +146,8 @@ class CreateAttic extends Component {
               </div>
               <div className="frames">
                 <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />
-                <input className="fileUpload" name="photoOne" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
+              <input className="fileUpload" name="photoOne" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="atticType">PRIMARY ATTIC TYPE</label>
                 <select className="selectInput" name="atticType" id="atticType" type="text" onChange={this.handleInput} value={this.state.attic.atticType}>
@@ -179,7 +179,7 @@ class CreateAttic extends Component {
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="airSealed">HAS THE HOUSE BEEN PROFESSIONALLY AIR SEALED?</label>
                 <div id="airSealed" >
-                  <input className="inputLabel" name="airSealed" type="radio" checked={this.state.attic.airSealed === "yes"} value="yes" onChange={this.handleInput}/>YES
+                  <input name="airSealed" type="radio" checked={this.state.attic.airSealed === "yes"} value="yes" onChange={this.handleInput}/>YES
                   <input className="radioInput-right" name="airSealed" type="radio" checked={this.state.attic.airSealed === "no"} value="no" onChange={this.handleInput}/>NO
                 </div>
               </div>

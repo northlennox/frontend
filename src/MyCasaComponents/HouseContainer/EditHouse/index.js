@@ -276,7 +276,6 @@ class EditHouse extends Component {
                           return <option value={st} key={st} >{st}</option>
                       })}
                     </select>
-
                   </div>
                 </div>
                 <div className="inputItem">

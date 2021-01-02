@@ -165,45 +165,64 @@ class EditAttic extends Component {
     return(
       <div>
         <Nav />
-        <div>Attic Insulation Edit page</div>
-        <form onSubmit={this.editAttic}>
-            <div>PHOTO</div>
-            <div>
-              <img className="frames"
-                   id="photoOne"
-                   src={this.state.preview1 === null ? atticImgState : this.state.preview1}
-                   onClick={this.handleClick} /></div>
-            <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
+        <div className="editContainer">
+          <div className="editTitle">Attic Insulation Edit</div>
+          <form onSubmit={this.editAttic}>
+            <div className="editBox">
+              <div className="helpContainer">
+                <span className="inputLabel">PHOTO</span>
+                <img className="help" src="./../../help.svg"/>
+              </div>
+              <div className="frames">
+                <img className="imgAttached"
+                     id="photoOne"
+                     src={this.state.preview1 === null ? atticImgState : this.state.preview1}
+                     onClick={this.handleClick} />
+              </div>
+              <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
 
-            <label htmlFor="atticType">PRIMARY ATTIC TYPE</label>
-            <select name="atticType" id="atticType" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticType}>
-              {atticTypeOptions.map(atticTypeOption => {
-                  return <option value={atticTypeOption} key={atticTypeOption} >{atticTypeOption}</option>
-              })}
-            </select>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="atticType">PRIMARY ATTIC TYPE</label>
+                <select className="selectInput" name="atticType" id="atticType" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticType}>
+                  {atticTypeOptions.map(atticTypeOption => {
+                      return <option value={atticTypeOption} key={atticTypeOption} >{atticTypeOption}</option>
+                    })}
+                </select>
+              </div>
 
-            <label htmlFor="atticSqft">ATTIC SQUARE FOOTAGE(GUESS)</label>
-            <input name="atticSqft" id="atticSqft" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticSqft} />
-
-            <label htmlFor="atticDepth">ESTIMATED AVERAGE DEPTH(INCHES)*</label>
-            <select name="atticDepth" id="atticDepth" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticDepth}>
-              {atticDepthOptions.map(atticDepthOption => {
-                  return <option value={atticDepthOption} key={atticDepthOption} >{atticDepthOption}</option>
-              })}
-            </select>
-            <label htmlFor="insulMaterial">INSULATION MATERIAL</label>
-            <select name="insulMaterial" id="insulMaterial" type="text" onChange={this.handleEditFormInput} value={this.state.attic.insulMaterial}>
-              {insulMaterialOptions.map(insulMaterialOption => {
-                return <option value={insulMaterialOption} key={insulMaterialOption} >{insulMaterialOption}</option>
-              })}
-            </select>
-            <label htmlFor="airSealed">HAS THE HOUSE BEEN PROFESSIONALLY AIR SEALED?</label>
-            <div id="airSealed" >
-              <input name="airSealed" type="radio" checked={this.state.attic.airSealed === "yes"} value="yes" onChange={this.handleEditFormInput}/>YES
-              <input name="airSealed" type="radio" checked={this.state.attic.airSealed === "no"} value="no" onChange={this.handleEditFormInput}/>NO
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="atticSqft">ATTIC SQUARE FOOTAGE(GUESS)</label>
+                <input name="atticSqft" id="atticSqft" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticSqft} />
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="atticDepth">ESTIMATED AVERAGE DEPTH(INCHES)*</label>
+                <select className="selectInput" name="atticDepth" id="atticDepth" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticDepth}>
+                  {atticDepthOptions.map(atticDepthOption => {
+                      return <option value={atticDepthOption} key={atticDepthOption} >{atticDepthOption}</option>
+                    })}
+                </select>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="insulMaterial">INSULATION MATERIAL</label>
+                <select className="selectInput" name="insulMaterial" id="insulMaterial" type="text" onChange={this.handleEditFormInput} value={this.state.attic.insulMaterial}>
+                  {insulMaterialOptions.map(insulMaterialOption => {
+                    return <option value={insulMaterialOption} key={insulMaterialOption} >{insulMaterialOption}</option>
+                  })}
+                </select>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="airSealed">HAS THE HOUSE BEEN PROFESSIONALLY AIR SEALED?</label>
+                <div id="airSealed" >
+                  <input name="airSealed" type="radio" checked={this.state.attic.airSealed === "yes"} value="yes" onChange={this.handleEditFormInput}/>YES
+                  <input className="radioInput-right" name="airSealed" type="radio" checked={this.state.attic.airSealed === "no"} value="no" onChange={this.handleEditFormInput}/>NO
+                </div>
+              </div>
+              <div className="inputContainer">
+                <button type="submit" className="btn">Edit</button>
+              </div>
             </div>
-            <button type="submit" className="btn">Edit</button>
-        </form>
+          </form>
+        </div>
       </div>
     )
   }

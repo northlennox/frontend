@@ -12,6 +12,7 @@ import './MyCasaDashboard.scss';
 import { Button, Card, Accordion } from 'react-bootstrap';
 // import axios from 'axios'
 // import Moment from 'react-moment';
+import Accordions from './Accordion'
 
 
 class MyCasaDashboard extends Component {
@@ -239,9 +240,7 @@ class MyCasaDashboard extends Component {
 
               <Link to="/mycasa/house/create" className="blankContainer">
                 <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
-                <Accordion>
-                  <div className="blankLabel">House Details</div>
-                </Accordion>
+                <div className="blankLabel">House Details</div>
               </Link>
               }
             </div>
@@ -304,8 +303,6 @@ class MyCasaDashboard extends Component {
             </div>
           </div>
         </div>
-      </div>
-      <div>
       </div>
       </>
     )

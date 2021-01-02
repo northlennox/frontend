@@ -1,31 +1,37 @@
 import React, { Component } from 'react';
+import { Button, Card, Accordion } from 'react-bootstrap';
 
-class Accordion extends React.Component {
+class Accordions extends React.Component {
   constructor() {
     super();
-    this._handleClick = this._handleClick.bind(this);
-  }
 
-  componentDidMount() {
-    this._handleClick();
-  }
-
-  _handleClick() {
-    const acc = this._acc.children;
-    for (let i = 0; i < acc.length; i++) {
-      let a = acc[i];
-      a.onclick = () => a.classList.toggle("active");
-    }
   }
 
   render() {
     return (
-      <div
-        ref={a => this._acc = a}
-        onClick={this._handleClick}>
-        {this.props.children}
-      </div>
+      <Accordion defaultActiveKey="0">
+  <Card>
+    <Card.Header>
+      <Accordion.Toggle as={Button} variant="link" eventKey="0">
+        Click me!
+      </Accordion.Toggle>
+    </Card.Header>
+    <Accordion.Collapse eventKey="0">
+      <Card.Body>Hello! I'm the body</Card.Body>
+    </Accordion.Collapse>
+  </Card>
+  <Card>
+    <Card.Header>
+      <Accordion.Toggle as={Button} variant="link" eventKey="1">
+        Click me!
+      </Accordion.Toggle>
+    </Card.Header>
+    <Accordion.Collapse eventKey="1">
+      <Card.Body>Hello! I'm another body</Card.Body>
+    </Accordion.Collapse>
+  </Card>
+</Accordion>
     )
   }
 }
-export default Accordion
+export default Accordions
