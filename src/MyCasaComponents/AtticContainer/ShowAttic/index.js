@@ -17,17 +17,17 @@ const ShowAttic = (props) => {
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="0">
-            <Card.Body>
+            <Card.Body className="cardBody">
               <div className="postedInfo">
                 <div>{props.attic.atticType}</div>
                 <div>{props.attic.atticSqft}</div>
                 <div>{props.attic.atticDepth}</div>
                 <div>{props.attic.insulMaterial}</div>
                 <div>{props.attic.airSealed}</div>
-                <div className="updateContainer">
-                  <div><Link to={"/mycasa/attic/edit"}>Edit</Link></div>
-                  <button className="deleteBtn spanNext" onClick={props.deleteMyAttic.bind(null, userId)}>Remove</button>
-                </div>
+              </div>
+              <div className="updateContainer">
+                <div><Link to={"/mycasa/attic/edit"}>Edit</Link></div>
+                <button className="deleteBtn spanNext" onClick={props.deleteMyAttic.bind(null, userId)}>Remove</button>
               </div>
             </Card.Body>
            </Accordion.Collapse>

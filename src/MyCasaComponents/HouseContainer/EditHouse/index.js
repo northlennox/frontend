@@ -254,7 +254,7 @@ class EditHouse extends Component {
               <div className="frames">
                 <img className="imgAttached"
                      id="photoOne"
-                     src={this.state.preview1 === null ? houseImgState : this.state.preview1}
+                     src={this.state.preview1 === undefined ? houseImgState : this.state.preview1}
                      onClick={this.handleClick} />
               </div>
               <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>

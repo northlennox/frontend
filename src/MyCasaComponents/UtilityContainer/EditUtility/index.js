@@ -187,45 +187,61 @@ class EditUtility extends Component {
 
       <div>
         <Nav />
-          <div>Utility Edit page</div>
+        <div className="editContainer">
+          <div className="editTitle">Utility Edit page</div>
           <form onSubmit={this.editUtility}>
-              <div>PHOTO</div>
-              <div>
-                <img className="frames"
+            <div className="editBox">
+              <div className="helpContainer">
+                <span className="inputLabel">PHOTO</span>
+                <img className="help" src="./../../help.svg"/>
+              </div>
+              <div className="frames">
+                <img className="imgAttached"
                      id="photoOne"
                      src={this.state.preview1 === null ? utilityImgState : this.state.preview1}
-                     onClick={this.handleClick} /></div>
-              <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
-
+                     onClick={this.handleClick} />
+              </div>
+              <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
+              <div className="inputContainer">
                 <label htmlFor="utilityName">UTILITY NAME</label>
                 <input name="utilityName" id="utilityName" type="text" onChange={this.handleEditFormInput} value={this.state.utility.utilityName} />
-
+              </div>
+              <div className="inputContainer">
                 <label htmlFor="electricityUsageKwh">ELECTRICITY USAGE, KWH</label>
                 <input name="electricityUsageKwh" id="electricityUsageKwh" type="text" onChange={this.handleEditFormInput} value={this.state.utility.electricityUsageKwh} />
-
+              </div>
+              <div className="inputContainer">
                 <label htmlFor="electricityUsageDollar">ELECTRICITY USAGE, $</label>
                 <input name="electricityUsageDollar" id="electricityUsageDollar" type="text" onChange={this.handleEditFormInput} value={this.state.utility.electricityUsageDollar} />
-
+              </div>
+              <div className="inputContainer">
                 <label htmlFor="gasUsageTherms">GAS USAGE, THERMS</label>
                 <input name="gasUsageTherms" id="gasUsageTherms" type="text" onChange={this.handleEditFormInput} value={this.state.utility.gasUsageTherms} />
-
+              </div>
+              <div className="inputContainer">
                 <label htmlFor="gasUsageDollar">GAS USAGE, $</label>
                 <input name="gasUsageDollar" id="gasUsageDollar" type="text" onChange={this.handleEditFormInput} value={this.state.utility.gasUsageDollar} />
-
+              </div>
+              <div className="inputContainer">
                 <label htmlFor="highBilling">ARE YOUR ENERGY BILLS TOO HIGH?</label>
                 <div id="highBilling" >
                   <input name="highBilling" type="radio" checked={this.state.utility.highBilling === "YES"} value="YES" onChange={this.handleEditFormInput}/>YES
-                  <input name="highBilling" type="radio" checked={this.state.utility.highBilling === "NO"} value="NO" onChange={this.handleEditFormInput}/>NO
+                  <input name="highBilling" className="radioInput-right" type="radio" checked={this.state.utility.highBilling === "NO"} value="NO" onChange={this.handleEditFormInput}/>NO
                 </div>
-
+              </div>
+              <div className="inputContainer">
                 <label htmlFor="oldEquipment">DO YOU HAVE ANY EQUIPMENT OLDER THAN 25 YEARS EG. AN OLD FREEZER?</label>
                 <div id="oldEquipment" >
                   <input name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "YES"} value="YES" onChange={this.handleEditFormInput}/>YES
-                  <input name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "NO"} value="NO" onChange={this.handleEditFormInput}/>NO
+                  <input name="oldEquipment" className="radioInput-right" type="radio" checked={this.state.utility.oldEquipment === "NO"} value="NO" onChange={this.handleEditFormInput}/>NO
                 </div>
-
-              <button type="submit" className="btn">Edit</button>
+              </div>
+              <div className="inputContainer">
+                <button type="submit" className="btn">Edit</button>
+              </div>
+            </div>
           </form>
+        </div>
       </div>
     )
   }

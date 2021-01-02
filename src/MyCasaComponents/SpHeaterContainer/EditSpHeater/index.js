@@ -181,46 +181,59 @@ class EditSpHeater extends Component {
 
       <div>
         <Nav />
-          <div>Primary Heater Edit page</div>
+        <div className="editContainer">
+          <div className="editTitle">Primary Heater Edit page</div>
           <form onSubmit={this.editspHeater}>
+            <div className="editBox">
               <div>PHOTO</div>
-              <div>
-                <img className="frames"
+              <div className="frames">
+                <img className="imgAttached"
                      id="photoOne"
                      src={this.state.preview1 === null ? spHeaterImgState : this.state.preview1}
-                     onClick={this.handleClick} /></div>
-              <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
-                  <label htmlFor="spHeaterType">TYPE OF SPACE HEATER</label>
-                  <select name="spHeaterType" id="spHeaterType" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.spHeaterType}>
-                    {spHeaterTypeOptions.map(spHeaterTypeOption => {
-                        return <option value={spHeaterTypeOption} key={spHeaterTypeOption} >{spHeaterTypeOption}</option>
-                    })}
-                  </select>
-
-                  <label htmlFor="atticSqft">ATTIC SQUARE FOOTAGE(GUESS)</label>
-                  <input name="atticSqft" id="atticSqft" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.atticSqft} />
-
-                  <label htmlFor="spHeaterYear">YEAR OF MANUFACTURE*</label>
-                  <select name="spHeaterYear" id="spHeaterYear" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.spHeaterYear}>
-                    {spHeaterYearOptions.map(spHeaterYearOption => {
-                        return <option value={spHeaterYearOption} key={spHeaterYearOption} >{spHeaterYearOption}</option>
-                    })}
-                  </select>
-                  <label htmlFor="spHeaterCondition">IS THE SYSTEM WORKING WELL?</label>
-                  <div id="spHeaterCondition" >
-                    <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "YES"} value="YES" onChange={this.handleEditFormInput}/>YES
-                    <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "NO"} value="NO" onChange={this.handleEditFormInput}/>NO
-                  </div>
-
-                  <label htmlFor="coolingSystem">IS THERE A COOLING SYSTEM?</label>
-                  <select name="coolingSystem" id="coolingSystem" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.coolingSystem}>
-                    {coolingSystemOptions.map(coolingSystemOption => {
-                      return <option value={coolingSystemOption} key={coolingSystemOption} >{coolingSystemOption}</option>
-                    })}
-                  </select>
-
-              <button type="submit" className="btn">Edit</button>
+                     onClick={this.handleClick} />
+              </div>
+              <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="spHeaterType">TYPE OF SPACE HEATER</label>
+                <select className="selectInput" name="spHeaterType" id="spHeaterType" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.spHeaterType}>
+                  {spHeaterTypeOptions.map(spHeaterTypeOption => {
+                      return <option value={spHeaterTypeOption} key={spHeaterTypeOption} >{spHeaterTypeOption}</option>
+                  })}
+                </select>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="atticSqft">ATTIC SQUARE FOOTAGE(GUESS)</label>
+                <input name="atticSqft" id="atticSqft" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.atticSqft} />
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="spHeaterYear">YEAR OF MANUFACTURE*</label>
+                <select className="selectInput" name="spHeaterYear" id="spHeaterYear" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.spHeaterYear}>
+                  {spHeaterYearOptions.map(spHeaterYearOption => {
+                      return <option value={spHeaterYearOption} key={spHeaterYearOption} >{spHeaterYearOption}</option>
+                  })}
+                </select>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="spHeaterCondition">IS THE SYSTEM WORKING WELL?</label>
+                <div id="spHeaterCondition" >
+                  <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "YES"} value="YES" onChange={this.handleEditFormInput}/>YES
+                  <input name="spHeaterCondition" className="radioInput-right" type="radio" checked={this.state.spHeater.spHeaterCondition === "NO"} value="NO" onChange={this.handleEditFormInput}/>NO
+                </div>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="coolingSystem">IS THERE A COOLING SYSTEM?</label>
+                <select className="selectInput" name="coolingSystem" id="coolingSystem" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.coolingSystem}>
+                  {coolingSystemOptions.map(coolingSystemOption => {
+                    return <option value={coolingSystemOption} key={coolingSystemOption} >{coolingSystemOption}</option>
+                  })}
+                </select>
+              </div>
+              <div className="inputContainer">
+                <button type="submit" className="btn">Edit</button>
+              </div>
+            </div>
           </form>
+        </div>
       </div>
     )
   }

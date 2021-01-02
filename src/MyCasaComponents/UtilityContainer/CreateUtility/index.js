@@ -148,8 +148,8 @@ class CreateUtility extends Component {
               </div>
               <div className="frames" >
                 <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />
-                <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
+                <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="utilityName">UTILITY NAME</label>
                 <input name="utilityName" id="utilityName" type="text" onChange={this.handleInput} value={this.state.utility.utilityName} />

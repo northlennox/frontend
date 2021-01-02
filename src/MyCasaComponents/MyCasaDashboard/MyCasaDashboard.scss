@@ -1,11 +1,10 @@
 // @import "~bootstrap/scss/bootstrap";
 
-
 .myCasaContainer{
   width: 80%;
   margin-left: 10%;
   margin-top: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
   .myCasaTitle {
     margin-left: 3%;
   }
@@ -259,4 +258,11 @@
 }
 .card {
   border-style: hidden;
+}
+.cardBody {
+  height: 250px;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

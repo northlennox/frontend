@@ -140,9 +140,9 @@ class CreateAttic extends Component {
                 <img className="help" src="./../../help.svg"/>
               </div>
             <div className="frames">
-              <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />
-              <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
+              <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />        
             </div>
+            <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
             <div className="inputContainer">
               <label className="inputLabel" htmlFor="exterior">EXTERIOR FINISH</label>
               <select className="selectInput" name="exterior" id="exterior" type="text" onChange={this.handleInput} value={this.state.roof.exterior}>

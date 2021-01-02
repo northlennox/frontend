@@ -134,6 +134,7 @@ class EditRoof extends Component {
       e.preventDefault();
       const data = new FormData();
       data.append('roofImg', this.state.roof.roofImg);
+      data.append('exterior', this.state.roof.exterior);
       data.append('roofColor', this.state.roof.roofColor);
       data.append('pvSystem', this.state.roof.pvSystem);
       data.append('panels', this.state.roof.panels);
@@ -161,42 +162,63 @@ class EditRoof extends Component {
     const extriorOptions = ["Select", "Composition Shingles or Metal", "Wood Shakes", "Clay Title", "Concreate Title", "Tar & Gravel"];
     const colorOptions = ["Select", "White", "Light", "Medium", "Dark", "Cool Color With Reflectivity"];
     const roofImgState = `${process.env.REACT_APP_API}/` + this.state.roof.roofImg;
-    console.log(roofImgState);
+    console.log(this.state.roof.exterior);
     return(
       <div>
         <Nav />
-        <div>Roof Edit page</div>
-        <form onSubmit={this.editRoof}>
-          <div>PHOTO</div>
-          <div>
-            <img className="frames"
-                 id="photoOne"
-                 src={this.state.preview1 === null ? roofImgState : this.state.preview1}
-                 onClick={this.handleClick} /></div>
-          <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file" />
-          <label htmlFor="exterior">EXTERIOR FINISH</label>
-          <select name="exterior" id="exterior" type="text" onChange={this.handleEditFormInput} value={this.state.roof.exterior}>
-            {extriorOptions.map(extriorOption => {
-                return <option value={extriorOption} key={extriorOption} >{extriorOption}</option>
-            })}
-          </select>
-          <label htmlFor="roofColor">COLOR</label>
-          <select name="roofColor" id="roofColor" type="text" onChange={this.handleEditFormInput} value={this.state.roof.roofColor}>
-            {colorOptions.map(colorOption => {
-                return <option value={colorOption} key={colorOption} >{colorOption}</option>
-            })}
-          </select>
-          <label htmlFor="pvSystem">IS THERE SOLAR PV SYSTEM INSTALLED?*</label>
-          <div id="pvSystem" >
-            <input name="pvSystem" type="radio" checked={this.state.roof.pvSystem === "YES"} value="YES" onChange={this.handleEditFormInput}/>YES
-            <input name="pvSystem" type="radio" checked={this.state.roof.pvSystem === "NO"} value="NO" onChange={this.handleEditFormInput}/>NO
-          </div>
-          <label htmlFor="panels">NUMBER OF PANELS</label>
-          <input name="panels" id="panels" type="text" onChange={this.handleEditFormInput} value={this.state.roof.panels} />
-          <label htmlFor="dcCapacity">SIZE(KW)</label>
-          <input name="dcCapacity" id="dcCapacity" type="text" onChange={this.handleEditFormInput} value={this.state.roof.dcCapacity} />
-          <button type="submit" className="btn">Edit</button>
-        </form>
+        <div className="editContainer">
+        <div className="editTitle">Roof Edit page</div>
+          <form onSubmit={this.editRoof}>
+            <div className="editBox">
+              <div className="helpContainer">
+                <span className="inputLabel">PHOTO</span>
+                <img className="help" src="./../../help.svg"/>
+              </div>
+              <div className="frames">
+                <img className="imgAttached"
+                     id="photoOne"
+                     src={this.state.preview1 === undefined ? roofImgState : this.state.preview1}
+                     onClick={this.handleClick} />
+              </div>
+              <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file" />
+
+                <div className="inputContainer">
+                  <label className="inputLabel" htmlFor="exterior">EXTERIOR FINISH</label>
+                  <select className="selectInput" name="exterior" id="exterior" type="text" onChange={this.handleEditFormInput} value={this.state.roof.exterior}>
+                    {extriorOptions.map(extriorOption => {
+                        return <option value={extriorOption} key={extriorOption} >{extriorOption}</option>
+                    })}
+                  </select>
+                </div>
+                <div className="inputContainer">
+                  <label className="inputLabel" htmlFor="roofColor">COLOR</label>
+                  <select className="selectInput" name="roofColor" id="roofColor" type="text" onChange={this.handleEditFormInput} value={this.state.roof.roofColor}>
+                    {colorOptions.map(colorOption => {
+                        return <option value={colorOption} key={colorOption} >{colorOption}</option>
+                    })}
+                  </select>
+                </div>
+                <div className="inputContainer">
+                  <label className="inputLabel" htmlFor="pvSystem">IS THERE SOLAR PV SYSTEM INSTALLED?*</label>
+                  <div id="pvSystem" >
+                    <input name="pvSystem" type="radio" checked={this.state.roof.pvSystem === "YES"} value="YES" onChange={this.handleEditFormInput}/>YES
+                    <input name="pvSystem" className="radioInput-right" type="radio" checked={this.state.roof.pvSystem === "NO"} value="NO" onChange={this.handleEditFormInput}/>NO
+                  </div>
+                </div>
+                <div className="inputContainer">
+                  <label className="inputLabel" htmlFor="panels">NUMBER OF PANELS</label>
+                  <input name="panels" id="panels" type="text" onChange={this.handleEditFormInput} value={this.state.roof.panels} />
+                </div>
+                <div className="inputContainer">
+                  <label className="inputLabel" htmlFor="dcCapacity">SIZE(KW)</label>
+                  <input name="dcCapacity" id="dcCapacity" type="text" onChange={this.handleEditFormInput} value={this.state.roof.dcCapacity} />
+                </div>
+                <div className="inputContainer">
+                  <button type="submit" className="btn">Edit</button>
+                </div>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }

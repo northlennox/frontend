@@ -19,7 +19,7 @@ const ShowHouse = (props) => {
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
-              <Card.Body>
+              <Card.Body className="cardBody">
                 <div className="postedInfo">
                   <div>{props.house.address}</div>
                   <div>
@@ -29,10 +29,10 @@ const ShowHouse = (props) => {
                   </div>
                   <div><span>{props.house.houseSqft}</span><span className="spanNext">Sqft.</span></div>
                   <div><span>{props.house.houseYear}</span><span className="spanNext">Year Build</span></div>
-                  <div className="updateContainer">
-                    <div><Link to={"/mycasa/house/edit"}>Edit</Link></div>
-                    <button className="deleteBtn spanNext" onClick={props.deleteMyHouse.bind(null, userId)}>Remove</button>
-                  </div>
+                </div>
+                <div className="updateContainer">
+                  <div><Link to={"/mycasa/house/edit"}>Edit</Link></div>
+                  <button className="deleteBtn spanNext" onClick={props.deleteMyHouse.bind(null, userId)}>Remove</button>
                 </div>
               </Card.Body>
              </Accordion.Collapse>
