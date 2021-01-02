@@ -101,19 +101,45 @@ class EditMyAccount extends Component {
     return(
       <div>
         <Nav />
-        <h1>Edit</h1>
-          <form onSubmit={this.handleSubmit}>
-            <input type="firstName" name="firstName" placeholder="firstName" value={this.state.firstName} onChange={this.handleChange}/>
-            <input type="lastName" name="lastName" placeholder="lastName" value={this.state.lastName} onChange={this.handleChange}/>
-            <input type="phNumber" name="phNumber" placeholder="phNumber" value={this.state.phNumber} onChange={this.handleChange}/>
-            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
-            <input type="emailNotice" name="emailNotice" placeholder="emailNotice" value={this.state.emailNotice} onChange={this.handleChange}/>
-            <input type="mobileNotice" name="mobileNotice" placeholder="mobileNotice" value={this.state.mobileNotice} onChange={this.handleChange}/>
-            <button className="btn btn-primary form-control" type="submit">Edit</button>
-          </form>
-          <form onSubmit={this.deleteMyacc}>
-            <button type="submit">delete my account</button>
-          </form>
+        <div className="editContainer">
+          <div className="editTitle h2">Update Personal Information</div>
+          <div className="editBox">
+            <form onSubmit={this.handleSubmit}>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="firstName">First Name</label>
+                <input type="firstName" name="firstName" value={this.state.firstName} onChange={this.handleChange}/>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="lastName">Last Name</label>
+                <input type="lastName" name="lastName" value={this.state.lastName} onChange={this.handleChange}/>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="phNumber">Phone Number</label>
+                <input type="phNumber" name="phNumber" value={this.state.phNumber} onChange={this.handleChange}/>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="password">Password</label>
+                <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="emailNotice">Email Notice</label>
+                <input type="emailNotice" name="emailNotice" value={this.state.emailNotice} onChange={this.handleChange}/>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="emailNotice">Mobile Notice</label>
+                <input type="mobileNotice" name="mobileNotice" value={this.state.mobileNotice} onChange={this.handleChange}/>
+              </div>
+              <div className="inputContainer">
+                <button className="btn" type="submit">Edit</button>
+              </div>
+            </form>
+            <form onSubmit={this.deleteMyacc}>
+              <div className="inputContainer">
+                <button className="deleteAccBtn" type="submit">delete my account</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     )
   }
