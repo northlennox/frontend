@@ -1,9 +1,19 @@
 .accountContainer {
   width: 60%;
   margin-left: 20%;
+  margin-top: 5%;
+  margin-bottom: 10%;
   .myInfoContainer {
     display: flex;
     flex-direction: column;
-    font-style: normal;
+    margin-top: 5%;
+    table {
+      th {
+        font-weight: normal;
+        border-bottom: 1px solid #E9E9E9;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+    }
   }
 }

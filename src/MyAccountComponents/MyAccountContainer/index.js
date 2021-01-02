@@ -64,8 +64,9 @@ class MyAccountContainer extends Component {
           <div className="myInfoContainer">
             <table>
               <tr>
-                <th><div>Name:</div></th>
-                <th>{this.state.userinfo.firstName + ' ' +this.state.userinfo.lastName}<Link to={`/myaccount/${userId}/edit`}>Edit</Link></th>
+                <th><div className="dh">Name:</div></th>
+                <th>{this.state.userinfo.firstName + ' ' +this.state.userinfo.lastName}</th>
+                <th><Link to={`/myaccount/${userId}/edit`}>Edit</Link></th>
               </tr>
               <tr>
                <th><div>Email:</div></th>
@@ -76,18 +77,21 @@ class MyAccountContainer extends Component {
                 <th>{this.state.userinfo.phNumber}</th>
               </tr>
               <tr>
+                 <th><div>Account Plan:</div></th>
+                 <th>Free Plan</th>
               </tr>
               <tr>
+                <th><div>Email Notification:</div></th>
+                <th>{this.state.userinfo.emailNotice}</th>
               </tr>
               <tr>
+                <th><div>Text Notication:</div></th>
+                <th>{this.state.userinfo.mobileNotice}</th>
               </tr>
               <tr>
+                <th><div>Privacy and Setting:</div></th>
+                <th><Link to="">View Terms of Use</Link></th>
               </tr>
-              <tr>
-              </tr>
-              <tr>
-              </tr>
-
             </table>
           </div>
         </div>
@@ -97,19 +101,3 @@ class MyAccountContainer extends Component {
 }
 
 export default MyAccountContainer;
-
-
-
-// <th><div>Email:</div></th>
-// <th><div>Phone Number:</div></th>
-// <th><div>Account Plan:</div></th>
-// <th><div>Email Notification:</div></th>
-// <th><div>Text Notication:</div></th>
-// <th><div>Privacy and Setting:</div></th>
-//
-// <td>{this.state.userinfo.email}</td>
-// <td>{this.state.userinfo.phNumber}</td>
-// <td>Free Plan</td>
-// <td>{this.state.userinfo.emailNotice}</td>
-// <td>{this.state.userinfo.mobileNotice}</td>
-// <td><Link to="">View Terms of Use</Link></td>
