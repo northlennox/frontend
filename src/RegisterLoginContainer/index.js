@@ -86,7 +86,7 @@ class RegisterLoginContainer extends Component {
 
     const parsedResponse = await response.json();
 
-    localStorage.setItem('userId', parsedResponse.userId);
+    sessionStorage.setItem('userId', parsedResponse.userId);
 
     this.props.history.push('/home')
 
@@ -143,7 +143,7 @@ fetchLogin = async(updatedLogin) => {
         login: updatedLogin
       })
 
-      localStorage.setItem('userId', parsedResponse.userId)
+      sessionStorage.setItem('userId', parsedResponse.userId)
       this.props.history.push('/home');
 
     }else{

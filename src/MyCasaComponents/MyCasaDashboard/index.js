@@ -40,7 +40,7 @@ class MyCasaDashboard extends Component {
     getHouseInfo = async() => {
       console.log('jj');
       // const userId = window.location.pathname.split('/')[2];
-      const userId = localStorage.getItem('userId')
+      const userId = sessionStorage.getItem('userId')
 
       try{
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
@@ -74,7 +74,7 @@ class MyCasaDashboard extends Component {
       // e.preventDefault()
 
       try{
-        const userId = localStorage.getItem('userId');
+        const userId = sessionStorage.getItem('userId');
 
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/` + `${userId}`, {
           method: 'DELETE',
@@ -100,7 +100,7 @@ class MyCasaDashboard extends Component {
       e.preventDefault()
 
       try{
-        const userId = localStorage.getItem('userId');
+        const userId = sessionStorage.getItem('userId');
 
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/Attic/` + `${userId}`, {
           method: 'DELETE',
@@ -126,7 +126,7 @@ class MyCasaDashboard extends Component {
       e.preventDefault()
 
       try{
-        const userId = localStorage.getItem('userId');
+        const userId = sessionStorage.getItem('userId');
 
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/roof/` + `${userId}`, {
           method: 'DELETE',
@@ -150,7 +150,7 @@ class MyCasaDashboard extends Component {
       e.preventDefault()
 
       try{
-        const userId = localStorage.getItem('userId');
+        const userId = sessionStorage.getItem('userId');
 
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/waheater/` + `${userId}`, {
           method: 'DELETE',
@@ -174,7 +174,7 @@ class MyCasaDashboard extends Component {
       e.preventDefault()
 
       try{
-        const userId = localStorage.getItem('userId');
+        const userId = sessionStorage.getItem('userId');
 
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/spheater/` + `${userId}`, {
           method: 'DELETE',
@@ -198,7 +198,7 @@ class MyCasaDashboard extends Component {
       e.preventDefault()
 
       try{
-        const userId = localStorage.getItem('userId');
+        const userId = sessionStorage.getItem('userId');
 
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/utility/` + `${userId}`, {
           method: 'DELETE',
@@ -220,7 +220,7 @@ class MyCasaDashboard extends Component {
 
 
   render(){
-      const userId = localStorage.userId;
+      const userId = sessionStorage.userId;
       console.log('hihi', this.state.myHouse);
     return(
       <>

@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import './Nav.scss'
 
 const Nav = (props) => {
-  const userId = localStorage.getItem('userId');
+  const userId = sessionStorage.getItem('userId');
   const logout = async() => {
     try{
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/logout`, {
@@ -19,7 +19,7 @@ const Nav = (props) => {
       if(responseParsed.status === 200){
         // const cookies = new Cookies();
         // cookies.remove('userId');
-        localStorage.removeItem('userId')
+        sessionStorage.removeItem('userId')
         props.history.push('/')
       }
     }catch(err){
@@ -30,7 +30,7 @@ const Nav = (props) => {
 
   return(
     <>
-      { !localStorage.getItem('userId') ?
+      { !sessionStorage.getItem('userId') ?
 
         <div className="navContainer">
           <div className="navRow" id="logo">

@@ -108,7 +108,7 @@ class CreateWaHeater extends Component {
         data.append('waHeaterSingle', this.state.waHeater.waHeaterSingle);
         // data.append('time', this.state.house.time);
 
-        let userId = localStorage.getItem('userId');
+        let userId = sessionStorage.getItem('userId');
         data.append('userId', userId)
 
         const time = new Date();

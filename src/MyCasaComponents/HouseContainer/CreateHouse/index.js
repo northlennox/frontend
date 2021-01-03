@@ -111,7 +111,7 @@ class HouseContainer extends Component {
         data.append('houseSqft', this.state.house.houseSqft);
         // data.append('time', this.state.house.time);
 
-        let userId = localStorage.getItem('userId');
+        let userId = sessionStorage.getItem('userId');
         data.append('userId', userId)
 
         const time = new Date();

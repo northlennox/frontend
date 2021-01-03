@@ -79,7 +79,7 @@ class RegisterLoginContainer extends Component {
 
     const parsedResponse = await response.json();
 
-    localStorage.setItem('userId', parsedResponse.userId);
+    sessionStorage.setItem('userId', parsedResponse.userId);
 
     this.props.history.push('/home')
 
@@ -96,19 +96,43 @@ class RegisterLoginContainer extends Component {
         <div className="registerContainer">
           <form onSubmit={this.handleRegisterSubmit}>
             <div className="formContainer">
-              <label>EMAIL</label>
-              <input type="email" name="email" placeholder="Email" value={this.state.register.email} onChange={this.handleRegisterChange}/>
-              <label>PASSWORD</label>
-              <input type="password" name="password" placeholder="Password" value={this.state.register.password} onChange={this.handleRegisterChange}/>
-              <label>FIRST NAME</label>
-              <input type="text" name="firstName" placeholder="firstName" value={this.state.register.firstName} onChange={this.handleRegisterChange}/>
-              <label>LAST NAME</label>
-              <input type="text" name="lastName" placeholder="lastName" value={this.state.register.lastName} onChange={this.handleRegisterChange}/>
-              <label>PHONE NUMBER</label>
-              <input type="text" name="phNumber" placeholder="phNumber" value={this.state.register.phNumber} onChange={this.handleRegisterChange}/>          
-              <input type="text" name="emailNotice" placeholder="emailNotice" value={this.state.register.emailNotice} onChange={this.handleRegisterChange}/>
-              <input type="text" name="mobileNotice" placeholder="mobileNotice" value={this.state.register.mobileNotice} onChange={this.handleRegisterChange}/>
-              <button className="btn" type="submit">Submit</button>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="email">EMAIL</label>
+                <input type="email" name="email" value={this.state.register.email} onChange={this.handleRegisterChange}/>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="password">PASSWORD</label>
+                <input type="password" name="password" value={this.state.register.password} onChange={this.handleRegisterChange}/>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="firstName">FIRST NAME</label>
+                <input type="text" name="firstName" value={this.state.register.firstName} onChange={this.handleRegisterChange}/>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="lastName">LAST NAME</label>
+                <input type="text" name="lastName" value={this.state.register.lastName} onChange={this.handleRegisterChange}/>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="phNumber">PHONE NUMBER</label>
+                <input type="text" name="phNumber" value={this.state.register.phNumber} onChange={this.handleRegisterChange}/>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="emailNotice">EMAIL NOTIFICATION</label>
+                <div id="emailNotice" >
+                  <input name="emailNotice" type="radio" checked={this.state.register.emailNotice === "yes"} value="yes" onChange={this.handleRegisterChange}/>YES
+                  <input className="radioInput-right" name="emailNotice" type="radio" checked={this.state.register.emailNotice === "no"} value="no" onChange={this.handleRegisterChange}/>NO
+                </div>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="mobileNotice">MOBILE NOTIFICATION</label>
+                <div id="mobileNotice" >
+                  <input name="mobileNotice" type="radio" checked={this.state.register.mobileNotice === "yes"} value="yes" onChange={this.handleRegisterChange}/>YES
+                  <input className="radioInput-right" name="emailNotice" type="radio" checked={this.state.register.mobileNotice === "no"} value="no" onChange={this.handleRegisterChange}/>NO
+                </div>
+              </div>
+              <div className="inputContainer">
+                <button className="btn" type="submit">Submit</button>
+              </div>
             </div>
           </form>
         </div>

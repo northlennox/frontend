@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Exam = (props) => {
-  const userId = localStorage.userId;
+  const userId = sessionStorage.userId;
   const photo = props.house.houseImg;
 
   let grade = ''

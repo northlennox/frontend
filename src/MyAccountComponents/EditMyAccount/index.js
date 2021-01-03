@@ -21,7 +21,7 @@ class EditMyAccount extends Component {
 //edit
   handleSubmit = async(e) =>{
     e.preventDefault();
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
 
     const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/` + userId, {
       method: 'PUT',
@@ -61,7 +61,7 @@ class EditMyAccount extends Component {
     e.preventDefault()//MEMO: button will refresh the page by default
 
     try{
-      const userId = localStorage.getItem('userId');
+      const userId = sessionStorage.getItem('userId');
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + userId, {
         method: 'DELETE',
         credentials: 'include'
@@ -74,7 +74,7 @@ class EditMyAccount extends Component {
       const responseParsed = await response.json();
       // console.log('responseParsed? =>', responseParsed)
       if(responseParsed.status === 200){
-        //localStorage.setItem('userId', responseParsed.userId)
+        //sessionStorage.setItem('userId', responseParsed.userId)
         //PROBLEM: this is for logging out. delete acc is not logout
         this.props.history.push('/')
       }else{
@@ -92,7 +92,7 @@ class EditMyAccount extends Component {
 
 
   render(){
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if(!userId) {
       this.props.history.push('/');
     }

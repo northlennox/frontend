@@ -20,7 +20,7 @@ class HomeContainer extends Component {
   }
 
   getUserInfo = async() => {
-      const userId = localStorage.getItem('userId');
+      const userId = sessionStorage.getItem('userId');
 
       try{
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/` + userId, {

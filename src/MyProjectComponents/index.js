@@ -29,10 +29,10 @@ class MyProjectComponent extends Component {
 
     getHouseInfo = async() => {
 
-      const userId = localStorage.getItem('userId')
+      const userId = sessionStorage.getItem('userId')
 
       try{
-        const response = await fetch(`http://localhost:9000/api/v1/users/` + `${userId}`,  {
+        const response = await fetch(`http://sessionhost:9000/api/v1/users/` + `${userId}`,  {
           credentials: 'include'
         })
         console.log(response);
@@ -63,7 +63,7 @@ class MyProjectComponent extends Component {
     }
 
   render(){
-    const userId = localStorage.getItem('userId')
+    const userId = sessionStorage.getItem('userId')
 
     return(
       <>

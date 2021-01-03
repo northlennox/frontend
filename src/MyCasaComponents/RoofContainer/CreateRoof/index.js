@@ -107,7 +107,7 @@ class CreateAttic extends Component {
         data.append('dcCapacity', this.state.roof.dcCapacity);
         // data.append('time', this.state.house.time);
 
-        let userId = localStorage.getItem('userId');
+        let userId = sessionStorage.getItem('userId');
         data.append('userId', userId)
 
         const time = new Date();
@@ -140,7 +140,7 @@ class CreateAttic extends Component {
                 <img className="help" src="./../../help.svg"/>
               </div>
             <div className="frames">
-              <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />        
+              <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />
             </div>
             <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
             <div className="inputContainer">

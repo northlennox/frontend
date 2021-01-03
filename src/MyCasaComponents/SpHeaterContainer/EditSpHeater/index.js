@@ -31,7 +31,7 @@ class EditSpHeater extends Component {
 
   getHouseInfo = async() => {
     // const userId = window.location.pathname.split('/')[2];
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
 
     try{
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
@@ -153,7 +153,7 @@ class EditSpHeater extends Component {
         data.append('coolingSystem', this.state.spHeater.coolingSystem);
         // data.append('time', this.state.house.time);
 
-        let userId = localStorage.getItem('userId');
+        let userId = sessionStorage.getItem('userId');
         data.append('userId', userId)
 
         // const time = new Date();

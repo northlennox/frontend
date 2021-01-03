@@ -27,7 +27,7 @@ class EditHouse extends Component {
   };
 
   getHouseInfo = async() => {
-    let userId = localStorage.getItem('userId');
+    let userId = sessionStorage.getItem('userId');
     try{
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/${userId}`, {
         credentials: 'include',
@@ -169,7 +169,7 @@ class EditHouse extends Component {
         // data.append('memo', this.state.house.memo);
         data.append('time', this.state.house.time);
 
-        let userId = localStorage.getItem('userId');
+        let userId = sessionStorage.getItem('userId');
         data.append('userId', userId)
 
         const time = new Date();
@@ -254,7 +254,7 @@ class EditHouse extends Component {
               <div className="frames">
                 <img className="imgAttached"
                      id="photoOne"
-                     src={this.state.preview1 === undefined ? houseImgState : this.state.preview1}
+                     src={this.state.preview1 === null ? houseImgState : this.state.preview1}
                      onClick={this.handleClick} />
               </div>
               <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>

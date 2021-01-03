@@ -62,3 +62,10 @@ input {
   text-decoration: none;
   color: black;
 }
+
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}

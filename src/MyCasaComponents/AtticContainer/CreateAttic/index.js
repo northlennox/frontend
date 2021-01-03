@@ -110,7 +110,7 @@ class CreateAttic extends Component {
         data.append('airSealed', this.state.attic.airSealed);
         // data.append('time', this.state.house.time);
 
-        let userId = localStorage.getItem('userId');
+        let userId = sessionStorage.getItem('userId');
         data.append('userId', userId)
 
         const time = new Date();

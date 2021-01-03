@@ -5,7 +5,7 @@ import { Button, Card, Accordion } from 'react-bootstrap';
 
 const ShowSpHeater = (props) => {
   const photo = props.spHeater.spHeaterImg;
-  const userId = localStorage.getItem('userId');
+  const userId = sessionStorage.getItem('userId');
   return(
     <div className="postedContainer">
       <div className="postedFrame"><img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/></div>

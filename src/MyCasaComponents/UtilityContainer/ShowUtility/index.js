@@ -6,7 +6,7 @@ import { Button, Card, Accordion } from 'react-bootstrap';
 const ShowUtility = (props) => {
   console.log(props);
   const photo = props.utility.utilityImg;
-  const userId = localStorage.getItem('userId');
+  const userId = sessionStorage.getItem('userId');
   return(
     <div className="postedContainer">
       <div className="postedFrame"><img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/></div>

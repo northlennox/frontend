@@ -6,7 +6,7 @@ import { Button, Card, Accordion } from 'react-bootstrap';
 const ShowHouse = (props) => {
   console.log('here', props);
   const photo = props.house.houseImg;
-  const userId = localStorage.userId;
+  const userId = sessionStorage.userId;
 
   return(
     <div className="postedContainer">

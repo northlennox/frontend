@@ -23,7 +23,7 @@ class ProjectPlan extends Component {
     getHouseInfo = async() => {
       console.log('jj');
       // const userId = window.location.pathname.split('/')[2];
-      const userId = localStorage.getItem('userId')
+      const userId = sessionStorage.getItem('userId')
 
       try{
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
@@ -52,7 +52,7 @@ class ProjectPlan extends Component {
     }
 
   render(){
-    const userId = localStorage.getItem('userId')
+    const userId = sessionStorage.getItem('userId')
     return(
       <>
       <Nav />

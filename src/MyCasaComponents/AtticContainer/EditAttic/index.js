@@ -27,7 +27,7 @@ class EditAttic extends Component {
   };
 
   getHouseInfo = async() => {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
 
     try{
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
@@ -140,7 +140,7 @@ class EditAttic extends Component {
       data.append('airSealed', this.state.attic.airSealed);
       // data.append('time', this.state.house.time);
 
-      let userId = localStorage.getItem('userId');
+      let userId = sessionStorage.getItem('userId');
       data.append('userId', userId)
       // const time = new Date();
       // data.append('postingTime', time)
@@ -160,7 +160,7 @@ class EditAttic extends Component {
     const atticTypeOptions = ["Select", "Unconditioned Attic", "Conditioned Attic", "Cathedral Ceiling"];
     const atticDepthOptions = ["Select", "1", "2", "3", "4"];
     const insulMaterialOptions = ["Select", "Fiberglass Batt", "Fiberglass Blown", "Cellulose", "Not Sure"];
-    const atticImgState = `http://localhost:9000/` + this.state.attic.atticImg;
+    const atticImgState = `http://sessionhost:9000/` + this.state.attic.atticImg;
 
     return(
       <div>
