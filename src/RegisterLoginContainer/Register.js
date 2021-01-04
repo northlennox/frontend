@@ -127,7 +127,7 @@ class RegisterLoginContainer extends Component {
                 <label className="inputLabel" htmlFor="mobileNotice">MOBILE NOTIFICATION</label>
                 <div id="mobileNotice" >
                   <input name="mobileNotice" type="radio" checked={this.state.register.mobileNotice === "yes"} value="yes" onChange={this.handleRegisterChange}/>YES
-                  <input className="radioInput-right" name="emailNotice" type="radio" checked={this.state.register.mobileNotice === "no"} value="no" onChange={this.handleRegisterChange}/>NO
+                  <input className="radioInput-right" name="mobileNotice" type="radio" checked={this.state.register.mobileNotice === "no"} value="no" onChange={this.handleRegisterChange}/>NO
                 </div>
               </div>
               <div className="inputContainer">

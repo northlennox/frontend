@@ -7,14 +7,43 @@ class EditMyAccount extends Component {
     super()
     this.state = {
       userinfo : {
-          email: '',
-          password: '',
-          firstName: '',
-          lastName: '',
-          phNumber: '',
-          emailNotice: '',
-          mobileNotice: ''
+            email: '',
+            password: '',
+            firstName: '',
+            lastName: '',
+            phNumber: '',
+            emailNotice: '',
+            mobileNotice: ''
         }
+    }
+  }
+
+
+  componentDidMount(){
+    this.getMyinfo()
+  }
+
+  getMyinfo = async() => {
+    const userId = sessionStorage.getItem('userId');
+
+    try{
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/` + userId, {
+        credentials: 'include'
+      });
+
+      if(!response.ok){
+        throw Error(response.statusText)
+      }
+
+      const userParsed = await response.json();
+
+      this.setState({
+          userinfo: userParsed.data
+      })
+
+    }catch(err){
+      console.log('get myinfo is failed?')
+      return err
     }
   }
 
@@ -72,10 +101,10 @@ class EditMyAccount extends Component {
       }
 
       const responseParsed = await response.json();
-      // console.log('responseParsed? =>', responseParsed)
+      console.log('responseParsed? =>', responseParsed)
       if(responseParsed.status === 200){
-        //sessionStorage.setItem('userId', responseParsed.userId)
-        //PROBLEM: this is for logging out. delete acc is not logout
+        sessionStorage.removeItem('userId')
+
         this.props.history.push('/')
       }else{
         console.log('this is fail')
@@ -107,27 +136,33 @@ class EditMyAccount extends Component {
             <form onSubmit={this.handleSubmit}>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="firstName">First Name</label>
-                <input type="firstName" name="firstName" value={this.state.firstName} onChange={this.handleChange}/>
+                <input type="firstName" name="firstName" value={this.state.userinfo.firstName} onChange={this.handleChange}/>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="lastName">Last Name</label>
-                <input type="lastName" name="lastName" value={this.state.lastName} onChange={this.handleChange}/>
+                <input type="lastName" name="lastName" value={this.state.userinfo.lastName} onChange={this.handleChange}/>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="phNumber">Phone Number</label>
-                <input type="phNumber" name="phNumber" value={this.state.phNumber} onChange={this.handleChange}/>
+                <input type="phNumber" name="phNumber" value={this.state.userinfo.phNumber} onChange={this.handleChange}/>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="password">Password</label>
-                <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
+                <input type="password" name="password" onChange={this.handleChange}/>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="emailNotice">Email Notice</label>
-                <input type="emailNotice" name="emailNotice" value={this.state.emailNotice} onChange={this.handleChange}/>
+                <div id="emailNotice">
+                  <input name="emailNotice" type="radio" checked={this.state.userinfo.emailNotice === "yes"} value="yes" onChange={this.handleChange}/>YES
+                  <input className="radioInput-right" name="emailNotice" type="radio" checked={this.state.userinfo.emailNotice === "no"} value="no" onChange={this.handleChange}/>NO
+                </div>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="emailNotice">Mobile Notice</label>
-                <input type="mobileNotice" name="mobileNotice" value={this.state.mobileNotice} onChange={this.handleChange}/>
+                <div id="mobileNotice" >
+                  <input name="mobileNotice" type="radio" checked={this.state.userinfo.mobileNotice === "yes"} value="yes" onChange={this.handleChange}/>YES
+                  <input className="radioInput-right" name="mobileNotice" type="radio" checked={this.state.userinfo.mobileNotice === "no"} value="no" onChange={this.handleChange}/>NO
+                </div>
               </div>
               <div className="inputContainer">
                 <button className="btn" type="submit">Edit</button>

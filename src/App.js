@@ -49,12 +49,12 @@ const My404 = () => {
 
 const App = (props) => {
 
-  // if (localStorage.getItem('userId') !== null) {
+  // if (sessionStorage.getItem('userId') !== null) {
   //   console.log('USER IS LOGGED IN')
   // } else if(props.location.pathname !== '/') {
   //   props.history.push('/')
   // }
-
+  
 
   return(
     <main>

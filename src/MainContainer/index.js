@@ -14,7 +14,7 @@ class MainContainer extends Component {
 
   render(){
     return (
-      <div>
+      <>
         <Nav />
         <div className="readfirst">
           <Link to="home/welcome" style={{ textDecoration: "none", color: "white", fondWeight: "400"}}>
@@ -64,7 +64,7 @@ class MainContainer extends Component {
             <div id="text">Know when financial incentives change, and be aware of special offers to get electrification upgrades.</div>
           </div>
         </div>
-      </div>
+      </>
     )
   }
 }

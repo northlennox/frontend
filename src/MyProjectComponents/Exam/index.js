@@ -82,12 +82,12 @@ const Exam = (props) => {
           <div className="measureContainer">
             <div className="measureItem">
               <label>Energy Efficiency Rating</label>
-              <div>B</div>
+              <div><div>Attic Insulation : {grade}</div></div>
               <div>graph</div>
             </div>
             <div className="measureItem">
               <label>Carbon Footprint Rating</label>
-              <div>B</div>
+              <div>B - space heater</div>
               <div>graph</div>
             </div>
           </div>
@@ -156,15 +156,18 @@ const Exam = (props) => {
             <div className="analysisSection">
               <div className="analysisName h4">EFFICIENCY</div>
               <div>graph</div>
+              <div>Attic Insulation : {grade}</div>
               <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
             </div>
             <div className="analysisSection">
               <div className="analysisName h4">TECHNOLOGY</div>
               <div>graph</div>
+              <div>Wather heater type</div>
               <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
             </div>
             <div className="analysisSection">
               <div>graph</div>
+              <div>space heater type</div>
               <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
             </div>
             <div className="analysisSection recommendations">
@@ -172,7 +175,7 @@ const Exam = (props) => {
               <div></div>
               <div></div>
             </div>
-          <div>Attic Insulation : {grade}</div>
+
           <div>Water Heater : age - {waHeaterAge}</div>
           <div>Energy Efficiency Factor: {waEfficencyGrade}</div>
           <div>Space Heater : {spHeaterAge} </div>
