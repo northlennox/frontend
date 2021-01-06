@@ -48,7 +48,10 @@
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
     .navContainer {
+      height: auto;
       .navRow {
+        display: flex;
+        flex-direction: column;
         .logContainer {
           .logoImg {
             img {
@@ -63,6 +66,19 @@
           }
         }
       }
+      .navSecond {
+        border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        .navItem {
+          width: 90%;
+          margin-left: 10%;
+        }
+      }
+    }
+    #loginSolo {
+      margin-right: 30px;
     }
 }
 

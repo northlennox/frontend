@@ -44,7 +44,7 @@ const Nav = (props) => {
           <div className="navRow">
             <div className="navItem">
               <Link to={`/login`} className="links" style={{ textDecoration: 'none' }}>
-                <div className="navItemText" id="electrify" style={{ color : '#979797'}}>Login</div>
+                <div className="navItemText" id="loginSolo" style={{ color : '#979797'}}>Login</div>
               </Link>
             </div>
           </div>
@@ -59,7 +59,7 @@ const Nav = (props) => {
             </div>
           </Link>
         </div>
-        <div className="navRow">
+        <div className="navRow navSecond">
           <div className="navItem">
             <Link to={`/home`} className="links" style={{ textDecoration: 'none' }}>
               { window.location.pathname.split('/')[1] === 'home'? <div className="navItemText" id="electrify" style={{ color : 'black'}}>Electrify</div> : <div className="navItemText" id="electrify" style={{ color : '#979797'}}>Electrify</div> }
