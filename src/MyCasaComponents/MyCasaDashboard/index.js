@@ -89,7 +89,7 @@ class MyCasaDashboard extends Component {
         this.setState({
           house : ''
         })
-        // this.props.history.push('/mycasa/' + userId);
+        this.props.history.push('/mycasa/' + userId);
       }catch(err){
         alert('Something went wrong. Please try again')
       }

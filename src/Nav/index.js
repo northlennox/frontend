@@ -36,17 +36,17 @@ const Nav = (props) => {
           <div className="navRow" id="logo">
             <Link to="/" style={{ textDecoration: 'none' }}>
               <div className="logContainer">
-                <div className="logoImg" style={{ marginRight: '20px' }}><img src={process.env.PUBLIC_URL + '/logo.png'}/></div>
+                <div className="logoImg"><img src={process.env.PUBLIC_URL + '/logo.png'}/></div>
                 <div className="logoText"><img src={process.env.PUBLIC_URL + '/electricasa.png'}/></div>
               </div>
             </Link>
           </div>
           <div className="navRow">
-          <div className="navItem">
-            <Link to={`/login`} className="links" style={{ textDecoration: 'none' }}>
-              <div className="navItemText" id="electrify" style={{ color : '#979797'}}>Login</div>
-            </Link>
-          </div>
+            <div className="navItem">
+              <Link to={`/login`} className="links" style={{ textDecoration: 'none' }}>
+                <div className="navItemText" id="electrify" style={{ color : '#979797'}}>Login</div>
+              </Link>
+            </div>
           </div>
         </div>
       :

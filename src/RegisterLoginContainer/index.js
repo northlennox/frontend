@@ -176,7 +176,7 @@ fetchLogin = async(updatedLogin) => {
           <form onSubmit={this.handleLoginSubmit}>
             <div className="formContainer">
               <label style={{marginBottom: "6px", fontSize: "14px"}}>EMAIL</label>
-              <input className="loginInput" type="text" name="email" onChange={this.handleLoginChange} placeholder="email" />
+              <input className="loginInput" type="text" name="email" onChange={this.handleLoginChange} placeholder="Email" />
               <label style={{marginBottom: "6px", fontSize: "14px"}}>PASSWORD</label>
               <input className="loginInput" type="password" name="password" onChange={this.handleLoginChange} placeholder="Password"/>
               <button className="btn" type="submit">Login</button>

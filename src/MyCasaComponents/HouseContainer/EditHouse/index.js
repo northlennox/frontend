@@ -257,7 +257,7 @@ class EditHouse extends Component {
                      src={this.state.preview1 === null ? houseImgState : this.state.preview1}
                      onClick={this.handleClick} />
               </div>
-              <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
+              <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file" />
 
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="address">ADDRESS</label>
