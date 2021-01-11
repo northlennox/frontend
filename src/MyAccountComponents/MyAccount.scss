@@ -37,10 +37,14 @@
   flex-direction: column;
   width: 80%;
   margin-left: 10%;
+  margin-bottom: 5%;
   .title {
     margin-top: 5%;
   }
   .agreementContainer {
+    .subtitle {
+      font-weight: bold;
+    }
     .p {
       margin-top: 3%;
     }

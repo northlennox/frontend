@@ -64,12 +64,12 @@ class MyProjectComponent extends Component {
 
   render(){
     const userId = sessionStorage.getItem('userId')
-
+    console.log('open?', this.state.open);
     return(
       <>
         <Nav />
           {
-            this.state.open?
+            !this.state.open ?
             <div className="projectContainer">
               <div className="titleContainer">
                 <div className="title h2">My Project</div>

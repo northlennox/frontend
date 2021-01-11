@@ -57,7 +57,7 @@ const ViewTermsOfUse = (props) => {
               <div className="p">
                 13. Miscellaneous. Electricasa reserves the right to change these Terms of Service in whole or in part, at any time with or without notice. Such changes shall be effective when posted on the Website, and your continued access or use of the Website and its services shall be considered acceptance of such changes. Any contract or agreement for services that you may enter into by accessing and using this Website is solely between you and the other Member. Electricasa is not a party to any such contract or agreement, has no obligations under any such contract or agreement, and expressly disclaims all liability whatsoever arising out of, or in connection with, any such contract or agreement. No agency, partnership, joint venture, employee-employer, or franchiser-franchisee relationship is intended or created by these Terms of Service. These Terms of Service constitute the entire agreement between you and Electricasa, and supersede all other written and oral communications or agreements, with regard to the Website and its services. Any waiver of these Terms of Service by Electricasa shall only be effective if in a writing signed by an authorized officer of Electricasa. Electricasa’s failure to act with respect to a breach of these Terms of Service by you or others does not waive Electricasa’s right to act with respect to subsequent or similar breaches. The Website is controlled, operated and administered by Greenbanc LLC from its offices in Brooklyn, New York. These Terms of Service shall be governed by and construed in accordance with the laws of the State of Delaware without regard to conflict of laws principles. Any claim or cause of action by you against Electricasa with respect to your access or use of the Website and its services or your account shall be brought in the federal or state courts of Delaware within one (1) year after the claim or cause of action arises. Without limiting any other remedy under law, in equity or pursuant to these Terms of Service, you acknowledge and agree that Electricasa shall be entitled to seek injunctive relief or other equitable relief for any breach of these Terms of Service. If any provision of these Terms of Service is found to be unenforceable or invalid, the remaining provisions shall be enforceable and valid to the greatest extent permitted by law. Accessing or using the Website shall constitute effective execution and delivery by you of these Terms of Service. In any dispute between Electricasa and you relating to this Website or the services provided through the Website, the prevailing party will be entitled to attorneys’ fees, costs and expenses. The content of MYELECTRICASA.COM is protected by United States and international copyright, trademark and other laws. Copyright © 2021 Greenbanc LLC. All rights reserved. Specifically, Electricasa. does not convey to anyone, through allowing access to the Website, any ownership rights in the Website or in any Content appearing on or made available through the Website. By furnishing information on this Website, Electricasa does not grant any licenses to any copyrights, patents or any other intellectual property rights.
               </div>
-              <div className="p subtitle">PRIVACY POLICY</div>
+              <div className="subtitle">PRIVACY POLICY</div>
               <div className="p">
                 Protecting your private information is our priority. This Statement of Privacy applies to the www.MYELECTRICASA.COM and Greenbanc LLC. and governs data collection and usage. For the purposes of this Privacy Policy, unless otherwise noted, all references to www.MYELECTRICASA.COM include Greenbanc LLC as well. Electricasa website is an information site. By using Electricasa website, you consent to the data practices described in this statement.
               </div>
@@ -77,14 +77,17 @@ const ViewTermsOfUse = (props) => {
                 1. CCPA. Under the California Consumer Protect Act (CCPA) you have the right to request that a company provides you with a digital or physical copy of the personal information which they have collected about you. You also have the right to request that a company deletes and “forgets” any of the personal information that they have collected about you.
               </div>
               <div className="p">CCPA Disclosure</div>
+
               <div className="p">2. The Electricasa Service Collects Your Information</div>
               <div className="p">We collect Personal Information when you:</div>
-              <div className="p">• Register to use the Electricasa Service;</div>
-              <div className="p">• Post it to the Electricasa Service;</div>
-              <div className="p">• Make a payment; and</div>
-              <div className="p">• Communicate with us.</div>
-              <div className="p">• Electricasa may collect personally identifiable information, such as your name. If you decide to choose any of the offered bids which are submitted by Contractors in our website, we collect billing and credit card information. This information is used to complete the purchase transaction. Electricasa may also collect anonymous demographic information, which is not unique to you, such as your age, gender, household income and Financial status, Credit scores, Building details. We may gather additional personal or non-personal information in the future.
-              </div>
+                <ul>
+                  <li>Register to use the Electricasa Service;</li>
+                  <li>Post it to the Electricasa Service;</li>
+                  <li>Make a payment; and</li>
+                  <li>Communicate with us.</li>
+                  <li>Electricasa may collect personally identifiable information, such as your name. If you decide to choose any of the offered bids which are submitted by Contractors in our website, we collect billing and credit card information. This information is used to complete the purchase transaction. Electricasa may also collect anonymous demographic information, which is not unique to you, such as your age, gender, household income and Financial status, Credit scores, Building details. We may gather additional personal or non-personal information in the future.
+                  </li>
+                </ul>
               <div className="p">Information about your computer hardware and software may be automatically collected by Electricasa. This information can include: your IP address, browser type, domain names, access times and referring website addresses. This information is used for the operation of the service, to maintain quality of the service, and to provide general statistics regarding use of the Electricasa website.
                 Electricasa encourages you to review the privacy statements of websites you choose to link to from Electricasa so that you can understand how those websites collect, use and share your information. Electricasa is not responsible for the privacy statements or other content on websites outside of the Greenbanc LLC website.
               </div>
@@ -108,22 +111,26 @@ const ViewTermsOfUse = (props) => {
               <div className="p">9. Communications. We may send email to the email address you provide to us to verify your account and for informational and operational purposes, such as account management, customer service, or system maintenance. You can opt out of receiving some of these email communications at any time by using the unsubscribe link within each email. We may send text messages to the phone number you provide to us to verify your account and for informational and operational purposes, such as account management, customer service, or system maintenance. You can opt out of receiving some of these text messages at any time by using the option provided in the account section of the website.</div>
               <div className="p">10. Electricasa May Disclose Your Information</div>
               <div className="p">We may share your information:</div>
-              <div className="p">• with other customers as part of a review submitted by you;</div>
-              <div className="p">• with our third-party service providers;</div>
-              <div className="p">• to comply with legal obligations;</div>
-              <div className="p">• to protect and defend our rights and property; and</div>
-              <div className="p">• with your permission.</div>
+              <ul>
+                <li>with other customers as part of a review submitted by you;</li>
+                <li>with our third-party service providers;</li>
+                <li>to comply with legal obligations;</li>
+                <li>to protect and defend our rights and property; and</li>
+                <li>with your permission.</li>
+              </ul>
               <div className="p">11. We Collect Reviews. When you leave a review of a Contractor, we may share your name and other details of your project, such as size, date and locations, with other customers in order to allow them to make an educated decision about whether to work with a provider.</div>
               <div className="p">12. We Use Vendors and Service Providers. We may share any information we receive with vendors and service providers retained in connection with the provision of the Electricasa Service.</div>
               <div className="p">13. Third Parties, at Your Request. We may share any information we receive with third parties, such as Contractors, or City Governments when required by law.</div>
               <div className="p">14. As Required By Law and Similar Disclosures. We may access, preserve, and disclose your Personal Information, other account information, and content if we believe doing so is required by law or if those actions are reasonably necessary to:</div>
-              <div className="p">• comply with legal process, such as a court order or subpoena;</div>
-              <div className="p">• enforce this Privacy Policy or our Terms of Use;</div>
-              <div className="p">• respond to claims that any content violates the rights of third parties;</div>
-              <div className="p">• respond to your requests for customer service;</div>
-              <div className="p">• respond to law enforcement;</div>
-              <div className="p">• investigate and prevent unauthorized transactions or other illegal activities; or</div>
-              <div className="p">• protect our or others’ rights, property, or personal safety.</div>
+                <ul>
+                  <li>comply with legal process, such as a court order or subpoena;</li>
+                  <li>enforce this Privacy Policy or our Terms of Use;</li>
+                  <li>respond to claims that any content violates the rights of third parties;</li>
+                  <li>respond to your requests for customer service;</li>
+                  <li>respond to law enforcement;</li>
+                  <li>investigate and prevent unauthorized transactions or other illegal activities; or</li>
+                  <li>protect our or others’ rights, property, or personal safety.</li>
+                </ul>
               <div className="p">15. Merger, Sale, or Other Asset Transfers. If we are involved in a merger, acquisition, financing due diligence, reorganization, bankruptcy, receivership, sale of company assets, or transition of service to another provider, your information may be sold or transferred as part of such a transaction. We cannot control how such entities may use or disclose such information.</div>
               <div className="p">We may also disclose your Personal Information with your permission.</div>
               <div className="p">16. Security of Your Information</div>
