@@ -90,7 +90,7 @@ class MyAccountContainer extends Component {
               </tr>
               <tr>
                 <th><div>Privacy and Setting:</div></th>
-                <th><Link to="">View Terms of Use</Link></th>
+                <th><Link to="/agreement">View Terms of Use</Link></th>
               </tr>
             </table>
           </div>

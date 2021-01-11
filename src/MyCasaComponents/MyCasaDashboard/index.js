@@ -54,6 +54,8 @@ class MyCasaDashboard extends Component {
 
         const userParsed = await response.json();
 
+        console.log('userParsed', userParsed);
+
         this.setState({
             house: userParsed.house,
             attic: userParsed.attic,
@@ -62,7 +64,9 @@ class MyCasaDashboard extends Component {
             spHeater: userParsed.spHeater,
             utility: userParsed.utility,
             myHouse: userParsed.house
-        })
+        });
+
+
 
       }catch(err){
         return err
@@ -87,9 +91,10 @@ class MyCasaDashboard extends Component {
 
 
         this.setState({
-          house : ''
-        })
-        this.props.history.push('/mycasa/' + userId);
+          house : null
+        });
+        console.log('this.state.house', this.state.house);
+        // this.props.history.push('/mycasa/' + userId);
       }catch(err){
         alert('Something went wrong. Please try again')
       }
@@ -112,7 +117,7 @@ class MyCasaDashboard extends Component {
         }
 
         this.setState({
-          attic : ''
+          attic : null
         })
 
         // this.props.history.push('/mycasa/' + userId);
@@ -138,7 +143,7 @@ class MyCasaDashboard extends Component {
         }
 
         this.setState({
-          roof : ''
+          roof : null
         })
 
       }catch(err){
@@ -162,7 +167,7 @@ class MyCasaDashboard extends Component {
         }
 
         this.setState({
-          waHeater : ''
+          waHeater : null
         })
 
       }catch(err){
@@ -186,7 +191,7 @@ class MyCasaDashboard extends Component {
         }
 
         this.setState({
-          spHeater : ''
+          spHeater : null
         })
 
       }catch(err){
@@ -210,7 +215,7 @@ class MyCasaDashboard extends Component {
         }
 
         this.setState({
-          utility : ''
+          utility : null
         })
       }catch(err){
         alert('Something went wrong. Please try again')
@@ -221,7 +226,7 @@ class MyCasaDashboard extends Component {
 
   render(){
       const userId = sessionStorage.userId;
-      console.log('hihi', this.state.myHouse);
+      console.log('hihi', this.state.house);
     return(
       <>
         <Nav />
@@ -235,11 +240,13 @@ class MyCasaDashboard extends Component {
             <div className="items">
               { this.state.house !== null
               ?
-                <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>
+
+               <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>
+
               :
 
               <Link to="/mycasa/house/create" className="blankContainer">
-                <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
+                <div className="blankFrame"><img className="placer" src="./../../upload.svg" /></div>
                 <div className="blankLabel">House Details</div>
               </Link>
               }
@@ -250,7 +257,7 @@ class MyCasaDashboard extends Component {
               <ShowRoof roof={this.state.roof} deleteMyRoof={this.deleteMyRoof} />
               :
               <Link to="/mycasa/roof/create" className="blankContainer">
-                <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
+                <div className="blankFrame"><img className="placer" src="./../../upload.svg" /></div>
                 <div className="blankLabel">Roof Details</div>
               </Link>
               }
@@ -261,7 +268,7 @@ class MyCasaDashboard extends Component {
               <ShowAttic attic={this.state.attic} deleteMyAttic={this.deleteMyAttic}/>
               :
               <Link to="/mycasa/attic/create" className="blankContainer">
-                <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
+                <div className="blankFrame"><img className="placer" src="./../../upload.svg" /></div>
                 <div className="blankLabel">Attic Insulation Details</div>
               </Link>
               }
@@ -274,7 +281,7 @@ class MyCasaDashboard extends Component {
               <ShowWaHeater waHeater={this.state.waHeater} deleteMyWaHeater={this.deleteMyWaHeater}/>
               :
               <Link to="/mycasa/waheater/create" className="blankContainer">
-                <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
+                <div className="blankFrame"><img className="placer" src="./../../upload.svg" /></div>
                 <div className="blankLabel">Water Heater Details</div>
               </Link>
               }
@@ -285,7 +292,7 @@ class MyCasaDashboard extends Component {
               <ShowSpHeater spHeater={this.state.spHeater} deleteMySpHeater={this.deleteMySpHeater}/>
               :
               <Link to="/mycasa/spheater/create" className="blankContainer">
-                <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
+                <div className="blankFrame"><img className="placer" src="./../../upload.svg" /></div>
                 <div className="blankLabel">Primary Heater Details</div>
               </Link>
               }
@@ -296,7 +303,7 @@ class MyCasaDashboard extends Component {
               <ShowUtility utility={this.state.utility} deleteMyUtility={this.deleteMyUtility}/>
               :
               <Link to="/mycasa/utility/create" className="blankContainer">
-                <div className="blankFrame"><img className="placer" src="./../../placer.svg" /></div>
+                <div className="blankFrame"><img className="placer" src="./../../upload.svg" /></div>
                 <div className="blankLabel">Utility Bills</div>
               </Link>
               }

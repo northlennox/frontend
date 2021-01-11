@@ -135,7 +135,6 @@ class EditHouse extends Component {
         house: {
           ...this.state.house,
           houseImg: e.target.files[0]
-          //여기서 부터 시작할것, 이 위에 코드가 망가진 것이다.
         }
       })
     }

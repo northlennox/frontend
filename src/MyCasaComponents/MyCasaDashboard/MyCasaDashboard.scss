@@ -90,15 +90,23 @@
     }
   }
   .postedLabel {
-    margin-top: 10px;
     color: #FA910B;
+    margin-right: 90px;
   }
   .updateContainer {
     display: flex;
-  }
-  .postedInfo {
-    .spanNext {
-      margin-left: 10px;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    .deleteBtn {
+      border: none;
+      background-color: #fff;
+      color: #FA910B;
+      margin-right: 20px;
+    }
+    .editBtn {
+      color: purple;
     }
   }
 }
@@ -125,6 +133,8 @@
   }
   .frames {
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 280px;
     border: 1px dashed #979797;
     box-sizing: border-box;
@@ -247,14 +257,28 @@
 }
 
 // REACT BOOTSTRAP
+.accordion {
+  padding-top: 0;
+}
+
 .toggle {
   text-decoration: none;
   border: 1px white;
   background-color: white;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  .postedLabel {
+
+  }
+  .detailArr {
+    color: #FA910B;
+  }
 }
 .header {
   background-color: white;
   border-style: hidden;
+  padding-top: 0;
 }
 .card {
   border-style: hidden;

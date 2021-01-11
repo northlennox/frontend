@@ -12,6 +12,7 @@ import MyProjectComponent from './MyProjectComponents';
 import ProjectPlan from './MyProjectComponents/ProjectPlan';
 import MyAccountContainer from './MyAccountComponents/MyAccountContainer';
 import EditMyAccount from './MyAccountComponents/EditMyAccount';
+import ViewTermsOfUse from './MyAccountComponents/ViewTermsOfUse';
 
 import ClothesDrying from './ElectrifyComponents/ClothesDrying';
 import Cooking from './ElectrifyComponents/Cooking';
@@ -54,7 +55,7 @@ const App = (props) => {
   // } else if(props.location.pathname !== '/') {
   //   props.history.push('/')
   // }
-  
+
 
   return(
     <main>
@@ -66,6 +67,7 @@ const App = (props) => {
         <Route exact path="/home/welcome" component = { WelcomeComponent } />
         <Route exact path="/myaccount/:id" component = { MyAccountContainer } />
         <Route exact path="/myaccount/:id/edit" component = { EditMyAccount } />
+        <Route exact path="/agreement" component = { ViewTermsOfUse } />
 
         //Elecctrify
         <Route exact path="/home/clothesdrying" component={ ClothesDrying } />

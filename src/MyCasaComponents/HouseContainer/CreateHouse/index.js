@@ -142,7 +142,8 @@ class HouseContainer extends Component {
       'Georgia',
       'Hawaii',
       'Idaho',
-      'IllinoisIndiana',
+      'Illinois',
+      'Indiana',
       'Iowa',
       'Kansas',
       'Kentucky',
@@ -154,7 +155,8 @@ class HouseContainer extends Component {
       'Minnesota',
       'Mississippi',
       'Missouri',
-      'MontanaNebraska',
+      'Montana',
+      'Nebraska',
       'Nevada',
       'New Hampshire',
       'New Jersey',
@@ -165,7 +167,8 @@ class HouseContainer extends Component {
       'Ohio',
       'Oklahoma',
       'Oregon',
-      'PennsylvaniaRhode Island',
+      'Pennsylvania',
+      'Rhode Island',
       'South Carolina',
       'South Dakota',
       'Tennessee',
@@ -179,6 +182,7 @@ class HouseContainer extends Component {
       'Wyoming',
     ]
 
+    let upload = "./../../../upload.svg"
     return(
 
       <div>
@@ -192,7 +196,7 @@ class HouseContainer extends Component {
                 <img className="help" src="./../../help.svg"/>
               </div>
               <div className="frames">
-                <img id="photoOne" className="imgAttached" src={this.state.preview1} onClick={this.handleClick} />
+                <img id="photoOne" className={this.state.preview1 ? "imgAttached" : "placer"} src={this.state.preview1 ? this.state.preview1 :  upload} onClick={this.handleClick} />
                 <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
               <div className="inputContainer">

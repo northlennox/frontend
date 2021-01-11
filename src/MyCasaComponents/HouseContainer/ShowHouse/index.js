@@ -10,16 +10,16 @@ const ShowHouse = (props) => {
 
   return(
     <div className="postedContainer">
-      <div className="postedFrame"><img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo} /></div>
-        <Accordion>
+      <div className="postedFrame"><Link to={"/mycasa/house/edit"}><img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo} /></Link></div>
+      <div className="updateContainer">
+        <button className="deleteBtn spanNext" onClick={props.deleteMyHouse.bind(null, userId)}>X</button>
+      </div>
+        <Accordion className="accordion">
           <Card className="card">
             <Card.Header className="header">
               <Accordion.Toggle variant="link" eventKey="0" className="toggle">
                 <div className="postedLabel">House Details</div>
-                <div className="updateContainer">
-                  <div><Link to={"/mycasa/house/edit"}>Edit</Link></div>
-                  <button className="deleteBtn spanNext" onClick={props.deleteMyHouse.bind(null, userId)}>Remove</button>
-                </div>
+                <div className="detailArr">See</div>
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
