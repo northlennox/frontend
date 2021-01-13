@@ -162,12 +162,12 @@ class EditRoof extends Component {
     const extriorOptions = ["Select", "Composition Shingles or Metal", "Wood Shakes", "Clay Title", "Concreate Title", "Tar & Gravel"];
     const colorOptions = ["Select", "White", "Light", "Medium", "Dark", "Cool Color With Reflectivity"];
     const roofImgState = `${process.env.REACT_APP_API}/` + this.state.roof.roofImg;
-    console.log(this.state.roof.exterior);
+
     return(
       <div>
         <Nav />
         <div className="editContainer">
-        <div className="editTitle">Roof Edit page</div>
+        <div className="editTitle">Upate Roof Detils</div>
           <form onSubmit={this.editRoof}>
             <div className="editBox">
               <div className="helpContainer">
@@ -214,7 +214,7 @@ class EditRoof extends Component {
                   <input name="dcCapacity" id="dcCapacity" type="text" onChange={this.handleEditFormInput} value={this.state.roof.dcCapacity} />
                 </div>
                 <div className="inputContainer">
-                  <button type="submit" className="btn">Edit</button>
+                  <button type="submit" className="btn">SAVE</button>
                 </div>
             </div>
           </form>

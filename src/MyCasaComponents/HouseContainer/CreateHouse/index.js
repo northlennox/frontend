@@ -188,7 +188,7 @@ class HouseContainer extends Component {
       <div>
         <Nav />
         <div className="createContainer">
-          <div className="createTitle">Home Details</div>
+          <div className="createTitle">House Details</div>
           <form onSubmit={this.handleSubmit}>
             <div className="createBox">
               <div className="helpContainer">
@@ -217,7 +217,7 @@ class HouseContainer extends Component {
                   </select>
                 </div>
                 <div className="inputItem">
-                  <label className="inputLabel" htmlFor="zipcode">ZIPCODE</label>
+                  <label className="inputLabel" htmlFor="zipcode">ZIP CODE</label>
                   <input name="zipcode" id="zipcode" type="text" onChange={this.handleInput} value={this.state.house.zipcode}  />
                 </div>
               </div>

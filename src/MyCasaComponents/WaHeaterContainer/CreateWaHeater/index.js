@@ -126,7 +126,7 @@ class CreateWaHeater extends Component {
 
 
   render(){
-    const waHeaterTypeOptions = ["Select", "Natural Gas Storage", "Natural Gas Thankless", "Electric Storage", "Electric Heat Pump"];
+    const waHeaterTypeOptions = ["Select", "Natural Gas Storage", "Natural Gas Tankless", "Electric Storage", "Electric Heat Pump"];
     const waHeaterYearOptions = ["Select", "2020", "2019", "2018", "2017", "2016", "2015"];
 
     return(

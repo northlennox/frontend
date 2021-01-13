@@ -243,7 +243,7 @@ class EditHouse extends Component {
       <div>
         <Nav />
         <div className="editContainer">
-          <div className="editTitle">Edit House</div>
+          <div className="editTitle">Update House Details</div>
           <form onSubmit={this.updateHouse}>
             <div className="editBox">
               <div className="helpContainer">
@@ -279,7 +279,7 @@ class EditHouse extends Component {
                 </div>
                 <div className="inputItem">
                   <div className="inputContainer">
-                    <label className="inputLabel" htmlFor="zipcode">ZIPCODE</label>
+                    <label className="inputLabel" htmlFor="zipcode">ZIP CODE</label>
                     <input name="zipcode" id="zipcode" type="text"  onChange={this.handleEditFormInput} value={this.state.house.zipcode} />
                   </div>
                 </div>
@@ -293,7 +293,7 @@ class EditHouse extends Component {
                 <input name="houseSqft" id="houseSqft" type="text" onChange={this.handleEditFormInput} value={this.state.house.houseSqft}  />
               </div>
               <div className="inputContainer">
-                <button className="btn" type="submit">Edit/update</button>
+                <button className="btn" type="submit">SAVE</button>
               </div>
             </div>
           </form>

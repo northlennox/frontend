@@ -12,7 +12,7 @@ class CreateSpHeater extends Component {
       spHeater : {
         spHeaterImg: [],
         spHeaterType : '',
-        atticSqft: '',
+        spHeaterBrand: '',
         spHeaterYear: '',
         spHeaterCondition: '',
         coolingSystem: '',
@@ -52,7 +52,7 @@ class CreateSpHeater extends Component {
       spHeater : {
         spHeaterImg: [],
         spHeaterType : '',
-        atticSqft: '',
+        spHeaterBrand: '',
         spHeaterYear: '',
         spHeaterCondition: '',
         coolingSystem: '',
@@ -102,7 +102,7 @@ class CreateSpHeater extends Component {
         }
 
         data.append('spHeaterType', this.state.spHeater.spHeaterType);
-        data.append('atticSqft', this.state.spHeater.atticSqft);
+        data.append('spHeaterBrand', this.state.spHeater.spHeaterBrand);
         data.append('spHeaterYear', this.state.spHeater.spHeaterYear);
         data.append('spHeaterCondition', this.state.spHeater.spHeaterCondition);
         data.append('coolingSystem', this.state.spHeater.coolingSystem);
@@ -147,7 +147,7 @@ class CreateSpHeater extends Component {
                 <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
                <div className="inputContainer">
-                <label className="inputLabel" htmlFor="spHeaterType">TYPE OF SPACE HEATER</label>
+                <label className="inputLabel" htmlFor="spHeaterType">TYPE OF SPACE HEATER*</label>
                 <select className="selectInput" name="spHeaterType" id="spHeaterType" type="text" onChange={this.handleInput} value={this.state.spHeater.spHeaterType}>
                   {spHeaterTypeOptions.map(spHeaterTypeOption => {
                       return <option value={spHeaterTypeOption} key={spHeaterTypeOption} >{spHeaterTypeOption}</option>
@@ -155,8 +155,8 @@ class CreateSpHeater extends Component {
                 </select>
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="atticSqft">ATTIC SQUARE FOOTAGE(GUESS)</label>
-                <input name="atticSqft" id="atticSqft" type="text" onChange={this.handleInput} value={this.state.spHeater.atticSqft} />
+                <label className="inputLabel" htmlFor="spHeaterBrand">BRAND</label>
+                <input name="spHeaterBrand" id="spHeaterBrand" type="text" onChange={this.handleInput} value={this.state.spHeater.spHeaterBrand} />
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="spHeaterYear">YEAR OF MANUFACTURE*</label>
