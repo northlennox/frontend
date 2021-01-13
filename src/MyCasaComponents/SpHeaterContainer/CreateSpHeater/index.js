@@ -129,7 +129,7 @@ class CreateSpHeater extends Component {
     const spHeaterTypeOptions = ["Select", "Central Gas Furnace", "Room Gas Furnace", "Oil Furnace", "Electric Furnace", "Electric Heat Pump", "Electric Mini-Split", "Gas Boiler/Radiant", "Geothermal Heat Pump", "Wood Stove", "Pellet Stove"];
     const spHeaterYearOptions = ["Select", "None", "Room Unit", "Central Air"];
     const coolingSystemOptions = ["Select", "2020", "2019", "2018", "2017", "2016", "2015"];
-
+    let upload = "./../../../upload.svg"
     return(
 
       <div>
@@ -143,7 +143,7 @@ class CreateSpHeater extends Component {
                 <img className="help" src="./../../help.svg"/>
               </div>
               <div className="frames">
-                <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />
+                <img className={this.state.preview1 ? "imgAttached" : "placer"}  id="photoOne" src={this.state.preview1 ? this.state.preview1 :  upload} onClick={this.handleClick } />
                 <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
                <div className="inputContainer">

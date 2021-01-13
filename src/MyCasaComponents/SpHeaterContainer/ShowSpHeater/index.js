@@ -20,7 +20,7 @@ const ShowSpHeater = (props) => {
               <Card.Body className="cardBody">
                 <div className="postedInfo">
                   <div>{props.spHeater.spHeaterType}</div>
-                  <div>{props.spHeater.atticSqft}</div>
+                  <div>{props.spHeater.spHeaterBrand}</div>
                   <div>{props.spHeater.spHeaterYear}</div>
                   <div>{props.spHeater.spHeaterCondition}</div>
                   <div>{props.spHeater.coolingSystem}</div>

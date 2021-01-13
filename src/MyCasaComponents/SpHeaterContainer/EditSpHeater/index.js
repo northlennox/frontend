@@ -12,7 +12,7 @@ class EditSpHeater extends Component {
       spHeater : {
         spHeaterImg: [],
         spHeaterType : '',
-        atticSqft: '',
+        spHeaterBrand: '',
         spHeaterYear: '',
         spHeaterCondition: '',
         coolingSystem: '',
@@ -47,7 +47,7 @@ class EditSpHeater extends Component {
           spHeater: {
             spHeaterImg: userParsed.spHeater.spHeaterImg,
             spHeaterType: userParsed.spHeater.spHeaterType,
-            atticSqft: userParsed.spHeater.atticSqft,
+            spHeaterBrand: userParsed.spHeater.spHeaterBrand,
             spHeaterYear: userParsed.spHeater.spHeaterYear,
             spHeaterCondition: userParsed.spHeater.spHeaterCondition,
             coolingSystem: userParsed.spHeater.coolingSystem
@@ -88,7 +88,7 @@ class EditSpHeater extends Component {
       spHeater : {
         spHeaterImg: null,
         spHeaterType : '',
-        atticSqft: '',
+        spHeaterBrand: '',
         spHeaterYear: '',
         spHeaterCondition: '',
         coolingSystem: '',
@@ -147,7 +147,7 @@ class EditSpHeater extends Component {
         const data = new FormData();
         data.append('spHeaterImg', this.state.spHeater.spHeaterImg);
         data.append('spHeaterType', this.state.spHeater.spHeaterType);
-        data.append('atticSqft', this.state.spHeater.atticSqft);
+        data.append('spHeaterBrand', this.state.spHeater.spHeaterBrand);
         data.append('spHeaterYear', this.state.spHeater.spHeaterYear);
         data.append('spHeaterCondition', this.state.spHeater.spHeaterCondition);
         data.append('coolingSystem', this.state.spHeater.coolingSystem);
@@ -202,8 +202,8 @@ class EditSpHeater extends Component {
                 </select>
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="atticSqft">ATTIC SQUARE FOOTAGE(GUESS)</label>
-                <input name="atticSqft" id="atticSqft" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.atticSqft} />
+                <label className="inputLabel" htmlFor="spHeaterBrand">BRAND</label>
+                <input name="spHeaterBrand" id="spHeaterBrand" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.spHeaterBrand} />
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="spHeaterYear">YEAR OF MANUFACTURE*</label>

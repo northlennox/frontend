@@ -131,7 +131,7 @@ class CreateAttic extends Component {
     const atticTypeOptions = ["Select", "Unconditioned Attic", "Conditioned Attic", "Cathedral Ceiling"];
     const atticDepthOptions = ["Select", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"];
     const insulMaterialOptions = ["Select", "Fiberglass Batt", "Fiberglass Blown", "Cellulose", "Not Sure"];
-
+    let upload = "./../../../upload.svg"
     return(
 
       <div>
@@ -145,9 +145,9 @@ class CreateAttic extends Component {
                 <img className="help" src="./../../help.svg"/>
               </div>
               <div className="frames">
-                <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />
+                <img className={this.state.preview1 ? "imgAttached" : "placer"}  id="photoOne" src={this.state.preview1 ? this.state.preview1 :  upload}  onClick={this.handleClick } />
+                <input className="fileUpload" name="photoOne" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
-              <input className="fileUpload" name="photoOne" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="atticType">PRIMARY ATTIC TYPE</label>
                 <select className="selectInput" name="atticType" id="atticType" type="text" onChange={this.handleInput} value={this.state.attic.atticType}>

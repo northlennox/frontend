@@ -128,7 +128,7 @@ class CreateAttic extends Component {
     const extriorOptions = ["Select", "Composition Shingles or Metal", "Wood Shakes", "Clay Title", "Concreate Title", "Tar & Gravel"];
     const colorOptions = ["Select", "White", "Light", "Medium", "Dark", "Cool Color With Reflectivity"];
     let upload = "./../../../upload.svg";
-    
+
     return(
 
       <div>
@@ -143,8 +143,8 @@ class CreateAttic extends Component {
               </div>
             <div className="frames">
               <img className={this.state.preview1 ? "imgAttached" : "placer"} id="photoOne" src={this.state.preview1 ? this.state.preview1 :  upload} onClick={this.handleClick } />
+              <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
             </div>
-            <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
             <div className="inputContainer">
               <label className="inputLabel" htmlFor="exterior">EXTERIOR FINISH</label>
               <select className="selectInput" name="exterior" id="exterior" type="text" onChange={this.handleInput} value={this.state.roof.exterior}>

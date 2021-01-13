@@ -133,13 +133,13 @@ class CreateUtility extends Component {
 
 
   render(){
-
+    let upload = "./../../../upload.svg";
     return(
 
       <div>
         <Nav />
         <div className="createContainer">
-          <div>Utility Details</div>
+          <div className="createTitle">Utility Bills</div>
           <form onSubmit={this.handleSubmit}>
             <div className="createBox">
               <div className="helpContainer">
@@ -147,9 +147,9 @@ class CreateUtility extends Component {
                 <img className="help" src="./../../help.svg"/>
               </div>
               <div className="frames" >
-                <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />
-              </div>
+                <img className={this.state.preview1 ? "imgAttached" : "placer"} id="photoOne" src={this.state.preview1 ? this.state.preview1 :  upload}  onClick={this.handleClick } />
                 <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
+              </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="utilityName">UTILITY NAME</label>
                 <input name="utilityName" id="utilityName" type="text" onChange={this.handleInput} value={this.state.utility.utilityName} />
