@@ -206,10 +206,10 @@ class EditSpHeater extends Component {
                 <input name="spHeaterBrand" id="spHeaterBrand" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.spHeaterBrand} />
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="spHeaterYear">YEAR OF MANUFACTURE*</label>
-                <select className="selectInput" name="spHeaterYear" id="spHeaterYear" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.spHeaterYear}>
-                  {spHeaterYearOptions.map(spHeaterYearOption => {
-                      return <option value={spHeaterYearOption} key={spHeaterYearOption} >{spHeaterYearOption}</option>
+                <label className="inputLabel" htmlFor="coolingSystem">IS THERE A COOLING SYSTEM?</label>
+                <select className="selectInput" name="coolingSystem" id="coolingSystem" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.coolingSystem}>
+                  {coolingSystemOptions.map(coolingSystemOption => {
+                    return <option value={coolingSystemOption} key={coolingSystemOption} >{coolingSystemOption}</option>
                   })}
                 </select>
               </div>
@@ -221,10 +221,10 @@ class EditSpHeater extends Component {
                 </div>
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="coolingSystem">IS THERE A COOLING SYSTEM?</label>
-                <select className="selectInput" name="coolingSystem" id="coolingSystem" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.coolingSystem}>
-                  {coolingSystemOptions.map(coolingSystemOption => {
-                    return <option value={coolingSystemOption} key={coolingSystemOption} >{coolingSystemOption}</option>
+                <label className="inputLabel" htmlFor="spHeaterYear">YEAR OF MANUFACTURE*</label>
+                <select className="selectInput" name="spHeaterYear" id="spHeaterYear" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.spHeaterYear}>
+                  {spHeaterYearOptions.map(spHeaterYearOption => {
+                      return <option value={spHeaterYearOption} key={spHeaterYearOption} >{spHeaterYearOption}</option>
                   })}
                 </select>
               </div>

@@ -21,9 +21,9 @@ const ShowSpHeater = (props) => {
                 <div className="postedInfo">
                   <div>{props.spHeater.spHeaterType}</div>
                   <div>{props.spHeater.spHeaterBrand}</div>
-                  <div>{props.spHeater.spHeaterYear}</div>
-                  <div>{props.spHeater.spHeaterCondition}</div>
                   <div>{props.spHeater.coolingSystem}</div>
+                  <div>{props.spHeater.spHeaterCondition}</div>
+                  <div>{props.spHeater.spHeaterYear}</div>
                 </div>
                 <div className="updateContainer">
                   <div><Link to={"/mycasa/spheater/edit"}>Edit</Link></div>

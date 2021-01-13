@@ -146,7 +146,7 @@ class CreateWaHeater extends Component {
                 <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="waHeatertype">TYPE OF WATER HEATER</label>
+                <label className="inputLabel" htmlFor="waHeatertype">TYPE OF WATER HEATER*</label>
                 <select className="selectInput" name="waHeatertype" id="waHeatertype" type="text" onChange={this.handleInput} value={this.state.waHeater.waHeatertype}>
                   {waHeaterTypeOptions.map(waHeaterTypeOption => {
                       return <option value={waHeaterTypeOption} key={waHeaterTypeOption} >{waHeaterTypeOption}</option>
@@ -173,7 +173,7 @@ class CreateWaHeater extends Component {
                 </div>
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="waHeaterSingle">IS THERE A COOLING SYSTEM?</label>
+                <label className="inputLabel" htmlFor="waHeaterSingle">IS THERE MORE THAN ONE WATER HEATER?</label>
                 <div id="waHeaterSingle" >
                   <input name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "YES"} value="YES" onChange={this.handleInput}/>YES
                   <input className="radioInput-right" name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "NO"} value="NO" onChange={this.handleInput}/>NO

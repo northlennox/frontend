@@ -225,7 +225,7 @@ class EditWaHeater extends Component {
                 </div>
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="waHeaterSingle">IS THERE A COOLING SYSTEM?</label>
+                <label className="inputLabel" htmlFor="waHeaterSingle">IS THERE MORE THAN ONE WATER HEATER?</label>
                 <div id="waHeaterSingle" >
                   <input name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "YES"} value="YES" onChange={this.handleEditFormInput}/>YES
                   <input name="waHeaterSingle" className="radioInput-right" type="radio" checked={this.state.waHeater.waHeaterSingle === "NO"} value="NO" onChange={this.handleEditFormInput}/>NO
