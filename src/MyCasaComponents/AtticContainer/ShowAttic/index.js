@@ -17,7 +17,7 @@ const ShowAttic = (props) => {
       <Accordion className="accordion">
         <Card className="card">
           <Card.Header className="header">
-            <Accordion.Toggle variant="link" eventKey="0" className="toggle">
+            <Accordion.Toggle variant="link" eventKey="0" className="toggleShow">
               <div className="postedLabel">Attic Details</div>
               <div className="detailArr"><img className="down" src="./../../dropdown_drop.svg" /></div>
             </Accordion.Toggle>

@@ -3,59 +3,63 @@ import { Link } from 'react-router-dom';
 
 const Exam = (props) => {
   const userId = sessionStorage.userId;
-  const photo = props.house.houseImg;
 
-  let grade = ''
-  let waHeaterAge = 2020 - Number(props.waHeater.waHeaterYear);
-  let waEfficency = ''
-  let waEfficencyGrade = ''
-  let spHeaterAge = 2020 - Number(props.spHeater.spHeaterYear);
-  let spEfficency = ''
+  console.log('props - ', props)
 
-  let atticDep = Number(props.attic.atticDepth )
-  console.log('dd', atticDep);
-  if(atticDep === 0){
-    grade = 'D'
-  }else if(1 <= atticDep < 6){
-    grade = 'C'
-  }
+  // let waHeaterAge = 2020 - Number(props.waHeater.waHeaterYear);
+  // let waEfficency = ''
+  // let waEfficencyGrade = ''
+  //
+  //
+  // let spHeaterAge = 2020 - Number(props.spHeater.spHeaterYear);
+  // let spEfficency = '';
+  // let gradeColor = '';
+  // let grade = ''
+  //
+  // let atticDep = Number(props.attic.atticDepth )
+  // console.log('dd', atticDep);
+  // if(atticDep === 0){
+  //   grade = 'D'
+  // }else if(1 <= atticDep < 6){
+  //   grade = 'C'
+  // }
 
 // Water heater type “gas tank” efficiency 0.55 range red grade C if year <10, else D
 // Water heater type “gas tankless” efficiency 0.9 range red grade C if year <15, else D
 // Water heater type “electric tank” efficiency 0.9 range green grade C if year <10, else D
 // Water heater type “heat pump” efficiency 2.5 range green grade A if year <10, else B
-  console.log('ddd', waHeaterAge);
 
-  if(props.waHeater.waHeatertype === "Natural Gas Storage"){
-      waEfficency = '0.55'
-    if(waHeaterAge < 10){
-      waEfficencyGrade = 'C';
-    }else if(waHeaterAge > 10){
-      waEfficencyGrade = 'D';
-    }
-  }else if(props.waHeater.waHeatertype === "Natural Gas Tankless"){
-    waEfficency = '0.9'
-    if(waHeaterAge < 10){
-      waEfficencyGrade = 'C';
-    }else if(waHeaterAge > 10){
-      waEfficencyGrade = 'D';
-    }
-  }else if(props.waHeater.waHeatertype === "Electric Storage"){
-    waEfficency = '0.9'
-    if(waHeaterAge < 10){
-      waEfficencyGrade = 'C';
-    }else if(waHeaterAge > 10){
-      waEfficencyGrade = 'D';
-    }
-  }else if(props.waHeater.waHeatertype === "Electric Heat Pump"){
-    waEfficency = '2.5'
-    if(waHeaterAge < 10){
-      console.log('here');
-      waEfficencyGrade = 'A';
-    }else if(waHeaterAge > 10){
-      waEfficencyGrade = 'B';
-    }
-  }
+
+  // if(props.waHeater.waHeatertype === "Natural Gas Storage"){
+  //     waEfficency = '0.55'
+  //   if(waHeaterAge < 10){
+  //     waEfficencyGrade = 'C';
+  //   }else if(waHeaterAge > 10){
+  //     waEfficencyGrade = 'D';
+  //   }
+  // }else if(props.waHeater.waHeatertype === "Natural Gas Tankless"){
+  //   waEfficency = '0.9'
+  //   if(waHeaterAge < 10){
+  //     waEfficencyGrade = 'C';
+  //   }else if(waHeaterAge > 10){
+  //     waEfficencyGrade = 'D';
+  //   }
+  // }else if(props.waHeater.waHeatertype === "Electric Storage"){
+  //   waEfficency = '0.9'
+  //   if(waHeaterAge < 10){
+  //     waEfficencyGrade = 'C';
+  //   }else if(waHeaterAge > 10){
+  //     waEfficencyGrade = 'D';
+  //   }
+  // }else if(props.waHeater.waHeatertype === "Electric Heat Pump"){
+  //   waEfficency = '2.5'
+  //   if(waHeaterAge < 10){
+  //     console.log('here');
+  //     waEfficencyGrade = 'A';
+  //   }else if(waHeaterAge > 10){
+  //     waEfficencyGrade = 'B';
+  //   }
+  // }
 
 
 
@@ -64,11 +68,39 @@ const Exam = (props) => {
   // Space heater type “furnace” efficiency 0.8 range red grade C if year<10, else D
   // Space heater type “heat pump” efficiency 3.0 range green grade A if year <10, else B
 
- if(props.spHeater.spHeaterType === "Central Gas Furnace" || props.spHeater.spHeaterType === "Room Gas Furnace" || props.spHeater.spHeaterType === "Oil Furnace" || props.spHeater.spHeaterType === "Electric Furnace"){
-   spEfficency = '0.8'
- }else{
-   spEfficency = '3.0'
- }
+ // if(props.spHeater.spHeaterType === "Central Gas Furnace" || props.spHeater.spHeaterType === "Room Gas Furnace" || props.spHeater.spHeaterType === "Oil Furnace" || props.spHeater.spHeaterType === "Electric Furnace"){
+ //   spEfficency = '0.8'
+ // }else{
+ //   spEfficency = '3.0'
+ // }
+
+
+ //new function
+  // const spHeaterType = props.spHeater.spHeaterType;
+  // const spHeaterYear = props.spHeater.spHeaterYear;
+  //
+  // if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Oil Furnace" || spHeaterType === "Electric Furnace") {
+  //   spEfficency = 0.8;
+  //   gradeColor = 'red';
+  //
+  //   if(spHeaterYear > 10){
+  //     grade = "C"
+  //   }else{
+  //     grade = "D"
+  //   }
+  // }else{
+  //   spEfficency = 3.0;
+  //   gradeColor = 'green';
+  //
+  //   if(spHeaterYear > 10){
+  //     grade = "A"
+  //   }else{
+  //     grade = "B"
+  //   }
+  // }
+
+
+
 
   return(
     <div className="examContainer">
@@ -82,7 +114,7 @@ const Exam = (props) => {
           <div className="measureContainer">
             <div className="measureItem">
               <label>Energy Efficiency Rating</label>
-              <div><div>Attic Insulation : {grade}</div></div>
+              <div><div>Attic Insulation : grade</div></div>
               <div>graph</div>
             </div>
             <div className="measureItem">
@@ -156,18 +188,18 @@ const Exam = (props) => {
             <div className="analysisSection">
               <div className="analysisName h4">EFFICIENCY</div>
               <div>graph</div>
-              <div>Attic Insulation : {grade}</div>
+              <div>Attic Insulation : grade</div>
               <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
             </div>
             <div className="analysisSection">
               <div className="analysisName h4">TECHNOLOGY</div>
               <div>graph</div>
-              <div>Wather heater type</div>
+              <div>Wather heater type : {props.waHeatertype}</div>
               <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
             </div>
             <div className="analysisSection">
               <div>graph</div>
-              <div>space heater type</div>
+              <div>space heater type : {props.spHeatertype}</div>
               <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
             </div>
             <div className="analysisSection recommendations">
@@ -176,13 +208,15 @@ const Exam = (props) => {
               <div></div>
             </div>
 
-          <div>Water Heater : age - {waHeaterAge}</div>
-          <div>Energy Efficiency Factor: {waEfficencyGrade}</div>
-          <div>Space Heater : {spHeaterAge} </div>
-          <div>Energy Efficiency Factor: {spEfficency}</div>
         </div>
       </div>
     </div>
   )
 }
 export default Exam
+
+
+// <div>Water Heater : age - {waHeaterAge}</div>
+// <div>Energy Efficiency Factor: {waEfficencyGrade}</div>
+// <div>Space Heater : {spHeaterAge} </div>
+// <div>Energy Efficiency Factor: {spEfficency}</div>

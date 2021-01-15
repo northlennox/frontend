@@ -16,15 +16,27 @@ class MyProjectComponent extends Component {
       attic:'',
       house: '',
       utility: '',
-      open: false
+      open: false,
+      waGrade : {
+        waHeaterAge : '',
+        waHeatertype : '',
+        waEfficency: '',
+        waGradeColor: '',
+        waGradeLetter: '',
+      },
+      spGrade : {
+        spHeaterAge : '',
+        spHeatertype : '',
+        spEfficency: '',
+        spGradeColor: '',
+        spGradeLetter: '',
+      }
     }
   }
 
   componentDidMount(){
     this.getHouseInfo();
   }
-
-
 
 
     getHouseInfo = async() => {
@@ -52,9 +64,13 @@ class MyProjectComponent extends Component {
             utility: userParsed.utility,
         })
 
-        console.log('$$$',this.state.house);
+        console.log('$$$',(this.state.house !== null && this.state.attic !== null && this.state.waHeater !== null));
         if(this.state.house !== null && this.state.attic !== null && this.state.waHeater !== null){
-          this.state.open = true
+          this.setState({
+            open : true
+          })
+          this.getWaGrade();
+          this.getSpGrade();
         }
 
       }catch(err){
@@ -62,9 +78,78 @@ class MyProjectComponent extends Component {
       }
     }
 
+    getWaGrade = async() => {
+      let waHeatertype = this.state.waHeater.waHeatertype;
+      let waHeaterAge = 2020 - Number(this.state.waHeater.waHeaterYear);
+      let waEfficency = '';
+      let waGradeColor = '';
+      let waGradeLetter = '';
+
+      if(waHeatertype === "Natural Gas Storage"){
+        waEfficency = 0.55;
+        waGradeColor = 'red';
+        if(waHeaterAge < 10){
+          waGradeLetter = 'C';
+        }else{
+          waGradeLetter = 'D';
+        }
+      }else if(waHeatertype === "Natural Gas Tankless"){
+        waEfficency = 0.9;
+        waGradeColor = 'red';
+        if(waHeaterAge < 15){
+          waGradeLetter = 'C';
+        }else{
+          waGradeLetter = 'D';
+        }
+      }else if(waHeatertype === "Electric Storage"){
+        waEfficency = 0.9;
+        waGradeColor = 'green';
+        if(waHeaterAge < 10){
+          waGradeLetter = 'C';
+        }else{
+          waGradeLetter = 'D';
+        }
+      }else if(waHeatertype === "Electric Heat Pump"){
+        waEfficency = 2.5;
+        waGradeColor = 'green';
+        if(waHeaterAge < 10){
+          waGradeLetter = 'A';
+        }else{
+          waGradeLetter = 'B';
+        }
+      }
+      this.setState({
+        waGrade : {
+          waHeaterAge : waHeaterAge,
+          waHeatertype : waHeatertype,
+          waEfficency: waEfficency,
+          waGradeColor: waGradeColor,
+          waGradeLetter: waGradeLetter,
+        }
+      })
+    }
+
+    getSpGrade = async() => {
+      let spHeatertype = this.state.spHeater.spHeaterType;
+      let spHeaterAge = 2020 - Number(this.state.spHeater.spHeaterYear);
+      let spEfficency = '';
+      let spGradeColor = '';
+      let spGradeLetter = '';
+
+      this.setState({
+        spGrade : {
+          spHeaterAge : spHeaterAge,
+          spHeatertype : spHeatertype,
+          spEfficency: spEfficency,
+          spGradeColor: spGradeColor,
+          spGradeLetter: spGradeLetter,
+        }
+      })
+    }
+
   render(){
     const userId = sessionStorage.getItem('userId')
-    console.log('open?', this.state.open);
+
     return(
       <>
         <Nav />
@@ -82,15 +167,21 @@ class MyProjectComponent extends Component {
               </div>
             </div>
             :
-            <Exam house={this.state.house} attic={this.state.attic} spHeater={this.state.spHeater} waHeater={this.state.waHeater} />
+            <Exam
+              waHeaterAge={this.state.waGrade.waHeaterAge}
+              waHeatertype={this.state.waGrade.waHeatertype}
+              waEfficency={this.state.waGrade.waEfficency}
+              waGradeColor={this.state.waGrade.waGradeColor}
+              waGradeLetter={this.state.waGrade.waGradeLetter}
+              spHeaterAge={this.state.spGrade.spHeaterAge}
+              spHeatertype={this.state.spGrade.spHeatertype}
+              spEfficency={this.state.spGrade.spEfficency}
+              spGradeColor={this.state.spGrade.spGradeColor}
+              spGradeLetter={this.state.spGrade.spGradeLetter}
+             />
           }
       </>
     )
   }
 }
 export default MyProjectComponent
-
-
-// this.state.house && this.state.attic &&
-// this.state.roof && this.state.spHeater &&
-// this.state.waHeater && this.state.utility
