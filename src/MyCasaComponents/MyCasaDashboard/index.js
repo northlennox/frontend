@@ -12,7 +12,7 @@ import './MyCasaDashboard.scss';
 import { Button, Card, Accordion } from 'react-bootstrap';
 // import axios from 'axios'
 // import Moment from 'react-moment';
-import Accordions from './Accordion'
+
 
 
 class MyCasaDashboard extends Component {

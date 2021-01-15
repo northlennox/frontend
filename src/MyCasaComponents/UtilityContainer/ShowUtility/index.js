@@ -9,27 +9,32 @@ const ShowUtility = (props) => {
   const userId = sessionStorage.getItem('userId');
   return(
     <div className="postedContainer">
-      <div className="postedFrame"><img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/></div>
-      <Accordion>
+      <div className="postedFrame">
+        <img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/>
+      </div>
+      <div className="updateContainer">
+        <button className="deleteBtn" onClick={props.deleteMyUtility.bind(null, userId)}>Remove</button>
+      </div>
+      <Accordion className="accordion">
         <Card className="card">
           <Card.Header className="header">
-            <Accordion.Toggle variant="link" eventKey="0" className="toggle">
+            <Accordion.Toggle variant="link" eventKey="0" className="toggleShow">
               <div className="postedLabel">Utility Details</div>
+              <div className="detailArr"><img className="down" src="./../../dropdown_drop.svg" /></div>
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             <Card.Body className="cardBody">
               <div className="postedInfo">
-                <div>{props.utility.utilityName}</div>
-                <div>{props.utility.electricityUsageKwh}</div>
-                <div>{props.utility.electricityUsageDollar}</div>
-                <div>{props.utility.gasUsageTherms}</div>
-                <div>{props.utility.gasUsageDollar}</div>
-                <div>{props.utility.highBilling}</div>
-                <div>{props.utility.oldEquipment}</div>
+                <div><span>{props.utility.utilityName}</span></div>
+                <div><span>{props.utility.electricityUsageKwh}</span></div>
+                <div><span>{props.utility.electricityUsageDollar}</span></div>
+                <div><span>{props.utility.gasUsageTherms}</span></div>
+                <div><span>{props.utility.gasUsageDollar}</span></div>
+                <div><span>{props.utility.highBilling}</span></div>
+                <div><span>{props.utility.oldEquipment}</span></div>
                 <div className="updateContainer">
                   <div><Link to={"/mycasa/utility/edit"}>Edit</Link></div>
-                  <button onClick={props.deleteMyUtility.bind(null, userId)}>Remove</button>
                 </div>
               </div>
             </Card.Body>

@@ -160,17 +160,16 @@ class CreateSpHeater extends Component {
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="coolingSystem">IS THERE A COOLING SYSTEM?</label>
-                <select className="selectInput" name="coolingSystem" id="coolingSystem" type="text" onChange={this.handleInput} value={this.state.spHeater.coolingSystem}>
-                  {coolingSystemOptions.map(coolingSystemOption => {
-                    return <option value={coolingSystemOption} key={coolingSystemOption} >{coolingSystemOption}</option>
-                  })}
-                </select>
+                <div id="coolingSystem" >
+                  <input name="coolingSystem" type="radio" checked={this.state.spHeater.coolingSystem === "YES"} value="YES" onChange={this.handleInput}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="coolingSystem" type="radio" checked={this.state.spHeater.coolingSystem === "NO"} value="NO" onChange={this.handleInput}/><span className="radioNext">NO</span>
+                </div>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="spHeaterCondition">IS THE SYSTEM WORKING WELL?</label>
                 <div id="spHeaterCondition" >
-                  <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "YES"} value="YES" onChange={this.handleInput}/>YES
-                  <input className="radioInput-right" name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "NO"} value="NO" onChange={this.handleInput}/>NO
+                  <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "YES"} value="YES" onChange={this.handleInput}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "NO"} value="NO" onChange={this.handleInput}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">

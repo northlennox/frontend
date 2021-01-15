@@ -4,40 +4,41 @@ import '../../MyCasaDashboard/MyCasaDashboard.scss';
 import { Button, Card, Accordion } from 'react-bootstrap';
 
 const ShowHouse = (props) => {
-  console.log('here', props);
   const photo = props.house.houseImg;
   const userId = sessionStorage.userId;
 
   return(
     <div className="postedContainer">
-      <div className="postedFrame"><Link to={"/mycasa/house/edit"}><img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo} /></Link></div>
+      <div className="postedFrame">
+        <Link to={"/mycasa/house/edit"}><img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo} /></Link>
+      </div>
       <div className="updateContainer">
         <button className="deleteBtn spanNext" onClick={props.deleteMyHouse.bind(null, userId)}>X</button>
       </div>
-        <Accordion className="accordion">
-          <Card className="card">
-            <Card.Header className="header">
-              <Accordion.Toggle variant="link" eventKey="0" className="toggle">
-                <div className="postedLabel">House Details</div>
-                <div className="detailArr">See</div>
-              </Accordion.Toggle>
-            </Card.Header>
-            <Accordion.Collapse eventKey="0">
-              <Card.Body className="cardBody">
-                <div className="postedInfo">
-                  <div>{props.house.address}</div>
-                  <div>
-                    <span>{props.house.city}</span>
-                    <span className="spanNext">{props.house.state}</span>
-                    <span className="spanNext">{props.house.zipcode}</span>
-                  </div>
-                  <div><span>{props.house.houseSqft}</span><span className="spanNext">Sqft.</span></div>
-                  <div><span>{props.house.houseYear}</span><span className="spanNext">Year Build</span></div>
+      <Accordion className="accordion">
+        <Card className="card">
+          <Card.Header className="header">
+            <Accordion.Toggle variant="link" eventKey="0" className="toggleShow">
+              <div className="postedLabel">House Details</div>
+              <div className="detailArr"><img className="down" src="./../../dropdown_drop.svg" /></div>
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="0">
+            <Card.Body className="cardBody">
+              <div className="postedInfo">
+                <div>{props.house.address}</div>
+                <div>
+                  <span>{props.house.city}</span>
+                  <span className="spanNext">{props.house.state}</span>
+                  <span className="spanNext">{props.house.zipcode}</span>
                 </div>
-              </Card.Body>
-             </Accordion.Collapse>
-            </Card>
-          </Accordion>
+                <div><span>{props.house.houseSqft}</span><span className="spanNext">sqft.</span></div>
+                <div><span>{props.house.houseYear}</span><span className="spanNext">Year Build</span></div>
+              </div>
+            </Card.Body>
+           </Accordion.Collapse>
+          </Card>
+        </Accordion>
     </div>
   )
 }

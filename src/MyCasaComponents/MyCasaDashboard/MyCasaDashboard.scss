@@ -76,7 +76,7 @@
 .postedContainer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  // align-items: flex-start;
   text-decoration: none;
   .postedFrame {
     width: 270px;
@@ -86,27 +86,64 @@
     display: flex;
     .postedImg {
       width: 100%;
+      height: 150px;
       border-radius: 10px;
     }
-  }
-  .postedLabel {
-    color: #FA910B;
-    margin-right: 90px;
   }
   .updateContainer {
     display: flex;
     width: 100%;
-    margin-top: 10px;
     justify-content: flex-end;
-    align-items: flex-end;
     .deleteBtn {
       border: none;
       background-color: #fff;
       color: #FA910B;
-      margin-right: 20px;
     }
-    .editBtn {
-      color: purple;
+  }
+  .accordion {
+    padding-top: 0;
+    .card {
+      border-style: hidden;
+      .header {
+        background-color: white;
+        border-style: hidden;
+        padding: 0;
+        .toggleShow {
+          text-decoration: none;
+          border: 1px white;
+          background-color: white;
+          outline:none;
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          .postedLabel {
+            color: #FA910B;
+            font-weight: bold;
+            width: 80%;
+            margin-left: -5px;
+            text-align: left;
+          }
+          .detailArr {
+            color: #FA910B;
+            width: 20%;
+            margin-right: -18px;
+            .down {
+              width: 50%;
+              margin-bottom: 3px;
+            }
+          }
+        }
+      }
+      .cardBody {
+        height: 250px;
+        width: 270px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .postedInfo {
+
+        }
+      }
     }
   }
 }
@@ -255,40 +292,12 @@
     }
   }
 }
-
-// REACT BOOTSTRAP
-.accordion {
-  padding-top: 0;
+.radioNext {
+  margin-left: 20px;
 }
 
-.toggle {
-  text-decoration: none;
-  border: 1px white;
-  background-color: white;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  .postedLabel {
-
-  }
-  .detailArr {
-    color: #FA910B;
-  }
-}
-.header {
-  background-color: white;
-  border-style: hidden;
-  padding-top: 0;
-}
-.card {
-  border-style: hidden;
-}
-.cardBody {
-  height: 250px;
-  width: 270px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.spanNext {
+  margin-left: 5px;
 }
 
 /* ----------- iPhone 4 and 4S ----------- */

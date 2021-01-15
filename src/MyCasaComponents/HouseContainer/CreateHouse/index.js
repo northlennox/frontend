@@ -201,11 +201,11 @@ class HouseContainer extends Component {
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="address">ADDRESS</label>
-                <input name="address" id="address" type="text" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
+                <input name="address" id="address" type="text" onChange={this.handleInput} value={this.state.house.address} />
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="city">CITY</label>
-                <input name="city" id="city" type="text" onChange={this.handleInput} value={this.state.house.city} placeholder="ex)San Francisco" />
+                <input name="city" id="city" type="text" onChange={this.handleInput} value={this.state.house.city} />
               </div>
               <div className="inputRow">
                 <div className="inputItem">
