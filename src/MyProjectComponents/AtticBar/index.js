@@ -16,10 +16,10 @@ const AtticBar = (props) => {
         <div className="green"></div>
       </div>
       <div className="inches">
-        <div className="redIn">0"</div>
-        <div className="orangeIn">1 - 5"</div>
-        <div className="yellowIn">6 - 10"</div>
-        <div className="greenIn">11 - 15"</div>
+        <div className="redIn h5">0"</div>
+        <div className="orangeIn h5">1 - 5"</div>
+        <div className="yellowIn h5">6 - 10"</div>
+        <div className="greenIn h5">11 - 15"</div>
       </div>
     </div>
   )

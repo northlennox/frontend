@@ -136,7 +136,6 @@
         height: 100%;
         background-color: #FA910B;
         float: left;
-
     }
 
     .yellow {
@@ -174,6 +173,119 @@
         height: 100%;
         float: left;
         padding-left: 12%;
+    }
+    .greenIn {
+        width: 32%;
+        height: 100%;
+        float: left;
+        padding-left: 12%;
+    }
+  }
+}
+
+.progressbar2 {
+  border: 1px solid red;
+  width: 100%;
+  .indicator {
+    width: 2%;
+  }
+  .bar {
+    width: 100%;
+    height: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    .orange {
+        width: 34%;
+        height: 100%;
+        background-color: #FA910B;
+        float: left;
+    }
+    .yellow {
+        width: 33%;
+        height: 100%;
+        background-color: #FDC825;
+        float: left;
+
+    }
+    .green {
+        width: 33%;
+        height: 100%;
+        background-color: #139929;
+        float: left;
+
+    }
+  }
+  .inches {
+    width: 100%;
+    height: 30px;
+    .orangeIn {
+        width: 32%;
+        height: 100%;
+        float: left;
+        padding-left: 10%;
+    }
+    .yellowIn {
+        width: 32%;
+        height: 100%;
+        float: left;
+        padding-left: 10%;
+    }
+    .greenIn {
+        width: 32%;
+        height: 100%;
+        float: left;
+        padding-left: 12%;
+    }
+  }
+}
+
+.progressbar3 {
+  border: 1px solid red;
+  width: 100%;
+  .indicator {
+    width: 2%;
+  }
+  .bar {
+    width: 100%;
+    height: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    .orange {
+        width: 34%;
+        height: 100%;
+        background-color: #FA910B;
+        float: left;
+    }
+    .yellow {
+        width: 33%;
+        height: 100%;
+        background-color: #FDC825;
+        float: left;
+    }
+    .green {
+        width: 33%;
+        height: 100%;
+        background-color: #139929;
+        float: left;
+
+    }
+  }
+  .inches {
+    width: 100%;
+    height: 30px;
+    .orangeIn {
+        width: 32%;
+        height: 100%;
+        float: left;
+        padding-left: 13%;
+    }
+    .yellowIn {
+        width: 32%;
+        height: 100%;
+        float: left;
+        padding-left: 14%;
     }
     .greenIn {
         width: 32%;

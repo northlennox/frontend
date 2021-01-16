@@ -3,23 +3,28 @@ import { Link } from 'react-router-dom';
 
 const WaHeaterBar = (props) => {
   const userId = sessionStorage.userId;
-  console.log('props - ', props)
+  console.log('props.wather ', props.waHeatertype)
+  let indicator = 0;
 
+  if(props.waHeatertype === "Natural Gas Storage"|| props.waHeatertype === "Natural Gas Tankless"){
+    indicator = 16
+  }else if(props.waHeatertype === "Electric Storage"){
+    indicator = 45
+  }else if(props.waHeatertype === "Electric Heat Pump"){
+    indicator = 75
+  }
   return(
-    <div className="progressbar">
-      <div className="indicator" style={{marginLeft: `${props.atticDepth / 15 * 100}%`}}><img src="../../indicator.svg"/></div>
+    <div className="progressbar2">
+      <div className="indicator" style={{marginLeft: `${indicator}%`}}><img src="../../indicator.svg"/></div>
       <div className="bar">
-        <div className="symbol"></div>
-        <div className="red"></div>
-        <div className="orange"><p>Attic Insulation</p></div>
+        <div className="orange"><p>Water Heater</p></div>
         <div className="yellow"></div>
         <div className="green"></div>
       </div>
       <div className="inches">
-        <div className="redIn">0"</div>
-        <div className="orangeIn">1 - 5"</div>
-        <div className="yellowIn">6 - 10"</div>
-        <div className="greenIn">11 - 15"</div>
+        <div className="orangeIn h5">Gas Storage / Tankless</div>
+        <div className="yellowIn h5">Hybrid Electric Heat Pump</div>
+        <div className="greenIn h5">Electric Heat Pump</div>
       </div>
     </div>
   )

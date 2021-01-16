@@ -6,20 +6,17 @@ const SpHeaterBar = (props) => {
   console.log('props - ', props)
 
   return(
-    <div className="progressbar">
+    <div className="progressbar3">
       <div className="indicator" style={{marginLeft: `${props.atticDepth / 15 * 100}%`}}><img src="../../indicator.svg"/></div>
       <div className="bar">
-        <div className="symbol"></div>
-        <div className="red"></div>
-        <div className="orange"><p>Attic Insulation</p></div>
+        <div className="orange"><p>Space Heater</p></div>
         <div className="yellow"></div>
         <div className="green"></div>
       </div>
       <div className="inches">
-        <div className="redIn">0"</div>
-        <div className="orangeIn">1 - 5"</div>
-        <div className="yellowIn">6 - 10"</div>
-        <div className="greenIn">11 - 15"</div>
+        <div className="orangeIn h5">Gas Purnace</div>
+        <div className="yellowIn h5">Heat Pump</div>
+        <div className="greenIn h5">Mini-Split Heat Pump</div>
       </div>
     </div>
   )
