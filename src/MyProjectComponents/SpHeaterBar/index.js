@@ -3,11 +3,20 @@ import { Link } from 'react-router-dom';
 
 const SpHeaterBar = (props) => {
   const userId = sessionStorage.userId;
-  console.log('props - ', props)
+  console.log('props.spHeaterType - ', props.spHeaterType)
+  let indicator = 0
+
+  if(props.spHeaterType === "Central Gas Furnace" || props.spHeaterType === "Room Gas Furnace" || props.spHeaterType === "Oil Furnace" || props.spHeaterType === "Electric Furnace"){
+    indicator = 16
+  }else if(props.spHeaterType === "Electric Heat Pump" || props.spHeaterType === "Gas Boiler/Radiant" || props.spHeaterType === "Geothermal Heat Pump" || props.spHeaterType === "Wood Stove" || props.spHeaterType === "Pellet Stove"){
+    indicator = 45
+  }else if("Electric Mini-Split"){
+    indicator = 75
+  }
 
   return(
     <div className="progressbar3">
-      <div className="indicator" style={{marginLeft: `${props.atticDepth / 15 * 100}%`}}><img src="../../indicator.svg"/></div>
+      <div className="indicator" style={{marginLeft: `${indicator}%`}}><img src="../../indicator.svg"/></div>
       <div className="bar">
         <div className="orange"><p>Space Heater</p></div>
         <div className="yellow"></div>
