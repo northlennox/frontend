@@ -1,107 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AtticBar from '../AtticBar';
+import WaHeaterBar from '../WaHeaterBar';
+import SpHeaterBar from '../SpHeaterBar';
 
 const Exam = (props) => {
   const userId = sessionStorage.userId;
-
   console.log('props - ', props)
 
-  // let waHeaterAge = 2020 - Number(props.waHeater.waHeaterYear);
-  // let waEfficency = ''
-  // let waEfficencyGrade = ''
-  //
-  //
-  // let spHeaterAge = 2020 - Number(props.spHeater.spHeaterYear);
-  // let spEfficency = '';
-  // let gradeColor = '';
-  // let grade = ''
-  //
-  // let atticDep = Number(props.attic.atticDepth )
-  // console.log('dd', atticDep);
-  // if(atticDep === 0){
-  //   grade = 'D'
-  // }else if(1 <= atticDep < 6){
-  //   grade = 'C'
-  // }
-
-// Water heater type “gas tank” efficiency 0.55 range red grade C if year <10, else D
-// Water heater type “gas tankless” efficiency 0.9 range red grade C if year <15, else D
-// Water heater type “electric tank” efficiency 0.9 range green grade C if year <10, else D
-// Water heater type “heat pump” efficiency 2.5 range green grade A if year <10, else B
-
-
-  // if(props.waHeater.waHeatertype === "Natural Gas Storage"){
-  //     waEfficency = '0.55'
-  //   if(waHeaterAge < 10){
-  //     waEfficencyGrade = 'C';
-  //   }else if(waHeaterAge > 10){
-  //     waEfficencyGrade = 'D';
-  //   }
-  // }else if(props.waHeater.waHeatertype === "Natural Gas Tankless"){
-  //   waEfficency = '0.9'
-  //   if(waHeaterAge < 10){
-  //     waEfficencyGrade = 'C';
-  //   }else if(waHeaterAge > 10){
-  //     waEfficencyGrade = 'D';
-  //   }
-  // }else if(props.waHeater.waHeatertype === "Electric Storage"){
-  //   waEfficency = '0.9'
-  //   if(waHeaterAge < 10){
-  //     waEfficencyGrade = 'C';
-  //   }else if(waHeaterAge > 10){
-  //     waEfficencyGrade = 'D';
-  //   }
-  // }else if(props.waHeater.waHeatertype === "Electric Heat Pump"){
-  //   waEfficency = '2.5'
-  //   if(waHeaterAge < 10){
-  //     console.log('here');
-  //     waEfficencyGrade = 'A';
-  //   }else if(waHeaterAge > 10){
-  //     waEfficencyGrade = 'B';
-  //   }
-  // }
-
-
-
-
-  // const spHeaterTypeOptions = ["Select", "Central Gas Furnace", "Room Gas Furnace", "Oil Furnace", "Electric Furnace", "Electric Heat Pump", "Electric Mini-Split", "Gas Boiler/Radiant", "Geothermal Heat Pump", "Wood Stove", "Pellet Stove"];
-  // Space heater type “furnace” efficiency 0.8 range red grade C if year<10, else D
-  // Space heater type “heat pump” efficiency 3.0 range green grade A if year <10, else B
-
- // if(props.spHeater.spHeaterType === "Central Gas Furnace" || props.spHeater.spHeaterType === "Room Gas Furnace" || props.spHeater.spHeaterType === "Oil Furnace" || props.spHeater.spHeaterType === "Electric Furnace"){
- //   spEfficency = '0.8'
- // }else{
- //   spEfficency = '3.0'
- // }
-
-
- //new function
-  // const spHeaterType = props.spHeater.spHeaterType;
-  // const spHeaterYear = props.spHeater.spHeaterYear;
-  //
-  // if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Oil Furnace" || spHeaterType === "Electric Furnace") {
-  //   spEfficency = 0.8;
-  //   gradeColor = 'red';
-  //
-  //   if(spHeaterYear > 10){
-  //     grade = "C"
-  //   }else{
-  //     grade = "D"
-  //   }
-  // }else{
-  //   spEfficency = 3.0;
-  //   gradeColor = 'green';
-  //
-  //   if(spHeaterYear > 10){
-  //     grade = "A"
-  //   }else{
-  //     grade = "B"
-  //   }
-  // }
-
-
-
-
+  let mar = '3'
   return(
     <div className="examContainer">
       <div className="titleContainer">
@@ -110,16 +17,16 @@ const Exam = (props) => {
       </div>
       <div className="gradeContainer">
         <div className="gradeRow myGrade">
-          <div className="h3">My Casa Grade</div>
+          <div className="h3">My Casa Grades</div>
           <div className="measureContainer">
             <div className="measureItem">
-              <label>Energy Efficiency Rating</label>
-              <div><div>Attic Insulation : grade</div></div>
+              <label><div className="h4">Energy Efficiency</div><div className="h4">Rating</div></label>
+              <div className="atticGrade" style={{color:`${props.atticGradeColor}`}}>{props.atticGrade}</div>
               <div>graph</div>
             </div>
             <div className="measureItem">
-              <label>Carbon Footprint Rating</label>
-              <div>B - space heater</div>
+              <label><div className="h4">Carbon Footprint</div><div className="h4">Rating</div></label>
+              <div className="spGradeLetter" style={{color:`${props.spGradeColor}`}}>{props.spGradeLetter}</div>
               <div>graph</div>
             </div>
           </div>
@@ -129,54 +36,54 @@ const Exam = (props) => {
           <div className="componentContainer">
             <div className="componentCol">
               <div className="markContainer">
-                <img className="marks" src="../Electrify/cooking.svg"/>
+                <img className="marks" src="../Components/atticInsulationIcon.svg"/>
                 <span className="markName">Attic Insulation</span>
                 <span className="markStatus">N/A</span>
               </div>
               <div className="markContainer">
-                <img className="marks" src="../Electrify/cooking.svg"/>
+                <img className="marks" src="../Components/wallInsulationIcon.svg"/>
                 <span className="markName">Wall Insulation</span>
                 <span className="markStatus">N/A</span>
               </div>
               <div className="markContainer">
-                <img className="marks" src="../Electrify/cooking.svg"/>
+                <img className="marks" src="../Components/floorInsulationIcon.svg"/>
                 <span className="markName">Floor Insulation</span>
                 <span className="markStatus">N/A</span>
               </div>
               <div className="markContainer">
-                <img className="marks" src="../Electrify/cooking.svg"/>
+                <img className="marks" src="../Components/windowsIcon.svg"/>
                 <span className="markName">Windows quality</span>
                 <span className="markStatus">N/A</span>
               </div>
               <div className="markContainer">
-                <img className="marks" src="../Electrify/Weatherization.svg"/>
+                <img className="marks" src="../Components/sealedIcon.svg"/>
                 <span className="markName">Sealed?</span>
                 <span className="markStatus">N/A</span>
               </div>
             </div>
             <div className="componentCol">
               <div className="markContainer">
-                <img className="marks" src="../Electrify/HotWater.svg"/>
+                <img className="marks" src="../Components/waHeaterIcon.svg"/>
                 <span className="markName">Water Heater</span>
                 <span className="markStatus">N/A</span>
               </div>
               <div className="markContainer">
-                <img className="marks" src="../Electrify/HeatingCooling.svg"/>
+                <img className="marks" src="../Components/spHeaterIcon.svg"/>
                 <span className="markName">Space Heater</span>
                 <span className="markStatus">N/A</span>
               </div>
               <div className="markContainer">
-                <img className="marks" src="../Electrify/cooking.svg"/>
+                <img className="marks" src="../Components/rangeIcon.svg"/>
                 <span className="markName">Range</span>
                 <span className="markStatus">N/A</span>
               </div>
               <div className="markContainer">
-                <img className="marks" src="../Electrify/ClothesDrying.svg"/>
+                <img className="marks" src="../Components/clothesDryerIcon.svg"/>
                 <span className="markName">Clothes Dryer</span>
                 <span className="markStatus">N/A</span>
               </div>
               <div className="markContainer">
-                <img className="marks" src="../Electrify/EnergyGeneration.svg"/>
+                <img className="marks" src="../Components/solarIcon.svg"/>
                 <span className="markName">Solar?</span>
                 <span className="markStatus">N/A</span>
               </div>
@@ -187,29 +94,28 @@ const Exam = (props) => {
           <div className="h3">Analysis</div>
             <div className="analysisSection">
               <div className="analysisName h4">EFFICIENCY</div>
-              <div>graph</div>
-              <div>Attic Insulation : grade</div>
+                <AtticBar atticDepth={props.atticDepth} />
               <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
             </div>
             <div className="analysisSection">
               <div className="analysisName h4">TECHNOLOGY</div>
-              <div>graph</div>
+                <WaHeaterBar atticDepth={props.atticDepth} />
               <div>Wather heater type : {props.waHeatertype}</div>
               <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
             </div>
             <div className="analysisSection">
-              <div>graph</div>
-              <div>space heater type : {props.spHeatertype}</div>
+                <SpHeaterBar atticDepth={props.atticDepth} />
+              <div>space heater type : {props.spHeaterType}</div>
               <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
             </div>
-            <div className="analysisSection recommendations">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-
+          </div>
         </div>
-      </div>
+        <div className="recommendations">
+          <div className="h3">Recommendations</div>
+          <div className="recommendation"><span className="replaceYr h5">2021</span><span className="replaceTitle">Replace Water Heater with Electric Heat Pump</span></div>
+          <div className="recommendation"><span className="replaceYr h5">2021</span><span className="replaceTitle">Increase Attic Insulation</span></div>
+          <div className="recommendation"><span className="replaceYr h5">2021</span><span className="replaceTitle">Replace Space Heater with Electric Heat Pump</span></div>
+        </div>
     </div>
   )
 }

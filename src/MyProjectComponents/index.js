@@ -26,10 +26,15 @@ class MyProjectComponent extends Component {
       },
       spGrade : {
         spHeaterAge : '',
-        spHeatertype : '',
+        spHeaterType : '',
         spEfficency: '',
         spGradeColor: '',
         spGradeLetter: '',
+      },
+      atticGrade : {
+        atticDepth : '',
+        atticGrade: '',
+        atticGradeColor: ''
       }
     }
   }
@@ -71,7 +76,9 @@ class MyProjectComponent extends Component {
           })
           this.getWaGrade();
           this.getSpGrade();
+          this.getAtticGrade();
         }
+
 
       }catch(err){
         return err
@@ -130,22 +137,80 @@ class MyProjectComponent extends Component {
     }
 
     getSpGrade = async() => {
-      let spHeatertype = this.state.spHeater.spHeaterType;
+      let spHeaterType = this.state.spHeater.spHeaterType;
       let spHeaterAge = 2020 - Number(this.state.spHeater.spHeaterYear);
       let spEfficency = '';
       let spGradeColor = '';
       let spGradeLetter = '';
 
+
+      if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Oil Furnace" || spHeaterType === "Electric Furnace") {
+        spEfficency = 0.8;
+        spGradeColor = 'red';
+
+        if(spHeaterAge > 10){
+          spGradeLetter = "C"
+        }else{
+          spGradeLetter = "D"
+        }
+      }else{
+        spEfficency = 3.0;
+        spGradeColor = 'green';
+
+        if(spHeaterAge > 10){
+          spGradeLetter = "A"
+        }else{
+          spGradeLetter = "B"
+        }
+      }
+
+
       this.setState({
         spGrade : {
           spHeaterAge : spHeaterAge,
-          spHeatertype : spHeatertype,
+          spHeaterType : spHeaterType,
           spEfficency: spEfficency,
           spGradeColor: spGradeColor,
           spGradeLetter: spGradeLetter,
         }
       })
     }
+
+    getAtticGrade = () => {
+      let atticDepth = Number(this.state.attic.atticDepth);
+      let atticGrade = '';
+      let atticGradeColor = '';
+
+      if(atticDepth === 0){
+        atticGrade = 'D';
+        atticGradeColor = 'Red';
+      }else if(1 <= atticDepth < 6){
+        atticGrade = 'C';
+        atticGradeColor = 'Orange';
+      }
+
+
+      this.setState({
+        atticGrade : {
+          atticDepth : atticDepth,
+          atticGrade : atticGrade,
+          atticGradeColor : atticGradeColor
+        }
+      })
+    }
+
+
+    // Water heater type “gas tank” efficiency 0.55 range red grade C if year <10, else D
+    // Water heater type “gas tankless” efficiency 0.9 range red grade C if year <15, else D
+    // Water heater type “electric tank” efficiency 0.9 range green grade C if year <10, else D
+    // Water heater type “heat pump” efficiency 2.5 range green grade A if year <10, else B
+
+
+    // const spHeaterTypeOptions = ["Select", "Central Gas Furnace", "Room Gas Furnace", "Oil Furnace", "Electric Furnace", "Electric Heat Pump", "Electric Mini-Split", "Gas Boiler/Radiant", "Geothermal Heat Pump", "Wood Stove", "Pellet Stove"];
+    // Space heater type “furnace” efficiency 0.8 range red grade C if year<10, else D
+    // Space heater type “heat pump” efficiency 3.0 range green grade A if year <10, else B
+
+
 
   render(){
     const userId = sessionStorage.getItem('userId')
@@ -155,6 +220,7 @@ class MyProjectComponent extends Component {
         <Nav />
           {
             !this.state.open ?
+
             <div className="projectContainer">
               <div className="titleContainer">
                 <div className="title h2">Projects</div>
@@ -174,10 +240,13 @@ class MyProjectComponent extends Component {
               waGradeColor={this.state.waGrade.waGradeColor}
               waGradeLetter={this.state.waGrade.waGradeLetter}
               spHeaterAge={this.state.spGrade.spHeaterAge}
-              spHeatertype={this.state.spGrade.spHeatertype}
+              spHeaterType={this.state.spGrade.spHeaterType}
               spEfficency={this.state.spGrade.spEfficency}
               spGradeColor={this.state.spGrade.spGradeColor}
               spGradeLetter={this.state.spGrade.spGradeLetter}
+              atticDepth={this.state.atticGrade.atticDepth}
+              atticGrade={this.state.atticGrade.atticGrade}
+              atticGradeColor={this.state.atticGrade.atticGradeColor}
              />
           }
       </>

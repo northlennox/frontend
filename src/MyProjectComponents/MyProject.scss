@@ -23,28 +23,39 @@
     flex-direction: column;
     margin-top: 5%;
     .myGrade {
-      border: 1px solid green;
-      height: 200px;
+      border-bottom: 1px solid #E9E9E9;
+      height: 250px;
       .measureContainer {
         display: flex;
         flex-direction: row;
         justify-content: center;
-
-        border: 1px red solid;
         .measureItem {
-          border: 1px blue solid;
+          margin-left: 2%;
+          margin-right: 2%;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          // justify-content: center;
           align-items: center;
+          label {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+          .atticGrade, .spGradeLetter {
+            font-weight: 800;
+            font-size: 64px;
+            margin-top: 0;
+          }
         }
       }
     }
     .componentsMark {
-      border: 1px pink solid;
+      border-bottom: 1px solid #E9E9E9;
       height: 200px;
       display: flex;
       flex-direction: column;
+      margin-top: 2%;
       .componentContainer {
         display: flex;
         flex-direction: row;
@@ -74,11 +85,25 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+
         .analysisName {
           font-weight: bold;
+          align-self: center;
         }
       }
+    }
+  }
+}
+.recommendations {
+  padding-top: 5%;
+  .recommendation {
+    margin-top: 10px;
+    .replaceYr {
+      border: 2px solid #D22E2E;
+      padding: 4px;
+    }
+    .replaceTitle {
+      margin-left: 20px;
     }
   }
 }
@@ -86,4 +111,75 @@
 .marks {
   height: 20px;
   width: 20px;
+}
+
+.progressbar {
+  border: 1px solid blue;
+  width: 100%;
+  .indicator {
+    width: 2%;
+  }
+  .bar {
+    width: 100%;
+    height: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    .red {
+        width: 4%;
+        height: 100%;
+        background-color: #D22E2E;
+        float: left;
+    }
+    .orange {
+        width: 32%;
+        height: 100%;
+        background-color: #FA910B;
+        float: left;
+
+    }
+
+    .yellow {
+        width: 32%;
+        height: 100%;
+        background-color: #FDC825;
+        float: left;
+
+    }
+    .green {
+        width: 32%;
+        height: 100%;
+        background-color: #139929;
+        float: left;
+
+    }
+  }
+  .inches {
+    width: 100%;
+    height: 30px;
+    .redIn {
+        width: 4%;
+        height: 100%;
+        float: left;
+
+    }
+    .orangeIn {
+        width: 32%;
+        height: 100%;
+        float: left;
+        padding-left: 12%;
+    }
+    .yellowIn {
+        width: 32%;
+        height: 100%;
+        float: left;
+        padding-left: 12%;
+    }
+    .greenIn {
+        width: 32%;
+        height: 100%;
+        float: left;
+        padding-left: 12%;
+    }
+  }
 }

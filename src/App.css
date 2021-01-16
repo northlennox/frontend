@@ -24,6 +24,9 @@ input {
   padding-bottom: 3%;
   border: none;
 }
+.btn:hover {
+  color: white;
+}
 
 * {
   font-family: 'Mulish', sans-serif;
@@ -48,6 +51,14 @@ input {
   font-style: normal;
   font-weight: normal;
   font-size: 1rem;
+  line-height: 20px;
+}
+
+/* 12px */
+.h5 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.75rem;
   line-height: 20px;
 }
 

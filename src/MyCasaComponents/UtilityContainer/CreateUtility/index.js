@@ -173,15 +173,15 @@ class CreateUtility extends Component {
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="highBilling">ARE YOUR ENERGY BILLS TOO HIGH?</label>
                 <div id="highBilling" >
-                  <input name="highBilling" type="radio" checked={this.state.utility.highBilling === "YES"} value="YES" onChange={this.handleInput}/>YES
-                  <input className="radioInput-right" name="highBilling" type="radio" checked={this.state.utility.highBilling === "NO"} value="NO" onChange={this.handleInput}/>NO
+                  <input name="highBilling" type="radio" checked={this.state.utility.highBilling === "YES"} value="YES" onChange={this.handleInput}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="highBilling" type="radio" checked={this.state.utility.highBilling === "NO"} value="NO" onChange={this.handleInput}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="oldEquipment">DO YOU HAVE ANY EQUIPMENT OLDER THAN 25 YEARS EG. AN OLD FREEZER?</label>
                 <div id="oldEquipment" >
-                  <input name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "YES"} value="YES" onChange={this.handleInput}/>YES
-                  <input className="radioInput-right" name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "NO"} value="NO" onChange={this.handleInput}/>NO
+                  <input name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "YES"} value="YES" onChange={this.handleInput}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="oldEquipment" type="radio" checked={this.state.utility.oldEquipment === "NO"} value="NO" onChange={this.handleInput}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">

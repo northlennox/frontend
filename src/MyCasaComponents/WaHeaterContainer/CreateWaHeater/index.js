@@ -135,6 +135,8 @@ class CreateWaHeater extends Component {
     for(let i = 1980; i <= cuttentYear; i++){
         waHeaterYearOptions.push(i)
     }
+
+    let upload = "./../../../upload.svg"
     return(
 
       <div>
@@ -148,7 +150,7 @@ class CreateWaHeater extends Component {
                 <img className="help" src="./../../help.svg"/>
               </div>
               <div className="frames">
-                <img className="imgAttached" id="photoOne" src={this.state.preview1} onClick={this.handleClick } />
+                <img className={this.state.preview1 ? "imgAttached" : "placer"} id="photoOne" src={this.state.preview1 ? this.state.preview1 :  upload} onClick={this.handleClick } />
                 <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
               <div className="inputContainer">
@@ -174,15 +176,15 @@ class CreateWaHeater extends Component {
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="waHeaterCondition">IS THE SYSTEM WORKING WELL?</label>
                 <div id="waHeaterCondition" >
-                  <input name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "YES"} value="YES" onChange={this.handleInput}/>YES
-                  <input className="radioInput-right" name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "NO"} value="NO" onChange={this.handleInput}/>NO
+                  <input name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "YES"} value="YES" onChange={this.handleInput}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "NO"} value="NO" onChange={this.handleInput}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="waHeaterSingle">IS THERE MORE THAN ONE WATER HEATER?</label>
                 <div id="waHeaterSingle" >
-                  <input name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "YES"} value="YES" onChange={this.handleInput}/>YES
-                  <input className="radioInput-right" name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "NO"} value="NO" onChange={this.handleInput}/>NO
+                  <input name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "YES"} value="YES" onChange={this.handleInput}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "NO"} value="NO" onChange={this.handleInput}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
