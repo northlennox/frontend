@@ -173,8 +173,14 @@ class EditSpHeater extends Component {
 
   render(){
     const spHeaterTypeOptions = ["Select", "Central Gas Furnace", "Room Gas Furnace", "Oil Furnace", "Electric Furnace", "Electric Heat Pump", "Electric Mini-Split", "Gas Boiler/Radiant", "Geothermal Heat Pump", "Wood Stove", "Pellet Stove"];
-    const spHeaterYearOptions = ["Select", "None", "Room Unit", "Central Air"];
-    const coolingSystemOptions = ["Select", "2020", "2019", "2018", "2017", "2016", "2015"];
+    const coolingSystemOptions = ["Select", "None", "Room Unit", "Central Air"];
+    const spHeaterYearOptions = ["Select", "2020", "2019", "2018", "2017", "2016", "2015"];
+    let today = new Date()
+    let cuttentYear = today.getFullYear();
+
+    for(let i = 1980; i <= cuttentYear; i++){
+        spHeaterYearOptions.push(i)
+    }
     const spHeaterImgState = `${process.env.REACT_APP_API}/` + this.state.spHeater.spHeaterImg;
 
     return(

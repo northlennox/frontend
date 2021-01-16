@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
-// import Moment from 'react-moment';
+import Moment from 'react-moment';
 import Nav from '../../../Nav'
 
 
@@ -127,8 +127,15 @@ class CreateSpHeater extends Component {
 
   render(){
     const spHeaterTypeOptions = ["Select", "Central Gas Furnace", "Room Gas Furnace", "Oil Furnace", "Electric Furnace", "Electric Heat Pump", "Electric Mini-Split", "Gas Boiler/Radiant", "Geothermal Heat Pump", "Wood Stove", "Pellet Stove"];
-    const spHeaterYearOptions = ["Select", "None", "Room Unit", "Central Air"];
-    const coolingSystemOptions = ["Select", "2020", "2019", "2018", "2017", "2016", "2015"];
+    const coolingSystemOptions = ["Select", "None", "Room Unit", "Central Air"];
+    const spHeaterYearOptions = ["Select"];
+    let today = new Date()
+    let cuttentYear = today.getFullYear();
+
+    for(let i = 1980; i <= cuttentYear; i++){
+        spHeaterYearOptions.push(i)
+    }
+
     let upload = "./../../../upload.svg"
     return(
 
@@ -160,10 +167,11 @@ class CreateSpHeater extends Component {
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="coolingSystem">IS THERE A COOLING SYSTEM?</label>
-                <div id="coolingSystem" >
-                  <input name="coolingSystem" type="radio" checked={this.state.spHeater.coolingSystem === "YES"} value="YES" onChange={this.handleInput}/><span className="radioNext">YES</span>
-                  <input className="radioInput-right" name="coolingSystem" type="radio" checked={this.state.spHeater.coolingSystem === "NO"} value="NO" onChange={this.handleInput}/><span className="radioNext">NO</span>
-                </div>
+                <select className="selectInput" name="coolingSystem" id="coolingSystem" type="text" onChange={this.handleInput} value={this.state.spHeater.coolingSystem}>
+                  {coolingSystemOptions.map(coolingSystemOption => {
+                      return <option value={coolingSystemOption} key={coolingSystemOption} >{coolingSystemOption}</option>
+                  })}
+                </select>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="spHeaterCondition">IS THE SYSTEM WORKING WELL?</label>

@@ -157,7 +157,7 @@ class MyProjectComponent extends Component {
             !this.state.open ?
             <div className="projectContainer">
               <div className="titleContainer">
-                <div className="title h2">My Project</div>
+                <div className="title h2">Projects</div>
                 <div className="subtitle h4">Schedule repairs and upgrades at optimal times to maximize savings and prior to emergencies.</div>
               </div>
               <div className="addMessage">
