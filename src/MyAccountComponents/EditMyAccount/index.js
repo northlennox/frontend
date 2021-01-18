@@ -153,15 +153,15 @@ class EditMyAccount extends Component {
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="emailNotice">Email Notice</label>
                 <div id="emailNotice">
-                  <input name="emailNotice" type="radio" checked={this.state.userinfo.emailNotice === "yes"} value="yes" onChange={this.handleChange}/>YES
-                  <input className="radioInput-right" name="emailNotice" type="radio" checked={this.state.userinfo.emailNotice === "no"} value="no" onChange={this.handleChange}/>NO
+                  <input name="emailNotice" type="radio" checked={this.state.userinfo.emailNotice === "yes"} value="yes" onChange={this.handleChange}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="emailNotice" type="radio" checked={this.state.userinfo.emailNotice === "no"} value="no" onChange={this.handleChange}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="emailNotice">Mobile Notice</label>
                 <div id="mobileNotice" >
-                  <input name="mobileNotice" type="radio" checked={this.state.userinfo.mobileNotice === "yes"} value="yes" onChange={this.handleChange}/>YES
-                  <input className="radioInput-right" name="mobileNotice" type="radio" checked={this.state.userinfo.mobileNotice === "no"} value="no" onChange={this.handleChange}/>NO
+                  <input name="mobileNotice" type="radio" checked={this.state.userinfo.mobileNotice === "yes"} value="yes" onChange={this.handleChange}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="mobileNotice" type="radio" checked={this.state.userinfo.mobileNotice === "no"} value="no" onChange={this.handleChange}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">

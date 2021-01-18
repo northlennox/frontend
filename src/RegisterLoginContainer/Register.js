@@ -119,15 +119,15 @@ class RegisterLoginContainer extends Component {
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="emailNotice">EMAIL NOTIFICATION</label>
                 <div id="emailNotice" >
-                  <input name="emailNotice" type="radio" checked={this.state.register.emailNotice === "yes"} value="yes" onChange={this.handleRegisterChange}/>YES
-                  <input className="radioInput-right" name="emailNotice" type="radio" checked={this.state.register.emailNotice === "no"} value="no" onChange={this.handleRegisterChange}/>NO
+                  <input name="emailNotice" type="radio" checked={this.state.register.emailNotice === "yes"} value="yes" onChange={this.handleRegisterChange}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="emailNotice" type="radio" checked={this.state.register.emailNotice === "no"} value="no" onChange={this.handleRegisterChange}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="mobileNotice">MOBILE NOTIFICATION</label>
                 <div id="mobileNotice" >
-                  <input name="mobileNotice" type="radio" checked={this.state.register.mobileNotice === "yes"} value="yes" onChange={this.handleRegisterChange}/>YES
-                  <input className="radioInput-right" name="mobileNotice" type="radio" checked={this.state.register.mobileNotice === "no"} value="no" onChange={this.handleRegisterChange}/>NO
+                  <input name="mobileNotice" type="radio" checked={this.state.register.mobileNotice === "yes"} value="yes" onChange={this.handleRegisterChange}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="mobileNotice" type="radio" checked={this.state.register.mobileNotice === "no"} value="no" onChange={this.handleRegisterChange}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">

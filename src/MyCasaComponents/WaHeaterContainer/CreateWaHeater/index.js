@@ -132,7 +132,7 @@ class CreateWaHeater extends Component {
     let today = new Date()
     let cuttentYear = today.getFullYear();
 
-    for(let i = 1980; i <= cuttentYear; i++){
+    for(let i = cuttentYear; i >= 1980; i-=1){
         waHeaterYearOptions.push(i)
     }
 

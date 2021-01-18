@@ -146,21 +146,25 @@ class MyProjectComponent extends Component {
 
       if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Oil Furnace" || spHeaterType === "Electric Furnace") {
         spEfficency = 0.8;
-        spGradeColor = 'red';
 
-        if(spHeaterAge > 10){
+
+        if(spHeaterAge < 10){
           spGradeLetter = "C"
+          spGradeColor = '#FA910B';
         }else{
           spGradeLetter = "D"
+          spGradeColor = '#D22E2E';
         }
       }else{
         spEfficency = 3.0;
-        spGradeColor = 'green';
+
 
         if(spHeaterAge > 10){
           spGradeLetter = "A"
+          spGradeColor = '#139929';
         }else{
           spGradeLetter = "B"
+          spGradeColor = '#FDC825';
         }
       }
 
@@ -209,7 +213,7 @@ class MyProjectComponent extends Component {
     // const spHeaterTypeOptions = ["Select", "Central Gas Furnace", "Room Gas Furnace", "Oil Furnace", "Electric Furnace", "Electric Heat Pump", "Electric Mini-Split", "Gas Boiler/Radiant", "Geothermal Heat Pump", "Wood Stove", "Pellet Stove"];
     // Space heater type “furnace” efficiency 0.8 range red grade C if year<10, else D
     // Space heater type “heat pump” efficiency 3.0 range green grade A if year <10, else B
-
+    //
 
 
   render(){

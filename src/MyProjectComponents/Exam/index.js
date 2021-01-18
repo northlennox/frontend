@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import AtticBar from '../AtticBar';
 import WaHeaterBar from '../WaHeaterBar';
 import SpHeaterBar from '../SpHeaterBar';
+import GradeGraph from '../GradeGraph';
 
 const Exam = (props) => {
   const userId = sessionStorage.userId;
@@ -22,12 +23,12 @@ const Exam = (props) => {
             <div className="measureItem">
               <label><div className="h4">Energy Efficiency</div><div className="h4">Rating</div></label>
               <div className="atticGrade" style={{color:`${props.atticGradeColor}`}}>{props.atticGrade}</div>
-              <div>graph</div>
+              <GradeGraph atticGrade={props.atticGrade} />
             </div>
             <div className="measureItem">
               <label><div className="h4">Carbon Footprint</div><div className="h4">Rating</div></label>
               <div className="spGradeLetter" style={{color:`${props.spGradeColor}`}}>{props.spGradeLetter}</div>
-              <div>graph</div>
+              <GradeGraph spGradeLetter={props.spGradeLetter} />
             </div>
           </div>
         </div>
@@ -95,18 +96,18 @@ const Exam = (props) => {
             <div className="analysisSection">
               <div className="analysisName h4">EFFICIENCY</div>
                 <AtticBar atticDepth={props.atticDepth} />
-              <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
+              <div>The depth of your attic insulation is reported as [depth #] inches of [material]. It is [low/medium/high] compared to the recommended level of at least 11 inches. Adding attic insulation with proper air sealing is typically the single most effective action a homeowner can take to increase energy performance. Insulation is inexpensive and has a long life. Taking action is highly recommended.</div>
             </div>
             <div className="analysisSection">
               <div className="analysisName h4">TECHNOLOGY</div>
                 <WaHeaterBar waHeatertype={props.waHeatertype} />
               <div>Wather heater type : {props.waHeatertype}</div>
-              <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
+              <div>Your water heater is a [water heater type] with an age of [current year – year of manufacture]. It should be replaced when it exceeds its 10-year expected life. A heat pump water heater is an attractive technology. Heat pumps are more than 3x more efficient than gas, and can be powered with a renewable energy source such as rooftop solar.</div>
             </div>
             <div className="analysisSection">
                 <SpHeaterBar spHeaterType={props.spHeaterType} />
               <div>space heater type : {props.spHeaterType}</div>
-              <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</div>
+              <div>Your space heater is a [space heater type] with an age of [current year – year of manufacture]. It should be replaced when it exceeds its 15-year expected life. A ducted or ductless heat pump is an attractive technology. Heat pumps are more than 3x more efficient than gas, and can be powered with a renewable energy source such as rooftop solar.</div>
             </div>
           </div>
         </div>
