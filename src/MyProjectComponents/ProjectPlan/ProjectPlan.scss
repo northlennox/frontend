@@ -1,0 +1,445 @@
+.examContainer {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  .gradeContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    .myGrade {
+      border-bottom: 1px solid #E9E9E9;
+      height: 250px;
+      .measureContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        .measureItem {
+          margin-left: 2%;
+          margin-right: 2%;
+          display: flex;
+          flex-direction: column;
+          // justify-content: center;
+          align-items: center;
+          label {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+          .atticGrade, .spGradeLetter {
+            font-weight: 800;
+            font-size: 64px;
+            margin-top: 0;
+          }
+        }
+      }
+    }
+    .componentsMark {
+      border-bottom: 1px solid #E9E9E9;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 2%;
+      .componentContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        .componentCol {
+          margin-left: 20px;
+          margin-right: 20px;
+          .markContainer {
+            margin-top: 2px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .markName {
+              margin-left: 10px;
+              margin-right: 10px;
+            }
+            .markStatus {
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+    }
+    .analysis {
+      .analysisSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 5vh;
+        .analysisName {
+          font-weight: bold;
+          margin-top: 2%;
+          margin-bottom: 2%;
+          text-indent: 1em;
+          // align-self: center;
+        }
+        .analysisTitle {
+          text-align: center;
+          margin-bottom: 2vh;
+          font-weight: bold;
+        }
+        .analysisContent {
+          margin-top: 2vh;
+        }
+      }
+    }
+  }
+}
+.recommendations {
+  padding-top: 5%;
+  .recommendation {
+    margin-top: 10px;
+    .replaceYr {
+      border: 2px solid;
+      padding: 4px;
+    }
+    .replaceTitle {
+      margin-left: 20px;
+    }
+  }
+}
+
+.marks {
+  height: 20px;
+  width: 20px;
+}
+
+.progressbar {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  width: 100%;
+  .indicator {
+    width: 2%;
+  }
+  .bar {
+    width: 100%;
+    height: 23px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    .red {
+        width: 4.5%;
+        height: 100%;
+        background-color: #D22E2E;
+        float: left;
+        margin-right: 0.5%;
+        transform: skew(30deg);
+        // border-top-left-radius: 10px;
+        // border-bottom-left-radius: 10px;
+    }
+    .orange {
+        width: 30%;
+        height: 100%;
+        background-color: #FA910B;
+        transform: skew(30deg);
+        margin-right: 0.5%;
+        float: left;
+    }
+
+    .yellow {
+        width: 30%;
+        height: 100%;
+        background-color: #FDC825;
+        transform: skew(30deg);
+        float: left;
+        margin-right: 0.5%;
+    }
+    .green {
+        width: 30%;
+        height: 100%;
+        background-color: #139929;
+        transform: skew(30deg);
+        float: left;
+        // border-top-right-radius: 10px;
+        // border-bottom-right-radius: 10px;
+    }
+    .last {
+        width: 1.5%;
+        height: 100%;
+        background-color: #139929;
+        float: left;
+        transform: skew(30deg);
+    }
+  }
+  .inches {
+    width: 100%;
+    height: 30px;
+    .redIn {
+        width: 6%;
+        height: 100%;
+        float: left;
+        font-weight: bold;
+    }
+    .orangeIn {
+        width: 31%;
+        height: 100%;
+        float: left;
+        font-weight: bold;
+        // padding-left: 12%;
+    }
+    .yellowIn {
+        width: 31%;
+        height: 100%;
+        float: left;
+        font-weight: bold;
+        // padding-left: 12%;
+    }
+    .greenIn {
+        width: 31%;
+        height: 100%;
+        float: left;
+        font-weight: bold;
+        // padding-left: 12%;
+    }
+    .lastIn {
+        width: 0.5%;
+        height: 100%;
+        float: left;
+        font-weight: bold;
+        margin-left: -8px;
+    }
+  }
+}
+
+.progressbar2 {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  width: 100%;
+  .indicator {
+    width: 2%;
+  }
+  .bar {
+    width: 100%;
+    height: 25px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    .red {
+        width: 2%;
+        height: 100%;
+        background-color: #D22E2E;
+        float: left;
+        transform: skew(30deg);
+        margin-right: 0.5%
+        // border-top-left-radius: 10px;
+        // border-bottom-left-radius: 10px;
+
+    }
+    .orange {
+        width: 31%;
+        height: 100%;
+        background-color: #FA910B;
+        float: left;
+        transform: skew(30deg);
+        margin-right: 0.5%
+    }
+    .yellow {
+        width: 31%;
+        height: 100%;
+        background-color: #FDC825;
+        float: left;
+        transform: skew(30deg);
+        margin-right: 0.5%
+    }
+    .green {
+        width: 31%;
+        height: 100%;
+        background-color: #139929;
+        float: left;
+        transform: skew(30deg);
+        // border-top-right-radius: 10px;
+        // border-bottom-right-radius: 10px;
+    }
+  }
+  .inches {
+    width: 100%;
+    height: 30px;
+    .startIn {
+      width: 1%;
+      height: 100%;
+      float: left;
+      font-weight: bold;
+    }
+    .orangeIn {
+        width: 32%;
+        height: 100%;
+        float: left;
+        padding-left: 30%;
+        font-weight: bold;
+    }
+    .yellowIn {
+        width: 32%;
+        height: 100%;
+        float: left;
+        padding-left: 32%;
+        font-weight: bold;
+    }
+    .greenIn {
+        width: 32%;
+        height: 100%;
+        float: left;
+        padding-left: 32%;
+        font-weight: bold;
+    }
+  }
+}
+
+.progressbar3 {
+  width: 100%;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  .indicator {
+    width: 2%;
+  }
+  .bar {
+    width: 100%;
+    height: 25px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    .red {
+        width: 24%;
+        height: 100%;
+        background-color: #D22E2E;
+        float: left;
+        transform: skew(30deg);
+        margin-right: 0.5%
+        // border-top-left-radius: 10px;
+        // border-bottom-left-radius: 10px;
+    }
+    .orange {
+        width: 24%;
+        height: 100%;
+        background-color: #FA910B;
+        float: left;
+        transform: skew(30deg);
+        margin-right: 0.5%
+    }
+    .yellow {
+        width: 24%;
+        height: 100%;
+        background-color: #FDC825;
+        float: left;
+        transform: skew(30deg);
+        margin-right: 0.5%
+    }
+    .green {
+        width: 24%;
+        height: 100%;
+        background-color: #139929;
+        float: left;
+        transform: skew(30deg);
+        // border-top-right-radius: 10px;
+        // border-bottom-right-radius: 10px;
+
+    }
+  }
+  .inches {
+    width: 100%;
+    height: 30px;
+    .redIn {
+        width: 25%;
+        height: 100%;
+        float: left;
+        font-weight: bold;
+        // padding-left: 12%;
+    }
+    .orangeIn {
+        width: 25%;
+        height: 100%;
+        float: left;
+        padding-left: 24%;
+        font-weight: bold;
+    }
+    .yellowIn {
+        width: 25%;
+        height: 100%;
+        float: left;
+        font-weight: bold;
+
+    }
+    .greenIn {
+        width: 25%;
+        height: 100%;
+        float: left;
+        padding-left: 24%;
+        font-weight: bold;
+    }
+  }
+}
+
+.progressbar_grade {
+  width: 100%;
+  .indicator {
+    width: 17%;
+  }
+  .bar {
+    width: 100%;
+    height: 23px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    .red {
+        width: 25%;
+        height: 100%;
+        background-color: #D22E2E;
+        float: left;
+    }
+    .orange {
+        width: 25%;
+        height: 100%;
+        background-color: #FA910B;
+        float: left;
+    }
+
+    .yellow {
+        width: 25%;
+        height: 100%;
+        background-color: #FDC825;
+        float: left;
+
+    }
+    .green {
+        width: 25%;
+        height: 100%;
+        background-color: #139929;
+        float: left;
+
+    }
+  }
+}
+
+#indicator {
+
+  width: 200%;
+  color: white;
+}
+
+.shape{
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 50%;
+    border-bottom-right-radius: 0;
+    transform: rotate(45deg);
+    // float: left;
+    margin-top: 50px;
+    margin-left: 20px;
+    border: 5px solid #fff;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #grader {
+      transform: rotate(-45deg);
+    }
+}
+
+.letterIndicator {
+  transform: skew(-30deg);
+}

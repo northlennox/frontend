@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../Nav';
 import { Link } from 'react-router-dom';
 import Exam from './Exam';
+import ProjectPlan from './ProjectPlan';
 import './MyProject.scss';
 
 
@@ -34,7 +35,8 @@ class MyProjectComponent extends Component {
       atticGrade : {
         atticDepth : '',
         atticGrade: '',
-        atticGradeColor: ''
+        atticGradeColor: '',
+        atticInsulation: ''
       }
     }
   }
@@ -69,7 +71,7 @@ class MyProjectComponent extends Component {
             utility: userParsed.utility,
         })
 
-        console.log('$$$',(this.state.house !== null && this.state.attic !== null && this.state.waHeater !== null));
+
         if(this.state.house !== null && this.state.attic !== null && this.state.waHeater !== null){
           this.setState({
             open : true
@@ -86,43 +88,53 @@ class MyProjectComponent extends Component {
     }
 
     getWaGrade = async() => {
+      let today = new Date()
+      let cuttentYear = today.getFullYear();
       let waHeatertype = this.state.waHeater.waHeatertype;
-      let waHeaterAge = 2020 - Number(this.state.waHeater.waHeaterYear);
+      let waHeaterAge = cuttentYear - Number(this.state.waHeater.waHeaterYear);
       let waEfficency = '';
       let waGradeColor = '';
       let waGradeLetter = '';
 
       if(waHeatertype === "Natural Gas Storage"){
         waEfficency = 0.55;
-        waGradeColor = 'red';
+
         if(waHeaterAge < 10){
           waGradeLetter = 'C';
+          waGradeColor = 'orange';
         }else{
           waGradeLetter = 'D';
+          waGradeColor = 'red';
         }
       }else if(waHeatertype === "Natural Gas Tankless"){
         waEfficency = 0.9;
-        waGradeColor = 'red';
+
         if(waHeaterAge < 15){
           waGradeLetter = 'C';
+          waGradeColor = 'orange';
         }else{
           waGradeLetter = 'D';
+          waGradeColor = 'red';
         }
       }else if(waHeatertype === "Electric Storage"){
         waEfficency = 0.9;
-        waGradeColor = 'green';
+
         if(waHeaterAge < 10){
           waGradeLetter = 'C';
+          waGradeColor = 'orange';
         }else{
           waGradeLetter = 'D';
+          waGradeColor = 'red';
         }
       }else if(waHeatertype === "Electric Heat Pump"){
         waEfficency = 2.5;
-        waGradeColor = 'green';
+
         if(waHeaterAge < 10){
           waGradeLetter = 'A';
+          waGradeColor = 'green';
         }else{
           waGradeLetter = 'B';
+          waGradeColor = 'yellow';
         }
       }
       this.setState({
@@ -137,8 +149,10 @@ class MyProjectComponent extends Component {
     }
 
     getSpGrade = async() => {
+      let today = new Date()
+      let cuttentYear = today.getFullYear();
       let spHeaterType = this.state.spHeater.spHeaterType;
-      let spHeaterAge = 2020 - Number(this.state.spHeater.spHeaterYear);
+      let spHeaterAge = cuttentYear - Number(this.state.spHeater.spHeaterYear);
       let spEfficency = '';
       let spGradeColor = '';
       let spGradeLetter = '';
@@ -146,8 +160,6 @@ class MyProjectComponent extends Component {
 
       if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Oil Furnace" || spHeaterType === "Electric Furnace") {
         spEfficency = 0.8;
-
-
         if(spHeaterAge < 10){
           spGradeLetter = "C"
           spGradeColor = '#FA910B';
@@ -157,8 +169,6 @@ class MyProjectComponent extends Component {
         }
       }else{
         spEfficency = 3.0;
-
-
         if(spHeaterAge > 10){
           spGradeLetter = "A"
           spGradeColor = '#139929';
@@ -181,16 +191,29 @@ class MyProjectComponent extends Component {
     }
 
     getAtticGrade = () => {
+      let today = new Date()
+      let cuttentYear = today.getFullYear();
       let atticDepth = Number(this.state.attic.atticDepth);
       let atticGrade = '';
       let atticGradeColor = '';
+      let atticInsulation = '';
 
       if(atticDepth === 0){
         atticGrade = 'D';
-        atticGradeColor = 'Red';
+        atticGradeColor = '#D22E2E';
+        atticInsulation = 'Zero';
       }else if(1 <= atticDepth < 6){
         atticGrade = 'C';
-        atticGradeColor = 'Orange';
+        atticGradeColor = '#FA910B';
+        atticInsulation = 'Low';
+      }else if(6 <= atticDepth < 10){
+        atticGrade = 'B';
+        atticGradeColor = '#FDC825';
+        atticInsulation = 'Medium';
+      }else if(10 <= atticDepth <= 15){
+        atticGrade = 'B';
+        atticGradeColor = '#FDC825';
+        atticInsulation = 'High';
       }
 
 
@@ -198,7 +221,8 @@ class MyProjectComponent extends Component {
         atticGrade : {
           atticDepth : atticDepth,
           atticGrade : atticGrade,
-          atticGradeColor : atticGradeColor
+          atticGradeColor : atticGradeColor,
+          atticInsulation : atticInsulation
         }
       })
     }
@@ -237,7 +261,9 @@ class MyProjectComponent extends Component {
               </div>
             </div>
             :
-            <Exam
+            <ProjectPlan
+              house = {this.state.house}
+              attic = {this.state.attic}
               waHeaterAge={this.state.waGrade.waHeaterAge}
               waHeatertype={this.state.waGrade.waHeatertype}
               waEfficency={this.state.waGrade.waEfficency}
@@ -251,6 +277,7 @@ class MyProjectComponent extends Component {
               atticDepth={this.state.atticGrade.atticDepth}
               atticGrade={this.state.atticGrade.atticGrade}
               atticGradeColor={this.state.atticGrade.atticGradeColor}
+              atticInsulation={this.state.atticGrade.atticInsulation}
              />
           }
       </>

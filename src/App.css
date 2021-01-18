@@ -80,3 +80,7 @@ input {
   flex-direction: column;
   margin-top: 50px;
 }
+
+.textBold {
+  font-weight: bold;
+}

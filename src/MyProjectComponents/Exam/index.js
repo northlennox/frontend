@@ -7,7 +7,7 @@ import GradeGraph from '../GradeGraph';
 
 const Exam = (props) => {
   const userId = sessionStorage.userId;
-  console.log('props - ', props)
+  console.log('props - ', props.attic)
 
   let mar = '3'
   return(
@@ -39,7 +39,7 @@ const Exam = (props) => {
               <div className="markContainer">
                 <img className="marks" src="../Components/atticInsulationIcon.svg"/>
                 <span className="markName">Attic Insulation</span>
-                <span className="markStatus">N/A</span>
+                <span className="markStatus">{props.atticInsulation}</span>
               </div>
               <div className="markContainer">
                 <img className="marks" src="../Components/wallInsulationIcon.svg"/>
@@ -59,7 +59,7 @@ const Exam = (props) => {
               <div className="markContainer">
                 <img className="marks" src="../Components/sealedIcon.svg"/>
                 <span className="markName">Sealed?</span>
-                <span className="markStatus">N/A</span>
+                <span className="markStatus">{props.attic.airSealed}</span>
               </div>
             </div>
             <div className="componentCol">
