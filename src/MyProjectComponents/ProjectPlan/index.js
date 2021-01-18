@@ -95,19 +95,19 @@ const ProjectPlan = (props) => {
         <div className="gradeRow analysis">
           <div className="h3">Analysis</div>
             <div className="analysisSection">
-              <div className="analysisName h4">EFFICIENCY</div>
+              
               <div className="analysisTitle">Attic Insulation</div>
                 <AtticBar_SeHee atticDepth={props.atticDepth} atticGradeColor={props.atticGradeColor} atticGrade={props.atticGrade}/>
               <div>The depth of your attic insulation is reported as [depth #] inches of [material]. It is [low/medium/high] compared to the recommended level of at least 11 inches. Adding attic insulation with proper air sealing is typically the single most effective action a homeowner can take to increase energy performance. Insulation is inexpensive and has a long life. Taking action is highly recommended.</div>
             </div>
             <div className="analysisSection">
-              <div className="analysisName h4">TECHNOLOGY</div>
-              <div className="analysisTitle">Water Heater</div>
+
+              <div className="analysisTitle">Water Heater Efficiency</div>
               <WaHeaterBar_SeHee waEfficency={props.waEfficency} waGradeColor={props.waGradeColor} waGradeLetter={props.waGradeLetter}/>
               <div className="analysisContent">Your water heater is a [water heater type] with an age of [current year – year of manufacture]. It should be replaced when it exceeds its 10-year expected life. A heat pump water heater is an attractive technology. Heat pumps are more than 3x more efficient than gas, and can be powered with a renewable energy source such as rooftop solar.</div>
             </div>
             <div className="analysisSection">
-                <div className="analysisTitle">Space Heater</div>
+                <div className="analysisTitle">Space Heater Efficiency</div>
                 <SpHeaterBar_SeHee spHeaterType={props.spEfficency} spGradeLetter={props.spGradeLetter} spGradeColor={props.spGradeColor}/>
               <div>Your space heater is a <span className="textBold">{props.spHeaterType}</span> with an age of <span className="textBold">{props.spHeaterAge}</span>. It should be replaced when it exceeds its 15-year expected life. A ducted or ductless heat pump is an attractive technology. Heat pumps are more than 3x more efficient than gas, and can be powered with a renewable energy source such as rooftop solar.</div>
             </div>
@@ -115,7 +115,7 @@ const ProjectPlan = (props) => {
         </div>
         <div className="recommendations">
           <div className="h3">Recommendations</div>
-          <div className="recommendation"><span className="replaceYr h5" style={{border: `${'#D22E2E'}`}}>{cuttentYear + 10}</span><span className="replaceTitle">Replace Water Heater with Electric Heat Pump</span></div>
+          <div className="recommendation"><span className="replaceYr h5" style={{border: `solid 2px ${'#D22E2E'}`}}>{cuttentYear + 10}</span><span className="replaceTitle">Replace Water Heater with Electric Heat Pump</span></div>
           <div className="recommendation"><span className="replaceYr h5">{cuttentYear + 10}</span><span className="replaceTitle">Increase Attic Insulation</span></div>
           <div className="recommendation"><span className="replaceYr h5">{cuttentYear + 10}</span><span className="replaceTitle">Replace Space Heater with Electric Heat Pump</span></div>
         </div>

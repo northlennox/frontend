@@ -150,12 +150,13 @@ class MyProjectComponent extends Component {
 
     getSpGrade = async() => {
       let today = new Date()
-      let cuttentYear = today.getFullYear();
+      let currentYear = today.getFullYear();
       let spHeaterType = this.state.spHeater.spHeaterType;
-      let spHeaterAge = cuttentYear - Number(this.state.spHeater.spHeaterYear);
+      let spHeaterAge = currentYear - Number(this.state.spHeater.spHeaterYear);
       let spEfficency = '';
       let spGradeColor = '';
       let spGradeLetter = '';
+      // let spRecommendation = ''
 
 
       if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Oil Furnace" || spHeaterType === "Electric Furnace") {
@@ -166,12 +167,14 @@ class MyProjectComponent extends Component {
         }else{
           spGradeLetter = "D"
           spGradeColor = '#D22E2E';
+          // spRecommendation = currentYear;
         }
       }else{
         spEfficency = 3.0;
         if(spHeaterAge > 10){
           spGradeLetter = "A"
           spGradeColor = '#139929';
+          // spRecommendation = currentYear;
         }else{
           spGradeLetter = "B"
           spGradeColor = '#FDC825';
@@ -197,19 +200,23 @@ class MyProjectComponent extends Component {
       let atticGrade = '';
       let atticGradeColor = '';
       let atticInsulation = '';
+      // let atticRecommendation = ''
 
       if(atticDepth === 0){
         atticGrade = 'D';
         atticGradeColor = '#D22E2E';
         atticInsulation = 'Zero';
+        // atticRecommendation = currentYear
       }else if(1 <= atticDepth < 6){
         atticGrade = 'C';
         atticGradeColor = '#FA910B';
         atticInsulation = 'Low';
+        // atticRecommendation = currentYear
       }else if(6 <= atticDepth < 10){
         atticGrade = 'B';
         atticGradeColor = '#FDC825';
         atticInsulation = 'Medium';
+        // atticRecommendation = currentYear
       }else if(10 <= atticDepth <= 15){
         atticGrade = 'B';
         atticGradeColor = '#FDC825';
@@ -217,12 +224,14 @@ class MyProjectComponent extends Component {
       }
 
 
+
       this.setState({
         atticGrade : {
           atticDepth : atticDepth,
           atticGrade : atticGrade,
           atticGradeColor : atticGradeColor,
-          atticInsulation : atticInsulation
+          atticInsulation : atticInsulation,
+          // atticRecommendation : atticRecommendation
         }
       })
     }
@@ -238,6 +247,8 @@ class MyProjectComponent extends Component {
     // Space heater type “furnace” efficiency 0.8 range red grade C if year<10, else D
     // Space heater type “heat pump” efficiency 3.0 range green grade A if year <10, else B
     //
+
+
 
 
   render(){

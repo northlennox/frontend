@@ -69,22 +69,13 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        margin-top: 5vh;
         margin-bottom: 5vh;
-        .analysisName {
-          font-weight: bold;
-          margin-top: 2%;
-          margin-bottom: 2%;
-          text-indent: 1em;
-          // align-self: center;
-        }
         .analysisTitle {
           text-align: center;
-          margin-bottom: 2vh;
           font-weight: bold;
         }
-        .analysisContent {
-          margin-top: 2vh;
-        }
+
       }
     }
   }
@@ -109,7 +100,7 @@
 }
 
 .progressbar {
-  margin-top: 5vh;
+  // margin-top: 5vh;
   margin-bottom: 5vh;
   width: 100%;
   .indicator {
@@ -206,7 +197,6 @@
 }
 
 .progressbar2 {
-  margin-top: 5vh;
   margin-bottom: 5vh;
   width: 100%;
   .indicator {
@@ -290,7 +280,6 @@
 
 .progressbar3 {
   width: 100%;
-  margin-top: 5vh;
   margin-bottom: 5vh;
   .indicator {
     width: 2%;
@@ -442,4 +431,7 @@
 
 .letterIndicator {
   transform: skew(-30deg);
+}
+.gradeRow {
+  margin-top: 10vh;
 }
