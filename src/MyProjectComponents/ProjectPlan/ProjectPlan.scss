@@ -435,3 +435,89 @@
 .gradeRow {
   margin-top: 10vh;
 }
+
+.atticInsulation_Container {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+
+  .atticInsulation_row {
+    display: flex;
+    height: 200px;
+    // border: solid 1px pink;
+    .indicatorContainer {
+      display: flex;
+      flex-direction: column;
+      padding-top: 2%;
+      padding-bottom: 2%;
+      width: 8%;
+      .indicator {
+        height: 25%;
+        // margin-top: 60%;
+        display: flex;
+        justify-content: flex-end;
+        border: 1px solid red;
+        .indicatorImg {
+          width: 60%;
+        }
+      }
+    }
+    .layerContainer {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      padding: 2%;
+      .level_attic {
+        border: 1px solid;
+        height: 25%;
+        padding: 2%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        .rating {
+          width: 40%;
+          display: flex;
+          border: 1px blue solid;
+          .rating_star {
+            width: 25px;
+          }
+        }
+        .ratingText {
+          width: 60%;
+          text-align: right;
+        }
+      }
+    }
+    .typeContainer {
+      width: 50%;
+      border: 1px solid red;
+      display: flex;
+      justify-content: center;
+      // padding-left: 10%;
+      .materialType {
+        width: 60%;
+        .atticTypeImg {
+          // width: 60%;
+          img {
+            width: 100%;
+            border: 1px solid;
+          }
+        }
+        .atticTypeText {
+          border: 1px solid;
+          margin-top: 2%;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .commentContainer {
+    margin-top: 10vh
+  }
+
+}
+
+.ratingText {
+  font-size: 0.75rem;
+}

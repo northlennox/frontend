@@ -275,6 +275,7 @@ class MyProjectComponent extends Component {
             <ProjectPlan
               house = {this.state.house}
               attic = {this.state.attic}
+              waHeater = {this.state.waHeater}
               waHeaterAge={this.state.waGrade.waHeaterAge}
               waHeatertype={this.state.waGrade.waHeatertype}
               waEfficency={this.state.waGrade.waEfficency}

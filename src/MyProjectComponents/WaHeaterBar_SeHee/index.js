@@ -3,24 +3,51 @@ import { Link } from 'react-router-dom';
 
 const WaHeaterBar = (props) => {
   const userId = sessionStorage.userId;
-  console.log('props.wather ', props.waEfficency)
-  let indicator = Number(props.waEfficency) / 2.5 * 100;
+
+  let indicator = 10
 
 
   return(
-    <div className="progressbar2">
-      <div className="indicator" style={{marginLeft: `${indicator}%`}}><div class="shape"><div id="grader" style={{color: `${props.waGradeColor}`}}>{props.waGradeLetter}</div></div></div>
-      <div className="bar">
-        <div className="red"><div className="letterIndicator"></div></div>
-        <div className="orange"><div className="letterIndicator">Gas Baseline</div></div>
-        <div className="yellow"><div className="letterIndicator">Heat Pump</div></div>
-        <div className="green"><div className="letterIndicator">Others</div></div>
+    <div className="atticInsulation_Container">
+      <div className="atticInsulation_row">
+        <div className="indicatorContainer">
+          <div className="indicator" style={{marginTop : `${indicator}%`}}><img src="../right-arrow.png" className="indicatorImg"/></div>
+        </div>
+        <div className="layerContainer">
+          <div className="level_attic">
+            <div className="rating">
+              <img src="../star.png" className="rating_star"/><img src="../star.png" className="rating_star"/><img src="../star.png" className="rating_star"/><img src="../star.png" className="rating_star"/>
+            </div>
+            <div className="ratingText">Electric Heat Pump </div>
+          </div>
+          <div className="level_attic">
+            <div className="rating">
+              <img src="../star.png" className="rating_star"/><img src="../star.png" className="rating_star"/><img src="../star.png" className="rating_star"/>
+            </div>
+            <div className="ratingText">Hybrid Electric Heat Pump </div>
+          </div>
+          <div className="level_attic">
+            <div className="rating">
+              <img src="../star.png" className="rating_star"/><img src="../star.png" className="rating_star"/>
+            </div>
+            <div className="ratingText">Gas Storage / Tankless </div>
+          </div>
+          <div className="level_attic">
+            <div className="rating">
+              <img src="../star.png" className="rating_star"/>
+            </div>
+            <div className="ratingText">No Gas </div>
+          </div>
+        </div>
+        <div className="typeContainer">
+          <div className="materialType">
+            <div className="atticTypeImg"><img src="../attic.jpg" /></div>
+            <div className="textBold atticTypeText">{props.waHeater.waHeatertype}</div>
+          </div>
+        </div>
       </div>
-      <div className="inches">
-        <div className="startIn h5">0</div>
-        <div className="orangeIn h5">0.55</div>
-        <div className="yellowIn h5">0.9</div>
-        <div className="greenIn h5">2.5</div>
+      <div className="commentContainer">
+        <div>Your water heater is a [water heater type] with an age of [current year – year of manufacture]. It should be replaced when it exceeds its 10-year expected life. A heat pump water heater is an attractive technology. Heat pumps are more than 3x more efficient than gas, and can be powered with a renewable energy source such as rooftop solar.</div>
       </div>
     </div>
   )
