@@ -161,7 +161,7 @@ class EditRoof extends Component {
       e.preventDefault()
 
       try{
-        const userId = sessionStorage.getItem('userId');
+
 
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/roof/` + `${id}`, {
           method: 'DELETE',
@@ -175,7 +175,7 @@ class EditRoof extends Component {
         // this.setState({
         //   roof : null
         // })
-         this.props.history.push('/mycasa/' + userId);
+         this.props.history.push('/mycasa/' + id);
 
       }catch(err){
         alert('Something went wrong. Please try again')
@@ -187,6 +187,8 @@ class EditRoof extends Component {
     const extriorOptions = ["Select", "Composition Shingles or Metal", "Wood Shakes", "Clay Title", "Concreate Title", "Tar & Gravel"];
     const colorOptions = ["Select", "White", "Light", "Medium", "Dark", "Cool Color With Reflectivity"];
     const roofImgState = `${process.env.REACT_APP_API}/` + this.state.roof.roofImg;
+    let upload = "./../../../upload.svg";
+
 
     return(
       <div>
@@ -200,9 +202,9 @@ class EditRoof extends Component {
                 <img className="help" src="./../../help.svg"/>
               </div>
               <div className="frames">
-                <img className="imgAttached"
-                     id="photoOne"
-                     src={this.state.preview1 === null ? roofImgState : this.state.preview1}
+                <img id="photoOne"
+                     className={this.state.preview1 ? "imgAttached" : "placer"}
+                     src={this.state.preview1 ? this.state.preview1 :  upload}
                      onClick={this.handleClick} />
               </div>
               <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file" />
@@ -226,8 +228,8 @@ class EditRoof extends Component {
                 <div className="inputContainer">
                   <label className="inputLabel" htmlFor="pvSystem">IS THERE SOLAR PV SYSTEM INSTALLED?*</label>
                   <div id="pvSystem" >
-                    <input name="pvSystem" type="radio" checked={this.state.roof.pvSystem === "YES"} value="YES" onChange={this.handleEditFormInput}/>YES
-                    <input name="pvSystem" className="radioInput-right" type="radio" checked={this.state.roof.pvSystem === "NO"} value="NO" onChange={this.handleEditFormInput}/>NO
+                    <input name="pvSystem" type="radio" checked={this.state.roof.pvSystem === "Yes"} value="Yes" onChange={this.handleEditFormInput}/><span className="radioNext">YES</span>
+                    <input name="pvSystem" className="radioInput-right" type="radio" checked={this.state.roof.pvSystem === "No"} value="No" onChange={this.handleEditFormInput}/><span className="radioNext">NO</span>
                   </div>
                 </div>
                 <div className="inputContainer">

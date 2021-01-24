@@ -9,7 +9,7 @@ const ShowRoof = (props) => {
   return(
     <div className="postedContainer">
       <div className="postedFrame">
-        <img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/>
+        <Link to={"/mycasa/roof/edit"}><img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/></Link>
       </div>
       <Accordion className="accordion">
         <Card className="card">
@@ -27,9 +27,6 @@ const ShowRoof = (props) => {
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.roof.pvSystem}</span></div>
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.roof.panels}</span></div>
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.roof.dcCapacity}</span><span>kw DC Capacity</span></div>
-              </div>
-              <div className="updateContainer">
-                <div><Link to={"/mycasa/roof/edit"}>Edit</Link></div>
               </div>
             </Card.Body>
            </Accordion.Collapse>

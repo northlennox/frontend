@@ -44,7 +44,9 @@ class MyProjectComponent extends Component {
         atticGradeColor: '',
         atticInsulation: '',
         atticRecommendation: ''
-      }
+      },
+      carbonFootScore: '',
+      carbonFootColor: '',
     }
   }
 
@@ -115,11 +117,11 @@ class MyProjectComponent extends Component {
         if(waHeaterAge < 10){
           waGradeLetter = 'C';
           waGradeNumber = 2
-          waGradeColor = 'orange';
+          waGradeColor = '#FA910B';
         }else{
           waGradeLetter = 'D';
           waGradeNumber = 1
-          waGradeColor = 'red';
+          waGradeColor = '#D22E2E';
         }
       }else if(waHeatertype === "Natural Gas Tankless"){
         waEfficency = 0.9;
@@ -128,11 +130,11 @@ class MyProjectComponent extends Component {
         if(waHeaterAge < 15){
           waGradeLetter = 'C';
           waGradeNumber = 2
-          waGradeColor = 'orange';
+          waGradeColor = '#FA910B';
         }else{
           waGradeLetter = 'D';
           waGradeNumber = 1
-          waGradeColor = 'red';
+          waGradeColor = '#D22E2E';
         }
       }else if(waHeatertype === "Electric Storage"){
         waEfficency = 0.9;
@@ -141,11 +143,11 @@ class MyProjectComponent extends Component {
         if(waHeaterAge < 10){
           waGradeLetter = 'C';
           waGradeNumber = 2;
-          waGradeColor = 'orange';
+          waGradeColor = '#FA910B';
         }else{
           waGradeLetter = 'D';
           waGradeNumber = 1
-          waGradeColor = 'red';
+          waGradeColor = '#D22E2E';
         }
       }else if(waHeatertype === "Electric Heat Pump"){
         waEfficency = 2.5;
@@ -154,11 +156,11 @@ class MyProjectComponent extends Component {
         if(waHeaterAge < 10){
           waGradeLetter = 'A';
           waGradeNumber = 4;
-          waGradeColor = 'green';
+          waGradeColor = '#139929';
         }else{
           waGradeLetter = 'B';
           waGradeNumber = 3;
-          waGradeColor = 'yellow';
+          waGradeColor = '#FDC825';
         }
       }
 
@@ -240,6 +242,17 @@ class MyProjectComponent extends Component {
         }
       }
 
+      if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Gas Boiler/Radiant"){
+        spHeaterTypeShort = "Gas"
+      }else if(spHeaterType === "Electric Furnace" || spHeaterType ===  "Electric Heat Pump" || spHeaterType === "Electric Mini-Split" || spHeaterType === "Geothermal Heat Pump"){
+        spHeaterTypeShort = "Electric"
+      }else if(spHeaterType === "Wood Stove" || spHeaterType === "Pellet Stove"){
+        spHeaterTypeShort = "Wood"
+      }else{
+        spHeaterTypeShort ="Oil"
+      }
+
+
       this.setState({
         spGrade : {
           spHeaterAge : spHeaterAge,
@@ -299,23 +312,36 @@ class MyProjectComponent extends Component {
     }
 
 
-    // Water heater type “gas tank” efficiency 0.55 range red grade C if year <10, else D
-    // Water heater type “gas tankless” efficiency 0.9 range red grade C if year <15, else D
-    // Water heater type “electric tank” efficiency 0.9 range green grade C if year <10, else D
-    // Water heater type “heat pump” efficiency 2.5 range green grade A if year <10, else B
-
-
-    // const spHeaterTypeOptions = ["Select", "Central Gas Furnace", "Room Gas Furnace", "Oil Furnace", "Electric Furnace", "Electric Heat Pump", "Electric Mini-Split", "Gas Boiler/Radiant", "Geothermal Heat Pump", "Wood Stove", "Pellet Stove"];
-    // Space heater type “furnace” efficiency 0.8 range red grade C if year<10, else D
-    // Space heater type “heat pump” efficiency 3.0 range green grade A if year <10, else B
-    //
-
     getCarbonFootprint = () => {
       let total = this.state.waGrade.waGradeNumber + this.state.spGrade.spGradeNumber;
+      let solar = 0;
+      let carbonFootScore = '';
+      let carbonFootColor='';
 
-      // this.setState({
-      //   carbonFootScore: carbonFootScore
-      // })
+      if(this.state.roof.pvSystem === "Yes"){
+        solar = 1;
+      }
+      
+      console.log('total', this.state.waGrade.waGradeNumber, this.state.spGrade.spGradeNumber, total);
+      if(total < 4 ){
+        carbonFootScore = 'D';
+        carbonFootColor = '#D22E2E';
+      }else if(total === 4 || total === 5){
+        carbonFootScore = 'C';
+        carbonFootColor = '#FA910B';
+      }else if(total === 6 || total === 7){
+        carbonFootScore = 'B';
+        carbonFootColor = '#FDC825';
+      }else if(total === 8 || total === 9){
+        carbonFootScore = 'B';
+        carbonFootColor = '#139929';
+      }
+
+
+      this.setState({
+        carbonFootScore: carbonFootScore,
+        carbonFootColor: carbonFootColor
+      })
 
     }
 
@@ -353,6 +379,8 @@ class MyProjectComponent extends Component {
               atticGradeColor={this.state.atticGrade.atticGradeColor}
               atticInsulation={this.state.atticGrade.atticInsulation}
               atticRecommendation={this.state.atticGrade.atticRecommendation}
+              carbonFootScore={this.state.carbonFootScore}
+              carbonFootColor={this.state.carbonFootColor}
              />
 
            :

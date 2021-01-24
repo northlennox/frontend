@@ -8,7 +8,7 @@ const AtticBar = (props) => {
   return(
     <div className="atticBar">
       <div className="analysisTitle">Attic Insulation</div>
-      <div className="indicator" style={{marginLeft: `${props.atticDepth / 15 * 100}%`}}><img src="../../indicator.svg"/></div>
+      <div className="indicator" style={{marginLeft: `${(props.atticDepth / 15 )* 100 + 1}%`}}><img src="../../indicator.svg"/></div>
       <div className="barContainer">
         <div className="symbol"></div>
         <div className="red_level"></div>
