@@ -176,8 +176,8 @@ class CreateSpHeater extends Component {
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="spHeaterCondition">IS THE SYSTEM WORKING WELL?</label>
                 <div id="spHeaterCondition" >
-                  <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "YES"} value="YES" onChange={this.handleInput}/><span className="radioNext">YES</span>
-                  <input className="radioInput-right" name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "NO"} value="NO" onChange={this.handleInput}/><span className="radioNext">NO</span>
+                  <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "Yes"} value="Yes" onChange={this.handleInput}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "No"} value="No" onChange={this.handleInput}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">

@@ -72,16 +72,16 @@ const Nav = (props) => {
           </div>
           <div className="navItem">
             <Link to={`/myproject/${userId}`} className="links" style={{ textDecoration: 'none' }}>
-             { window.location.pathname.split('/')[1] === 'myproject'? <div className="navItemText" id="myproject" style={{ color : 'black'}}>Project</div> : <div className="navItemText" id="myproject" style={{ color : '#979797'}}>Project</div> }
+             { window.location.pathname.split('/')[1] === 'myproject'? <div className="navItemText" id="myproject" style={{ color : 'black'}}>Projects</div> : <div className="navItemText" id="myproject" style={{ color : '#979797'}}>Projects</div> }
             </Link>
           </div>
           <div className="navItem">
             <Link to={`/myaccount/${userId}`} className="links" style={{ textDecoration: 'none' }}>
-              { window.location.pathname.split('/')[1] === 'myaccount'? <div className="navItemText" id="myaccount" style={{ color : 'black'}}>My Account</div> : <div className="navItemText" id="myaccount" style={{ color : '#979797'}}>My Account</div> }
+              { window.location.pathname.split('/')[1] === 'myaccount'? <div className="navItemText" id="myaccount" style={{ color : 'black'}}>Account</div> : <div className="navItemText" id="myaccount" style={{ color : '#979797'}}>Account</div> }
             </Link>
           </div>
           <div className="navItem">
-            <button onClick={logout} id="logout"><div className="navItemText">Logout</div></button>
+            <button onClick={logout} id="logout"><div className="navItemText">Log Out</div></button>
           </div>
         </div>
       </div>

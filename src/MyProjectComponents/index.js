@@ -25,6 +25,7 @@ class MyProjectComponent extends Component {
         waGradeColor: '',
         waGradeLetter: '',
         waHeatertypeShort: '',
+        waRecommendation:''
       },
       spGrade : {
         spHeaterAge : '',
@@ -33,12 +34,14 @@ class MyProjectComponent extends Component {
         spGradeColor: '',
         spGradeLetter: '',
         spHeaterTypeShort: '',
+        spRecommendation: ''
       },
       atticGrade : {
         atticDepth : '',
         atticGrade: '',
         atticGradeColor: '',
-        atticInsulation: ''
+        atticInsulation: '',
+        atticRecommendation: ''
       }
     }
   }
@@ -91,13 +94,15 @@ class MyProjectComponent extends Component {
 
     getWaGrade = async() => {
       let today = new Date()
-      let cuttentYear = today.getFullYear();
+      let currentYear = today.getFullYear();
       let waHeatertype = this.state.waHeater.waHeatertype;
-      let waHeaterAge = cuttentYear - Number(this.state.waHeater.waHeaterYear);
+      let waHeaterAge = currentYear - Number(this.state.waHeater.waHeaterYear);
+      let waHeaterCondition = this.state.waHeater.waHeaterCondition;
       let waEfficency = '';
       let waGradeColor = '';
       let waGradeLetter = '';
       let waHeatertypeShort = '';
+      let waRecommendation ='';
 
       if(waHeatertype === "Natural Gas Storage"){
         waEfficency = 0.55;
@@ -144,6 +149,16 @@ class MyProjectComponent extends Component {
           waGradeColor = 'yellow';
         }
       }
+
+      if(waHeaterCondition === 'No'){
+          waRecommendation = currentYear;
+      }else{
+        if(waHeaterAge >= 10){
+          waRecommendation = currentYear;
+        }else if(waHeaterAge < 10) {
+          waRecommendation = (10 - waHeaterAge) + currentYear
+        }
+      }
       this.setState({
         waGrade : {
           waHeaterAge : waHeaterAge,
@@ -151,7 +166,8 @@ class MyProjectComponent extends Component {
           waEfficency: waEfficency,
           waGradeColor: waGradeColor,
           waGradeLetter: waGradeLetter,
-          waHeatertypeShort: waHeatertypeShort
+          waHeatertypeShort: waHeatertypeShort,
+          waRecommendation: waRecommendation
         }
       })
     }
@@ -160,12 +176,13 @@ class MyProjectComponent extends Component {
       let today = new Date()
       let currentYear = today.getFullYear();
       let spHeaterType = this.state.spHeater.spHeaterType;
+      let spHeaterCondition = this.state.spHeater.spHeaterCondition;
       let spHeaterAge = currentYear - Number(this.state.spHeater.spHeaterYear);
       let spEfficency = '';
       let spGradeColor = '';
       let spGradeLetter = '';
       let spHeaterTypeShort='';
-      // let spRecommendation = ''
+      let spRecommendation = ''
 
 
       if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Oil Furnace" || spHeaterType === "Electric Furnace") {
@@ -195,6 +212,16 @@ class MyProjectComponent extends Component {
       }
 
 
+      if(spHeaterCondition === 'No'){
+          spRecommendation = currentYear;
+      }else{
+        if(spHeaterAge >= 15){
+          spRecommendation = currentYear;
+        }else if(spHeaterAge < 15) {
+          spRecommendation = (15 - spHeaterAge) + currentYear
+        }
+      }
+
       this.setState({
         spGrade : {
           spHeaterAge : spHeaterAge,
@@ -202,39 +229,41 @@ class MyProjectComponent extends Component {
           spEfficency: spEfficency,
           spGradeColor: spGradeColor,
           spGradeLetter: spGradeLetter,
-          spHeaterTypeShort: spHeaterTypeShort
+          spHeaterTypeShort: spHeaterTypeShort,
+          spRecommendation: spRecommendation
         }
       })
     }
 
     getAtticGrade = () => {
       let today = new Date()
-      let cuttentYear = today.getFullYear();
+      let currentYear = today.getFullYear();
       let atticDepth = Number(this.state.attic.atticDepth);
       let atticGrade = '';
       let atticGradeColor = '';
       let atticInsulation = '';
-      // let atticRecommendation = ''
+      let atticRecommendation = ''
 
       if(atticDepth === 0){
         atticGrade = 'D';
         atticGradeColor = '#D22E2E';
         atticInsulation = 'Zero';
-        // atticRecommendation = currentYear
+        atticRecommendation = currentYear
       }else if(1 <= atticDepth && atticDepth < 6){
         atticGrade = 'C';
         atticGradeColor = '#FA910B';
         atticInsulation = 'Low';
-        // atticRecommendation = currentYear
+        atticRecommendation = currentYear
       }else if(6 <= atticDepth && atticDepth < 10){
         atticGrade = 'B';
         atticGradeColor = '#FDC825';
         atticInsulation = 'Medium';
-        // atticRecommendation = currentYear
+        atticRecommendation = this.state.spGrade.spRecommendation;
       }else if(10 <= atticDepth && atticDepth <= 15){
         atticGrade = 'B';
         atticGradeColor = '#FDC825';
         atticInsulation = 'High';
+        atticRecommendation ="-"
       }
 
 
@@ -245,7 +274,7 @@ class MyProjectComponent extends Component {
           atticGrade : atticGrade,
           atticGradeColor : atticGradeColor,
           atticInsulation : atticInsulation,
-          // atticRecommendation : atticRecommendation
+          atticRecommendation : atticRecommendation
         }
       })
     }
@@ -272,20 +301,7 @@ class MyProjectComponent extends Component {
       <>
         <Nav />
           {
-            !this.state.open ?
-
-            <div className="projectContainer">
-              <div className="titleContainer">
-                <div className="title h2">Projects</div>
-                <div className="subtitle h4">Schedule repairs and upgrades at optimal times to maximize savings and prior to emergencies.</div>
-              </div>
-              <div className="addMessage">
-                <span style={{marginRight: '0.5vw'}}>Please, create a house first on</span>
-                <span style={{marginRight: '0.5vw'}}><Link to={`/mycasa/${userId}`} className="links">My Casa</Link></span>
-                <span>page</span>
-              </div>
-            </div>
-            :
+            this.state.house && this.state.attic && this.state.waHeater && this.state.spHeater ?
             <Exam
               house = {this.state.house}
               attic = {this.state.attic}
@@ -297,17 +313,33 @@ class MyProjectComponent extends Component {
               waGradeColor={this.state.waGrade.waGradeColor}
               waGradeLetter={this.state.waGrade.waGradeLetter}
               waHeatertypeShort={this.state.waGrade.waHeatertypeShort}
+              waRecommendation={this.state.waGrade.waRecommendation}
               spHeaterAge={this.state.spGrade.spHeaterAge}
               spHeaterType={this.state.spGrade.spHeaterType}
               spEfficency={this.state.spGrade.spEfficency}
               spGradeColor={this.state.spGrade.spGradeColor}
               spGradeLetter={this.state.spGrade.spGradeLetter}
               spHeaterTypeShort={this.state.spGrade.spHeaterTypeShort}
+              spRecommendation={this.state.spGrade.spRecommendation}
               atticDepth={this.state.atticGrade.atticDepth}
               atticGrade={this.state.atticGrade.atticGrade}
               atticGradeColor={this.state.atticGrade.atticGradeColor}
               atticInsulation={this.state.atticGrade.atticInsulation}
+              atticRecommendation={this.state.atticGrade.atticRecommendation}
              />
+
+           :
+           <div className="projectContainer">
+             <div className="titleContainer">
+               <div className="title h2">Projects</div>
+               <div className="subtitle h4">Schedule repairs and upgrades at optimal times to maximize savings and prior to emergencies.</div>
+             </div>
+             <div className="addMessage">
+               <span style={{marginRight: '0.5vw'}}>Please, create a house first on</span>
+               <span style={{marginRight: '0.5vw'}}><Link to={`/mycasa/${userId}`} className="links">My Casa</Link></span>
+               <span>page</span>
+             </div>
+           </div>
           }
       </>
     )

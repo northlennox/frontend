@@ -17,24 +17,42 @@ const Exam = (props) => {
         <div className="subtitle h4">See the status of your house energy assets and how they compare on quality, efficiency and age to new technologies.</div>
       </div>
       <div className="gradeContainer">
-        <div className="gradeRow myGrade">
-          <div className="h3">My Casa Grades</div>
-          <div className="measureContainer">
-            <div className="measureItem">
-              <label><div className="h4">Energy Efficiency</div><div className="h4">Rating</div></label>
-              <div className="atticGrade" style={{color:`${props.atticGradeColor}`}}>{props.atticGrade}</div>
-              <GradeGraph atticGrade={props.atticGrade} />
+        <div className="gradeRow top">
+          <div className="myGrade">
+            <div className="houseProfile">
+              <div className="h3">House</div>
+              <div className="houseProfileRow">
+                <img src={`${process.env.REACT_APP_API}/` + props.house.houseImg} />
+                <div className="houseText">
+                  <div>{props.house.address}</div>
+                  <div>{props.house.city}, {props.house.state}, {props.house.zipcode}</div>
+                </div>
+              </div>
             </div>
-            <div className="measureItem">
-              <label><div className="h4">Carbon Footprint</div><div className="h4">Rating</div></label>
-              <div className="spGradeLetter" style={{color:`${props.spGradeColor}`}}>{props.spGradeLetter}</div>
-              <GradeGraph spGradeLetter={props.spGradeLetter} />
+            <div className="measureContainer">
+              <div className="h3">Grades</div>
+              <div className="downloadProject">
+                <a href="../../projects_download.svg" download>
+                  <img src="../../projects_download.svg" />
+                </a>
+              </div>
+              <div className="measureRow">
+                <div className="measureItem">
+                  <label><div className="h4">Energy Efficiency</div><div className="h4">Rating</div></label>
+                  <div className="atticGrade" style={{color:`${props.atticGradeColor}`}}>{props.atticGrade}</div>
+                  <GradeGraph atticGrade={props.atticGrade} />
+                </div>
+                <div className="measureItem">
+                  <label><div className="h4">Carbon Footprint</div><div className="h4">Rating</div></label>
+                  <div className="spGradeLetter" style={{color:`${props.spGradeColor}`}}>{props.spGradeLetter}</div>
+                  <GradeGraph spGradeLetter={props.spGradeLetter} />
+                </div>
+              </div>
+              <div className="gradeRow componentsMark">
+                <Components atticInsulation={props.atticInsulation} attic={props.attic} waHeatertypeShort={props.waHeatertypeShort} spHeaterTypeShort={props.spHeaterTypeShort} roof={props.roof}/>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="gradeRow componentsMark">
-          <div className="h3">Components</div>
-          <Components atticInsulation={props.atticInsulation} attic={props.attic} waHeatertypeShort={props.waHeatertypeShort} spHeaterTypeShort={props.spHeaterTypeShort} roof={props.roof}/>
         </div>
         <div className="gradeRow analysis">
           <div className="h3">Analysis</div>
@@ -53,9 +71,9 @@ const Exam = (props) => {
         </div>
         <div className="recommendations">
           <div className="h3">Recommendations</div>
-          <div className="recommendation"><span className="replaceYr h5">2021</span><span className="replaceTitle">Replace Water Heater with Electric Heat Pump</span></div>
-          <div className="recommendation"><span className="replaceYr h5">2021</span><span className="replaceTitle">Increase Attic Insulation</span></div>
-          <div className="recommendation"><span className="replaceYr h5">2021</span><span className="replaceTitle">Replace Space Heater with Electric Heat Pump</span></div>
+          <div className="recommendation"><span className="replaceYr h5">{props.waRecommendation}</span><span className="replaceTitle">Replace Water Heater with Electric Heat Pump</span></div>
+          <div className="recommendation"><span className="replaceYr h5">{props.atticRecommendation}</span><span className="replaceTitle">Increase Attic Insulation</span></div>
+          <div className="recommendation"><span className="replaceYr h5">{props.spRecommendation}</span><span className="replaceTitle">Replace Space Heater with Electric Heat Pump</span></div>
         </div>
     </div>
   )

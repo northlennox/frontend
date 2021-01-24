@@ -176,15 +176,15 @@ class CreateWaHeater extends Component {
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="waHeaterCondition">IS THE SYSTEM WORKING WELL?</label>
                 <div id="waHeaterCondition" >
-                  <input name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "YES"} value="YES" onChange={this.handleInput}/><span className="radioNext">YES</span>
-                  <input className="radioInput-right" name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "NO"} value="NO" onChange={this.handleInput}/><span className="radioNext">NO</span>
+                  <input name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "Yes"} value="Yes" onChange={this.handleInput}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "No"} value="No" onChange={this.handleInput}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="waHeaterSingle">IS THERE MORE THAN ONE WATER HEATER?</label>
                 <div id="waHeaterSingle" >
-                  <input name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "YES"} value="YES" onChange={this.handleInput}/><span className="radioNext">YES</span>
-                  <input className="radioInput-right" name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "NO"} value="NO" onChange={this.handleInput}/><span className="radioNext">NO</span>
+                  <input name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "Yes"} value="Yes" onChange={this.handleInput}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "No"} value="No" onChange={this.handleInput}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
