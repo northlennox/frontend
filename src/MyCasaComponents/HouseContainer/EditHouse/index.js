@@ -188,7 +188,36 @@ class EditHouse extends Component {
         })
     }
 
+    deleteMyHouse = async(id, e) => {
+      // e.preventDefault()
+
+      try{
+        const userId = sessionStorage.getItem('userId');
+
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/` + `${id}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        //
+        // this.setState({
+        //   house : null
+        // });
+
+        console.log('this.state.house', this.state.house);
+        this.props.history.push('/mycasa/' + userId);
+      }catch(err){
+        alert('Something went wrong. Please try again')
+      }
+
+    }
+
   render(){
+    const userId = sessionStorage.userId;
     const houseImgState = `${process.env.REACT_APP_API}/` + this.state.house.houseImg;
     const states = [
       'Alabama',
@@ -203,7 +232,8 @@ class EditHouse extends Component {
       'Georgia',
       'Hawaii',
       'Idaho',
-      'IllinoisIndiana',
+      'Illinois',
+      'Indiana',
       'Iowa',
       'Kansas',
       'Kentucky',
@@ -215,7 +245,8 @@ class EditHouse extends Component {
       'Minnesota',
       'Mississippi',
       'Missouri',
-      'MontanaNebraska',
+      'Montana',
+      'Nebraska',
       'Nevada',
       'New Hampshire',
       'New Jersey',
@@ -226,7 +257,8 @@ class EditHouse extends Component {
       'Ohio',
       'Oklahoma',
       'Oregon',
-      'PennsylvaniaRhode Island',
+      'Pennsylvania',
+      'Rhode Island',
       'South Carolina',
       'South Dakota',
       'Tennessee',
@@ -238,7 +270,9 @@ class EditHouse extends Component {
       'West Virginia',
       'Wisconsin',
       'Wyoming',
-    ]
+    ];
+
+    let upload = "./../../../upload.svg"
     return(
       <div>
         <Nav />
@@ -253,7 +287,8 @@ class EditHouse extends Component {
               <div className="frames">
                 <img className="imgAttached"
                      id="photoOne"
-                     src={this.state.preview1 === null ? houseImgState : this.state.preview1}
+                     className={this.state.preview1 ? "imgAttached" : "placer"}
+                     src={this.state.preview1 ? this.state.preview1 :  upload}
                      onClick={this.handleClick} />
               </div>
               <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file" />
@@ -294,6 +329,7 @@ class EditHouse extends Component {
               </div>
               <div className="inputContainer">
                 <button className="btn" type="submit">SAVE</button>
+                <button className="deleteBtn" onClick={this.deleteMyHouse.bind(null, userId)}>DELETE</button>
               </div>
             </div>
           </form>

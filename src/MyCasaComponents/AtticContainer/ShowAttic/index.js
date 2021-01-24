@@ -9,10 +9,7 @@ const ShowAttic = (props) => {
   return(
     <div className="postedContainer">
       <div className="postedFrame">
-        <img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/>
-      </div>
-      <div className="updateContainer">
-        <button className="deleteBtn" onClick={props.deleteMyAttic.bind(null, userId)}>Remove</button>
+        <Link to={"/mycasa/attic/edit"}><img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/></Link>
       </div>
       <Accordion className="accordion">
         <Card className="card">
@@ -25,14 +22,11 @@ const ShowAttic = (props) => {
           <Accordion.Collapse eventKey="0">
             <Card.Body className="cardBody">
               <div className="postedInfo">
-                <div>-<span>{props.attic.atticType}</span></div>
-                <div>-<span>{props.attic.atticSqft}</span></div>
-                <div>-<span>{props.attic.atticDepth}</span></div>
-                <div>-<span>{props.attic.insulMaterial}</span></div>
-                <div>-<span>{props.attic.airSealed}</span></div>
-              </div>
-              <div className="updateContainer">
-                <div><Link to={"/mycasa/attic/edit"}>Edit</Link></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.atticType}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.atticSqft}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.atticDepth}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.insulMaterial}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.airSealed}</span></div>
               </div>
             </Card.Body>
            </Accordion.Collapse>

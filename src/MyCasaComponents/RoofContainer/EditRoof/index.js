@@ -157,8 +157,33 @@ class EditRoof extends Component {
       })
     }
 
+    deleteMyRoof = async(id, e) => {
+      e.preventDefault()
 
+      try{
+        const userId = sessionStorage.getItem('userId');
+
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/roof/` + `${id}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        // this.setState({
+        //   roof : null
+        // })
+         this.props.history.push('/mycasa/' + userId);
+
+      }catch(err){
+        alert('Something went wrong. Please try again')
+      }
+
+    }
   render(){
+    const userId = sessionStorage.getItem('userId');
     const extriorOptions = ["Select", "Composition Shingles or Metal", "Wood Shakes", "Clay Title", "Concreate Title", "Tar & Gravel"];
     const colorOptions = ["Select", "White", "Light", "Medium", "Dark", "Cool Color With Reflectivity"];
     const roofImgState = `${process.env.REACT_APP_API}/` + this.state.roof.roofImg;
@@ -215,6 +240,7 @@ class EditRoof extends Component {
                 </div>
                 <div className="inputContainer">
                   <button type="submit" className="btn">SAVE</button>
+                  <button className="deleteBtn" onClick={this.deleteMyRoof.bind(null, userId)}>DELETE</button>
                 </div>
             </div>
           </form>

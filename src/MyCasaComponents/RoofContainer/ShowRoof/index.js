@@ -11,9 +11,6 @@ const ShowRoof = (props) => {
       <div className="postedFrame">
         <img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/>
       </div>
-      <div className="updateContainer">
-        <button className="deleteBtn" onClick={props.deleteMyRoof.bind(null, userId)}>Remove</button>
-      </div>
       <Accordion className="accordion">
         <Card className="card">
           <Card.Header className="header">
@@ -25,11 +22,11 @@ const ShowRoof = (props) => {
           <Accordion.Collapse eventKey="0">
             <Card.Body className="cardBody">
               <div className="postedInfo">
-                <div>-<span>{props.roof.exterior}</span></div>
-                <div>-<span>{props.roof.roofColor}</span></div>
-                <div>-<span>{props.roof.pvSystem}</span></div>
-                <div>-<span>{props.roof.panels}</span></div>
-                <div>-<span>{props.roof.dcCapacity}</span><span>kw DC Capacity</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.roof.exterior}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.roof.roofColor}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.roof.pvSystem}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.roof.panels}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.roof.dcCapacity}</span><span>kw DC Capacity</span></div>
               </div>
               <div className="updateContainer">
                 <div><Link to={"/mycasa/roof/edit"}>Edit</Link></div>

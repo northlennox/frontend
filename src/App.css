@@ -28,6 +28,24 @@ input {
   color: white;
 }
 
+.deleteBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FA910B;
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 900;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border: none;
+  margin-top: 2%;
+}
+.btn:hover {
+  color: white;
+}
+
 * {
   font-family: 'Mulish', sans-serif;
 }
@@ -83,4 +101,8 @@ input {
 
 .textBold {
   font-weight: bold;
+}
+
+.checkNext {
+  margin-right: 4%;
 }

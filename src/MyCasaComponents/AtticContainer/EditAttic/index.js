@@ -155,13 +155,39 @@ class EditAttic extends Component {
       })
     }
 
+    deleteMyAttic = async(id, e) => {
+      e.preventDefault()
+
+      try{
+        // const userId = sessionStorage.getItem('userId');
+
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/Attic/` + `${id}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        // this.setState({
+        //   attic : null
+        // })
+
+        this.props.history.push('/mycasa/' + id);
+      }catch(err){
+        alert('Something went wrong. Please try again')
+      }
+
+    }
 
   render(){
+    const userId = sessionStorage.getItem('userId');
     const atticTypeOptions = ["Select", "Unconditioned Attic", "Conditioned Attic", "Cathedral Ceiling"];
     const atticDepthOptions = ["Select", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"];
     const insulMaterialOptions = ["Select", "Fiberglass Batt", "Fiberglass Blown", "Cellulose", "Not Sure"];
-    const atticImgState = `http://sessionhost:9000/` + this.state.attic.atticImg;
-
+    // const atticImgState = `http://host:9000/` + this.state.attic.atticImg;
+    let upload = "./../../../upload.svg"
     return(
       <div>
         <Nav />
@@ -176,11 +202,11 @@ class EditAttic extends Component {
               <div className="frames">
                 <img className="imgAttached"
                      id="photoOne"
-                     src={this.state.preview1 === null ? atticImgState : this.state.preview1}
+                     className={this.state.preview1 ? "imgAttached" : "placer"}
+                     src={this.state.preview1 ? this.state.preview1 :  upload}
                      onClick={this.handleClick} />
+                <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
-              <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
-
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="atticType">PRIMARY ATTIC TYPE</label>
                 <select className="selectInput" name="atticType" id="atticType" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticType}>
@@ -213,12 +239,13 @@ class EditAttic extends Component {
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="airSealed">HAS THE HOUSE BEEN PROFESSIONALLY AIR SEALED?</label>
                 <div id="airSealed" >
-                  <input name="airSealed" type="radio" checked={this.state.attic.airSealed === "yes"} value="yes" onChange={this.handleEditFormInput}/>YES
-                  <input className="radioInput-right" name="airSealed" type="radio" checked={this.state.attic.airSealed === "no"} value="no" onChange={this.handleEditFormInput}/>NO
+                  <input name="airSealed" type="radio" checked={this.state.attic.airSealed === "yes"} value="yes" onChange={this.handleEditFormInput}/><span className="radioNext">YES</span>
+                  <input className="radioInput-right" name="airSealed" type="radio" checked={this.state.attic.airSealed === "no"} value="no" onChange={this.handleEditFormInput}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
                 <button type="submit" className="btn">SAVE</button>
+                <button className="deleteBtn" onClick={this.deleteMyAttic.bind(null, userId)}>DELETE</button>
               </div>
             </div>
           </form>

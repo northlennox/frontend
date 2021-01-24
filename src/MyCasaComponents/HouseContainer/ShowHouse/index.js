@@ -12,9 +12,6 @@ const ShowHouse = (props) => {
       <div className="postedFrame">
         <Link to={"/mycasa/house/edit"}><img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo} /></Link>
       </div>
-      <div className="updateContainer">
-        <button className="deleteBtn spanNext" onClick={props.deleteMyHouse.bind(null, userId)}>X</button>
-      </div>
       <Accordion className="accordion">
         <Card className="card">
           <Card.Header className="header">
@@ -26,14 +23,15 @@ const ShowHouse = (props) => {
           <Accordion.Collapse eventKey="0">
             <Card.Body className="cardBody">
               <div className="postedInfo">
-                <div>{props.house.address}</div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span>{props.house.address}</div>
                 <div>
+                  <span className="checkNext"><img src="./../checkMark.svg" /></span>
                   <span>{props.house.city}</span>
                   <span className="spanNext">{props.house.state}</span>
                   <span className="spanNext">{props.house.zipcode}</span>
                 </div>
-                <div><span>{props.house.houseSqft}</span><span className="spanNext">sqft.</span></div>
-                <div><span>{props.house.houseYear}</span><span className="spanNext">Year Build</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.house.houseSqft}</span><span className="spanNext">sqft.</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.house.houseYear}</span><span className="spanNext">Year Build</span></div>
               </div>
             </Card.Body>
            </Accordion.Collapse>
