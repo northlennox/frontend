@@ -72,7 +72,7 @@ const Nav = (props) => {
           </div>
           <div className="navItem">
             <Link to={`/myproject/${userId}`} className="links" style={{ textDecoration: 'none' }}>
-             { window.location.pathname.split('/')[1] === 'myproject'? <div className="navItemText" id="myproject" style={{ color : 'black'}}>My Project</div> : <div className="navItemText" id="myproject" style={{ color : '#979797'}}>My Project</div> }
+             { window.location.pathname.split('/')[1] === 'myproject'? <div className="navItemText" id="myproject" style={{ color : 'black'}}>Project</div> : <div className="navItemText" id="myproject" style={{ color : '#979797'}}>Project</div> }
             </Link>
           </div>
           <div className="navItem">

@@ -7,25 +7,27 @@ const WaHeaterBar = (props) => {
   let indicator = 0;
 
   if(props.waHeatertype === "Natural Gas Storage"|| props.waHeatertype === "Natural Gas Tankless"){
-    indicator = 16
+    indicator = 32/2
   }else if(props.waHeatertype === "Electric Storage"){
-    indicator = 45
+    indicator = 32/2 + 1 + 32
   }else if(props.waHeatertype === "Electric Heat Pump"){
-    indicator = 75
+    indicator = 32/2 + 1 + 32 + 1 + 32
   }
   return(
-    <div className="progressbar2">
+    <div className="waHeaterBar">
+      <div className="analysisTitle">Water Heater Efficiency</div>
       <div className="indicator" style={{marginLeft: `${indicator}%`}}><img src="../../indicator.svg"/></div>
-      <div className="bar">
-        <div className="orange"><p>Water Heater</p></div>
-        <div className="yellow"></div>
-        <div className="green"></div>
+      <div className="barContainer">
+        <div className="orange_level"><div className="barText">Water Heater</div></div>
+        <div className="yellow_level"></div>
+        <div className="green_level"></div>
       </div>
       <div className="inches">
         <div className="orangeIn h5">Gas Storage / Tankless</div>
         <div className="yellowIn h5">Hybrid Electric Heat Pump</div>
         <div className="greenIn h5">Electric Heat Pump</div>
       </div>
+      <div>Your water heater is a {props.waHeatertype} with an age of {props.waHeaterAge}. It should be replaced when it exceeds its 10-year expected life. A heat pump water heater is an attractive technology. Heat pumps are more than 3x more efficient than gas, and can be powered with a renewable energy source such as rooftop solar.</div>
     </div>
   )
 }

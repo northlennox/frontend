@@ -11,7 +11,10 @@ const WaHeaterBar = (props) => {
     <div className="atticInsulation_Container">
       <div className="atticInsulation_row">
         <div className="indicatorContainer">
-          <div className="indicator" style={{marginTop : `${indicator}%`}}><img src="../right-arrow.png" className="indicatorImg"/></div>
+          <div className="indicator" style={{marginTop : `${indicator}%`}}>
+            <div className="indicatorText">{props.waHeater}</div>
+            <img src="../right-arrow.png" className="indicatorImg"/>
+          </div>
         </div>
         <div className="layerContainer">
           <div className="level_attic">
@@ -47,7 +50,7 @@ const WaHeaterBar = (props) => {
         </div>
       </div>
       <div className="commentContainer">
-        <div>Your water heater is a [water heater type] with an age of [current year – year of manufacture]. It should be replaced when it exceeds its 10-year expected life. A heat pump water heater is an attractive technology. Heat pumps are more than 3x more efficient than gas, and can be powered with a renewable energy source such as rooftop solar.</div>
+        <div>Your water heater is a <span className="textBold">{props.waHeater.waHeatertype}</span> with an age of [current year – year of manufacture]. It should be replaced when it exceeds its 10-year expected life. A heat pump water heater is an attractive technology. Heat pumps are more than 3x more efficient than gas, and can be powered with a renewable energy source such as rooftop solar.</div>
       </div>
     </div>
   )

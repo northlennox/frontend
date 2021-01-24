@@ -99,9 +99,7 @@ const ProjectPlan = (props) => {
               <AtticBar_SeHee attic={props.attic} atticDepth={props.atticDepth} atticGradeColor={props.atticGradeColor} atticGrade={props.atticGrade}/>
             </div>
             <div className="analysisSection">
-
-              <div className="analysisTitle">Water Heater Efficiency</div>
-              <WaHeaterBar_SeHee waHeater={props.waHeater} waEfficency={props.waEfficency} waGradeColor={props.waGradeColor} waGradeLetter={props.waGradeLetter}/>  
+              <WaHeaterBar_SeHee waHeater={props.wa} waEfficency={props.waEfficency} waGradeColor={props.waGradeColor} waGradeLetter={props.waGradeLetter}/>
             </div>
             <div className="analysisSection">
                 <div className="analysisTitle">Space Heater Efficiency</div>

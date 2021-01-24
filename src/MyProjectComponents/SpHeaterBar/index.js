@@ -7,26 +7,27 @@ const SpHeaterBar = (props) => {
   let indicator = 0
 
   if(props.spHeaterType === "Central Gas Furnace" || props.spHeaterType === "Room Gas Furnace" || props.spHeaterType === "Oil Furnace" || props.spHeaterType === "Electric Furnace"){
-    indicator = 16
+    indicator = 32/2
   }else if(props.spHeaterType === "Electric Heat Pump" || props.spHeaterType === "Gas Boiler/Radiant" || props.spHeaterType === "Geothermal Heat Pump" || props.spHeaterType === "Wood Stove" || props.spHeaterType === "Pellet Stove"){
-    indicator = 45
+    indicator = 32/2 + 1 +32
   }else if("Electric Mini-Split"){
-    indicator = 75
+    indicator = 32/2 + 1 + 32 + 1 + 32
   }
 
   return(
-    <div className="progressbar3">
+    <div className="spHeaterBar">
       <div className="indicator" style={{marginLeft: `${indicator}%`}}><img src="../../indicator.svg"/></div>
-      <div className="bar">
-        <div className="orange"><p>Space Heater</p></div>
-        <div className="yellow"></div>
-        <div className="green"></div>
+      <div className="barContainer">
+        <div className="orange_level"><div className="barText">Space Heater</div></div>
+        <div className="yellow_level"></div>
+        <div className="green_level"></div>
       </div>
       <div className="inches">
         <div className="orangeIn h5">Gas Purnace</div>
         <div className="yellowIn h5">Heat Pump</div>
         <div className="greenIn h5">Mini-Split Heat Pump</div>
       </div>
+      <div>Your space heater is a {props.spHeaterType} with an age of {props.spHeaterAge}. It should be replaced when it exceeds its 15-year expected life. A ducted or ductless heat pump is an attractive technology. Heat pumps are more than 3x more efficient than gas, and can be powered with a renewable energy source such as rooftop solar.</div>
     </div>
   )
 }

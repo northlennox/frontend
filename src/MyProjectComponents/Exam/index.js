@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import GradeGraph from '../GradeGraph';
+import Components from '../Components';
 import AtticBar from '../AtticBar';
 import WaHeaterBar from '../WaHeaterBar';
 import SpHeaterBar from '../SpHeaterBar';
-import GradeGraph from '../GradeGraph';
 
 const Exam = (props) => {
   const userId = sessionStorage.userId;
   console.log('props - ', props.attic)
 
-  let mar = '3'
   return(
     <div className="examContainer">
       <div className="titleContainer">
-        <div className="title h2">My Project</div>
+        <div className="title h2">Projects</div>
         <div className="subtitle h4">See the status of your house energy assets and how they compare on quality, efficiency and age to new technologies.</div>
       </div>
       <div className="gradeContainer">
@@ -34,80 +34,20 @@ const Exam = (props) => {
         </div>
         <div className="gradeRow componentsMark">
           <div className="h3">Components</div>
-          <div className="componentContainer">
-            <div className="componentCol">
-              <div className="markContainer">
-                <img className="marks" src="../Components/atticInsulationIcon.svg"/>
-                <span className="markName">Attic Insulation</span>
-                <span className="markStatus">{props.atticInsulation}</span>
-              </div>
-              <div className="markContainer">
-                <img className="marks" src="../Components/wallInsulationIcon.svg"/>
-                <span className="markName">Wall Insulation</span>
-                <span className="markStatus">N/A</span>
-              </div>
-              <div className="markContainer">
-                <img className="marks" src="../Components/floorInsulationIcon.svg"/>
-                <span className="markName">Floor Insulation</span>
-                <span className="markStatus">N/A</span>
-              </div>
-              <div className="markContainer">
-                <img className="marks" src="../Components/windowsIcon.svg"/>
-                <span className="markName">Windows quality</span>
-                <span className="markStatus">N/A</span>
-              </div>
-              <div className="markContainer">
-                <img className="marks" src="../Components/sealedIcon.svg"/>
-                <span className="markName">Sealed?</span>
-                <span className="markStatus">{props.attic.airSealed}</span>
-              </div>
-            </div>
-            <div className="componentCol">
-              <div className="markContainer">
-                <img className="marks" src="../Components/waHeaterIcon.svg"/>
-                <span className="markName">Water Heater</span>
-                <span className="markStatus">N/A</span>
-              </div>
-              <div className="markContainer">
-                <img className="marks" src="../Components/spHeaterIcon.svg"/>
-                <span className="markName">Space Heater</span>
-                <span className="markStatus">N/A</span>
-              </div>
-              <div className="markContainer">
-                <img className="marks" src="../Components/rangeIcon.svg"/>
-                <span className="markName">Range</span>
-                <span className="markStatus">N/A</span>
-              </div>
-              <div className="markContainer">
-                <img className="marks" src="../Components/clothesDryerIcon.svg"/>
-                <span className="markName">Clothes Dryer</span>
-                <span className="markStatus">N/A</span>
-              </div>
-              <div className="markContainer">
-                <img className="marks" src="../Components/solarIcon.svg"/>
-                <span className="markName">Solar?</span>
-                <span className="markStatus">N/A</span>
-              </div>
-            </div>
-          </div>
+          <Components atticInsulation={props.atticInsulation} attic={props.attic} waHeatertypeShort={props.waHeatertypeShort} spHeaterTypeShort={props.spHeaterTypeShort} roof={props.roof}/>
         </div>
         <div className="gradeRow analysis">
           <div className="h3">Analysis</div>
             <div className="analysisSection">
               <div className="analysisName h4">EFFICIENCY</div>
-                <AtticBar atticDepth={props.atticDepth} />
-              <div>The depth of your attic insulation is reported as [depth #] inches of [material]. It is [low/medium/high] compared to the recommended level of at least 11 inches. Adding attic insulation with proper air sealing is typically the single most effective action a homeowner can take to increase energy performance. Insulation is inexpensive and has a long life. Taking action is highly recommended.</div>
+              <AtticBar attic={props.attic}atticDepth={props.atticDepth} atticGrade={props.atticGrade} atticGradeColor={props.atticGradeColor} atticInsulation={props.atticInsulation} />
             </div>
             <div className="analysisSection">
               <div className="analysisName h4">TECHNOLOGY</div>
-                <WaHeaterBar waHeatertype={props.waHeatertype} />
-              <div>Wather heater type : {props.waHeatertype}</div>
-              <div>Your water heater is a [water heater type] with an age of [current year – year of manufacture]. It should be replaced when it exceeds its 10-year expected life. A heat pump water heater is an attractive technology. Heat pumps are more than 3x more efficient than gas, and can be powered with a renewable energy source such as rooftop solar.</div>
+              <WaHeaterBar waHeatertype={props.waHeatertype} waHeaterAge={props.waHeaterAge} waEfficency={props.waEfficency} waGradeColor={props.waGradeColor} waGradeLetter={props.waGradeLetter}/>
             </div>
             <div className="analysisSection">
-                <SpHeaterBar spHeaterType={props.spHeaterType} />
-              <div>space heater type : {props.spHeaterType}</div>
-              <div>Your space heater is a [space heater type] with an age of [current year – year of manufacture]. It should be replaced when it exceeds its 15-year expected life. A ducted or ductless heat pump is an attractive technology. Heat pumps are more than 3x more efficient than gas, and can be powered with a renewable energy source such as rooftop solar.</div>
+              <SpHeaterBar spHeaterType={props.spHeaterType} spHeaterAge={props.spHeaterAge} spEfficency={props.spGradeLetter} spGradeColor={props.spGradeColor} spGradeLetter={props.spGradeLetter}/>
             </div>
           </div>
         </div>

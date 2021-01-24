@@ -24,6 +24,7 @@ class MyProjectComponent extends Component {
         waEfficency: '',
         waGradeColor: '',
         waGradeLetter: '',
+        waHeatertypeShort: '',
       },
       spGrade : {
         spHeaterAge : '',
@@ -31,6 +32,7 @@ class MyProjectComponent extends Component {
         spEfficency: '',
         spGradeColor: '',
         spGradeLetter: '',
+        spHeaterTypeShort: '',
       },
       atticGrade : {
         atticDepth : '',
@@ -95,9 +97,11 @@ class MyProjectComponent extends Component {
       let waEfficency = '';
       let waGradeColor = '';
       let waGradeLetter = '';
+      let waHeatertypeShort = '';
 
       if(waHeatertype === "Natural Gas Storage"){
         waEfficency = 0.55;
+        waHeatertypeShort = "Gas"
 
         if(waHeaterAge < 10){
           waGradeLetter = 'C';
@@ -108,6 +112,7 @@ class MyProjectComponent extends Component {
         }
       }else if(waHeatertype === "Natural Gas Tankless"){
         waEfficency = 0.9;
+        waHeatertypeShort = "Gas"
 
         if(waHeaterAge < 15){
           waGradeLetter = 'C';
@@ -118,6 +123,7 @@ class MyProjectComponent extends Component {
         }
       }else if(waHeatertype === "Electric Storage"){
         waEfficency = 0.9;
+        waHeatertypeShort = "Electric";
 
         if(waHeaterAge < 10){
           waGradeLetter = 'C';
@@ -128,6 +134,7 @@ class MyProjectComponent extends Component {
         }
       }else if(waHeatertype === "Electric Heat Pump"){
         waEfficency = 2.5;
+        waHeatertypeShort = "Electric"
 
         if(waHeaterAge < 10){
           waGradeLetter = 'A';
@@ -144,6 +151,7 @@ class MyProjectComponent extends Component {
           waEfficency: waEfficency,
           waGradeColor: waGradeColor,
           waGradeLetter: waGradeLetter,
+          waHeatertypeShort: waHeatertypeShort
         }
       })
     }
@@ -156,11 +164,14 @@ class MyProjectComponent extends Component {
       let spEfficency = '';
       let spGradeColor = '';
       let spGradeLetter = '';
+      let spHeaterTypeShort='';
       // let spRecommendation = ''
 
 
       if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Oil Furnace" || spHeaterType === "Electric Furnace") {
         spEfficency = 0.8;
+        spHeaterTypeShort="Gas";
+
         if(spHeaterAge < 10){
           spGradeLetter = "C"
           spGradeColor = '#FA910B';
@@ -171,6 +182,8 @@ class MyProjectComponent extends Component {
         }
       }else{
         spEfficency = 3.0;
+        spHeaterTypeShort="?";
+
         if(spHeaterAge > 10){
           spGradeLetter = "A"
           spGradeColor = '#139929';
@@ -189,6 +202,7 @@ class MyProjectComponent extends Component {
           spEfficency: spEfficency,
           spGradeColor: spGradeColor,
           spGradeLetter: spGradeLetter,
+          spHeaterTypeShort: spHeaterTypeShort
         }
       })
     }
@@ -207,17 +221,17 @@ class MyProjectComponent extends Component {
         atticGradeColor = '#D22E2E';
         atticInsulation = 'Zero';
         // atticRecommendation = currentYear
-      }else if(1 <= atticDepth < 6){
+      }else if(1 <= atticDepth && atticDepth < 6){
         atticGrade = 'C';
         atticGradeColor = '#FA910B';
         atticInsulation = 'Low';
         // atticRecommendation = currentYear
-      }else if(6 <= atticDepth < 10){
+      }else if(6 <= atticDepth && atticDepth < 10){
         atticGrade = 'B';
         atticGradeColor = '#FDC825';
         atticInsulation = 'Medium';
         // atticRecommendation = currentYear
-      }else if(10 <= atticDepth <= 15){
+      }else if(10 <= atticDepth && atticDepth <= 15){
         atticGrade = 'B';
         atticGradeColor = '#FDC825';
         atticInsulation = 'High';
@@ -272,20 +286,23 @@ class MyProjectComponent extends Component {
               </div>
             </div>
             :
-            <ProjectPlan
+            <Exam
               house = {this.state.house}
               attic = {this.state.attic}
+              roof={this.state.roof}
               waHeater = {this.state.waHeater}
               waHeaterAge={this.state.waGrade.waHeaterAge}
               waHeatertype={this.state.waGrade.waHeatertype}
               waEfficency={this.state.waGrade.waEfficency}
               waGradeColor={this.state.waGrade.waGradeColor}
               waGradeLetter={this.state.waGrade.waGradeLetter}
+              waHeatertypeShort={this.state.waGrade.waHeatertypeShort}
               spHeaterAge={this.state.spGrade.spHeaterAge}
               spHeaterType={this.state.spGrade.spHeaterType}
               spEfficency={this.state.spGrade.spEfficency}
               spGradeColor={this.state.spGrade.spGradeColor}
               spGradeLetter={this.state.spGrade.spGradeLetter}
+              spHeaterTypeShort={this.state.spGrade.spHeaterTypeShort}
               atticDepth={this.state.atticGrade.atticDepth}
               atticGrade={this.state.atticGrade.atticGrade}
               atticGradeColor={this.state.atticGrade.atticGradeColor}
