@@ -158,7 +158,7 @@ class EditAttic extends Component {
 
   render(){
     const atticTypeOptions = ["Select", "Unconditioned Attic", "Conditioned Attic", "Cathedral Ceiling"];
-    const atticDepthOptions = ["Select", "1", "2", "3", "4"];
+    const     const atticDepthOptions = ["Select", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"];
     const insulMaterialOptions = ["Select", "Fiberglass Batt", "Fiberglass Blown", "Cellulose", "Not Sure"];
     const atticImgState = `http://sessionhost:9000/` + this.state.attic.atticImg;
 

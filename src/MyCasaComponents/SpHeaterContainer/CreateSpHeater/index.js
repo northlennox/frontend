@@ -124,6 +124,8 @@ class CreateSpHeater extends Component {
         })
     }
 
+//"Geothermal Heat Pump", ele
+//"Pellet Stove", wood
 
   render(){
     const spHeaterTypeOptions = ["Select", "Central Gas Furnace", "Room Gas Furnace", "Oil Furnace", "Electric Furnace", "Electric Heat Pump", "Electric Mini-Split", "Gas Boiler/Radiant", "Geothermal Heat Pump", "Wood Stove", "Pellet Stove"];
