@@ -7,13 +7,14 @@ const AtticBar = (props) => {
 
   return(
     <div className="atticBar">
+      <div className="analysisTitle">Attic Insulation</div>
       <div className="indicator" style={{marginLeft: `${props.atticDepth / 15 * 100}%`}}><img src="../../indicator.svg"/></div>
       <div className="barContainer">
         <div className="symbol"></div>
         <div className="red_level"></div>
-        <div className="orange_level"><div className="barText">Attic Insulation</div></div>
-        <div className="yellow_level"></div>
-        <div className="green_level"></div>
+        <div className="orange_level"><div className="barText">Low</div></div>
+        <div className="yellow_level"><div className="barText">Medium</div></div>
+        <div className="green_level"><div className="barText">High</div></div>
       </div>
       <div className="inches">
         <div className="redIn h5">0"</div>

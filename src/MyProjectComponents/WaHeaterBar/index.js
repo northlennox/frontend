@@ -18,9 +18,9 @@ const WaHeaterBar = (props) => {
       <div className="analysisTitle">Water Heater Efficiency</div>
       <div className="indicator" style={{marginLeft: `${indicator}%`}}><img src="../../indicator.svg"/></div>
       <div className="barContainer">
-        <div className="orange_level"><div className="barText">Water Heater</div></div>
-        <div className="yellow_level"></div>
-        <div className="green_level"></div>
+        <div className="orange_level"><div className="barText">Gas Baseline</div></div>
+        <div className="yellow_level"><div className="barText">Better</div></div>
+        <div className="green_level"><div className="barText">Best</div></div>
       </div>
       <div className="inches">
         <div className="orangeIn h5">Gas Storage / Tankless</div>

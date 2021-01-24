@@ -160,10 +160,11 @@
     height: 23px;
     border-radius: 10px;
     color: white;
-    text-align: center;
+    text-align: left;
     margin-left: 2%;
     .barText {
       transform: skew(-30deg);
+      padding-left: 5%;
     }
     .red_level {
         width: 5%;
@@ -241,10 +242,11 @@
     height: 23px;
     border-radius: 10px;
     color: white;
-    text-align: center;
+    text-align: left;
     margin-left: 2%;
     .barText {
       transform: skew(-30deg);
+      padding-left: 5%;
     }
     .orange_level {
         width: 32%;

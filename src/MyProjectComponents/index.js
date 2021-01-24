@@ -24,6 +24,7 @@ class MyProjectComponent extends Component {
         waEfficency: '',
         waGradeColor: '',
         waGradeLetter: '',
+        waGradeNumber: '',
         waHeatertypeShort: '',
         waRecommendation:''
       },
@@ -33,6 +34,7 @@ class MyProjectComponent extends Component {
         spEfficency: '',
         spGradeColor: '',
         spGradeLetter: '',
+        spGradeNumber: '',
         spHeaterTypeShort: '',
         spRecommendation: ''
       },
@@ -84,6 +86,7 @@ class MyProjectComponent extends Component {
           this.getWaGrade();
           this.getSpGrade();
           this.getAtticGrade();
+          this.getCarbonFootprint();
         }
 
 
@@ -101,6 +104,7 @@ class MyProjectComponent extends Component {
       let waEfficency = '';
       let waGradeColor = '';
       let waGradeLetter = '';
+      let waGradeNumber = 0;
       let waHeatertypeShort = '';
       let waRecommendation ='';
 
@@ -110,9 +114,11 @@ class MyProjectComponent extends Component {
 
         if(waHeaterAge < 10){
           waGradeLetter = 'C';
+          waGradeNumber = 2
           waGradeColor = 'orange';
         }else{
           waGradeLetter = 'D';
+          waGradeNumber = 1
           waGradeColor = 'red';
         }
       }else if(waHeatertype === "Natural Gas Tankless"){
@@ -121,9 +127,11 @@ class MyProjectComponent extends Component {
 
         if(waHeaterAge < 15){
           waGradeLetter = 'C';
+          waGradeNumber = 2
           waGradeColor = 'orange';
         }else{
           waGradeLetter = 'D';
+          waGradeNumber = 1
           waGradeColor = 'red';
         }
       }else if(waHeatertype === "Electric Storage"){
@@ -132,9 +140,11 @@ class MyProjectComponent extends Component {
 
         if(waHeaterAge < 10){
           waGradeLetter = 'C';
+          waGradeNumber = 2;
           waGradeColor = 'orange';
         }else{
           waGradeLetter = 'D';
+          waGradeNumber = 1
           waGradeColor = 'red';
         }
       }else if(waHeatertype === "Electric Heat Pump"){
@@ -143,9 +153,11 @@ class MyProjectComponent extends Component {
 
         if(waHeaterAge < 10){
           waGradeLetter = 'A';
+          waGradeNumber = 4;
           waGradeColor = 'green';
         }else{
           waGradeLetter = 'B';
+          waGradeNumber = 3;
           waGradeColor = 'yellow';
         }
       }
@@ -166,6 +178,7 @@ class MyProjectComponent extends Component {
           waEfficency: waEfficency,
           waGradeColor: waGradeColor,
           waGradeLetter: waGradeLetter,
+          waGradeNumber: waGradeNumber,
           waHeatertypeShort: waHeatertypeShort,
           waRecommendation: waRecommendation
         }
@@ -181,6 +194,7 @@ class MyProjectComponent extends Component {
       let spEfficency = '';
       let spGradeColor = '';
       let spGradeLetter = '';
+      let spGradeNumber = 0;
       let spHeaterTypeShort='';
       let spRecommendation = ''
 
@@ -191,9 +205,11 @@ class MyProjectComponent extends Component {
 
         if(spHeaterAge < 10){
           spGradeLetter = "C"
+          spGradeNumber = 2
           spGradeColor = '#FA910B';
         }else{
           spGradeLetter = "D"
+          spGradeNumber = 1
           spGradeColor = '#D22E2E';
           // spRecommendation = currentYear;
         }
@@ -203,10 +219,12 @@ class MyProjectComponent extends Component {
 
         if(spHeaterAge > 10){
           spGradeLetter = "A"
+          spGradeNumber = 4
           spGradeColor = '#139929';
           // spRecommendation = currentYear;
         }else{
           spGradeLetter = "B"
+          spGradeNumber = 3
           spGradeColor = '#FDC825';
         }
       }
@@ -229,6 +247,7 @@ class MyProjectComponent extends Component {
           spEfficency: spEfficency,
           spGradeColor: spGradeColor,
           spGradeLetter: spGradeLetter,
+          spGradeNumber: spGradeNumber,
           spHeaterTypeShort: spHeaterTypeShort,
           spRecommendation: spRecommendation
         }
@@ -291,6 +310,14 @@ class MyProjectComponent extends Component {
     // Space heater type “heat pump” efficiency 3.0 range green grade A if year <10, else B
     //
 
+    getCarbonFootprint = () => {
+      let total = this.state.waGrade.waGradeNumber + this.state.spGrade.spGradeNumber;
+
+      // this.setState({
+      //   carbonFootScore: carbonFootScore
+      // })
+
+    }
 
 
 
