@@ -293,7 +293,7 @@ class MyCasaDashboard extends Component {
               :
               <Link to="/mycasa/spheater/create" className="blankContainer">
                 <div className="blankFrame"><img className="placer" src="./../../upload.svg" /></div>
-                <div className="blankLabel">Primary Heater Details</div>
+                <div className="blankLabel">Heating and Cooling Details</div>
               </Link>
               }
             </div>

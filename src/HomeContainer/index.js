@@ -71,7 +71,7 @@ class HomeContainer extends Component {
               <Link to="/home/heatingcooling" className="links">
                 <div className="iconContainer">
                   <div className="iconBox"><img className="iconImg" src="./Electrify/HeatingCooling.svg" /></div>
-                  <div className="iconText">Heating Cooling</div>
+                  <div className="iconText">Heating and Cooling</div>
                 </div>
               </Link>
               <Link to="/home/cooking" className="links">

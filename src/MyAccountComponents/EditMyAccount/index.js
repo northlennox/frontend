@@ -151,26 +151,26 @@ class EditMyAccount extends Component {
                 <input type="password" name="password" onChange={this.handleChange}/>
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="emailNotice">Email Notice</label>
+                <label className="inputLabel" htmlFor="emailNotice">Email Notifications</label>
                 <div id="emailNotice">
                   <input name="emailNotice" type="radio" checked={this.state.userinfo.emailNotice === "yes"} value="yes" onChange={this.handleChange}/><span className="radioNext">YES</span>
                   <input className="radioInput-right" name="emailNotice" type="radio" checked={this.state.userinfo.emailNotice === "no"} value="no" onChange={this.handleChange}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="emailNotice">Mobile Notice</label>
+                <label className="inputLabel" htmlFor="emailNotice">Mobile Notifications</label>
                 <div id="mobileNotice" >
                   <input name="mobileNotice" type="radio" checked={this.state.userinfo.mobileNotice === "yes"} value="yes" onChange={this.handleChange}/><span className="radioNext">YES</span>
                   <input className="radioInput-right" name="mobileNotice" type="radio" checked={this.state.userinfo.mobileNotice === "no"} value="no" onChange={this.handleChange}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
-                <button className="btn" type="submit">Edit</button>
+                <button className="btn" type="submit">SAVE</button>
               </div>
             </form>
             <form onSubmit={this.deleteMyacc}>
               <div className="inputContainer">
-                <button className="deleteAccBtn" type="submit">delete my account</button>
+                <button className="deleteAccBtn" type="submit">DELETE MY ACCOUNT</button>
               </div>
             </form>
           </div>

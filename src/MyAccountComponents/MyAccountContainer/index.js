@@ -69,7 +69,7 @@ class MyAccountContainer extends Component {
                 <th><Link to={`/myaccount/${userId}/edit`}>Edit</Link></th>
               </tr>
               <tr>
-               <th><div>Email:</div></th>
+               <th><div>Email Address:</div></th>
                <th>{this.state.userinfo.email}</th>
               </tr>
               <tr>
@@ -81,11 +81,11 @@ class MyAccountContainer extends Component {
                  <th>Free Plan</th>
               </tr>
               <tr>
-                <th><div>Email Notification:</div></th>
+                <th><div>Email Notifications:</div></th>
                 <th>{this.state.userinfo.emailNotice}</th>
               </tr>
               <tr>
-                <th><div>Text Notication:</div></th>
+                <th><div>Mobile Notifications:</div></th>
                 <th>{this.state.userinfo.mobileNotice}</th>
               </tr>
               <tr>

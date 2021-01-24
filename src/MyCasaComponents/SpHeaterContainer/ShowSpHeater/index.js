@@ -18,7 +18,7 @@ const ShowSpHeater = (props) => {
         <Card className="card">
           <Card.Header className="header">
             <Accordion.Toggle variant="link" eventKey="0" className="toggleShow">
-              <div className="postedLabel">Space Heater Details</div>
+              <div className="postedLabel">Heating and Cooling</div>
               <div className="detailArr"><img className="down" src="./../../dropdown_drop.svg" /></div>
             </Accordion.Toggle>
           </Card.Header>

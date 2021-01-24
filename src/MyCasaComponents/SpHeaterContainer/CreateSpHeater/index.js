@@ -144,7 +144,7 @@ class CreateSpHeater extends Component {
       <div>
         <Nav />
         <div className="createContainer">
-          <div className="createTitle">Primary Heater Details</div>
+          <div className="createTitle">Heating and Cooling</div>
           <form onSubmit={this.handleSubmit}>
             <div className="createBox">
               <div className="helpContainer">

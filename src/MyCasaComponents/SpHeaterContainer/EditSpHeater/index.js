@@ -188,10 +188,13 @@ class EditSpHeater extends Component {
       <div>
         <Nav />
         <div className="editContainer">
-          <div className="editTitle">Primary Heater Edit page</div>
+          <div className="editTitle">Heating and Cooling</div>
           <form onSubmit={this.editspHeater}>
             <div className="editBox">
-              <div>PHOTO</div>
+            <div className="helpContainer">
+              <span className="inputLabel">PHOTO</span>
+              <img className="help" src="./../../help.svg"/>
+            </div>
               <div className="frames">
                 <img className="imgAttached"
                      id="photoOne"
@@ -212,21 +215,6 @@ class EditSpHeater extends Component {
                 <input name="spHeaterBrand" id="spHeaterBrand" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.spHeaterBrand} />
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="coolingSystem">IS THERE A COOLING SYSTEM?</label>
-                <select className="selectInput" name="coolingSystem" id="coolingSystem" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.coolingSystem}>
-                  {coolingSystemOptions.map(coolingSystemOption => {
-                    return <option value={coolingSystemOption} key={coolingSystemOption} >{coolingSystemOption}</option>
-                  })}
-                </select>
-              </div>
-              <div className="inputContainer">
-                <label className="inputLabel" htmlFor="spHeaterCondition">IS THE SYSTEM WORKING WELL?</label>
-                <div id="spHeaterCondition" >
-                  <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "YES"} value="YES" onChange={this.handleEditFormInput}/>YES
-                  <input name="spHeaterCondition" className="radioInput-right" type="radio" checked={this.state.spHeater.spHeaterCondition === "NO"} value="NO" onChange={this.handleEditFormInput}/>NO
-                </div>
-              </div>
-              <div className="inputContainer">
                 <label className="inputLabel" htmlFor="spHeaterYear">YEAR OF MANUFACTURE*</label>
                 <select className="selectInput" name="spHeaterYear" id="spHeaterYear" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.spHeaterYear}>
                   {spHeaterYearOptions.map(spHeaterYearOption => {
@@ -235,7 +223,22 @@ class EditSpHeater extends Component {
                 </select>
               </div>
               <div className="inputContainer">
-                <button type="submit" className="btn">Edit</button>
+                <label className="inputLabel" htmlFor="spHeaterCondition">IS THE SYSTEM WORKING WELL?</label>
+                <div id="spHeaterCondition" >
+                  <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "Yes"} value="Yes" onChange={this.handleEditFormInput}/><span className="radioNext">YES</span>
+                  <input name="spHeaterCondition" className="radioInput-right" type="radio" checked={this.state.spHeater.spHeaterCondition === "No"} value="No" onChange={this.handleEditFormInput}/><span className="radioNext">NO</span>
+                </div>
+              </div>
+              <div className="inputContainer">
+                <label className="inputLabel" htmlFor="coolingSystem">IS THERE A COOLING SYSTEM?</label>
+                <select className="selectInput" name="coolingSystem" id="coolingSystem" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.coolingSystem}>
+                  {coolingSystemOptions.map(coolingSystemOption => {
+                    return <option value={coolingSystemOption} key={coolingSystemOption} >{coolingSystemOption}</option>
+                  })}
+                </select>
+              </div>
+              <div className="inputContainer">
+                <button type="submit" className="btn">SAVE</button>
               </div>
             </div>
           </form>
