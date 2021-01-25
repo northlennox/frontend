@@ -180,8 +180,32 @@ class EditUtility extends Component {
     }
 
 
+    deleteMyUtility = async(id, e) => {
+      e.preventDefault()
+
+      try{
+
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/utility/` + `${id}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        this.props.history.push('/mycasa/' + id);
+      }catch(err){
+        alert('Something went wrong. Please try again')
+      }
+
+    }
+
+
   render(){
+    const userId = sessionStorage.getItem('userId');
     const utilityImgState = `${process.env.REACT_APP_API}/` + this.state.utility.utilityImg;
+    let upload = "./../../../upload.svg";
 
     return(
 
@@ -196,9 +220,9 @@ class EditUtility extends Component {
                 <img className="help" src="./../../help.svg"/>
               </div>
               <div className="frames">
-                <img className="imgAttached"
-                     id="photoOne"
-                     src={this.state.preview1 === null ? utilityImgState : this.state.preview1}
+                <img id="photoOne"
+                     className={this.state.preview1 ? "imgAttached" : "placer"}
+                     src={this.state.preview1 ? this.state.preview1 :  upload}
                      onClick={this.handleClick} />
               </div>
               <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
@@ -237,7 +261,8 @@ class EditUtility extends Component {
                 </div>
               </div>
               <div className="inputContainer">
-                <button type="submit" className="btn">Edit</button>
+                <button type="submit" className="btn">SAVE</button>
+                <button className="deleteBtn" onClick={this.deleteMyUtility.bind(null, userId)}>DELETE</button>
               </div>
             </div>
           </form>

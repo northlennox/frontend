@@ -272,7 +272,7 @@ class EditHouse extends Component {
       'Wyoming',
     ];
 
-    let upload = "./../../../upload.svg"
+    let upload = "./../../../upload.svg";
     return(
       <div>
         <Nav />
@@ -285,8 +285,7 @@ class EditHouse extends Component {
                 <img className="help" src="./../../help.svg"/>
               </div>
               <div className="frames">
-                <img className="imgAttached"
-                     id="photoOne"
+                <img id="photoOne"
                      className={this.state.preview1 ? "imgAttached" : "placer"}
                      src={this.state.preview1 ? this.state.preview1 :  upload}
                      onClick={this.handleClick} />

@@ -82,11 +82,11 @@ class MyAccountContainer extends Component {
               </tr>
               <tr>
                 <th><div>Email Notifications:</div></th>
-                <th>{this.state.userinfo.emailNotice}</th>
+                <th>{this.state.userinfo.emailNotice.toUpperCase()}</th>
               </tr>
               <tr>
                 <th><div>Mobile Notifications:</div></th>
-                <th>{this.state.userinfo.mobileNotice}</th>
+                <th>{this.state.userinfo.mobileNotice.toUpperCase()}</th>
               </tr>
               <tr>
                 <th><div>Privacy and Setting:</div></th>

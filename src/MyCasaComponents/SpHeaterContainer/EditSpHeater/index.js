@@ -171,12 +171,42 @@ class EditSpHeater extends Component {
     }
 
 
+
+    deleteMySpHeater = async(id, e) => {
+      e.preventDefault()
+
+      try{
+        // const userId = sessionStorage.getItem('userId');
+
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/spheater/` + `${id}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        // this.setState({
+        //   spHeater : null
+        // })
+
+        this.props.history.push('/mycasa/' + id);
+
+      }catch(err){
+        alert('Something went wrong. Please try again')
+      }
+
+    }
+
   render(){
+    const userId = sessionStorage.getItem('userId');
     const spHeaterTypeOptions = ["Select", "Central Gas Furnace", "Room Gas Furnace", "Oil Furnace", "Electric Furnace", "Electric Heat Pump", "Electric Mini-Split", "Gas Boiler/Radiant", "Geothermal Heat Pump", "Wood Stove", "Pellet Stove"];
     const coolingSystemOptions = ["Select", "None", "Room Unit", "Central Air"];
     const spHeaterYearOptions = ["Select", "2020", "2019", "2018", "2017", "2016", "2015"];
     let today = new Date()
     let cuttentYear = today.getFullYear();
+    let upload = "./../../../upload.svg"
 
     for(let i = 1980; i <= cuttentYear; i++){
         spHeaterYearOptions.push(i)
@@ -196,12 +226,12 @@ class EditSpHeater extends Component {
               <img className="help" src="./../../help.svg"/>
             </div>
               <div className="frames">
-                <img className="imgAttached"
-                     id="photoOne"
-                     src={this.state.preview1 === null ? spHeaterImgState : this.state.preview1}
+                <img id="photoOne"
+                     className={this.state.preview1 ? "imgAttached" : "placer"}
+                     src={this.state.preview1 ? this.state.preview1 :  upload}
                      onClick={this.handleClick} />
+                <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
-              <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="spHeaterType">TYPE OF SPACE HEATER</label>
                 <select className="selectInput" name="spHeaterType" id="spHeaterType" type="text" onChange={this.handleEditFormInput} value={this.state.spHeater.spHeaterType}>
@@ -239,6 +269,7 @@ class EditSpHeater extends Component {
               </div>
               <div className="inputContainer">
                 <button type="submit" className="btn">SAVE</button>
+                <button className="deleteBtn" onClick={this.deleteMySpHeater.bind(null, userId)}>Remove</button>
               </div>
             </div>
           </form>

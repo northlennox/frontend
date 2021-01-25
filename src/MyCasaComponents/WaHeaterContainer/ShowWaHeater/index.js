@@ -9,10 +9,7 @@ const ShowWaHeater = (props) => {
   return(
     <div className="postedContainer">
       <div className="postedFrame">
-        <img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/>
-      </div>
-      <div className="updateContainer">
-        <button className="deleteBtn" onClick={props.deleteMyWaHeater.bind(null, userId)}>Remove</button>
+        <Link to={"/mycasa/waheater/edit"}><img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/></Link>
       </div>
         <Accordion className="accordion">
           <Card className="card">
@@ -25,14 +22,11 @@ const ShowWaHeater = (props) => {
             <Accordion.Collapse eventKey="0">
               <Card.Body className="cardBody">
                 <div className="postedInfo">
-                  <div>-<span>{props.waHeater.waHeatertype}</span></div>
-                  <div>-<span>{props.waHeater.waHeaterBrand}</span></div>
-                  <div>-<span>{props.waHeater.waHeaterYear}</span><span className="spanNext">Year of Manufacture</span></div>
-                  <div>-<span>{props.waHeater.waHeaterCondition === "YES" ? <span>System is Working Well</span> : <span>...?</span>}</span></div>
-                  <div>-<span>{props.waHeater.waHeaterSingle === "YES" ? <span>One Water Heater</span> : <span>...?</span> }</span></div>
-                </div>
-                <div className="updateContainer">
-                  <div><Link to={"/mycasa/waheater/edit"}>Edit</Link></div>
+                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeatertype}</span></div>
+                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeaterBrand}</span></div>
+                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeaterYear}</span><span className="spanNext">Year of Manufacture</span></div>
+                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeaterCondition === "YES" ? <span>System is Working Well</span> : <span>...?</span>}</span></div>
+                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeaterSingle === "YES" ? <span>One Water Heater</span> : <span>...?</span> }</span></div>
                 </div>
               </Card.Body>
              </Accordion.Collapse>

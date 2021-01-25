@@ -171,8 +171,29 @@ class EditWaHeater extends Component {
         })
     }
 
+    deleteMyWaHeater = async(id, e) => {
+      e.preventDefault()
+
+      try{
+
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/waheater/` + `${id}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+      this.props.history.push('/mycasa/' + id);
+      }catch(err){
+        alert('Something went wrong. Please try again')
+      }
+
+    }
 
   render(){
+    const userId = sessionStorage.getItem('userId');
     const waHeaterTypeOptions = ["Select", "Natural Gas Storage", "Natural Gas Tankless", "Electric Storage", "Electric Heat Pump"];
     const waHeaterYearOptions = ["Select", "2020", "2019", "2018", "2017", "2016", "2015"];
     let today = new Date()
@@ -183,6 +204,8 @@ class EditWaHeater extends Component {
     }
 
     const waHeaterImgState = `${process.env.REACT_APP_API}/` + this.state.waHeater.waHeaterImg;
+    let upload = "./../../../upload.svg";
+
 
     return(
 
@@ -197,9 +220,9 @@ class EditWaHeater extends Component {
                 <img className="help" src="./../../help.svg"/>
               </div>
               <div className="frames">
-                <img className="imgAttached"
-                     id="photoOne"
-                     src={this.state.preview1 === null ? waHeaterImgState : this.state.preview1}
+                <img id="photoOne"
+                     className={this.state.preview1 ? "imgAttached" : "placer"}
+                     src={this.state.preview1 ? this.state.preview1 :  upload}
                      onClick={this.handleClick} />
               </div>
               <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
@@ -227,19 +250,20 @@ class EditWaHeater extends Component {
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="waHeaterCondition">IS THE SYSTEM WORKING WELL?</label>
                 <div id="waHeaterCondition" >
-                  <input name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "YES"} value="YES" onChange={this.handleEditFormInput}/>YES
-                  <input name="waHeaterCondition" className="radioInput-right" type="radio" checked={this.state.waHeater.waHeaterCondition === "NO"} value="NO" onChange={this.handleEditFormInput}/>NO
+                  <input name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "Yes"} value="Yes" onChange={this.handleEditFormInput}/><span className="radioNext">YES</span>
+                  <input name="waHeaterCondition" className="radioInput-right" type="radio" checked={this.state.waHeater.waHeaterCondition === "No"} value="No" onChange={this.handleEditFormInput}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="waHeaterSingle">IS THERE MORE THAN ONE WATER HEATER?</label>
                 <div id="waHeaterSingle" >
-                  <input name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "YES"} value="YES" onChange={this.handleEditFormInput}/>YES
-                  <input name="waHeaterSingle" className="radioInput-right" type="radio" checked={this.state.waHeater.waHeaterSingle === "NO"} value="NO" onChange={this.handleEditFormInput}/>NO
+                  <input name="waHeaterSingle" type="radio" checked={this.state.waHeater.waHeaterSingle === "Yes"} value="Yes" onChange={this.handleEditFormInput}/><span className="radioNext">YES</span>
+                  <input name="waHeaterSingle" className="radioInput-right" type="radio" checked={this.state.waHeater.waHeaterSingle === "No"} value="No" onChange={this.handleEditFormInput}/><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
                 <button type="submit" className="btn">Edit</button>
+                <button className="deleteBtn" onClick={this.deleteMyWaHeater.bind(null, userId)}>Remove</button>
               </div>
             </div>
           </form>

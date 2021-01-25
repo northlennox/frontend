@@ -10,10 +10,7 @@ const ShowUtility = (props) => {
   return(
     <div className="postedContainer">
       <div className="postedFrame">
-        <img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/>
-      </div>
-      <div className="updateContainer">
-        <button className="deleteBtn" onClick={props.deleteMyUtility.bind(null, userId)}>Remove</button>
+        <Link to={"/mycasa/utility/edit"}><img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/></Link>
       </div>
       <Accordion className="accordion">
         <Card className="card">
@@ -26,16 +23,13 @@ const ShowUtility = (props) => {
           <Accordion.Collapse eventKey="0">
             <Card.Body className="cardBody">
               <div className="postedInfo">
-                <div><span>{props.utility.utilityName}</span></div>
-                <div><span>{props.utility.electricityUsageKwh}</span></div>
-                <div><span>{props.utility.electricityUsageDollar}</span></div>
-                <div><span>{props.utility.gasUsageTherms}</span></div>
-                <div><span>{props.utility.gasUsageDollar}</span></div>
-                <div><span>{props.utility.highBilling}</span></div>
-                <div><span>{props.utility.oldEquipment}</span></div>
-                <div className="updateContainer">
-                  <div><Link to={"/mycasa/utility/edit"}>Edit</Link></div>
-                </div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.utility.utilityName}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.utility.electricityUsageKwh}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.utility.electricityUsageDollar}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.utility.gasUsageTherms}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.utility.gasUsageDollar}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.utility.highBilling}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.utility.oldEquipment}</span></div>
               </div>
             </Card.Body>
            </Accordion.Collapse>

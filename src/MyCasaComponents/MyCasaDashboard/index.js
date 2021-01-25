@@ -151,77 +151,77 @@ class MyCasaDashboard extends Component {
     //   }
     //
     // }
-    deleteMyWaHeater = async(id, e) => {
-      e.preventDefault()
-
-      try{
-        const userId = sessionStorage.getItem('userId');
-
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/waheater/` + `${userId}`, {
-          method: 'DELETE',
-          credentials: 'include'
-        });
-
-        if(!response.ok){
-          throw Error(response.statusText)
-        }
-
-        this.setState({
-          waHeater : null
-        })
-
-      }catch(err){
-        alert('Something went wrong. Please try again')
-      }
-
-    }
-    deleteMySpHeater = async(id, e) => {
-      e.preventDefault()
-
-      try{
-        const userId = sessionStorage.getItem('userId');
-
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/spheater/` + `${userId}`, {
-          method: 'DELETE',
-          credentials: 'include'
-        });
-
-        if(!response.ok){
-          throw Error(response.statusText)
-        }
-
-        this.setState({
-          spHeater : null
-        })
-
-      }catch(err){
-        alert('Something went wrong. Please try again')
-      }
-
-    }
-    deleteMyUtility = async(id, e) => {
-      e.preventDefault()
-
-      try{
-        const userId = sessionStorage.getItem('userId');
-
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/utility/` + `${userId}`, {
-          method: 'DELETE',
-          credentials: 'include'
-        });
-
-        if(!response.ok){
-          throw Error(response.statusText)
-        }
-
-        this.setState({
-          utility : null
-        })
-      }catch(err){
-        alert('Something went wrong. Please try again')
-      }
-
-    }
+    // deleteMyWaHeater = async(id, e) => {
+    //   e.preventDefault()
+    //
+    //   try{
+    //     const userId = sessionStorage.getItem('userId');
+    //
+    //     const response = await fetch(`${process.env.REACT_APP_API}/api/v1/waheater/` + `${userId}`, {
+    //       method: 'DELETE',
+    //       credentials: 'include'
+    //     });
+    //
+    //     if(!response.ok){
+    //       throw Error(response.statusText)
+    //     }
+    //
+    //     this.setState({
+    //       waHeater : null
+    //     })
+    //
+    //   }catch(err){
+    //     alert('Something went wrong. Please try again')
+    //   }
+    //
+    // }
+    // deleteMySpHeater = async(id, e) => {
+    //   e.preventDefault()
+    //
+    //   try{
+    //     const userId = sessionStorage.getItem('userId');
+    //
+    //     const response = await fetch(`${process.env.REACT_APP_API}/api/v1/spheater/` + `${userId}`, {
+    //       method: 'DELETE',
+    //       credentials: 'include'
+    //     });
+    //
+    //     if(!response.ok){
+    //       throw Error(response.statusText)
+    //     }
+    //
+    //     this.setState({
+    //       spHeater : null
+    //     })
+    //
+    //   }catch(err){
+    //     alert('Something went wrong. Please try again')
+    //   }
+    //
+    // }
+    // deleteMyUtility = async(id, e) => {
+    //   e.preventDefault()
+    //
+    //   try{
+    //     const userId = sessionStorage.getItem('userId');
+    //
+    //     const response = await fetch(`${process.env.REACT_APP_API}/api/v1/utility/` + `${userId}`, {
+    //       method: 'DELETE',
+    //       credentials: 'include'
+    //     });
+    //
+    //     if(!response.ok){
+    //       throw Error(response.statusText)
+    //     }
+    //
+    //     this.setState({
+    //       utility : null
+    //     })
+    //   }catch(err){
+    //     alert('Something went wrong. Please try again')
+    //   }
+    //
+    // }
 
 
   render(){

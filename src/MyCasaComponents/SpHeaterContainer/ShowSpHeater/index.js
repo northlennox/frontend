@@ -9,10 +9,7 @@ const ShowSpHeater = (props) => {
   return(
     <div className="postedContainer">
       <div className="postedFrame">
-        <img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/>
-      </div>
-      <div className="updateContainer">
-        <button className="deleteBtn spanNext" onClick={props.deleteMySpHeater.bind(null, userId)}>Remove</button>
+        <Link to={"/mycasa/spheater/edit"}><img className="postedImg" src={`${process.env.REACT_APP_API}/` + photo}/></Link>
       </div>
       <Accordion className="accordion">
         <Card className="card">
@@ -25,14 +22,11 @@ const ShowSpHeater = (props) => {
           <Accordion.Collapse eventKey="0">
             <Card.Body className="cardBody">
               <div className="postedInfo">
-                <div>-<span>{props.spHeater.spHeaterType}</span></div>
-                <div>-<span>{props.spHeater.spHeaterBrand}</span></div>
-                <div>-<span>{props.spHeater.coolingSystem}</span><span className="spanNext">Cooling System</span></div>
-                <div>-<span>{props.spHeater.spHeaterCondition}</span></div>
-                <div>-<span>{props.spHeater.spHeaterYear}</span></div>
-              </div>
-              <div className="updateContainer">
-                <div><Link to={"/mycasa/spheater/edit"}>Edit</Link></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.spHeater.spHeaterType}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.spHeater.spHeaterBrand}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.spHeater.coolingSystem}</span><span className="spanNext">Cooling System</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.spHeater.spHeaterCondition}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.spHeater.spHeaterYear}</span></div>
               </div>
             </Card.Body>
           </Accordion.Collapse>
