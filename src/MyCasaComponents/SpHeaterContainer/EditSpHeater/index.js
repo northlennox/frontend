@@ -218,7 +218,7 @@ class EditSpHeater extends Component {
       <div>
         <Nav />
         <div className="editContainer">
-          <div className="editTitle">Heating and Cooling</div>
+          <div className="editTitle">Heating and Cooling Details</div>
           <form onSubmit={this.editspHeater}>
             <div className="editBox">
             <div className="helpContainer">
@@ -269,7 +269,7 @@ class EditSpHeater extends Component {
               </div>
               <div className="inputContainer">
                 <button type="submit" className="btn">SAVE</button>
-                <button className="deleteBtn" onClick={this.deleteMySpHeater.bind(null, userId)}>Remove</button>
+                <button className="deleteBtn" onClick={this.deleteMySpHeater.bind(null, userId)}>DELETE</button>
               </div>
             </div>
           </form>

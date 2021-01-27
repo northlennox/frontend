@@ -212,7 +212,7 @@ class EditUtility extends Component {
       <div>
         <Nav />
         <div className="editContainer">
-          <div className="editTitle">Utility Edit page</div>
+          <div className="editTitle">Utility Bills Details</div>
           <form onSubmit={this.editUtility}>
             <div className="editBox">
               <div className="helpContainer">

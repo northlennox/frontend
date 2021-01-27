@@ -277,7 +277,7 @@ class EditHouse extends Component {
       <div>
         <Nav />
         <div className="editContainer">
-          <div className="editTitle">Update House Details</div>
+          <div className="editTitle">House Details</div>
           <form onSubmit={this.updateHouse}>
             <div className="editBox">
               <div className="helpContainer">

@@ -174,7 +174,7 @@ class CreateAttic extends Component {
               <input name="panels" id="panels" type="number" onChange={this.handleInput} value={this.state.roof.panels} />
             </div>
             <div className="inputContainer">
-              <label className="inputLabel" htmlFor="dcCapacity">SIZE(KW)</label>
+              <label className="inputLabel" htmlFor="dcCapacity">SIZE (KW)</label>
               <input name="dcCapacity" id="dcCapacity" type="number" onChange={this.handleInput} value={this.state.roof.dcCapacity} />
             </div>
             <div className="inputContainer">

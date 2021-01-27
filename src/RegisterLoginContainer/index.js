@@ -182,7 +182,7 @@ fetchLogin = async(updatedLogin) => {
               <button className="btn" type="submit">LOGIN</button>
             </div>
           </form>
-            <div id="registerBox"><div>Don't have an account? <Link to="/signup">SIGNUP</Link></div></div>
+            <div id="registerBox"><div>Don't have an account? <Link to="/signup">SIGN UP</Link></div></div>
        </div>
       </div>
     )

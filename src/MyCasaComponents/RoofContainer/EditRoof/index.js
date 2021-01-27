@@ -194,7 +194,7 @@ class EditRoof extends Component {
       <div>
         <Nav />
         <div className="editContainer">
-        <div className="editTitle">Upate Roof Detils</div>
+        <div className="editTitle">Roof Details</div>
           <form onSubmit={this.editRoof}>
             <div className="editBox">
               <div className="helpContainer">
@@ -237,7 +237,7 @@ class EditRoof extends Component {
                   <input name="panels" id="panels" type="text" onChange={this.handleEditFormInput} value={this.state.roof.panels} />
                 </div>
                 <div className="inputContainer">
-                  <label className="inputLabel" htmlFor="dcCapacity">SIZE(KW)</label>
+                  <label className="inputLabel" htmlFor="dcCapacity">SIZE (KW)</label>
                   <input name="dcCapacity" id="dcCapacity" type="text" onChange={this.handleEditFormInput} value={this.state.roof.dcCapacity} />
                 </div>
                 <div className="inputContainer">

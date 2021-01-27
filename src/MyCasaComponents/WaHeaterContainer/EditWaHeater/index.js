@@ -212,7 +212,7 @@ class EditWaHeater extends Component {
       <div>
         <Nav />
         <div className="editContainer">
-          <div className="editTitle">Water Heater Edit page</div>
+          <div className="editTitle">Water Heater Details</div>
           <form onSubmit={this.editwaHeater}>
             <div className="editBox">
               <div className="helpContainer">
@@ -262,8 +262,8 @@ class EditWaHeater extends Component {
                 </div>
               </div>
               <div className="inputContainer">
-                <button type="submit" className="btn">Edit</button>
-                <button className="deleteBtn" onClick={this.deleteMyWaHeater.bind(null, userId)}>Remove</button>
+                <button type="submit" className="btn">SAVE</button>
+                <button className="deleteBtn" onClick={this.deleteMyWaHeater.bind(null, userId)}>DELETE</button>
               </div>
             </div>
           </form>

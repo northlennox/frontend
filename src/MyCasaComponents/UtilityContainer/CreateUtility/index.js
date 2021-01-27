@@ -139,7 +139,7 @@ class CreateUtility extends Component {
       <div>
         <Nav />
         <div className="createContainer">
-          <div className="createTitle">Utility Bills</div>
+          <div className="createTitle">Utility Bills Details</div>
           <form onSubmit={this.handleSubmit}>
             <div className="createBox">
               <div className="helpContainer">

@@ -16,7 +16,7 @@ const SpHeaterBar = (props) => {
 
   return(
     <div className="spHeaterBar">
-      <div className="analysisTitle">Space Heater Efficiency</div>
+      <div className="analysisTitle">Space Heater</div>
       <div className="indicator" style={{marginLeft: `${indicator}%`}}><img src="../../indicator.svg"/></div>
       <div className="barContainer">
         <div className="orange_level"><div className="barText">Gas Baseline</div></div>

@@ -192,7 +192,7 @@ class EditAttic extends Component {
       <div>
         <Nav />
         <div className="editContainer">
-          <div className="editTitle">Attic Insulation Edit</div>
+          <div className="editTitle">Attic Insulation Details</div>
           <form onSubmit={this.editAttic}>
             <div className="editBox">
               <div className="helpContainer">
@@ -217,11 +217,11 @@ class EditAttic extends Component {
               </div>
 
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="atticSqft">ATTIC SQUARE FOOTAGE(GUESS)</label>
+                <label className="inputLabel" htmlFor="atticSqft">ATTIC SQUARE FOOTAGE (GUESS)</label>
                 <input name="atticSqft" id="atticSqft" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticSqft} />
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="atticDepth">ESTIMATED AVERAGE DEPTH(INCHES)*</label>
+                <label className="inputLabel" htmlFor="atticDepth">ESTIMATED AVERAGE DEPTH (INCHES)*</label>
                 <select className="selectInput" name="atticDepth" id="atticDepth" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticDepth}>
                   {atticDepthOptions.map(atticDepthOption => {
                       return <option value={atticDepthOption} key={atticDepthOption} >{atticDepthOption}</option>
