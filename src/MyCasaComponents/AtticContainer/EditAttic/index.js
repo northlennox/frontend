@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
 // import Moment from 'react-moment';
-import Nav from '../../../Nav'
+import Nav from '../../../Nav';
+import ReactTooltip from "react-tooltip";
 
 
 class EditAttic extends Component {
@@ -197,7 +198,11 @@ class EditAttic extends Component {
             <div className="editBox">
               <div className="helpContainer">
                 <span className="inputLabel">PHOTO</span>
-                <img className="help" src="./../../help.svg"/>
+                <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
+                <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
+                  <img className="sampleImg" src="./../../Images/atticSample.png"/>
+                  <div className="sampleText">Use your flash to take a photo of your attic space, making sure to capture the depth of existing insulation.</div>
+                </ReactTooltip>
               </div>
               <div className="frames">
                 <img className="imgAttached"
@@ -209,7 +214,7 @@ class EditAttic extends Component {
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="atticType">PRIMARY ATTIC TYPE</label>
-                <select className="selectInput" name="atticType" id="atticType" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticType}>
+                <select className="selectInput" name="atticType" id="atticType" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticType} required>
                   {atticTypeOptions.map(atticTypeOption => {
                       return <option value={atticTypeOption} key={atticTypeOption} >{atticTypeOption}</option>
                     })}
@@ -222,7 +227,7 @@ class EditAttic extends Component {
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="atticDepth">ESTIMATED AVERAGE DEPTH (INCHES)*</label>
-                <select className="selectInput" name="atticDepth" id="atticDepth" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticDepth}>
+                <select className="selectInput" name="atticDepth" id="atticDepth" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticDepth} required>
                   {atticDepthOptions.map(atticDepthOption => {
                       return <option value={atticDepthOption} key={atticDepthOption} >{atticDepthOption}</option>
                     })}
@@ -230,7 +235,7 @@ class EditAttic extends Component {
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="insulMaterial">INSULATION MATERIAL</label>
-                <select className="selectInput" name="insulMaterial" id="insulMaterial" type="text" onChange={this.handleEditFormInput} value={this.state.attic.insulMaterial}>
+                <select className="selectInput" name="insulMaterial" id="insulMaterial" type="text" onChange={this.handleEditFormInput} value={this.state.attic.insulMaterial} required>
                   {insulMaterialOptions.map(insulMaterialOption => {
                     return <option value={insulMaterialOption} key={insulMaterialOption} >{insulMaterialOption}</option>
                   })}

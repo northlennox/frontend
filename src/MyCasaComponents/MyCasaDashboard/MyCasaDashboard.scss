@@ -194,6 +194,27 @@
       height: 16px;
       margin-left: 8px;
     }
+    .tooltipContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+      width: 450px;
+      height: 330px;
+      padding: 1%;
+      .sampleImg {
+        border-radius: 10px;
+        height: 280px;
+      }
+      .sampleText {
+        color: black;
+        margin-top: 5%;
+        margin-bottom: 5%;
+      }
+    }
   }
   .inputContainer {
     display: flex;
@@ -259,6 +280,27 @@
       width: 16px;
       height: 16px;
       margin-left: 8px;
+    }
+    .tooltipContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+      width: 450px;
+      height: 330px;
+      padding: 1%;
+      .sampleImg {
+        // border-radius: 10px;
+        height: 280px;
+      }
+      .sampleText {
+        color: black;
+        margin-top: 5%;
+        margin-bottom: 5%;
+      }
     }
   }
   .inputContainer {

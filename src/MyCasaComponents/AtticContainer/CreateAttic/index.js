@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
 // import Moment from 'react-moment';
-import Nav from '../../../Nav'
+import Nav from '../../../Nav';
+import ReactTooltip from "react-tooltip";
 
 
 class CreateAttic extends Component {
@@ -99,6 +100,7 @@ class CreateAttic extends Component {
 
     addAttic = async(updatedHouse) => {
         const data = new FormData();
+
         for(let i = 0; i < this.state.attic.atticImg.length; i++){
             data.append('atticImg', this.state.attic.atticImg[i]);
         }
@@ -142,15 +144,20 @@ class CreateAttic extends Component {
             <div className="createBox">
               <div className="helpContainer">
                 <span className="inputLabel">PHOTO</span>
-                <img className="help" src="./../../help.svg"/>
+                <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
+                <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
+                  <img className="sampleImg" src="./../../Images/atticSample.png"/>
+                  <div className="sampleText">Use your flash to take a photo of your attic space, making sure to capture the depth of existing insulation.</div>
+                </ReactTooltip>
               </div>
+
               <div className="frames">
                 <img className={this.state.preview1 ? "imgAttached" : "placer"}  id="photoOne" src={this.state.preview1 ? this.state.preview1 :  upload}  onClick={this.handleClick } />
                 <input className="fileUpload" name="photoOne" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="atticType">PRIMARY ATTIC TYPE</label>
-                <select className="selectInput" name="atticType" id="atticType" type="text" onChange={this.handleInput} value={this.state.attic.atticType}>
+                <select className="selectInput" name="atticType" id="atticType" type="text" onChange={this.handleInput} value={this.state.attic.atticType} required>
                   {atticTypeOptions.map(atticTypeOption => {
                       return <option value={atticTypeOption} key={atticTypeOption} >{atticTypeOption}</option>
                   })}
@@ -158,11 +165,11 @@ class CreateAttic extends Component {
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="atticSqft">ATTIC SQUARE FOOTAGE(GUESS)</label>
-                <input name="atticSqft" id="atticSqft" type="text" onChange={this.handleInput} value={this.state.attic.atticSqft} />
+                <input name="atticSqft" id="atticSqft" type="text" onChange={this.handleInput} value={this.state.attic.atticSqft} required/>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="atticDepth">ESTIMATED AVERAGE DEPTH(INCHES)*</label>
-                <select className="selectInput" name="atticDepth" id="atticDepth" type="text" onChange={this.handleInput} value={this.state.attic.atticDepth}>
+                <select className="selectInput" name="atticDepth" id="atticDepth" type="text" onChange={this.handleInput} value={this.state.attic.atticDepth} required>
                   {atticDepthOptions.map(atticDepthOption => {
                       return <option value={atticDepthOption} key={atticDepthOption} >{atticDepthOption}</option>
                   })}
@@ -170,7 +177,7 @@ class CreateAttic extends Component {
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="insulMaterial">INSULATION MATERIAL</label>
-                <select className="selectInput" name="insulMaterial" id="insulMaterial" type="text" onChange={this.handleInput} value={this.state.attic.insulMaterial}>
+                <select className="selectInput" name="insulMaterial" id="insulMaterial" type="text" onChange={this.handleInput} value={this.state.attic.insulMaterial} required>
                   {insulMaterialOptions.map(insulMaterialOption => {
                     return <option value={insulMaterialOption} key={insulMaterialOption} >{insulMaterialOption}</option>
                   })}

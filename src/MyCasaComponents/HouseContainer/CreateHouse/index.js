@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
 // import Moment from 'react-moment';
-import Nav from '../../../Nav'
+import Nav from '../../../Nav';
+import ReactTooltip from "react-tooltip";
 
 
 class HouseContainer extends Component {
@@ -193,7 +194,12 @@ class HouseContainer extends Component {
             <div className="createBox">
               <div className="helpContainer">
                 <span className="inputLabel">PHOTO</span>
-                <img className="help" src="./../../help.svg"/>
+                <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
+                <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
+                  <img className="sampleImg" src="./../../Images/houseSample.jpg"/>
+                  <div className="sampleText">Take a photo of the front of your house.</div>
+                </ReactTooltip>
+
               </div>
               <div className="frames">
                 <img id="photoOne" className={this.state.preview1 ? "imgAttached" : "placer"} src={this.state.preview1 ? this.state.preview1 :  upload} onClick={this.handleClick} />

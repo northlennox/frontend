@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../Nav';
 import { Link } from 'react-router-dom';
 import Exam from './Exam';
-import ProjectPlan from './ProjectPlan';
+// import ProjectPlan from './ProjectPlan';
 import './MyProject.scss';
 
 
@@ -321,7 +321,7 @@ class MyProjectComponent extends Component {
       if(this.state.roof.pvSystem === "Yes"){
         solar = 1;
       }
-      
+
       console.log('total', this.state.waGrade.waGradeNumber, this.state.spGrade.spGradeNumber, total);
       if(total < 4 ){
         carbonFootScore = 'D';

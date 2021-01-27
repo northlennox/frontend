@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../../../Nav';
-import axios from 'axios'
+import axios from 'axios';
+import ReactTooltip from "react-tooltip";
 
 
 class EditHouse extends Component {
@@ -282,7 +283,11 @@ class EditHouse extends Component {
             <div className="editBox">
               <div className="helpContainer">
                 <span className="inputLabel">PHOTO</span>
-                <img className="help" src="./../../help.svg"/>
+                <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
+                <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
+                  <img className="sampleImg" src="./../../Images/HouseSample.jpg"/>
+                  <div className="sampleText">Take a photo of the front of your house.</div>
+                </ReactTooltip>
               </div>
               <div className="frames">
                 <img id="photoOne"

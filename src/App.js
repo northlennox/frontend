@@ -9,7 +9,7 @@ import Register from './RegisterLoginContainer/Register.js';
 import HomeContainer from './HomeContainer';
 import MyCasaDashboard from './MyCasaComponents/MyCasaDashboard';
 import MyProjectComponent from './MyProjectComponents';
-import ProjectPlan from './MyProjectComponents/ProjectPlan';
+// import ProjectPlan from './MyProjectComponents/ProjectPlan';
 import MyAccountContainer from './MyAccountComponents/MyAccountContainer';
 import EditMyAccount from './MyAccountComponents/EditMyAccount';
 import ViewTermsOfUse from './MyAccountComponents/ViewTermsOfUse';
@@ -98,10 +98,11 @@ const App = (props) => {
 
         //MyProject
         <Route exact path="/MyProject/:id" component = { MyProjectComponent } />
-        <Route exact path="/MyProject/:id/plan" component = { ProjectPlan} />
+
       </Switch>
     </main>
   )
 }
 
 export default withRouter(App);
+// <Route exact path="/MyProject/:id/plan" component = { ProjectPlan} />
