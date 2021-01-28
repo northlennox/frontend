@@ -6,6 +6,7 @@ import Nav from '../../../Nav';
 import ReactTooltip from "react-tooltip";
 
 
+
 class HouseContainer extends Component {
   constructor(){
     super()
@@ -183,6 +184,250 @@ class HouseContainer extends Component {
       'Wyoming',
     ]
 
+
+    let statesObj = [
+    {
+        "name": "None",
+        "abbreviation": ""
+    },
+    {
+        "name": "Alabama",
+        "abbreviation": "AL"
+    },
+    {
+        "name": "Alaska",
+        "abbreviation": "AK"
+    },
+    {
+        "name": "American Samoa",
+        "abbreviation": "AS"
+    },
+    {
+        "name": "Arizona",
+        "abbreviation": "AZ"
+    },
+    {
+        "name": "Arkansas",
+        "abbreviation": "AR"
+    },
+    {
+        "name": "California",
+        "abbreviation": "CA"
+    },
+    {
+        "name": "Colorado",
+        "abbreviation": "CO"
+    },
+    {
+        "name": "Connecticut",
+        "abbreviation": "CT"
+    },
+    {
+        "name": "Delaware",
+        "abbreviation": "DE"
+    },
+    {
+        "name": "District Of Columbia",
+        "abbreviation": "DC"
+    },
+    {
+        "name": "Federated States Of Micronesia",
+        "abbreviation": "FM"
+    },
+    {
+        "name": "Florida",
+        "abbreviation": "FL"
+    },
+    {
+        "name": "Georgia",
+        "abbreviation": "GA"
+    },
+    {
+        "name": "Guam",
+        "abbreviation": "GU"
+    },
+    {
+        "name": "Hawaii",
+        "abbreviation": "HI"
+    },
+    {
+        "name": "Idaho",
+        "abbreviation": "ID"
+    },
+    {
+        "name": "Illinois",
+        "abbreviation": "IL"
+    },
+    {
+        "name": "Indiana",
+        "abbreviation": "IN"
+    },
+    {
+        "name": "Iowa",
+        "abbreviation": "IA"
+    },
+    {
+        "name": "Kansas",
+        "abbreviation": "KS"
+    },
+    {
+        "name": "Kentucky",
+        "abbreviation": "KY"
+    },
+    {
+        "name": "Louisiana",
+        "abbreviation": "LA"
+    },
+    {
+        "name": "Maine",
+        "abbreviation": "ME"
+    },
+    {
+        "name": "Marshall Islands",
+        "abbreviation": "MH"
+    },
+    {
+        "name": "Maryland",
+        "abbreviation": "MD"
+    },
+    {
+        "name": "Massachusetts",
+        "abbreviation": "MA"
+    },
+    {
+        "name": "Michigan",
+        "abbreviation": "MI"
+    },
+    {
+        "name": "Minnesota",
+        "abbreviation": "MN"
+    },
+    {
+        "name": "Mississippi",
+        "abbreviation": "MS"
+    },
+    {
+        "name": "Missouri",
+        "abbreviation": "MO"
+    },
+    {
+        "name": "Montana",
+        "abbreviation": "MT"
+    },
+    {
+        "name": "Nebraska",
+        "abbreviation": "NE"
+    },
+    {
+        "name": "Nevada",
+        "abbreviation": "NV"
+    },
+    {
+        "name": "New Hampshire",
+        "abbreviation": "NH"
+    },
+    {
+        "name": "New Jersey",
+        "abbreviation": "NJ"
+    },
+    {
+        "name": "New Mexico",
+        "abbreviation": "NM"
+    },
+    {
+        "name": "New York",
+        "abbreviation": "NY"
+    },
+    {
+        "name": "North Carolina",
+        "abbreviation": "NC"
+    },
+    {
+        "name": "North Dakota",
+        "abbreviation": "ND"
+    },
+    {
+        "name": "Northern Mariana Islands",
+        "abbreviation": "MP"
+    },
+    {
+        "name": "Ohio",
+        "abbreviation": "OH"
+    },
+    {
+        "name": "Oklahoma",
+        "abbreviation": "OK"
+    },
+    {
+        "name": "Oregon",
+        "abbreviation": "OR"
+    },
+    {
+        "name": "Palau",
+        "abbreviation": "PW"
+    },
+    {
+        "name": "Pennsylvania",
+        "abbreviation": "PA"
+    },
+    {
+        "name": "Puerto Rico",
+        "abbreviation": "PR"
+    },
+    {
+        "name": "Rhode Island",
+        "abbreviation": "RI"
+    },
+    {
+        "name": "South Carolina",
+        "abbreviation": "SC"
+    },
+    {
+        "name": "South Dakota",
+        "abbreviation": "SD"
+    },
+    {
+        "name": "Tennessee",
+        "abbreviation": "TN"
+    },
+    {
+        "name": "Texas",
+        "abbreviation": "TX"
+    },
+    {
+        "name": "Utah",
+        "abbreviation": "UT"
+    },
+    {
+        "name": "Vermont",
+        "abbreviation": "VT"
+    },
+    {
+        "name": "Virgin Islands",
+        "abbreviation": "VI"
+    },
+    {
+        "name": "Virginia",
+        "abbreviation": "VA"
+    },
+    {
+        "name": "Washington",
+        "abbreviation": "WA"
+    },
+    {
+        "name": "West Virginia",
+        "abbreviation": "WV"
+    },
+    {
+        "name": "Wisconsin",
+        "abbreviation": "WI"
+    },
+    {
+        "name": "Wyoming",
+        "abbreviation": "WY"
+    }
+]
+
     let upload = "./../../../upload.svg"
     return(
 
@@ -203,33 +448,33 @@ class HouseContainer extends Component {
               </div>
               <div className="frames">
                 <img id="photoOne" className={this.state.preview1 ? "imgAttached" : "placer"} src={this.state.preview1 ? this.state.preview1 :  upload} onClick={this.handleClick} />
-                <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
+                <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file" required />
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="address">ADDRESS</label>
-                <input name="address" id="address" type="text" onChange={this.handleInput} value={this.state.house.address} />
+                <label className="inputLabel" htmlFor="address">ADDRESS*</label>
+                <input name="address" id="address" type="text" onChange={this.handleInput} value={this.state.house.address} required />
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="city">CITY</label>
-                <input name="city" id="city" type="text" onChange={this.handleInput} value={this.state.house.city} />
+                <label className="inputLabel" htmlFor="city">CITY*</label>
+                <input name="city" id="city" type="text" onChange={this.handleInput} value={this.state.house.city} required />
               </div>
               <div className="inputRow">
                 <div className="inputItem">
-                  <label className="inputLabel" htmlFor="state">STATE</label>
-                  <select className="selectInput" name="state" id="state" type="text" onChange={this.handleInput} value={this.state.house.state}>
-                    {states.map(st => {
-                        return <option value={st} key={st} >{st}</option>
+                  <label className="inputLabel" htmlFor="state">STATE*</label>
+                  <select className="selectInput" name="state" id="state" type="text" onChange={this.handleInput} value={this.state.house.state} required>
+                    {statesObj.map(st => {
+                        return <option value={st.abbreviation} key={st}>{st.name}</option>
                     })}
                   </select>
                 </div>
                 <div className="inputItem">
-                  <label className="inputLabel" htmlFor="zipcode">ZIP CODE</label>
-                  <input name="zipcode" id="zipcode" type="text" onChange={this.handleInput} value={this.state.house.zipcode}  />
+                  <label className="inputLabel" htmlFor="zipcode">ZIP CODE*</label>
+                  <input name="zipcode" id="zipcode" type="text" onChange={this.handleInput} value={this.state.house.zipcode} required />
                 </div>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="houseYear">YEAR BUILT</label>
-                <input name="houseYear" id="houseYear" type="text" onChange={this.handleInput} value={this.state.house.houseYear}  />
+                <input name="houseYear" id="houseYear" type="text" onChange={this.handleInput} value={this.state.house.houseYear} required />
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="houseSqft">SQUARE FEET</label>
