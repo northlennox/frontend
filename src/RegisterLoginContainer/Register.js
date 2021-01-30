@@ -42,7 +42,7 @@ class RegisterLoginContainer extends Component {
         }
       })
     }else{
-      console.log('It is bad password')
+
       this.setState({
         register: updatedRegister
       })
@@ -84,7 +84,7 @@ class RegisterLoginContainer extends Component {
     this.props.history.push('/home')
 
     }catch(err){
-      console.log('fetchRegister function is fail/post request is failed')
+      alert('This email address has been taken. Do you already have an account?')
     }
   }
 

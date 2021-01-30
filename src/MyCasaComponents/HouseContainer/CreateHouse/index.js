@@ -119,6 +119,7 @@ class HouseContainer extends Component {
         const time = new Date();
         data.append('postingTime', time)
 
+        console.log('here is', data)
         axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
           headers: {
             'content-type': 'multipart/form-data'
@@ -127,64 +128,13 @@ class HouseContainer extends Component {
         .then(res => {
           this.props.history.push('/mycasa/' + userId);
         })
+        .catch(err => {
+          console.log('this is err')
+        })
     }
 
 
   render(){
-    const states = [
-      'Alabama',
-      'Alaska',
-      'Arizona',
-      'Arkansas',
-      'California',
-      'Colorado',
-      'Connecticut',
-      'Delaware',
-      'Florida',
-      'Georgia',
-      'Hawaii',
-      'Idaho',
-      'Illinois',
-      'Indiana',
-      'Iowa',
-      'Kansas',
-      'Kentucky',
-      'Louisiana',
-      'Maine',
-      'Maryland',
-      'Massachusetts',
-      'Michigan',
-      'Minnesota',
-      'Mississippi',
-      'Missouri',
-      'Montana',
-      'Nebraska',
-      'Nevada',
-      'New Hampshire',
-      'New Jersey',
-      'New Mexico',
-      'New York',
-      'North Carolina',
-      'North Dakota',
-      'Ohio',
-      'Oklahoma',
-      'Oregon',
-      'Pennsylvania',
-      'Rhode Island',
-      'South Carolina',
-      'South Dakota',
-      'Tennessee',
-      'Texas',
-      'Utah',
-      'Vermont',
-      'Virginia',
-      'Washington',
-      'West Virginia',
-      'Wisconsin',
-      'Wyoming',
-    ]
-
-
     let statesObj = [
     {
         "name": "None",
@@ -469,7 +419,7 @@ class HouseContainer extends Component {
                 </div>
                 <div className="inputItem">
                   <label className="inputLabel" htmlFor="zipcode">ZIP CODE*</label>
-                  <input name="zipcode" id="zipcode" type="text" onChange={this.handleInput} value={this.state.house.zipcode} required />
+                  <input name="zipcode" id="zipcode" type="text" type="text" inputmode="numeric" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$" onChange={this.handleInput} value={this.state.house.zipcode} required />
                 </div>
               </div>
               <div className="inputContainer">
@@ -478,7 +428,7 @@ class HouseContainer extends Component {
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="houseSqft">SQUARE FEET</label>
-                <input name="houseSqft" id="houseSqft" type="text" onChange={this.handleInput} value={this.state.house.houseSqft}  />
+                <input name="houseSqft" id="houseSqft" type="number" onChange={this.handleInput} value={this.state.house.houseSqft}  />
               </div>
               <div className="inputContainer">
                 <button type="submit" className="btn">SAVE</button>

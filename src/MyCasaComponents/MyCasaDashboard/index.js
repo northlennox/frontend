@@ -38,7 +38,6 @@ class MyCasaDashboard extends Component {
 
 
     getHouseInfo = async() => {
-      console.log('jj');
       // const userId = window.location.pathname.split('/')[2];
       const userId = sessionStorage.getItem('userId')
 
@@ -46,15 +45,13 @@ class MyCasaDashboard extends Component {
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
           credentials: 'include'
         })
-        console.log(response);
+
 
         if(!response.ok){
           throw Error(response.statusText)
         }
 
         const userParsed = await response.json();
-
-        console.log('userParsed', userParsed);
 
         this.setState({
             house: userParsed.house,
@@ -226,7 +223,7 @@ class MyCasaDashboard extends Component {
 
   render(){
       const userId = sessionStorage.userId;
-      console.log('hihi', this.state.house);
+
     return(
       <>
         <Nav />

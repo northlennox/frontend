@@ -8,15 +8,6 @@ class RegisterLoginContainer extends Component {
     super()
 
     this.state = {
-      register: {
-        email: '',
-        password: '',
-        firstName: '',
-        lastName: '',
-        phNumber: '',
-        emailNotice: '',
-        mobileNotice: ''
-      },
       login : {
         email: '',
         password: '',
@@ -25,79 +16,6 @@ class RegisterLoginContainer extends Component {
     }
   }
 
-
-  handleRegisterSubmit = (e) => {
-    e.preventDefault();
-    const updatedRegister = {
-      ...this.state.register
-    }
-
-    //add regex later!
-    const regex =  true;
-
-    if(regex){
-      this.fetchRegister(updatedRegister)
-      this.setState({
-        register: {
-          email: '',
-          password: '',
-          firstName: '',
-          lastName: '',
-          phNumber: '',
-          emailNotice: '',
-          mobileNotice: ''
-        }
-      })
-    }else{
-      console.log('It is bad password')
-      this.setState({
-        register: updatedRegister
-      })
-    }
-  }
-
-  handleRegisterChange = (e) => {
-    const updatedChange = {
-      ...this.state.register
-    }
-    updatedChange[e.target.name] = e.target.value;
-
-    this.setState({
-      register: updatedChange
-    })
-  }
-
-
-  fetchRegister = async(updatedRegister) => {
-
-    try{
-      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth`, {
-        method: 'POST',
-        credentials: 'include',
-        body: JSON.stringify(updatedRegister),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-
-    if(!response.ok){
-      throw Error(response.statusText)
-    }
-
-    const parsedResponse = await response.json();
-
-    sessionStorage.setItem('userId', parsedResponse.userId);
-
-    this.props.history.push('/home')
-
-    }catch(err){
-      console.log('fetchRegister function is fail/post request is failed')
-    }
-  }
-
-
-
-//------------------- LOG IN---------------------------
 
 handleLoginSubmit = (e) => {
   e.preventDefault();
@@ -147,12 +65,10 @@ fetchLogin = async(updatedLogin) => {
       this.props.history.push('/home');
 
     }else{
-      alert('login fail')
+      alert('Incorrect email or password.')
     }
   }catch(err){
-    alert('login fail2')
-    console.log(err)
-
+    alert('Incorrect email or password.')
   }
 }
 
@@ -176,7 +92,7 @@ fetchLogin = async(updatedLogin) => {
           <form onSubmit={this.handleLoginSubmit}>
             <div className="formContainer">
               <label style={{marginBottom: "6px", fontSize: "14px"}}>EMAIL</label>
-              <input className="loginInput" type="text" name="email" onChange={this.handleLoginChange} placeholder="Email" />
+              <input className="loginInput" type="email" name="email" onChange={this.handleLoginChange} placeholder="Email" />
               <label style={{marginBottom: "6px", fontSize: "14px"}}>PASSWORD</label>
               <input className="loginInput" type="password" name="password" onChange={this.handleLoginChange} placeholder="Password"/>
               <button className="btn" type="submit">LOGIN</button>
