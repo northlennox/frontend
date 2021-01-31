@@ -220,13 +220,20 @@ class EditAttic extends Component {
                     })}
                 </select>
               </div>
-
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="atticSqft">ATTIC SQUARE FOOTAGE (GUESS)</label>
                 <input name="atticSqft" id="atticSqft" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticSqft} />
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="atticDepth">ESTIMATED AVERAGE DEPTH (INCHES)*</label>
+                <label className="inputLabel" htmlFor="atticDepth">
+                  ESTIMATED AVERAGE DEPTH (INCHES)*
+                  <span className="tipContainer">
+                    <img data-tip data-for="tip" className="help" src="./../../help.svg"/>
+                    <ReactTooltip id="tip" place="bottom" effect="solid" className="tip">
+                      <div className="tipText">Use your flash to take a photo of your attic space, making sure to capture the depth of existing insulation.</div>
+                    </ReactTooltip>
+                  </span>
+                </label>
                 <select className="selectInput" name="atticDepth" id="atticDepth" type="text" onChange={this.handleEditFormInput} value={this.state.attic.atticDepth} required>
                   {atticDepthOptions.map(atticDepthOption => {
                       return <option value={atticDepthOption} key={atticDepthOption} >{atticDepthOption}</option>

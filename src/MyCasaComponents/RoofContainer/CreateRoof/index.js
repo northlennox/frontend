@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios'
 // import Moment from 'react-moment';
 import Nav from '../../../Nav'
+import ReactTooltip from "react-tooltip";
 
 
 class CreateAttic extends Component {
@@ -140,7 +141,11 @@ class CreateAttic extends Component {
             <div className="createBox">
               <div className="helpContainer">
                 <span className="inputLabel">PHOTO</span>
-                <img className="help" src="./../../help.svg"/>
+                <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
+                <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
+                  <img className="sampleImg" src="./../../Images/RoofSample.jpg"/>
+                  <div className="sampleText">Take a photo of your roof, capturing the roofing material and any Solar (PV) panels.</div>
+                </ReactTooltip>
               </div>
             <div className="frames">
               <img className={this.state.preview1 ? "imgAttached" : "placer"} id="photoOne" src={this.state.preview1 ? this.state.preview1 :  upload} onClick={this.handleClick } />

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
 // import Moment from 'react-moment';
-import Nav from '../../../Nav'
+import Nav from '../../../Nav';
+import ReactTooltip from "react-tooltip";
 
 
 class EditSpHeater extends Component {

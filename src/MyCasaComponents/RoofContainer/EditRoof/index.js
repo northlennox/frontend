@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
 // import Moment from 'react-moment';
-import Nav from '../../../Nav'
+import Nav from '../../../Nav';
+import ReactTooltip from "react-tooltip";
 
 
 class EditRoof extends Component {
@@ -199,7 +200,11 @@ class EditRoof extends Component {
             <div className="editBox">
               <div className="helpContainer">
                 <span className="inputLabel">PHOTO</span>
-                <img className="help" src="./../../help.svg"/>
+                <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
+                <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
+                  <img className="sampleImg" src="./../../Images/RoofSample.jpg"/>
+                  <div className="sampleText">Take a photo of your roof, capturing the roofing material and any Solar (PV) panels.</div>
+                </ReactTooltip>
               </div>
               <div className="frames">
                 <img id="photoOne"
@@ -234,11 +239,11 @@ class EditRoof extends Component {
                 </div>
                 <div className="inputContainer">
                   <label className="inputLabel" htmlFor="panels">NUMBER OF PANELS</label>
-                  <input name="panels" id="panels" type="text" onChange={this.handleEditFormInput} value={this.state.roof.panels} />
+                  <input name="panels" id="panels" type="number" onChange={this.handleEditFormInput} value={this.state.roof.panels} />
                 </div>
                 <div className="inputContainer">
                   <label className="inputLabel" htmlFor="dcCapacity">SIZE (KW)</label>
-                  <input name="dcCapacity" id="dcCapacity" type="text" onChange={this.handleEditFormInput} value={this.state.roof.dcCapacity} />
+                  <input name="dcCapacity" id="dcCapacity" type="number" onChange={this.handleEditFormInput} value={this.state.roof.dcCapacity} />
                 </div>
                 <div className="inputContainer">
                   <button type="submit" className="btn">SAVE</button>

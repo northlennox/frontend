@@ -188,11 +188,12 @@
   }
   .helpContainer {
     display: flex;
-    align-items: baseline;
+    flex-direction: row;
+    align-items: center;
     .help {
-      width: 16px;
-      height: 16px;
-      margin-left: 8px;
+      width: 18px;
+      height: 18px;
+      margin-left: 6px;
     }
     .tooltipContainer {
       display: flex;
@@ -255,7 +256,33 @@
 .inputLabel {
   font-size: 17px;
   font-weight: 400;
-  margin-bottom: 8px;
+  display: flex;
+  .tipContainer {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    .help {
+      width: 16px;
+      height: 16px;
+    }
+    .tip {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+      width: 450px;
+      height: 90px;
+      padding: 1px;
+      .tipText {
+        color: black;
+        width: 90%;
+        height: 20%;
+        text-align: center;
+      }
+    }
+  }
 }
 
 .editContainer {
