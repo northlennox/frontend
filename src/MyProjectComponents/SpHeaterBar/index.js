@@ -24,7 +24,7 @@ const SpHeaterBar = (props) => {
         <div className="green_level"><div className="barText">Best</div></div>
       </div>
       <div className="inches">
-        <div className="orangeIn h5">Gas Purnace</div>
+        <div className="orangeIn h5">Gas Furnace</div>
         <div className="yellowIn h5">Heat Pump</div>
         <div className="greenIn h5">Mini-Split Heat Pump</div>
       </div>

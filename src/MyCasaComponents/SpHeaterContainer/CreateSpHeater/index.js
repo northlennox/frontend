@@ -150,14 +150,25 @@ class CreateSpHeater extends Component {
             <div className="createBox">
               <div className="helpContainer">
                 <span className="inputLabel">PHOTO</span>
-                <img className="help" src="./../../help.svg"/>
+                <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
+                <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
+                  <img className="sampleImg" src="./../../Images/WaHeaterSample.png"/>
+                  <div className="sampleText">Use your flash if needed to take a photo of your space heater, making sure to capture the serial number.</div>
+                </ReactTooltip>
               </div>
               <div className="frames">
                 <img className={this.state.preview1 ? "imgAttached" : "placer"}  id="photoOne" src={this.state.preview1 ? this.state.preview1 :  upload} onClick={this.handleClick } />
                 <input name="photoOne" className="fileUpload" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               </div>
                <div className="inputContainer">
-                <label className="inputLabel" htmlFor="spHeaterType">TYPE OF SPACE HEATER*</label>
+                <label className="inputLabel" htmlFor="spHeaterType">TYPE OF SPACE HEATER*
+                  <span className="tipContainer">
+                    <img data-tip data-for="spHeaterType" className="help" src="./../../help.svg"/>
+                    <ReactTooltip id="spHeaterType" place="bottom" effect="solid" className="tip">
+                      <div className="tipText">Email help@myelectricasa.com if you can’t determine what type of equipment you have.</div>
+                    </ReactTooltip>
+                  </span>
+                </label>
                 <select className="selectInput" name="spHeaterType" id="spHeaterType" type="text" onChange={this.handleInput} value={this.state.spHeater.spHeaterType}>
                   {spHeaterTypeOptions.map(spHeaterTypeOption => {
                       return <option value={spHeaterTypeOption} key={spHeaterTypeOption} >{spHeaterTypeOption}</option>
@@ -169,7 +180,14 @@ class CreateSpHeater extends Component {
                 <input name="spHeaterBrand" id="spHeaterBrand" type="text" onChange={this.handleInput} value={this.state.spHeater.spHeaterBrand} />
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="spHeaterYear">YEAR OF MANUFACTURE*</label>
+                <label className="inputLabel" htmlFor="spHeaterYear">YEAR OF MANUFACTURE*
+                  <span className="tipContainer">
+                    <img data-tip data-for="spHeaterYear" className="help" src="./../../help.svg"/>
+                    <ReactTooltip id="spHeaterYear" place="bottom" effect="solid" className="tip">
+                      <div className="tipText">Sometimes the year can be found on the device. If not, and you can read the serial number, you can look it up by visiting the website https://www.building-center.org/. For help, please email help@myelectricasa.com.</div>
+                    </ReactTooltip>
+                  </span>
+                </label>
                 <select className="selectInput" name="spHeaterYear" id="spHeaterYear" type="text" onChange={this.handleInput} value={this.state.spHeater.spHeaterYear}>
                   {spHeaterYearOptions.map(spHeaterYearOption => {
                       return <option value={spHeaterYearOption} key={spHeaterYearOption} >{spHeaterYearOption}</option>
@@ -177,10 +195,17 @@ class CreateSpHeater extends Component {
                 </select>
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="spHeaterCondition">IS THE SYSTEM WORKING WELL?</label>
+                <label className="inputLabel" htmlFor="spHeaterCondition">IS THE SYSTEM WORKING WELL?*
+                  <span className="tipContainer">
+                    <img data-tip data-for="spHeaterCondition" className="help" src="./../../help.svg"/>
+                    <ReactTooltip id="spHeaterCondition" place="bottom" effect="solid" className="tip">
+                      <div className="tipText">If your space heater is working well, it provides enough heat to keep your house at a comfortable temperature. If your space heater is not working, there will be cold areas in the house, unusual noises or smells.</div>
+                    </ReactTooltip>
+                  </span>
+                </label>
                 <div id="spHeaterCondition" >
-                  <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "Yes"} value="Yes" onChange={this.handleInput}/><span className="radioNext">YES</span>
-                  <input className="radioInput-right" name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "No"} value="No" onChange={this.handleInput}/><span className="radioNext">NO</span>
+                  <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "Yes"} value="Yes" onChange={this.handleInput} defaultChecked/><span className="radioNext">YES</span>
+                  <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "No"} value="No" onChange={this.handleInput} className="radioInput-right" /><span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
