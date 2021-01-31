@@ -230,7 +230,7 @@ class EditAttic extends Component {
                   <span className="tipContainer">
                     <img data-tip data-for="tip" className="help" src="./../../help.svg"/>
                     <ReactTooltip id="tip" place="bottom" effect="solid" className="tip">
-                      <div className="tipText">Use your flash to take a photo of your attic space, making sure to capture the depth of existing insulation.</div>
+                      <div className="tipText">Use a tape measure to determine the thickness of the insulation material between the roof and the attic floor. Insulation should be full and continuous across the surface to be effective. If there are gaps, or a mix of low and high materials, enter the lower number in the range. For questions, email help@myelectricasa.com.</div>
                     </ReactTooltip>
                   </span>
                 </label>

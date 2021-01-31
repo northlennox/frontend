@@ -207,11 +207,11 @@ class MyProjectComponent extends Component {
 
         if(spHeaterAge < 10){
           spGradeLetter = "C"
-          spGradeNumber = 2
+          // spGradeNumber = 2
           spGradeColor = '#FA910B';
         }else{
           spGradeLetter = "D"
-          spGradeNumber = 1
+          // spGradeNumber = 1
           spGradeColor = '#D22E2E';
           // spRecommendation = currentYear;
         }
@@ -221,15 +221,32 @@ class MyProjectComponent extends Component {
 
         if(spHeaterAge > 10){
           spGradeLetter = "A"
-          spGradeNumber = 4
+          // spGradeNumber = 4
           spGradeColor = '#139929';
           // spRecommendation = currentYear;
         }else{
           spGradeLetter = "B"
-          spGradeNumber = 3
+          // spGradeNumber = 3
           spGradeColor = '#FDC825';
         }
       }
+
+
+      if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Oil Furnace" || spHeaterType === "Electric Furnace") {
+
+        if(spHeaterAge < 15){
+          spGradeNumber = 2
+        }else{
+          spGradeNumber = 1
+        }
+      }else{
+        if(spHeaterAge > 15){
+          spGradeNumber = 4
+        }else{
+          spGradeNumber = 3
+        }
+      }
+
 
 
       if(spHeaterCondition === 'No'){
@@ -292,10 +309,10 @@ class MyProjectComponent extends Component {
         atticInsulation = 'Medium';
         atticRecommendation = this.state.spGrade.spRecommendation;
       }else if(10 <= atticDepth && atticDepth <= 15){
-        atticGrade = 'B';
-        atticGradeColor = '#FDC825';
+        atticGrade = 'A';
+        atticGradeColor = '#139929';
         atticInsulation = 'High';
-        atticRecommendation ="-"
+        atticRecommendation = currentYear + 25
       }
 
 
@@ -313,14 +330,22 @@ class MyProjectComponent extends Component {
 
 
     getCarbonFootprint = () => {
+      console.log('ddd',this.state.roof.pvSystem)
+
+      // if(this.state.roof.pvSystem === "Yes"){
+      //   solar = 1;
+      // }else{
+      //   solar = 0;
+      // }
+      console.log('here?');
       let total = this.state.waGrade.waGradeNumber + this.state.spGrade.spGradeNumber;
       let solar = 0;
       let carbonFootScore = '';
       let carbonFootColor='';
 
-      if(this.state.roof.pvSystem === "Yes"){
-        solar = 1;
-      }
+      console.log("-----",solar)
+
+
 
       console.log('total', this.state.waGrade.waGradeNumber, this.state.spGrade.spGradeNumber, total);
       if(total < 4 ){
@@ -333,7 +358,7 @@ class MyProjectComponent extends Component {
         carbonFootScore = 'B';
         carbonFootColor = '#FDC825';
       }else if(total === 8 || total === 9){
-        carbonFootScore = 'B';
+        carbonFootScore = 'A';
         carbonFootColor = '#139929';
       }
 
