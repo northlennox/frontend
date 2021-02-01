@@ -330,24 +330,17 @@ class MyProjectComponent extends Component {
 
 
     getCarbonFootprint = () => {
-      console.log('ddd',this.state.roof.pvSystem)
 
-      // if(this.state.roof.pvSystem === "Yes"){
-      //   solar = 1;
-      // }else{
-      //   solar = 0;
-      // }
-      console.log('here?');
       let total = this.state.waGrade.waGradeNumber + this.state.spGrade.spGradeNumber;
       let solar = 0;
       let carbonFootScore = '';
       let carbonFootColor='';
 
-      console.log("-----",solar)
+      if(this.state.roof.pvSystem === "Yes"){
+        total += 1
+      }
 
-
-
-      console.log('total', this.state.waGrade.waGradeNumber, this.state.spGrade.spGradeNumber, total);
+      // console.log('total', this.state.roof.pvSystem, this.state.waGrade.waGradeNumber, this.state.spGrade.spGradeNumber, total);
       if(total < 4 ){
         carbonFootScore = 'D';
         carbonFootColor = '#D22E2E';

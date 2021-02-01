@@ -237,9 +237,7 @@ class MyCasaDashboard extends Component {
             <div className="items">
               { this.state.house !== null
               ?
-
                <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>
-
               :
 
               <Link to="/mycasa/house/create" className="blankContainer">
