@@ -98,23 +98,23 @@ class RegisterLoginContainer extends Component {
             <div className="formContainer">
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="email">EMAIL</label>
-                <input type="email" name="email" value={this.state.register.email} onChange={this.handleRegisterChange}/>
+                <input type="email" name="email" value={this.state.register.email} onChange={this.handleRegisterChange} required/>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="password">PASSWORD</label>
-                <input type="password" name="password" value={this.state.register.password} onChange={this.handleRegisterChange}/>
+                <input type="password" name="password" value={this.state.register.password} onChange={this.handleRegisterChange} required/>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="firstName">FIRST NAME</label>
-                <input type="text" name="firstName" value={this.state.register.firstName} onChange={this.handleRegisterChange}/>
+                <input type="text" name="firstName" value={this.state.register.firstName} onChange={this.handleRegisterChange} required/>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="lastName">LAST NAME</label>
-                <input type="text" name="lastName" value={this.state.register.lastName} onChange={this.handleRegisterChange}/>
+                <input type="text" name="lastName" value={this.state.register.lastName} onChange={this.handleRegisterChange} required/>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="phNumber">PHONE NUMBER</label>
-                <input type="text" name="phNumber" value={this.state.register.phNumber} onChange={this.handleRegisterChange}/>
+                <input type="text" name="phNumber" value={this.state.register.phNumber} onChange={this.handleRegisterChange} required/>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="emailNotice">EMAIL NOTIFICATION</label>
