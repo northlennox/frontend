@@ -303,12 +303,12 @@ class MyProjectComponent extends Component {
         atticGradeColor = '#FA910B';
         atticInsulation = 'Low';
         atticRecommendation = currentYear
-      }else if(6 <= atticDepth && atticDepth < 10){
+      }else if(6 <= atticDepth && atticDepth <= 10){
         atticGrade = 'B';
         atticGradeColor = '#FDC825';
         atticInsulation = 'Medium';
         atticRecommendation = this.state.spGrade.spRecommendation;
-      }else if(10 <= atticDepth && atticDepth <= 15){
+      }else if(10 < atticDepth && atticDepth <= 15){
         atticGrade = 'A';
         atticGradeColor = '#139929';
         atticInsulation = 'High';

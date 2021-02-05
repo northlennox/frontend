@@ -70,7 +70,7 @@ const Exam = (props) => {
           </div>
         </div>
         <div className="recommendations">
-          <div className="h3">Recommendations</div>
+          <div className="h3">Projects</div>
           <div className="recommendation"><span className="replaceYr h5" style={{border: `solid 2px ${props.atticGradeColor}`}}>{props.atticRecommendation}</span><span className="replaceTitle">Increase Attic Insulation</span></div>
           <div className="recommendation"><span className="replaceYr h5" style={{border: `solid 2px ${props.waGradeColor}`}}>{props.waRecommendation}</span><span className="replaceTitle">Replace Water Heater with Electric Heat Pump</span></div>
           <div className="recommendation"><span className="replaceYr h5" style={{border: `solid 2px ${props.spGradeColor}`}}>{props.spRecommendation}</span><span className="replaceTitle">Replace Space Heater with Electric Heat Pump</span></div>

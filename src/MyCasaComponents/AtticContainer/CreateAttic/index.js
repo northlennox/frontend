@@ -164,12 +164,12 @@ class CreateAttic extends Component {
                 </select>
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="atticSqft">ATTIC SQUARE FOOTAGE(GUESS)</label>
+                <label className="inputLabel" htmlFor="atticSqft">ATTIC SQUARE FOOTAGE (GUESS)</label>
                 <input name="atticSqft" id="atticSqft" type="text" onChange={this.handleInput} value={this.state.attic.atticSqft} required/>
               </div>
               <div className="inputContainer">
                 <label className="inputLabel" htmlFor="atticDepth">
-                  ESTIMATED AVERAGE DEPTH(INCHES)*
+                  ESTIMATED AVERAGE DEPTH (INCHES)*
                   <span className="tipContainer">
                     <img data-tip data-for="tip" className="help" src="./../../help.svg"/>
                     <ReactTooltip id="tip" place="bottom" effect="solid" className="tip">
