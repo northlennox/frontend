@@ -386,7 +386,9 @@ class HouseContainer extends Component {
         houseYearOptions.push(i)
     }
 
-    let upload = "./../../../upload.svg"
+    let helpMark = "./../../help.svg";
+    let upload = "./../../../upload.svg";
+
     return(
 
       <div>
@@ -397,7 +399,7 @@ class HouseContainer extends Component {
             <div className="createBox">
               <div className="helpContainer">
                 <span className="inputLabel">PHOTO</span>
-                <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
+                <img data-tip data-for="helpTip" className="help" src={helpMark}/>
                 <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
                   <img className="sampleImg" src="./../../Images/houseSample.jpg"/>
                   <div className="sampleText">Take a photo of the front of your house.</div>
