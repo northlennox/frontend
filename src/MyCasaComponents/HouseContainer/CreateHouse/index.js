@@ -388,6 +388,7 @@ class HouseContainer extends Component {
 
     let helpMark = "./../../../help.svg";
     let upload = "./../../../upload.svg";
+    let sampleHouseImg = "./../../SampleImages/houseSample.jpg"
 
     return(
 
@@ -401,7 +402,7 @@ class HouseContainer extends Component {
                 <span className="inputLabel">PHOTO</span>
                 <img data-tip data-for="helpTip" className="help" src={helpMark}/>
                 <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
-                  <img className="sampleImg" src="./../../Images/houseSample.jpg"/>
+                  <img className="sampleImg" src={sampleHouseImg}/>
                   <div className="sampleText">Take a photo of the front of your house.</div>
                 </ReactTooltip>
 
