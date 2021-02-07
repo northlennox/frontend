@@ -386,7 +386,7 @@ class HouseContainer extends Component {
         houseYearOptions.push(i)
     }
 
-    let helpMark = "./../../help.svg";
+    let helpMark = "./../../../help.svg";
     let upload = "./../../../upload.svg";
 
     return(
