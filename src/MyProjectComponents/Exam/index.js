@@ -31,11 +31,6 @@ const Exam = (props) => {
             </div>
             <div className="measureContainer">
               <div className="h3">Grades</div>
-              <div className="downloadProject">
-                <a href="../../projects_download.svg" download>
-                  <img src="../../projects_download.svg" />
-                </a>
-              </div>
               <div className="measureRow">
                 <div className="measureItem">
                   <label><div className="h4">Energy Efficiency</div><div className="h4">Rating</div></label>
@@ -44,8 +39,8 @@ const Exam = (props) => {
                 </div>
                 <div className="measureItem">
                   <label><div className="h4">Carbon Footprint</div><div className="h4">Rating</div></label>
-                  <div className="spGradeLetter" style={{color:`${props.spGradeColor}`}}>{props.carbonFootScore}</div>
-                  <GradeGraph spGradeLetter={props.spGradeLetter} />
+                  <div className="spGradeLetter" style={{color:`${props.carbonFootColor}`}}>{props.carbonFootScore}</div>
+                  <GradeGraph spGradeLetter={props.carbonFootScore} />
                 </div>
               </div>
               <div className="gradeRow componentsMark">

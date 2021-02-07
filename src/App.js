@@ -37,7 +37,7 @@ import EditWaHeater from './MyCasaComponents/WaHeaterContainer/EditWaHeater';
 import EditSpHeater from './MyCasaComponents/SpHeaterContainer/EditSpHeater';
 import EditUtility from './MyCasaComponents/UtilityContainer/EditUtility';
 
-
+import AdminContainer from './Admin/AdminHome';
 
 
 const My404 = () => {
@@ -99,6 +99,8 @@ const App = (props) => {
         //MyProject
         <Route exact path="/MyProject/:id" component = { MyProjectComponent } />
 
+        //
+
       </Switch>
     </main>
   )
@@ -106,3 +108,5 @@ const App = (props) => {
 
 export default withRouter(App);
 // <Route exact path="/MyProject/:id/plan" component = { ProjectPlan} />
+
+        // <Route exact path="/admin/home" component = { AdminContainer } />
