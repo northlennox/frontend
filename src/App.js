@@ -69,6 +69,8 @@ const App = (props) => {
         <Route exact path="/myaccount/:id/edit" component = { EditMyAccount } />
         <Route exact path="/agreement" component = { ViewTermsOfUse } />
 
+        <Route exact path="/admin/home" component = { AdminContainer } />
+
         //Elecctrify
         <Route exact path="/home/clothesdrying" component={ ClothesDrying } />
         <Route exact path="/home/cooking" component={ Cooking } />
@@ -109,4 +111,4 @@ const App = (props) => {
 export default withRouter(App);
 // <Route exact path="/MyProject/:id/plan" component = { ProjectPlan} />
 
-        // <Route exact path="/admin/home" component = { AdminContainer } />
+        //

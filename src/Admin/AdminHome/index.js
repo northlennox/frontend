@@ -6,55 +6,41 @@ class AdiminHome extends Component {
   constructor(){
     super()
     this.state = {
-      house: {
-        houseImg: '',
-        address : '',
-        city: '',
-        state: '',
-        zipcode: '',
-        houseYear: '',
-        houseSqft: '',
-      }
+      houses: []
 
     }
   }
 
-  // componentDidMount(){
-  //   this.getHouseInfo()
-  // };
-  //
-  //   getHouseInfo = async() => {
-  //     let userId = sessionStorage.getItem('userId');
-  //     try{
-  //       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/${userId}`, {
-  //         credentials: 'include',
-  //       });
-  //
-  //       if(!response.ok){
-  //         throw Error(response.statusText)
-  //       }
-  //
-  //       const userParsed = await response.json();
-  //
-  //
-  //       this.setState({
-  //         house: {
-  //           houseImg: userParsed.house.houseImg,
-  //           address : userParsed.house.address,
-  //           city: userParsed.house.city,
-  //           state: userParsed.house.state,
-  //           zipcode: userParsed.house.zipcode,
-  //           houseYear: userParsed.house.houseYear,
-  //           houseSqft: userParsed.house.houseSqft,
-  //         }
-  //       })
-  //
-  //       }catch(err){
-  //       return err
-  //     }
-  //   }
-  // }
+  componentDidMount(){
+    this.getAllHouses()
+  };
+
+    getAllHouses = async() => {
+
+      try{
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house`, {
+          credentials: 'include',
+        });
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        const userParsed = await response.json();
+
+
+        this.setState({
+          houses: userParsed.data
+        })
+
+        }catch(err){
+        return err
+      }
+    }
+
   render(){
+    const houses = this.state.houses
+    console.log(houses);
     return(
       <div>
         <AdminNav />
