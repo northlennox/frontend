@@ -131,7 +131,7 @@ class RegisterLoginContainer extends Component {
                 </div>
               </div>
               <div className="inputContainer">
-                <button className="btn" type="submit">Sign Up</button>
+                <button className="btn" type="submit">SIGN UP</button>
               </div>
             </div>
           </form>

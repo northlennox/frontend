@@ -3,26 +3,30 @@ import { Link } from 'react-router-dom';
 
 const WaHeaterBar = (props) => {
   const userId = sessionStorage.userId;
-  console.log('props.wather ', props.waHeatertype)
+  // console.log('props.wather ', props.waHeatertype)
   let indicator = 0;
 
   if(props.waHeatertype === "Natural Gas Storage"|| props.waHeatertype === "Natural Gas Tankless"){
-    indicator = 32/2
+    indicator = 25 + 25/2
   }else if(props.waHeatertype === "Electric Storage"){
-    indicator = 32/2 + 1 + 32
+    indicator = 50 + 25/2
   }else if(props.waHeatertype === "Electric Heat Pump"){
-    indicator = 32/2 + 1 + 32 + 1 + 32
+    indicator = 75 + 25/2
+  }else{
+    indicator = 25/2
   }
   return(
     <div className="waHeaterBar">
       <div className="analysisTitle">Water Heater</div>
       <div className="indicator" style={{marginLeft: `${indicator}%`}}><img src="../../indicator.svg"/></div>
       <div className="barContainer">
+        <div className="red_level"><div className="barText">Gas Baseline</div></div>
         <div className="orange_level"><div className="barText">Gas Baseline</div></div>
         <div className="yellow_level"><div className="barText">Better</div></div>
         <div className="green_level"><div className="barText">Best</div></div>
       </div>
       <div className="inches">
+        <div className="redIn h5">Near Burnout Age</div>
         <div className="orangeIn h5">Gas Storage / Tankless</div>
         <div className="yellowIn h5">Hybrid Electric Heat Pump</div>
         <div className="greenIn h5">Electric Heat Pump</div>

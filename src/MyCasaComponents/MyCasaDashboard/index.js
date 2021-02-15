@@ -230,7 +230,7 @@ class MyCasaDashboard extends Component {
         <div className="myCasaContainer">
           <div className="titleContainer myCasaTitle">
             <div className="title h2">My Casa</div>
-            <div className="subtitle h4">Explore home energy improvements to increase comfort, efficiency, safety and health, and lower carbon footprint.</div>
+            <div className="subtitle h4">Upload photos of your home energy assets to see how they compare to new technologies.</div>
           </div>
         <div className="showContainer">
           <div className="showRow">

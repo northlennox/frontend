@@ -3,12 +3,24 @@ import { Link } from 'react-router-dom';
 
 const AtticBar = (props) => {
   const userId = sessionStorage.userId;
-  console.log('props - ', props)
+  console.log('props attic- ', props)
+  let indicator = 0;
+
+  if(props.atticDepth === 0){
+    indicator = 25/2
+  }else if(props.atticDepth > 1 && props.atticDepth < 6){
+    indicator = 25 + 25/2
+  }else if(props.atticDepth >= 6 && props.atticDepth < 11){
+    indicator = 50 + 25/2 - 2
+  }else if(props.atticDepth >= 11){
+    indicator = 75 + 25/2
+  }
+
 
   return(
     <div className="atticBar">
       <div className="analysisTitle">Attic Insulation</div>
-      <div className="indicator" style={{marginLeft: `${(props.atticDepth / 15 )* 100 + 1}%`}}><img src="../../indicator.svg"/></div>
+      <div className="indicator" style={{marginLeft: `${indicator}%`}}><img src="../../indicator.svg"/></div>
       <div className="barContainer">
         <div className="symbol"></div>
         <div className="red_level"></div>

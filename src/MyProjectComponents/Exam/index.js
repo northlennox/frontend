@@ -14,7 +14,7 @@ const Exam = (props) => {
     <div className="examContainer">
       <div className="titleContainer">
         <div className="title h2">Projects</div>
-        <div className="subtitle h4">See the status of your house energy assets and how they compare on quality, efficiency and age to new technologies.</div>
+        <div className="subtitle h4">See the status of your house energy assets and plan upgrades at optimal times to maximize savings and prior to emergencies.</div>
       </div>
       <div className="gradeContainer">
         <div className="gradeRow top">
@@ -65,7 +65,7 @@ const Exam = (props) => {
           </div>
         </div>
         <div className="recommendations">
-          <div className="h3">Projects</div>
+          <div className="h3">Electrification Plan</div>
           <div className="recommendation"><span className="replaceYr h5" style={{border: `solid 2px ${props.atticGradeColor}`}}>{props.atticRecommendation}</span><span className="replaceTitle">Increase Attic Insulation</span></div>
           <div className="recommendation"><span className="replaceYr h5" style={{border: `solid 2px ${props.waGradeColor}`}}>{props.waRecommendation}</span><span className="replaceTitle">Replace Water Heater with Electric Heat Pump</span></div>
           <div className="recommendation"><span className="replaceYr h5" style={{border: `solid 2px ${props.spGradeColor}`}}>{props.spRecommendation}</span><span className="replaceTitle">Replace Space Heater with Electric Heat Pump</span></div>

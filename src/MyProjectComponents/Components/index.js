@@ -40,7 +40,7 @@ const Components = (props) => {
               <img className="marks" src="../Components/sealedIcon.svg"/>
               <span className="markName">Sealed?</span>
             </div>
-            <span className="markStatus">{props.attic.airSealed}</span>
+            <span className="markStatus">{props.attic.airSealed === "no" ? "No" : "Yes"}</span>
           </div>
         </div>
         <div className="componentCol">
