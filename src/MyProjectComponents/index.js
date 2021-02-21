@@ -201,48 +201,46 @@ class MyProjectComponent extends Component {
       let spRecommendation = ''
 
 
-      if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Oil Furnace" || spHeaterType === "Electric Furnace") {
+      if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Electric Furnace" ||  spHeaterType === "Gas Boiler/Radiant") {
         spEfficency = 0.8;
-        if(spHeaterAge < 10){
-          spGradeLetter = "C"
-          // spGradeNumber = 2
+        if(spHeaterAge <= 15){
+          spGradeLetter = "C";
           spGradeColor = '#FA910B';
+          spGradeNumber = 2;
         }else{
-          spGradeLetter = "D"
-          // spGradeNumber = 1
+          spGradeLetter = "D";
           spGradeColor = '#D22E2E';
-          // spRecommendation = currentYear;
+          spGradeNumber = 1;
         }
+      }else if(spHeaterType === "Oil Furnace" || spHeaterType === "Wood Stove"){
+        spEfficency = 0.7;
+        spGradeLetter = "D"
+        spGradeColor = '#D22E2E';
+        spGradeNumber = 1;
+      } else if(spHeaterType ===  "Electric Heat Pump" || spHeaterType === "Geothermal Heat Pump"){
+        spEfficency = 2.5;
+           if(spHeaterAge <= 15){
+             spGradeLetter = "B"
+             spGradeColor = '#FDC825';
+             spGradeNumber = 3
+           }else{
+             spGradeLetter = "D"
+             spGradeColor = '#D22E2E';
+             spGradeNumber = 1;
+           }
       }else{
+        // "Electric Mini-Split",  "Pellet Stove"
         spEfficency = 3.0;
-        if(spHeaterAge > 10){
+        if(spHeaterAge <= 15){
           spGradeLetter = "A"
-          // spGradeNumber = 4
           spGradeColor = '#139929';
-          // spRecommendation = currentYear;
-        }else{
-          spGradeLetter = "B"
-          // spGradeNumber = 3
-          spGradeColor = '#FDC825';
-        }
-      }
-
-
-      if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Oil Furnace" || spHeaterType === "Electric Furnace") {
-
-        if(spHeaterAge < 15){
-          spGradeNumber = 2
-        }else{
-          spGradeNumber = 1
-        }
-      }else{
-        if(spHeaterAge > 15){
           spGradeNumber = 4
         }else{
-          spGradeNumber = 3
+          spGradeLetter = "D"
+          spGradeColor = '#D22E2E';
+          spGradeNumber = 1
         }
       }
-
 
 
       if(spHeaterCondition === 'No'){

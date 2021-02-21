@@ -206,7 +206,7 @@ class EditUtility extends Component {
   render(){
     const userId = sessionStorage.getItem('userId');
     const utilityImgState = `${process.env.REACT_APP_API}/` + this.state.utility.utilityImg;
-    let upload = "./../../../upload.svg";
+    const upload = "./../../../upload.svg";
 
     return(
 
