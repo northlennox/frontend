@@ -137,7 +137,9 @@ class CreateWaHeater extends Component {
         waHeaterYearOptions.push(i)
     }
 
-    let upload = "./../../../upload.svg"
+    const upload = "./../../../upload.svg";
+    const sampleWaHeaterImg = "./../../SampleImages/WaHeaterSample.png";
+
     return(
 
       <div>
@@ -150,7 +152,7 @@ class CreateWaHeater extends Component {
                 <span className="inputLabel">PHOTO</span>
                 <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
                 <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
-                  <img className="sampleImg" src="./../../Images/WaHeaterSample.png"/>
+                  <img className="sampleImg" src={sampleWaHeaterImg}/>
                   <div className="sampleText">Use your flash if needed to take a photo of your water heater, making sure to capture the serial number.</div>
                 </ReactTooltip>
               </div>

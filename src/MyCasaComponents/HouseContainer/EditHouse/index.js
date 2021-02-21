@@ -3,7 +3,6 @@ import Nav from '../../../Nav';
 import axios from 'axios';
 import ReactTooltip from "react-tooltip";
 
-
 class EditHouse extends Component {
   constructor(){
     super()
@@ -464,6 +463,9 @@ class EditHouse extends Component {
 ]
 
     let upload = "./../../../upload.svg";
+    let sampleHouseImg = "./../../SampleImages/houseSample.jpg";
+
+
     return(
       <div>
         <Nav />
@@ -475,7 +477,7 @@ class EditHouse extends Component {
                 <span className="inputLabel">PHOTO</span>
                 <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
                 <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
-                  <img className="sampleImg" src="./../../Images/HouseSample.jpg"/>
+                  <img className="sampleImg" src={sampleHouseImg}/>
                   <div className="sampleText">Take a photo of the front of your house.</div>
                 </ReactTooltip>
               </div>

@@ -23,7 +23,7 @@ const AtticBar = (props) => {
       <div className="indicator" style={{marginLeft: `${indicator}%`}}><img src="../../indicator.svg"/></div>
       <div className="barContainer">
         <div className="symbol"></div>
-        <div className="red_level"></div>
+        <div className="red_level"><div className="barText">Inefficient</div></div>
         <div className="orange_level"><div className="barText">Low</div></div>
         <div className="yellow_level"><div className="barText">Medium</div></div>
         <div className="green_level"><div className="barText">High</div></div>

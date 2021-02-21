@@ -29,8 +29,8 @@ const SpHeaterBar = (props) => {
       <div className="inches">
         <div className="redIn h5">Near Burnout Age or Other Type</div>
         <div className="orangeIn h5">Gas Furnace</div>
-        <div className="yellowIn h5">Heat Pump</div>
-        <div className="greenIn h5">Mini-Split Heat Pump</div>
+        <div className="yellowIn h5">Electric Heat Pump</div>
+        <div className="greenIn h5">Electric Mini-Split Heat Pump</div>
       </div>
       <div>Your space heater is a {props.spHeaterType} with an age of {props.spHeaterAge}. It should be replaced when it exceeds its 15-year expected life. A ducted or ductless heat pump is an attractive technology. Heat pumps are more than 3x more efficient than gas, and can be powered with a renewable energy source such as rooftop solar.</div>
     </div>

@@ -246,41 +246,40 @@
     border-radius: 10px;
     color: white;
     text-align: left;
-
     .barText {
-      // transform: skew(-30deg);
+      transform: skew(-30deg);
       padding-left: 5%;
     }
     .red_level {
-        width: 25%;
+        width: 24%;
         height: 100%;
         background-color: #D22E2E;
         float: left;
-        // transform: skew(30deg);
-
+        transform: skew(30deg);
+        margin-right: 1%;
     }
     .orange_level {
-        width: 25%;
+        width: 24%;
         height: 100%;
         background-color: #FA910B;
         float: left;
-        // transform: skew(30deg);
-
+        transform: skew(30deg);
+        margin-right: 1%;
     }
     .yellow_level {
-        width: 25%;
+        width: 24%;
         height: 100%;
         background-color: #FDC825;
         float: left;
-        // transform: skew(30deg);
-
+        transform: skew(30deg);
+        margin-right: 1%;
     }
     .green_level {
-        width: 25%;
+        width: 24%;
         height: 100%;
         background-color: #139929;
         float: left;
-        // transform: skew(30deg);
+        transform: skew(30deg);
     }
   }
   .inches {
@@ -352,4 +351,33 @@
 
     }
   }
+}
+
+@media only screen and (max-width: 900px){
+  .gradeRow {
+    height: auto;
+  }
+  .componentsMark {
+    display: flex;
+  .componentContainer {
+    width: 100%;
+
+    .componentRow {
+      display: flex;
+      flex-direction: column;
+
+      .componentCol {
+            border: 1px solid red;
+        .markContainer {
+          margin-top: 2px;
+          display: flex;
+          flex-direction: row;
+          .markRow {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}
 }

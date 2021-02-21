@@ -203,8 +203,6 @@ class MyProjectComponent extends Component {
 
       if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Oil Furnace" || spHeaterType === "Electric Furnace") {
         spEfficency = 0.8;
-
-
         if(spHeaterAge < 10){
           spGradeLetter = "C"
           // spGradeNumber = 2
@@ -217,8 +215,6 @@ class MyProjectComponent extends Component {
         }
       }else{
         spEfficency = 3.0;
-
-
         if(spHeaterAge > 10){
           spGradeLetter = "A"
           // spGradeNumber = 4

@@ -299,7 +299,7 @@ class MyCasaDashboard extends Component {
               :
               <Link to="/mycasa/utility/create" className="blankContainer">
                 <div className="blankFrame"><img className="placer" src="./../../upload.svg" /></div>
-                <div className="blankLabel">Utility Bills</div>
+                <div className="blankLabel">Utility Bills(Optional)</div>
               </Link>
               }
             </div>

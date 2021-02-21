@@ -188,7 +188,8 @@ class EditRoof extends Component {
     const extriorOptions = ["Select", "Composition Shingles or Metal", "Wood Shakes", "Clay Title", "Concreate Title", "Tar & Gravel"];
     const colorOptions = ["Select", "White", "Light", "Medium", "Dark", "Cool Color With Reflectivity"];
     const roofImgState = `${process.env.REACT_APP_API}/` + this.state.roof.roofImg;
-    let upload = "./../../../upload.svg";
+    const upload = "./../../../upload.svg";
+    const sampleRoofImg = "./../../SampleImages/RoofSample.jpg";
 
 
     return(
@@ -202,7 +203,7 @@ class EditRoof extends Component {
                 <span className="inputLabel">PHOTO</span>
                 <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
                 <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
-                  <img className="sampleImg" src="./../../Images/RoofSample.jpg"/>
+                  <img className="sampleImg" src={sampleRoofImg}/>
                   <div className="sampleText">Take a photo of your roof, capturing the roofing material and any Solar (PV) panels.</div>
                 </ReactTooltip>
               </div>

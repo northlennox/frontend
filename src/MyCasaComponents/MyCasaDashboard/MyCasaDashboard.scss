@@ -52,7 +52,6 @@
   align-items: center;
   text-decoration: none;
   color: #FA910B;
-  border: 1px solid red;
   .blankFrame {
     width: 270px;
     height: 150px;
@@ -389,6 +388,20 @@
   margin-left: 5px;
 }
 
+@media only screen and (max-width: 900px){
+  .myCasaContainer {
+    .showContainer {
+      display: flex;
+      flex-direction: column;
+      .showRow {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+
+}
 /* ----------- iPhone 4 and 4S ----------- */
 
 /* Portrait and Landscape */

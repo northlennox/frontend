@@ -6,6 +6,7 @@ import Nav from '../../../Nav';
 import ReactTooltip from "react-tooltip";
 
 
+
 class EditAttic extends Component {
   constructor(){
     super()
@@ -200,7 +201,7 @@ class EditAttic extends Component {
                 <span className="inputLabel">PHOTO</span>
                 <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
                 <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
-                  <img className="sampleImg" src="./../../Images/atticSample.png"/>
+                  <img className="sampleImg" src="../../SampleImages/atticSample.png"/>
                   <div className="sampleText">Use your flash to take a photo of your attic space, making sure to capture the depth of existing insulation.</div>
                 </ReactTooltip>
               </div>
@@ -249,7 +250,7 @@ class EditAttic extends Component {
                 </select>
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="airSealed">HAS THE HOUSE BEEN PROFESSIONALLY AIR SEALED?</label>
+                <label className="inputLabel" htmlFor="airSealed">HAS THE HOUSE BEEN PROFESSIONALLY AIR SEALED?*</label>
                 <div id="airSealed" >
                   <input name="airSealed" type="radio" checked={this.state.attic.airSealed === "yes"} value="yes" onChange={this.handleEditFormInput}/><span className="radioNext">YES</span>
                   <input className="radioInput-right" name="airSealed" type="radio" checked={this.state.attic.airSealed === "no"} value="no" onChange={this.handleEditFormInput}/><span className="radioNext">NO</span>

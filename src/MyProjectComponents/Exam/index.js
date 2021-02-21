@@ -33,12 +33,12 @@ const Exam = (props) => {
               <div className="h3">Grades</div>
               <div className="measureRow">
                 <div className="measureItem">
-                  <label><div className="h4">Energy Efficiency</div><div className="h4">Rating</div></label>
+                  <label><div className="h4">Building Efficiency</div><div className="h4">Rating</div></label>
                   <div className="atticGrade" style={{color:`${props.atticGradeColor}`}}>{props.atticGrade}</div>
                   <GradeGraph atticGrade={props.atticGrade} />
                 </div>
                 <div className="measureItem">
-                  <label><div className="h4">Carbon Footprint</div><div className="h4">Rating</div></label>
+                  <label><div className="h4">Electrification</div><div className="h4">Rating</div></label>
                   <div className="spGradeLetter" style={{color:`${props.carbonFootColor}`}}>{props.carbonFootScore}</div>
                   <GradeGraph spGradeLetter={props.carbonFootScore} />
                 </div>
@@ -66,7 +66,7 @@ const Exam = (props) => {
         </div>
         <div className="recommendations">
           <div className="h3">Electrification Plan</div>
-          <div className="recommendation"><span className="replaceYr h5" style={{border: `solid 2px ${props.atticGradeColor}`}}>{props.atticRecommendation}</span><span className="replaceTitle">Increase Attic Insulation</span></div>
+          <div className="recommendation"><span className="replaceYr h5" style={{border: `solid 2px ${props.atticGradeColor}`}}>{props.atticRecommendation}</span><span className="replaceTitle">Increase Attic Insulation and Seal Air Leaks</span></div>
           <div className="recommendation"><span className="replaceYr h5" style={{border: `solid 2px ${props.waGradeColor}`}}>{props.waRecommendation}</span><span className="replaceTitle">Replace Water Heater with Electric Heat Pump</span></div>
           <div className="recommendation"><span className="replaceYr h5" style={{border: `solid 2px ${props.spGradeColor}`}}>{props.spRecommendation}</span><span className="replaceTitle">Replace Space Heater with Electric Heat Pump</span></div>
         </div>

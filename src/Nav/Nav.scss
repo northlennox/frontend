@@ -43,6 +43,43 @@
   }
 }
 
+@media only screen and (max-width: 900px){
+  .navContainer {
+    height: auto;
+    .navRow {
+      display: flex;
+      flex-direction: column;
+      .logContainer {
+        .logoImg {
+          img {
+            height: 50px;
+          }
+            margin-right: 8px;
+        }
+        .logoText {
+          img {
+            height: 17px;
+          }
+        }
+      }
+    }
+    .navSecond {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 80%;
+      .navItem {
+        width: 90%;
+      }
+    }
+  }
+  #loginSolo {
+    margin-right: 30px;
+  }
+}
+
+
+
 @media only screen
   and (min-device-width: 320px)
   and (max-device-width: 480px)

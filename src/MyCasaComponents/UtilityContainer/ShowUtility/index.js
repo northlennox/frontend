@@ -16,7 +16,7 @@ const ShowUtility = (props) => {
         <Card className="card">
           <Card.Header className="header">
             <Accordion.Toggle variant="link" eventKey="0" className="toggleShow">
-              <div className="postedLabel">Utility Details</div>
+              <div className="postedLabel">Utility Details(Optional)</div>
               <div className="detailArr"><img className="down" src="./../../dropdown_drop.svg" /></div>
             </Accordion.Toggle>
           </Card.Header>

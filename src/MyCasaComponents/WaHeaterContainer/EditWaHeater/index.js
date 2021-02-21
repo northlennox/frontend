@@ -203,9 +203,10 @@ class EditWaHeater extends Component {
     for(let i = 1980; i <= cuttentYear; i++){
         waHeaterYearOptions.push(i)
     }
+    const upload = "./../../../upload.svg";
+    const sampleWaHeaterImg = "./../../SampleImages/WaHeaterSample.png"
 
-    const waHeaterImgState = `${process.env.REACT_APP_API}/` + this.state.waHeater.waHeaterImg;
-    let upload = "./../../../upload.svg";
+
 
 
     return(
@@ -220,7 +221,7 @@ class EditWaHeater extends Component {
                 <span className="inputLabel">PHOTO</span>
                 <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
                 <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
-                  <img className="sampleImg" src="./../../Images/WaHeaterSample.png"/>
+                  <img className="sampleImg" src={sampleWaHeaterImg}/>
                   <div className="sampleText">Use your flash if needed to take a photo of your water heater, making sure to capture the serial number.</div>
                 </ReactTooltip>
               </div>
@@ -273,7 +274,7 @@ class EditWaHeater extends Component {
                     <ReactTooltip id="waHeaterCondition" place="bottom" effect="solid" className="tip">
                       <div className="tipText">If your water heater is working well, it produces enough hot water for your needs. If your water heater is not working well, there is not enough hot water, the water is rusty, there is rumbling or leaks.</div>
                     </ReactTooltip>
-                  </span>        
+                  </span>
                 </label>
                 <div id="waHeaterCondition" >
                   <input name="waHeaterCondition" type="radio" checked={this.state.waHeater.waHeaterCondition === "Yes"} value="Yes" onChange={this.handleEditFormInput}/><span className="radioNext">YES</span>

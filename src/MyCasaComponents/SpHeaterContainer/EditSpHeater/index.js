@@ -207,13 +207,12 @@ class EditSpHeater extends Component {
     const spHeaterYearOptions = ["Select", "2020", "2019", "2018", "2017", "2016", "2015"];
     let today = new Date()
     let cuttentYear = today.getFullYear();
-    let upload = "./../../../upload.svg"
 
     for(let i = 1980; i <= cuttentYear; i++){
         spHeaterYearOptions.push(i)
     }
-    const spHeaterImgState = `${process.env.REACT_APP_API}/` + this.state.spHeater.spHeaterImg;
-
+    const upload = "./../../../upload.svg"
+    const sampleSpHeaterImg = "./../../SampleImages/WaHeaterSample.png";
     return(
 
       <div>
@@ -226,7 +225,7 @@ class EditSpHeater extends Component {
               <span className="inputLabel">PHOTO</span>
               <img data-tip data-for="helpTip" className="help" src="./../../help.svg"/>
               <ReactTooltip id="helpTip" place="bottom" effect="solid" className="tooltipContainer">
-                <img className="sampleImg" src="./../../Images/WaHeaterSample.png"/>
+                <img className="sampleImg" src={sampleSpHeaterImg}/>
                 <div className="sampleText">Use your flash if needed to take a photo of your space heater, making sure to capture the serial number.</div>
               </ReactTooltip>
             </div>
