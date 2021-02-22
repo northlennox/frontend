@@ -49,18 +49,14 @@
         display: flex;
         flex-direction: column;
         width: 65%;
-        .downloadProject {
-          width: 4%;
-          margin-bottom: 5%;
-          margin-right: 15%;
-          align-self: flex-end;
-        }
         .measureRow {
           display: flex;
+          width: 100%;
           justify-content: space-around;
           height: 300px;
           border-bottom: 1px solid #E9E9E9;
           .measureItem {
+            width: 30%;
             margin-left: 2%;
             margin-right: 2%;
             display: flex;
