@@ -212,7 +212,7 @@ class MyProjectComponent extends Component {
           spGradeColor = '#D22E2E';
           spGradeNumber = 1;
         }
-      }else if(spHeaterType === "Oil Furnace" || spHeaterType === "Wood Stove"){
+      }else if(spHeaterType === "Oil Furnace" || spHeaterType === "Wood Stove" || spHeaterType ===  "Pellet Stove"){
         spEfficency = 0.7;
         spGradeLetter = "D"
         spGradeColor = '#D22E2E';
@@ -229,7 +229,7 @@ class MyProjectComponent extends Component {
              spGradeNumber = 1;
            }
       }else{
-        // "Electric Mini-Split",  "Pellet Stove"
+        // "Electric Mini-Split"
         spEfficency = 3.0;
         if(spHeaterAge <= 15){
           spGradeLetter = "A"
