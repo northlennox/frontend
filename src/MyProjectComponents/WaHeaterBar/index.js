@@ -20,7 +20,7 @@ const WaHeaterBar = (props) => {
       <div className="analysisTitle">Water Heater</div>
       <div className="indicator" style={{marginLeft: `${indicator}%`}}><img src="../../indicator.svg"/></div>
       <div className="barContainer">
-        <div className="red_level"><div className="barText">Gas Baseline</div></div>
+        <div className="red_level"><div className="barText">Old Technology</div></div>
         <div className="orange_level"><div className="barText">Gas Baseline</div></div>
         <div className="yellow_level"><div className="barText">Better</div></div>
         <div className="green_level"><div className="barText">Best</div></div>

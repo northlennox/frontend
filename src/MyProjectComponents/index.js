@@ -326,7 +326,7 @@ class MyProjectComponent extends Component {
     getCarbonFootprint = () => {
 
       let total = this.state.waGrade.waGradeNumber + this.state.spGrade.spGradeNumber;
-      console.log(total)
+
       let solar = 0;
       let carbonFootScore = '';
       let carbonFootColor='';
@@ -362,7 +362,6 @@ class MyProjectComponent extends Component {
 
   render(){
     const userId = sessionStorage.getItem('userId')
-    console.log('-------', this.state.carbonFootColor)
     return(
       <>
         <Nav />
