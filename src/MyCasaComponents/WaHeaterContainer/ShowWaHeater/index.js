@@ -23,10 +23,10 @@ const ShowWaHeater = (props) => {
               <Card.Body className="cardBody">
                 <div className="postedInfo">
                   <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeatertype}</span></div>
-                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeaterBrand}</span></div>
-                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeaterYear}</span><span className="spanNext">Year of Manufacture</span></div>
-                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeaterCondition === "YES" ? <span>System is Working Well</span> : <span>...?</span>}</span></div>
-                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeaterSingle === "YES" ? <span>One Water Heater</span> : <span>...?</span> }</span></div>
+                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Brand : <span>{props.waHeater.waHeaterBrand}</span></div>
+                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Year Build: <span>{props.waHeater.waHeaterYear}</span><span className="spanNext"></span></div>
+                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Condition : <span>{props.waHeater.waHeaterCondition === "Yes" ? "Good" :  "Not Good"}</span></div>
+                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeaterSingle === "Yes" ? "Single" : "Multiple"} Water heater</span></div>
                 </div>
               </Card.Body>
              </Accordion.Collapse>

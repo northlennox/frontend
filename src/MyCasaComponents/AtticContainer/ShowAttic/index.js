@@ -23,10 +23,10 @@ const ShowAttic = (props) => {
             <Card.Body className="cardBody">
               <div className="postedInfo">
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.atticType}</span></div>
-                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.atticSqft}</span></div>
-                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.atticDepth}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.atticSqft}</span> sqft.</div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.atticDepth}</span> inches.</div>
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.insulMaterial}</span></div>
-                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.airSealed}</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Air Sealed: <span>{props.attic.airSealed === "Yes" ? "Yes" : "No"}</span></div>
               </div>
             </Card.Body>
            </Accordion.Collapse>

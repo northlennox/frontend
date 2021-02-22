@@ -402,6 +402,24 @@
 
 
 }
+
+
+@media only screen and (max-width: 950px){
+  .createContainer {
+    width: 100%;
+    .createBox {
+      width: 90%;
+      margin-left: 5%;
+    }
+  }
+    .editContainer {
+      width: 100%;
+      .editBox {
+        width: 90%;
+        margin-left: 5%;
+      }
+    }
+}
 /* ----------- iPhone 4 and 4S ----------- */
 
 /* Portrait and Landscape */
