@@ -27,7 +27,6 @@ const Nav = (props) => {
     }
   }
 
-
   return(
     <>
       { !sessionStorage.getItem('userId') ?
@@ -41,7 +40,7 @@ const Nav = (props) => {
               </div>
             </Link>
           </div>
-          <div className="navRow">
+          <div className="navRow navLog">
             <div className="navItem">
               <Link to={`/login`} className="links" style={{ textDecoration: 'none' }}>
                 <div className="navItemText" id="loginSolo" style={{ color : '#979797'}}>Login</div>

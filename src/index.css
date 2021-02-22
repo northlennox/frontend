@@ -12,6 +12,13 @@ code {
     monospace;
 }
 
+.welcomeContainer {
+    width: 80%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+
 /* ----------- iPhone 4 and 4S ----------- */
 
 /* Portrait and Landscape */

@@ -5,6 +5,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
       }
 
     .section_one_container {
@@ -80,6 +81,32 @@
     .right  {
       margin-left: 50%;
     }
+}
+
+@media only screen and (max-width: 900px){
+  .mainContainer {
+    .section_one_container {
+      display: flex;
+      flex-direction: column;
+    }
+    .section_two_container {
+      margin-top: 15%;
+      margin-bottom: 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .left {
+      margin-left: 0%;
+    }
+
+    .right  {
+      margin-left: 0%;
+    }
+  }
+
 }
 /* Portrait and Landscape */
 @media only screen

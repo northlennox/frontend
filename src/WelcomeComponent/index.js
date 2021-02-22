@@ -7,7 +7,7 @@ const WelcomeComponent = (props) => {
   return (
     <div>
       <Nav />
-      <div style={{fontFamily: 'Muli', marginLeft: '257px', marginRight: '260px', marginTop: '52px'}}>
+      <div className="welcomeContainer">
         <div style={{fontSize:'28px', marginBottom: '50px', fontWeight: "700"}}>Dear Homeowner</div>
         <div id="p1" style={{marginBottom: '40px'}}>Electricasa is for you.</div>
         <div id="p2" style={{marginBottom: '40px'}}>Climate change is an urgent threat brought about by carbon emissions from the combustion of oil and gas. The carbon footprint of an average American is 16 tons per year, as compared to 6 tons per year in the UK and 2 tons in India.</div>

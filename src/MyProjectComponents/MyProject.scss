@@ -354,30 +354,54 @@
 }
 
 @media only screen and (max-width: 900px){
-  .gradeRow {
-    height: auto;
-  }
-  .componentsMark {
-    display: flex;
-  .componentContainer {
-    width: 100%;
+  .examContainer {
+    width: 90%;
+    margin-left: 5%;
+    .gradeContainer {
+      .myGrade {
 
-    .componentRow {
-      display: flex;
-      flex-direction: column;
+        display: flex;
+        flex-direction: column;
+        height: 170vh;
+        align-items: center;
+        .houseProfile {
+          text-align: center;
 
-      .componentCol {
-            border: 1px solid red;
-        .markContainer {
-          margin-top: 2px;
-          display: flex;
-          flex-direction: row;
-          .markRow {
+          width: 100%;
+          img {
+            width: 80%;
+          }
+        }
+        .measureContainer {
+          width: 100%;
+          .measureRow {
             display: flex;
+            flex-direction: row;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            .measureItem {
+              width: 40%;
+            }
+          }
+          .gradeRow {
+            height: auto;
+            padding-top: 5%;
+            padding-bottom: 10%;
+            .componentContainer {
+              .componentRow {
+                display: flex;
+                flex-direction: column;
+                .componentCol {
+                  width: 100%;
+                }
+              }
+            }
           }
         }
       }
     }
   }
-}
+  .barText {
+    font-size: 12px;
+  }
 }
