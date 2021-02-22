@@ -6,6 +6,7 @@ import { Button, Card, Accordion } from 'react-bootstrap';
 const ShowWaHeater = (props) => {
   const photo = props.waHeater.waHeaterImg;
   const userId = sessionStorage.getItem('userId');
+  console.log(props.waHeater.waHeaterSingle)
   return(
     <div className="postedContainer">
       <div className="postedFrame">
@@ -26,7 +27,7 @@ const ShowWaHeater = (props) => {
                   <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Brand : <span>{props.waHeater.waHeaterBrand}</span></div>
                   <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Year Build: <span>{props.waHeater.waHeaterYear}</span><span className="spanNext"></span></div>
                   <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Condition : <span>{props.waHeater.waHeaterCondition === "Yes" ? "Good" :  "Not Good"}</span></div>
-                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeaterSingle === "Yes" ? "Single" : "Multiple"} Water heater</span></div>
+                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeaterSingle === "Yes" ? "Multiple Water heaters" : "Single Water heater"}</span></div>
                 </div>
               </Card.Body>
              </Accordion.Collapse>

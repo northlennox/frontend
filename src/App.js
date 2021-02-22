@@ -101,8 +101,6 @@ const App = (props) => {
         //MyProject
         <Route exact path="/MyProject/:id" component = { MyProjectComponent } />
 
-        //
-
       </Switch>
     </main>
   )

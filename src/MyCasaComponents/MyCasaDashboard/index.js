@@ -62,167 +62,13 @@ class MyCasaDashboard extends Component {
             utility: userParsed.utility,
             myHouse: userParsed.house
         });
-
-
-
       }catch(err){
         return err
       }
     }
 
-
-    // deleteMyHouse = async(id, e) => {
-    //   // e.preventDefault()
-    //
-    //   try{
-    //     const userId = sessionStorage.getItem('userId');
-    //
-    //     const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/` + `${userId}`, {
-    //       method: 'DELETE',
-    //       credentials: 'include'
-    //     });
-    //
-    //     if(!response.ok){
-    //       throw Error(response.statusText)
-    //     }
-    //
-    //
-    //     this.setState({
-    //       house : null
-    //     });
-    //     console.log('this.state.house', this.state.house);
-    //     // this.props.history.push('/mycasa/' + userId);
-    //   }catch(err){
-    //     alert('Something went wrong. Please try again')
-    //   }
-    //
-    // }
-
-    // deleteMyAttic = async(id, e) => {
-    //   e.preventDefault()
-    //
-    //   try{
-    //     const userId = sessionStorage.getItem('userId');
-    //
-    //     const response = await fetch(`${process.env.REACT_APP_API}/api/v1/Attic/` + `${userId}`, {
-    //       method: 'DELETE',
-    //       credentials: 'include'
-    //     });
-    //
-    //     if(!response.ok){
-    //       throw Error(response.statusText)
-    //     }
-    //
-    //     this.setState({
-    //       attic : null
-    //     })
-    //
-    //     // this.props.history.push('/mycasa/' + userId);
-    //   }catch(err){
-    //     alert('Something went wrong. Please try again')
-    //   }
-    //
-    // }
-    // deleteMyRoof = async(id, e) => {
-    //
-    //   e.preventDefault()
-    //
-    //   try{
-    //     const userId = sessionStorage.getItem('userId');
-    //
-    //     const response = await fetch(`${process.env.REACT_APP_API}/api/v1/roof/` + `${userId}`, {
-    //       method: 'DELETE',
-    //       credentials: 'include'
-    //     });
-    //
-    //     if(!response.ok){
-    //       throw Error(response.statusText)
-    //     }
-    //
-    //     this.setState({
-    //       roof : null
-    //     })
-    //
-    //   }catch(err){
-    //     alert('Something went wrong. Please try again')
-    //   }
-    //
-    // }
-    // deleteMyWaHeater = async(id, e) => {
-    //   e.preventDefault()
-    //
-    //   try{
-    //     const userId = sessionStorage.getItem('userId');
-    //
-    //     const response = await fetch(`${process.env.REACT_APP_API}/api/v1/waheater/` + `${userId}`, {
-    //       method: 'DELETE',
-    //       credentials: 'include'
-    //     });
-    //
-    //     if(!response.ok){
-    //       throw Error(response.statusText)
-    //     }
-    //
-    //     this.setState({
-    //       waHeater : null
-    //     })
-    //
-    //   }catch(err){
-    //     alert('Something went wrong. Please try again')
-    //   }
-    //
-    // }
-    // deleteMySpHeater = async(id, e) => {
-    //   e.preventDefault()
-    //
-    //   try{
-    //     const userId = sessionStorage.getItem('userId');
-    //
-    //     const response = await fetch(`${process.env.REACT_APP_API}/api/v1/spheater/` + `${userId}`, {
-    //       method: 'DELETE',
-    //       credentials: 'include'
-    //     });
-    //
-    //     if(!response.ok){
-    //       throw Error(response.statusText)
-    //     }
-    //
-    //     this.setState({
-    //       spHeater : null
-    //     })
-    //
-    //   }catch(err){
-    //     alert('Something went wrong. Please try again')
-    //   }
-    //
-    // }
-    // deleteMyUtility = async(id, e) => {
-    //   e.preventDefault()
-    //
-    //   try{
-    //     const userId = sessionStorage.getItem('userId');
-    //
-    //     const response = await fetch(`${process.env.REACT_APP_API}/api/v1/utility/` + `${userId}`, {
-    //       method: 'DELETE',
-    //       credentials: 'include'
-    //     });
-    //
-    //     if(!response.ok){
-    //       throw Error(response.statusText)
-    //     }
-    //
-    //     this.setState({
-    //       utility : null
-    //     })
-    //   }catch(err){
-    //     alert('Something went wrong. Please try again')
-    //   }
-    //
-    // }
-
-
   render(){
-      const userId = sessionStorage.userId;
+    const userId = sessionStorage.userId;
 
     return(
       <>
@@ -239,7 +85,6 @@ class MyCasaDashboard extends Component {
               ?
                <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>
               :
-
               <Link to="/mycasa/house/create" className="blankContainer">
                 <div className="blankFrame"><img className="placer" src="./../../upload.svg" /></div>
                 <div className="blankLabel">House Details</div>

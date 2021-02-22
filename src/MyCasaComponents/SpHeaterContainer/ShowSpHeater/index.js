@@ -24,7 +24,7 @@ const ShowSpHeater = (props) => {
               <div className="postedInfo">
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.spHeater.spHeaterType}</span></div>
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Brand: <span>{props.spHeater.spHeaterBrand}</span></div>
-                <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Cooling System: <span>{props.spHeater.coolingSystem}</span><span className="spanNext">Cooling System</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Cooling System: <span>{props.spHeater.coolingSystem}</span></div>
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Condition: <span>{props.spHeater.spHeaterCondition === "Yes" ? "Good" : "Not Good"}</span></div>
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Year Build: <span>{props.spHeater.spHeaterYear}</span></div>
               </div>
