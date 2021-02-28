@@ -6,6 +6,7 @@ import { Button, Card, Accordion } from 'react-bootstrap';
 const ShowAttic = (props) => {
   const photo = props.attic.atticImg;
   const userId = sessionStorage.getItem('userId');
+  
   return(
     <div className="postedContainer">
       <div className="postedFrame">

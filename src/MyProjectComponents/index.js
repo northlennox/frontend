@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Nav from '../Nav';
 import { Link } from 'react-router-dom';
 import Exam from './Exam';
-// import ProjectPlan from './ProjectPlan';
 import './MyProject.scss';
 
 

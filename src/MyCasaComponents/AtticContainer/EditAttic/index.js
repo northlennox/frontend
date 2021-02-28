@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
 // import Moment from 'react-moment';
 import Nav from '../../../Nav';
 import ReactTooltip from "react-tooltip";
@@ -161,8 +161,6 @@ class EditAttic extends Component {
       e.preventDefault()
 
       try{
-        // const userId = sessionStorage.getItem('userId');
-
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/Attic/` + `${id}`, {
           method: 'DELETE',
           credentials: 'include'
@@ -171,10 +169,6 @@ class EditAttic extends Component {
         if(!response.ok){
           throw Error(response.statusText)
         }
-
-        // this.setState({
-        //   attic : null
-        // })
 
         this.props.history.push('/mycasa/' + id);
       }catch(err){

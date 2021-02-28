@@ -3,18 +3,20 @@ import { Link } from 'react-router-dom';
 
 const WaHeaterBar = (props) => {
   const userId = sessionStorage.userId;
-  // console.log('props.wather ', props.waHeatertype)
+  console.log('props.water ', props.waHeaterAge)
   let indicator = 0;
 
-  if(props.waHeatertype === "Natural Gas Storage"|| props.waHeatertype === "Natural Gas Tankless"){
-    indicator = 25 + 25/2
-  }else if(props.waHeatertype === "Electric Storage"){
-    indicator = 50 + 25/2
-  }else if(props.waHeatertype === "Electric Heat Pump"){
-    indicator = 75 + 25/2
-  }else{
+  if((props.waHeatertype === "Electric Storage")|| (props.waHeatertype === "Natural Gas Storage" && props.waHeaterAge > 10)|| (props.waHeatertype === "Natural Gas Tankless" && props.waHeaterAge > 10)){
     indicator = 25/2
+  }else if((props.waHeatertype === "Natural Gas Storage" && props.waHeaterAge < 10)|| (props.waHeatertype === "Natural Gas Tankless" && props.waHeaterAge < 10)){
+    indicator = 25 + 25/2
+  }else if(props.waHeatertype === "Electric Heat Pump" && props.waHeaterAge > 10){
+    indicator = 50 + 25/2
+  }else if(props.waHeatertype === "Electric Heat Pump" && props.waHeaterAge < 10){
+    indicator = 75 + 25/2
   }
+
+
   return(
     <div className="waHeaterBar">
       <div className="analysisTitle">Water Heater</div>

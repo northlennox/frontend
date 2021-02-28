@@ -5,7 +5,7 @@ import Components from '../Components';
 import AtticBar from '../AtticBar';
 import WaHeaterBar from '../WaHeaterBar';
 import SpHeaterBar from '../SpHeaterBar';
-
+//
 const Exam = (props) => {
   const userId = sessionStorage.userId;
   console.log('props - ', props.attic)

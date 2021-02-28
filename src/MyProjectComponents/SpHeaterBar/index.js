@@ -3,17 +3,16 @@ import { Link } from 'react-router-dom';
 
 const SpHeaterBar = (props) => {
   const userId = sessionStorage.userId;
-  // console.log('props.spHeaterType - ', props.spHeaterType)
   let indicator = 0
 
-  if(props.spHeaterType === "Central Gas Furnace" || props.spHeaterType === "Room Gas Furnace" || props.spHeaterType === "Oil Furnace" || props.spHeaterType === "Electric Furnace"){
-    indicator = 25 + 25/2
-  }else if(props.spHeaterType === "Electric Heat Pump" || props.spHeaterType === "Gas Boiler/Radiant" || props.spHeaterType === "Geothermal Heat Pump" || props.spHeaterType === "Wood Stove" || props.spHeaterType === "Pellet Stove"){
-    indicator = 50 + 25/2
+  if(props.spHeaterType === "Wood Stove" || props.spHeaterType === "Pellet Stove"|| props.spHeaterType === "Oil Furnace" || props.spHeaterType === "Electric Furnace" ){
+      indicator = 25/2
+  }else if(props.spHeaterType === "Central Gas Furnace" || props.spHeaterType === "Room Gas Furnace" || props.spHeaterType === "Gas Boiler/Radiant"){
+      indicator = 25 + 25/2
+  }else if(props.spHeaterType === "Electric Heat Pump" || props.spHeaterType === "Geothermal Heat Pump"){
+      indicator = 50 + 25/2
   }else if("Electric Mini-Split"){
-    indicator = 75 + 25/2
-  }else{
-    indicator = 25/2
+      indicator = 75 + 25/2
   }
 
   return(
