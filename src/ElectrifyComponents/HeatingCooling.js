@@ -13,7 +13,7 @@ const HeatingCooling = (props) => {
               <div className="item_container">
                 <div className="img_sub">
                   <div className="electri_box"><img className="img" src="../Electrify/HeatingCooling.svg" /></div>
-                  <div className="electri_text">Impacts Carbon Footprint Rating</div>
+                  <div className="electri_text">Impacts Electrification Rating</div>
                 </div>
                 <div className="text_sub">
                   <div className="p1">Approximately 31-47% of residential home energy usage is for heating and cooling. Heating can be provided either by gas or electricity.</div>

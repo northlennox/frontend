@@ -13,7 +13,7 @@ const EnergyGeneration = (props) => {
               <div className="item_container">
                 <div className="img_sub">
                   <div className="electri_box"><img className="img" src="../Electrify/EnergyGeneration.svg" /></div>
-                  <div className="electri_text">Impacts Carbon Footprint Rating</div>
+                  <div className="electri_text">Impacts Electrification Rating</div>
                 </div>
                 <div className="text_sub">
                   <div className="p1">Rooftop solar is often the first thing people consider when trying to find ways to reduce their carbon footprint, and it makes sense.</div>

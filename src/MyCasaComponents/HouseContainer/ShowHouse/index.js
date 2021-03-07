@@ -30,8 +30,8 @@ const ShowHouse = (props) => {
                   <span className="spanNext">{props.house.state}</span>
                   <span className="spanNext">{props.house.zipcode}</span>
                 </div>
-                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.house.houseSqft}</span><span className="spanNext">sqft.</span></div>
-                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.house.houseYear}</span><span className="spanNext">Year Build</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.house.houseSqft}</span><span className="spanNext">Square Feet</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.house.houseYear}</span><span className="spanNext">Year Built</span></div>
               </div>
             </Card.Body>
            </Accordion.Collapse>

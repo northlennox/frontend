@@ -25,9 +25,9 @@ const ShowWaHeater = (props) => {
                 <div className="postedInfo">
                   <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeatertype}</span></div>
                   <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Brand : <span>{props.waHeater.waHeaterBrand}</span></div>
-                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Year Build: <span>{props.waHeater.waHeaterYear}</span><span className="spanNext"></span></div>
+                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Year Built: <span>{props.waHeater.waHeaterYear}</span><span className="spanNext"></span></div>
                   <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Condition : <span>{props.waHeater.waHeaterCondition === "Yes" ? "Good" :  "Not Good"}</span></div>
-                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeaterSingle === "Yes" ? "Multiple Water heaters" : "Single Water heater"}</span></div>
+                  <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.waHeater.waHeaterSingle === "Yes" ? "Multiple Water Heaters" : "Single Water Heater"}</span></div>
                 </div>
               </Card.Body>
              </Accordion.Collapse>

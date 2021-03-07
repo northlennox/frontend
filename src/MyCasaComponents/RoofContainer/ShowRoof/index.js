@@ -24,9 +24,9 @@ const ShowRoof = (props) => {
               <div className="postedInfo">
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.roof.exterior}</span></div>
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Roof Color: <span>{props.roof.roofColor}</span></div>
-                <div><span className="checkNext"><img src="./../checkMark.svg" /></span>PV system: <span>{props.roof.pvSystem}</span></div>
-                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.roof.panels}</span> panels</div>
-                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.roof.dcCapacity}</span><span>kw DC Capacity</span></div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span>PV System: <span>{props.roof.pvSystem}</span></div>
+                <div>{props.roof.pvSystem === "No" ? <span></span> : <span><span className="checkNext"><img src="./../checkMark.svg" /></span>{props.roof.panels} <span>Panels</span></span>}</div>
+                <div>{props.roof.pvSystem === "No" ? <span></span> : <span><span className="checkNext"><img src="./../checkMark.svg" /></span>{props.roof.dcCapacity}<span>kW DC Capacity</span></span>}</div>
               </div>
             </Card.Body>
            </Accordion.Collapse>

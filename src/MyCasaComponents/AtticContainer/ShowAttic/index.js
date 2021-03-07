@@ -6,7 +6,7 @@ import { Button, Card, Accordion } from 'react-bootstrap';
 const ShowAttic = (props) => {
   const photo = props.attic.atticImg;
   const userId = sessionStorage.getItem('userId');
-  
+
   return(
     <div className="postedContainer">
       <div className="postedFrame">
@@ -24,8 +24,8 @@ const ShowAttic = (props) => {
             <Card.Body className="cardBody">
               <div className="postedInfo">
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.atticType}</span></div>
-                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.atticSqft}</span> sqft.</div>
-                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.atticDepth}</span> inches.</div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.atticSqft}</span> Square Feet</div>
+                <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.atticDepth}</span> Inches</div>
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span><span>{props.attic.insulMaterial}</span></div>
                 <div><span className="checkNext"><img src="./../checkMark.svg" /></span>Air Sealed: <span>{props.attic.airSealed === "Yes" ? "Yes" : "No"}</span></div>
               </div>
