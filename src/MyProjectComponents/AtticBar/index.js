@@ -20,7 +20,7 @@ const AtticBar = (props) => {
   return(
     <div className="atticBar">
       <div className="analysisTitle">Attic Insulation</div>
-      <div className="indicator" style={{marginLeft: `${indicator}%`}}><img src="../indicator.svg"/></div>
+      <div className="indicator" style={{marginLeft: `${indicator}%`}}><img src="../../abcd_indicator.svg"/></div>
       <div className="barContainer">
         <div className="symbol"></div>
         <div className="red_level"><div className="barText">Inefficient</div></div>
