@@ -196,12 +196,13 @@ class EditWaHeater extends Component {
   render(){
     const userId = sessionStorage.getItem('userId');
     const waHeaterTypeOptions = ["Select", "Natural Gas Storage", "Natural Gas Tankless", "Electric Storage", "Electric Heat Pump"];
-    const waHeaterYearOptions = ["Select", "2020", "2019", "2018", "2017", "2016", "2015"];
+    const waHeaterYearOptions = ["Select"];
     let today = new Date()
     let cuttentYear = today.getFullYear();
 
     for(let i = 1980; i <= cuttentYear; i++){
-        waHeaterYearOptions.push(i)
+        let yr = i;
+        waHeaterYearOptions.push(yr.toString())
     }
     const upload = "./../../../upload.svg";
     const sampleWaHeaterImg = "./../../SampleImages/WaHeaterSample.png"

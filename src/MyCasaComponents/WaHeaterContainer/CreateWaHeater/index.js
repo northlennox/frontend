@@ -134,7 +134,8 @@ class CreateWaHeater extends Component {
     let cuttentYear = today.getFullYear();
 
     for(let i = cuttentYear; i >= 1980; i-=1){
-        waHeaterYearOptions.push(i)
+        let yr = i;
+        waHeaterYearOptions.push(i.toString())
     }
 
     const upload = "./../../../upload.svg";

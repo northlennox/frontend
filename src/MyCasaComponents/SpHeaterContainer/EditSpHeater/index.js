@@ -209,7 +209,8 @@ class EditSpHeater extends Component {
     let cuttentYear = today.getFullYear();
 
     for(let i = 1980; i <= cuttentYear; i++){
-        spHeaterYearOptions.push(i)
+        let yr = i
+        spHeaterYearOptions.push(yr.toString())
     }
     const upload = "./../../../upload.svg"
     const sampleSpHeaterImg = "./../../SampleImages/WaHeaterSample.png";

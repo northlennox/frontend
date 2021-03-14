@@ -55,9 +55,7 @@ class MyProjectComponent extends Component {
 
 
     getHouseInfo = async() => {
-
-      const userId = sessionStorage.getItem('userId')
-
+      const userId = sessionStorage.getItem('userId');
       try{
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
           credentials: 'include'
@@ -79,7 +77,6 @@ class MyProjectComponent extends Component {
             utility: userParsed.utility,
         })
 
-
         if(this.state.house !== null && this.state.attic !== null && this.state.waHeater !== null){
           this.setState({
             open : true
@@ -89,7 +86,6 @@ class MyProjectComponent extends Component {
           this.getAtticGrade();
           this.getCarbonFootprint();
         }
-
 
       }catch(err){
         return err
@@ -163,13 +159,14 @@ class MyProjectComponent extends Component {
         }
       }
 
+
       if(waHeaterCondition === 'No'){
           waRecommendation = currentYear;
       }else{
         if(waHeaterAge >= 10){
           waRecommendation = currentYear;
         }else if(waHeaterAge < 10) {
-          waRecommendation = (10 - waHeaterAge) + currentYear
+          waRecommendation = (10 - waHeaterAge) + currentYear;
         }
       }
       this.setState({
@@ -187,7 +184,7 @@ class MyProjectComponent extends Component {
     }
 
     getSpGrade = async() => {
-      let today = new Date()
+      let today = new Date();
       let currentYear = today.getFullYear();
       let spHeaterType = this.state.spHeater.spHeaterType;
       let spHeaterCondition = this.state.spHeater.spHeaterCondition;
@@ -197,8 +194,7 @@ class MyProjectComponent extends Component {
       let spGradeLetter = '';
       let spGradeNumber = 0;
       let spHeaterTypeShort='';
-      let spRecommendation = ''
-
+      let spRecommendation = '';
 
       if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Electric Furnace" ||  spHeaterType === "Gas Boiler/Radiant") {
         spEfficency = 0.8;
@@ -221,9 +217,9 @@ class MyProjectComponent extends Component {
            if(spHeaterAge <= 15){
              spGradeLetter = "B"
              spGradeColor = '#FDC825';
-             spGradeNumber = 3
+             spGradeNumber = 3;
            }else{
-             spGradeLetter = "D"
+             spGradeLetter = "D";
              spGradeColor = '#D22E2E';
              spGradeNumber = 1;
            }
@@ -231,16 +227,15 @@ class MyProjectComponent extends Component {
         // "Electric Mini-Split"
         spEfficency = 3.0;
         if(spHeaterAge <= 15){
-          spGradeLetter = "A"
+          spGradeLetter = "A";
           spGradeColor = '#139929';
-          spGradeNumber = 4
+          spGradeNumber = 4;
         }else{
-          spGradeLetter = "D"
+          spGradeLetter = "D";
           spGradeColor = '#D22E2E';
-          spGradeNumber = 1
+          spGradeNumber = 1;
         }
       }
-
 
       if(spHeaterCondition === 'No'){
           spRecommendation = currentYear;
@@ -248,18 +243,18 @@ class MyProjectComponent extends Component {
         if(spHeaterAge >= 15){
           spRecommendation = currentYear;
         }else if(spHeaterAge < 15) {
-          spRecommendation = (15 - spHeaterAge) + currentYear
+          spRecommendation = (15 - spHeaterAge) + currentYear;
         }
       }
 
       if(spHeaterType === "Central Gas Furnace" || spHeaterType === "Room Gas Furnace" || spHeaterType === "Gas Boiler/Radiant"){
-        spHeaterTypeShort = "Gas"
+        spHeaterTypeShort = "Gas";
       }else if(spHeaterType === "Electric Furnace" || spHeaterType ===  "Electric Heat Pump" || spHeaterType === "Electric Mini-Split" || spHeaterType === "Geothermal Heat Pump"){
-        spHeaterTypeShort = "Electric"
+        spHeaterTypeShort = "Electric";
       }else if(spHeaterType === "Wood Stove" || spHeaterType === "Pellet Stove"){
-        spHeaterTypeShort = "Wood"
+        spHeaterTypeShort = "Wood";
       }else{
-        spHeaterTypeShort ="Oil"
+        spHeaterTypeShort ="Oil";
       }
 
 

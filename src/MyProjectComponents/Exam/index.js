@@ -8,7 +8,7 @@ import SpHeaterBar from '../SpHeaterBar';
 //
 const Exam = (props) => {
   const userId = sessionStorage.userId;
-  console.log('props - ', props.attic)
+  console.log('props - ', props.waRecommendation)
 
   return(
     <div className="examContainer">

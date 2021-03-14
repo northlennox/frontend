@@ -136,7 +136,8 @@ class CreateSpHeater extends Component {
     let cuttentYear = today.getFullYear();
 
     for(let i = cuttentYear; i >= 1980; i-=1){
-        spHeaterYearOptions.push(i)
+        let yr = i
+        spHeaterYearOptions.push(yr.toString())
     }
 
     const upload = "./../../../upload.svg"
@@ -204,7 +205,7 @@ class CreateSpHeater extends Component {
                     </ReactTooltip>
                   </span>
                 </label>
-                <div id="spHeaterCondition" >
+                <div id="spHeaterCondition">
                   <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "Yes"} value="Yes" onChange={this.handleInput} defaultChecked/><span className="radioNext">YES</span>
                   <input name="spHeaterCondition" type="radio" checked={this.state.spHeater.spHeaterCondition === "No"} value="No" onChange={this.handleInput} className="radioInput-right" /><span className="radioNext">NO</span>
                 </div>
