@@ -61,12 +61,11 @@ class AdiminHome extends Component {
   render(){
     const houses = this.state.houses;
     const attic = this.state.attic;
-    console.log(attic)
-    console.log(houses);
+
     return(
       <div>
         <AdminNav />
-        <div>dashboard?</div>
+        <div>dashboard</div>
         <ul>
           {
             houses.map(house => {
