@@ -6,11 +6,9 @@ import './Main.scss';
 
 class MainContainer extends Component {
   constructor(){
-    super()
-    this.state = {
-
-      }
-    }
+    super();
+    this.state = {}
+  }
 
   render(){
     return (
@@ -65,7 +63,8 @@ class MainContainer extends Component {
           </div>
         </div>
       </div>
-    )
-  }
-}
-export default MainContainer
+    );
+  };
+};
+
+export default MainContainer;

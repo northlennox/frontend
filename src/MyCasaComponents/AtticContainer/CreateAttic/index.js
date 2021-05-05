@@ -8,7 +8,7 @@ import ReactTooltip from "react-tooltip";
 
 class CreateAttic extends Component {
   constructor(){
-    super()
+    super();
     this.state = {
       attic : {
         atticImg: [],
@@ -22,34 +22,33 @@ class CreateAttic extends Component {
       preview: null,
       selectedFile : null,
     }
-  }
+  };
 
-
-  handleInput = (e) => {
-
+  handleInput = e => {
     const updatedChange = {
       ...this.state.attic
-    }
+    };
+
     updatedChange[e.target.name] = e.target.value;
 
-    console.log(e.target.value);
     this.setState({
       attic: updatedChange
-    })
-  }
+    });
+  };
 
-  handleClick = (e) => {
+  handleClick = e => {
     var frame = document.getElementById(`input-${e.target.id}`)
     frame.click();
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
+
     const updatedAttic = {
       ...this.state.attic
-    }
+    };
 
-    this.addAttic(updatedAttic)
+    this.addAttic(updatedAttic);
 
     this.setState({
       attic : {
@@ -61,10 +60,10 @@ class CreateAttic extends Component {
         airSealed: '',
         userId: '',
       }
-    })
-  }
+    });
+  };
 
-    fileSelectHandler = (e) => {
+  fileSelectHandler = e => {
       var file1
 
       switch (e.target.id) {
@@ -75,28 +74,25 @@ class CreateAttic extends Component {
         default:
           console.log('error');
           return 0;
-
-      }
+      };
 
       var reader1 = new FileReader();
       var url1 = typeof file1 !== 'undefined'? reader1.readAsDataURL(file1):null;
 
-      reader1.onloadend = function(e){
+      reader1.onloadend = function(e) {
 
       this.setState({
           preview1: [reader1.result || null],
         })
-      }.bind(this)
-
+      }.bind(this);
 
       this.setState({
         attic: {
           ...this.state.attic,
           atticImg: [...this.state.attic.atticImg, e.target.files[0]]
         }
-      })
-    }
-
+      });
+    };
 
     addAttic = async(updatedHouse) => {
         const data = new FormData();
@@ -113,10 +109,10 @@ class CreateAttic extends Component {
         // data.append('time', this.state.house.time);
 
         let userId = sessionStorage.getItem('userId');
-        data.append('userId', userId)
+        data.append('userId', userId);
 
         const time = new Date();
-        data.append('postingTime', time)
+        data.append('postingTime', time);
 
         axios.post(`${process.env.REACT_APP_API}/api/v1/attic`, data, {
           headers: {
@@ -126,16 +122,15 @@ class CreateAttic extends Component {
         .then(res => {
           this.props.history.push('/mycasa/' +  userId);
         })
-    }
+    };
 
-
-  render(){
+  render () {
     const atticTypeOptions = ["Select", "Unconditioned Attic", "Conditioned Attic", "Cathedral Ceiling"];
     const atticDepthOptions = ["Select", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"];
     const insulMaterialOptions = ["Select", "Fiberglass Batt", "Fiberglass Blown", "Cellulose", "Not Sure"];
     let upload = "./../../../upload.svg"
-    return(
 
+    return(
       <div>
         <Nav />
         <div className="createContainer">
@@ -205,7 +200,8 @@ class CreateAttic extends Component {
           </form>
         </div>
       </div>
-    )
-  }
-}
-export default withRouter(CreateAttic)
+    );
+  };
+};
+
+export default withRouter(CreateAttic);

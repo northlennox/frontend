@@ -5,7 +5,7 @@ import './../MyAccount.scss';
 
 class MyAccountContainer extends Component {
   constructor(){
-    super()
+    super();
     this.state = {
       userinfo : {
           email: '',
@@ -17,11 +17,11 @@ class MyAccountContainer extends Component {
           mobileNotice: ''
         }
     }
-  }
+  };
 
   componentDidMount(){
-    this.getMyinfo()
-  }
+    this.getMyinfo();
+  };
 
   getMyinfo = async() => {
     const userId = sessionStorage.getItem('userId');
@@ -33,28 +33,26 @@ class MyAccountContainer extends Component {
 
       if(!response.ok){
         throw Error(response.statusText)
-      }
+      };
 
       const userParsed = await response.json();
 
       this.setState({
-          userinfo: userParsed.data
-      })
+        userinfo: userParsed.data
+      });
 
-    }catch(err){
-      console.log('get myinfo is failed?')
+    } catch(err) {
       return err
-    }
-  }
+    };
+  };
 
-  render(){
+  render() {
     const userId = sessionStorage.getItem('userId');
     if(!userId) {
       this.props.history.push('/');
-    }
-    console.log(this.state.userinfo);
+    };
 
-    return(
+    return (
       <div>
         <Nav />
         <div className="accountContainer">
@@ -96,8 +94,8 @@ class MyAccountContainer extends Component {
           </div>
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default MyAccountContainer;

@@ -1,49 +1,46 @@
 import React, { Component } from 'react';
 import Nav from '../Nav';
 import { Link } from 'react-router-dom';
-import './Home.scss'
+import './Home.scss';
 
 class HomeContainer extends Component {
   constructor(){
-    super()
+    super();
     this.state = {
       userinfo: {
         email:'',
         password: '',
         name: '',
       }
-    }
-  }
+    };
+  };
 
   componentDidMount(){
     this.getUserInfo();
-  }
+  };
 
   getUserInfo = async() => {
-      const userId = sessionStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
 
-      try{
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/` + userId, {
-          credentials: 'include'
-        })
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/` + userId, {
+        credentials: 'include'
+      });
 
-        if(!response.ok){
-          throw Error(response.statusText)
-        }
+      if(!response.ok){
+        throw Error(response.statusText)
+      };
 
+      const parsedResponse = await response.json();
 
-        const parsedResponse = await response.json();
+      this.setState({
+        userinfo: parsedResponse.data
+      });
 
-        this.setState({
-          userinfo: parsedResponse.data
-        })
-
-      }catch(err){
-        console.log('getuserinfo func fail', err);
-      }
-  }
-
-
+    } catch(err) {
+      console.log('getuserinfo func fail', err);
+    };
+  };
 
   render(){
     return (

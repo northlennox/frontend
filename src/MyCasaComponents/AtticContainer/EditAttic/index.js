@@ -5,11 +5,9 @@ import axios from 'axios';
 import Nav from '../../../Nav';
 import ReactTooltip from "react-tooltip";
 
-
-
 class EditAttic extends Component {
   constructor(){
-    super()
+    super();
     this.state = {
       attic : {
         atticImg: null,
@@ -34,51 +32,55 @@ class EditAttic extends Component {
     try{
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
         credentials: 'include'
-      })
+      });
 
       if(!response.ok){
         throw Error(response.statusText)
-      }
+      };
 
       const userParsed = await response.json();
+
       this.setState({
-          attic: {
-            atticImg: userParsed.attic.atticImg,
-            atticType: userParsed.attic.atticType,
-            atticSqft: userParsed.attic.atticSqft,
-            atticDepth: userParsed.attic.atticDepth,
-            insulMaterial: userParsed.attic.insulMaterial,
-            airSealed: userParsed.attic.airSealed
-          },
-
-      })
-    }catch(err){
+        attic: {
+          atticImg: userParsed.attic.atticImg,
+          atticType: userParsed.attic.atticType,
+          atticSqft: userParsed.attic.atticSqft,
+          atticDepth: userParsed.attic.atticDepth,
+          insulMaterial: userParsed.attic.insulMaterial,
+          airSealed: userParsed.attic.airSealed
+        }
+      });
+    } catch(err) {
       return err
-    }
-  }
+    };
+  };
 
-  handleInput = (e) => {
+  handleInput = e => {
     const updatedChange = {
       ...this.state.attic
-    }
+    };
+
     updatedChange[e.target.name] = e.target.value;
+
     this.setState({
       attic: updatedChange
-    })
-  }
+    });
+  };
 
-  handleClick = (e) => {
+  handleClick = e => {
     var frame = document.getElementById(`input-${e.target.id}`)
     frame.click();
-  }
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
+
     const updatedAttic = {
       ...this.state.attic
-    }
+    };
 
-    this.editAttic(updatedAttic)
+    this.editAttic(updatedAttic);
+
     this.setState({
       attic : {
         atticImg: null,
@@ -89,11 +91,12 @@ class EditAttic extends Component {
         airSealed: '',
         userId: '',
       }
-    })
-  }
+    });
+  };
 
-  fileSelectHandler = (e) => {
+  fileSelectHandler = e => {
     var file1
+
     switch (e.target.id) {
       case 'input-photoOne':
           file1 = e.target.files[0];
@@ -101,17 +104,17 @@ class EditAttic extends Component {
       default:
         console.log('error');
         return 0;
-    }
+    };
 
     var reader1 = new FileReader();
     var url1 = typeof file1 !== 'undefined'? reader1.readAsDataURL(file1):null;
 
-    reader1.onloadend = function(e){
+    reader1.onloadend = function(e) {
 
     this.setState({
         preview1: [reader1.result || null],
       })
-    }.bind(this)
+    }.bind(this);
 
     this.setState({
       attic: {
@@ -119,72 +122,72 @@ class EditAttic extends Component {
         // atticImg: [this.state.attic.atticImg, e.target.files[0]]
         atticImg: e.target.files[0]
       }
-    })
-  }
+    });
+  };
 
-  handleEditFormInput = (e) => {
+  handleEditFormInput = e => {
     this.setState({
       attic: {
         ...this.state.attic,
         [e.target.name]:  e.target.value
       }
-    })
-  }
+    });
+  };
 
-    editAttic = async(e) => {
-      e.preventDefault();
-      const data = new FormData();
-      data.append('atticImg', this.state.attic.atticImg);
-      data.append('atticType', this.state.attic.atticType);
-      data.append('atticSqft', this.state.attic.atticSqft);
-      data.append('atticDepth', this.state.attic.atticDepth);
-      data.append('insulMaterial', this.state.attic.insulMaterial);
-      data.append('airSealed', this.state.attic.airSealed);
-      // data.append('time', this.state.house.time);
+  editAttic = async(e) => {
+    e.preventDefault();
 
-      let userId = sessionStorage.getItem('userId');
-      data.append('userId', userId)
-      // const time = new Date();
-      // data.append('postingTime', time)
-      axios.put(`${process.env.REACT_APP_API}/api/v1/attic/${userId}`, data, {
-        headers: {
-          'Content-type': 'multipart/form-data'
-        }
-      })
-      .then(res => {
-        console.log(userId);
-        this.props.history.push(`/mycasa/${userId}` );
-      })
-    }
+    const data = new FormData();
+    data.append('atticImg', this.state.attic.atticImg);
+    data.append('atticType', this.state.attic.atticType);
+    data.append('atticSqft', this.state.attic.atticSqft);
+    data.append('atticDepth', this.state.attic.atticDepth);
+    data.append('insulMaterial', this.state.attic.insulMaterial);
+    data.append('airSealed', this.state.attic.airSealed);
+    // data.append('time', this.state.house.time);
 
-    deleteMyAttic = async(id, e) => {
-      e.preventDefault()
-
-      try{
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/Attic/` + `${id}`, {
-          method: 'DELETE',
-          credentials: 'include'
-        });
-
-        if(!response.ok){
-          throw Error(response.statusText)
-        }
-
-        this.props.history.push('/mycasa/' + id);
-      }catch(err){
-        alert('Something went wrong. Please try again')
+    let userId = sessionStorage.getItem('userId');
+    data.append('userId', userId)
+    // const time = new Date();
+    // data.append('postingTime', time)
+    axios.put(`${process.env.REACT_APP_API}/api/v1/attic/${userId}`, data, {
+      headers: {
+        'Content-type': 'multipart/form-data'
       }
+    })
+    .then(res => {
+      console.log(userId);
+      this.props.history.push(`/mycasa/${userId}` );
+    })
+  };
 
+  deleteMyAttic = async(id, e) => {
+    e.preventDefault()
+
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/Attic/` + `${id}`, {
+        method: 'DELETE',
+        credentials: 'include'
+      });
+
+      if(!response.ok){
+        throw Error(response.statusText)
+      };
+
+      this.props.history.push('/mycasa/' + id);
+    } catch(err) {
+      alert('Something went wrong. Please try again')
     }
+  };
 
   render(){
     const userId = sessionStorage.getItem('userId');
     const atticTypeOptions = ["Select", "Unconditioned Attic", "Conditioned Attic", "Cathedral Ceiling"];
     const atticDepthOptions = ["Select", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"];
     const insulMaterialOptions = ["Select", "Fiberglass Batt", "Fiberglass Blown", "Cellulose", "Not Sure"];
-    // const atticImgState = `http://host:9000/` + this.state.attic.atticImg;
-    let upload = "./../../../upload.svg"
-    return(
+    let upload = "./../../../upload.svg";
+
+    return (
       <div>
         <Nav />
         <div className="editContainer">
@@ -258,7 +261,8 @@ class EditAttic extends Component {
           </form>
         </div>
       </div>
-    )
-  }
-}
-export default withRouter(EditAttic)
+    );
+  };
+};
+
+export default withRouter(EditAttic);

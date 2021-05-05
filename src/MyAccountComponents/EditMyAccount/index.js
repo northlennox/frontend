@@ -4,7 +4,7 @@ import Nav from '../../Nav';
 
 class EditMyAccount extends Component {
   constructor(){
-    super()
+    super();
     this.state = {
       userinfo : {
             email: '',
@@ -15,18 +15,17 @@ class EditMyAccount extends Component {
             emailNotice: '',
             mobileNotice: ''
         }
-    }
-  }
-
+    };
+  };
 
   componentDidMount(){
-    this.getMyinfo()
-  }
+    this.getMyinfo();
+  };
 
   getMyinfo = async() => {
     const userId = sessionStorage.getItem('userId');
 
-    try{
+    try {
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/` + userId, {
         credentials: 'include'
       });
@@ -38,16 +37,15 @@ class EditMyAccount extends Component {
       const userParsed = await response.json();
 
       this.setState({
-          userinfo: userParsed.data
-      })
+        userinfo: userParsed.data
+      });
 
-    }catch(err){
-      console.log('get myinfo is failed?')
+    } catch(err) {
       return err
-    }
-  }
+    };
+  };
 
-//edit
+
   handleSubmit = async(e) =>{
     e.preventDefault();
     const userId = sessionStorage.getItem('userId');
@@ -59,37 +57,35 @@ class EditMyAccount extends Component {
       headers: {
         'Content-Type': 'application/json'
       }
-    })
+    });
 
     if(!response.ok){
-      console.log('handle submit for edit is fail')
       throw Error(response.statusText);
-    }
+    };
 
     const parsedResponse = await response.json();
 
-    if(parsedResponse.status === 200){
+    if (parsedResponse.status === 200) {
+      this.props.history.push('/myaccount/' + userId);
+    } else {
+      console.log('error')
+      alert('Something went wrong. Try again.')
+    };
+  };
 
-      this.props.history.push('/myaccount/' + userId)
-    }else{
-      console.log('data was not equal to use is updated')
-    }
-  }
-
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
       userinfo: {
         ...this.state.userinfo,
       [e.target.name] : e.target.value
       }
-    })
-  }
+    });
+  };
 
-//delete
   deleteMyacc = async(e) => {
-    e.preventDefault()//MEMO: button will refresh the page by default
+    e.preventDefault()
 
-    try{
+    try {
       const userId = sessionStorage.getItem('userId');
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + userId, {
         method: 'DELETE',
@@ -98,36 +94,29 @@ class EditMyAccount extends Component {
 
       if(!response.ok){
         throw Error(response.statusText)
-      }
+      };
 
       const responseParsed = await response.json();
-      console.log('responseParsed? =>', responseParsed)
-      if(responseParsed.status === 200){
-        sessionStorage.removeItem('userId')
 
-        this.props.history.push('/')
+      if (responseParsed.status === 200) {
+        sessionStorage.removeItem('userId');
+        this.props.history.push('/');
       }else{
-        console.log('this is fail')
-      }
+        alert('Something went wrong. Try again.');
+      };
+    } catch(err) {
+      alert('Something went wrong. Try again.');
+    };
+  };
 
-
-    }catch(err){
-      alert('delete is failed')
-      console.log('delete is fail')
-    }
-
-  }
-
-
-
-  render(){
+  render() {
     const userId = sessionStorage.getItem('userId');
+
     if(!userId) {
       this.props.history.push('/');
-    }
+    };
 
-
-    return(
+    return (
       <div>
         <Nav />
         <div className="editContainer">
@@ -176,8 +165,8 @@ class EditMyAccount extends Component {
           </div>
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default EditMyAccount;
