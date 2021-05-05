@@ -6,6 +6,7 @@ import { Button, Card, Accordion } from 'react-bootstrap';
 const ShowRoof = (props) => {
   const photo = props.roof.roofImg;
   const userId = sessionStorage.getItem('userId');
+
   return(
     <div className="postedContainer">
       <div className="postedFrame">
@@ -33,6 +34,7 @@ const ShowRoof = (props) => {
           </Card>
         </Accordion>
     </div>
-  )
-}
-export default ShowRoof
+  );
+};
+
+export default ShowRoof;

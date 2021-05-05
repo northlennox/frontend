@@ -22,32 +22,33 @@ class CreateAttic extends Component {
       preview: null,
       selectedFile : null,
     }
-  }
+  };
 
-
-  handleInput = (e) => {
+  handleInput = e => {
     const updatedChange = {
       ...this.state.roof
-    }
+    };
+
     updatedChange[e.target.name] = e.target.value;
+
     this.setState({
       roof: updatedChange
-    })
-  }
+    });
+  };
 
-  handleClick = (e) => {
-    var frame = document.getElementById(`input-${e.target.id}`)
+  handleClick = e => {
+    var frame = document.getElementById(`input-${e.target.id}`);
     frame.click();
-  }
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
+
     const updatedRoof = {
       ...this.state.roof
-    }
+    };
 
-
-    this.addRoof(updatedRoof)
+    this.addRoof(updatedRoof);
 
     this.setState({
       roof : {
@@ -59,81 +60,75 @@ class CreateAttic extends Component {
         dcCapacity: '',
         userId: '',
       }
-    })
-  }
+    });
+  };
 
-    fileSelectHandler = (e) => {
-      var file1
+  fileSelectHandler = e => {
+    var file1;
 
-      switch (e.target.id) {
-        case 'input-photoOne':
-            file1 = e.target.files[0];
-          break;
+    switch (e.target.id) {
+      case 'input-photoOne':
+          file1 = e.target.files[0];
+        break;
 
-        default:
-          console.log('error');
-          return 0;
+      default:
+        console.log('error');
+        return 0;
+    };
 
-      }
+    var reader1 = new FileReader();
+    var url1 = typeof file1 !== 'undefined'? reader1.readAsDataURL(file1):null;
 
-      var reader1 = new FileReader();
-      var url1 = typeof file1 !== 'undefined'? reader1.readAsDataURL(file1):null;
-
-      reader1.onloadend = function(e){
-
+    reader1.onloadend = function(e){
       this.setState({
           preview1: [reader1.result || null],
         })
-      }.bind(this)
+    }.bind(this);
 
+    this.setState({
+      roof: {
+        ...this.state.roof,
+        roofImg: [...this.state.roof.roofImg, e.target.files[0]]
+      }
+    });
+  };
 
-      this.setState({
-        roof: {
-          ...this.state.roof,
-          roofImg: [...this.state.roof.roofImg, e.target.files[0]]
+  addRoof = async(updatedRoof) => {
+      const data = new FormData();
+      for(let i = 0; i < this.state.roof.roofImg.length; i++){
+          data.append('roofImg', this.state.roof.roofImg[i]);
+      }
+
+      data.append('exterior', this.state.roof.exterior);
+      data.append('roofColor', this.state.roof.roofColor);
+      data.append('pvSystem', this.state.roof.pvSystem);
+      data.append('panels', this.state.roof.panels);
+      data.append('dcCapacity', this.state.roof.dcCapacity);
+      // data.append('time', this.state.house.time);
+
+      let userId = sessionStorage.getItem('userId');
+      data.append('userId', userId)
+
+      const time = new Date();
+      data.append('postingTime', time)
+
+      axios.post(`${process.env.REACT_APP_API}/api/v1/roof`, data, {
+        headers: {
+          'content-type': 'multipart/form-data'
         }
       })
-    }
+      .then(res => {
+        this.props.history.push('/mycasa/' +  userId);
+      })
+    };
 
-
-    addRoof = async(updatedRoof) => {
-        const data = new FormData();
-        for(let i = 0; i < this.state.roof.roofImg.length; i++){
-            data.append('roofImg', this.state.roof.roofImg[i]);
-        }
-
-        data.append('exterior', this.state.roof.exterior);
-        data.append('roofColor', this.state.roof.roofColor);
-        data.append('pvSystem', this.state.roof.pvSystem);
-        data.append('panels', this.state.roof.panels);
-        data.append('dcCapacity', this.state.roof.dcCapacity);
-        // data.append('time', this.state.house.time);
-
-        let userId = sessionStorage.getItem('userId');
-        data.append('userId', userId)
-
-        const time = new Date();
-        data.append('postingTime', time)
-
-        axios.post(`${process.env.REACT_APP_API}/api/v1/roof`, data, {
-          headers: {
-            'content-type': 'multipart/form-data'
-          }
-        })
-        .then(res => {
-          this.props.history.push('/mycasa/' +  userId);
-        })
-    }
-
-
-  render(){
+  render() {
     const extriorOptions = ["Select", "Composition Shingles or Metal", "Wood Shakes", "Clay Title", "Concreate Title", "Tar & Gravel"];
     const colorOptions = ["Select", "White", "Light", "Medium", "Dark", "Cool Color With Reflectivity"];
     const upload = "./../../../upload.svg";
     const sampleRoofImg = "./../../SampleImages/RoofSample.jpg";
 
     return(
-
       <div>
         <Nav />
         <div className="createContainer">
@@ -191,6 +186,7 @@ class CreateAttic extends Component {
         </div>
       </div>
     )
-  }
-}
-export default withRouter(CreateAttic)
+  };
+};
+
+export default withRouter(CreateAttic);

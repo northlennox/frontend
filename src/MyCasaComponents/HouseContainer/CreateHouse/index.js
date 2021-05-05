@@ -5,11 +5,9 @@ import axios from 'axios'
 import Nav from '../../../Nav';
 import ReactTooltip from "react-tooltip";
 
-
-
 class HouseContainer extends Component {
   constructor(){
-    super()
+    super();
     this.state = {
       house : {
         houseImg:[],
@@ -23,33 +21,33 @@ class HouseContainer extends Component {
       preview: null,
       selectedFile : null,
     }
-  }
+  };
 
-
-  handleInput = (e) => {
-
+  handleInput = e => {
     const updatedChange = {
       ...this.state.house
-    }
+    };
+
     updatedChange[e.target.name] = e.target.value;
 
     this.setState({
       house: updatedChange
-    })
-  }
+    });
+  };
 
-  handleClick = (e) => {
-    var frame = document.getElementById(`input-${e.target.id}`)
+  handleClick = e => {
+    var frame = document.getElementById(`input-${e.target.id}`);
     frame.click();
-  }
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
+
     const updatedHouse = {
       ...this.state.house
-    }
+    };
 
-    this.addHouse(updatedHouse)
+    this.addHouse(updatedHouse);
 
     this.setState({
       house : {
@@ -63,78 +61,76 @@ class HouseContainer extends Component {
         userId: '',
       },
     })
-  }
+  };
 
-    fileSelectHandler = (e) => {
-      var file1
+  fileSelectHandler = e => {
+    var file1
 
-      switch (e.target.id) {
-        case 'input-photoOne':
-            file1 = e.target.files[0];
-          break;
+    switch (e.target.id) {
+      case 'input-photoOne':
+          file1 = e.target.files[0];
+        break;
 
-        default:
-          console.log('error');
-          return 0;
+      default:
+        console.log('error');
+        return 0;
+    };
 
-      }
+    var reader1 = new FileReader();
+    var url1 = typeof file1 !== 'undefined'? reader1.readAsDataURL(file1):null;
 
-      var reader1 = new FileReader();
-      var url1 = typeof file1 !== 'undefined'? reader1.readAsDataURL(file1):null;
-
-      reader1.onloadend = function(e){
-
+    reader1.onloadend = function(e){
       this.setState({
           preview1: [reader1.result || null],
         })
-      }.bind(this)
+      }.bind(this);
+
+    this.setState({
+      house: {
+        ...this.state.house,
+        houseImg: [...this.state.house.houseImg, e.target.files[0]]
+      }
+    });
+  };
 
 
-      this.setState({
-        house: {
-          ...this.state.house,
-          houseImg: [...this.state.house.houseImg, e.target.files[0]]
+  addHouse = async(updatedHouse) => {
+      const data = new FormData();
+
+      for(let i = 0; i < this.state.house.houseImg.length; i++){
+          data.append('houseImg', this.state.house.houseImg[i]);
+      };
+
+      data.append('address', this.state.house.address);
+      data.append('city', this.state.house.city);
+      data.append('state', this.state.house.state);
+      data.append('zipcode', this.state.house.zipcode);
+      data.append('houseYear', this.state.house.houseYear);
+      data.append('houseSqft', this.state.house.houseSqft);
+      // data.append('time', this.state.house.time);
+
+      let userId = sessionStorage.getItem('userId');
+      data.append('userId', userId)
+
+      const time = new Date();
+      data.append('postingTime', time)
+
+      axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
+        headers: {
+          'content-type': 'multipart/form-data'
         }
       })
-    }
+      .then(res => {
+        this.props.history.push('/mycasa/' + userId);
+      })
+      .catch(err => {
+        console.log('this is err')
+      })
+  };
 
 
-    addHouse = async(updatedHouse) => {
-        const data = new FormData();
-        for(let i = 0; i < this.state.house.houseImg.length; i++){
-            data.append('houseImg', this.state.house.houseImg[i]);
-        }
-
-        data.append('address', this.state.house.address);
-        data.append('city', this.state.house.city);
-        data.append('state', this.state.house.state);
-        data.append('zipcode', this.state.house.zipcode);
-        data.append('houseYear', this.state.house.houseYear);
-        data.append('houseSqft', this.state.house.houseSqft);
-        // data.append('time', this.state.house.time);
-
-        let userId = sessionStorage.getItem('userId');
-        data.append('userId', userId)
-
-        const time = new Date();
-        data.append('postingTime', time)
-
-        console.log('here is', data)
-        axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
-          headers: {
-            'content-type': 'multipart/form-data'
-          }
-        })
-        .then(res => {
-          this.props.history.push('/mycasa/' + userId);
-        })
-        .catch(err => {
-          console.log('this is err')
-        })
-    }
-
-
-  render(){
+  render() {
+    //need to move json file
     let statesObj = [
     {
         "name": "None",
@@ -376,21 +372,21 @@ class HouseContainer extends Component {
         "name": "Wyoming",
         "abbreviation": "WY"
     }
-]
-
+  ];
 
     let houseYearOptions = ["Select"];
-    let today = new Date()
+    let today = new Date();
     let cuttentYear = today.getFullYear();
+
     for(let i = cuttentYear; i >= 1900; i-=1){
         houseYearOptions.push(i)
-    }
+    };
 
     let helpMark = "./../../../help.svg";
     let upload = "./../../../upload.svg";
-    let sampleHouseImg = "./../../SampleImages/houseSample.jpg"
+    let sampleHouseImg = "./../../SampleImages/houseSample.jpg";
 
-    return(
+    return (
 
       <div>
         <Nav />
@@ -448,7 +444,8 @@ class HouseContainer extends Component {
           </form>
         </div>
       </div>
-    )
-  }
-}
-export default withRouter(HouseContainer)
+    );
+  };
+};
+
+export default withRouter(HouseContainer);

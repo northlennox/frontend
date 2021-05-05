@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
 // import Moment from 'react-moment';
 import Nav from '../../../Nav';
 import ReactTooltip from "react-tooltip";
 
-
 class EditRoof extends Component {
   constructor(){
-    super()
+    super();
     this.state = {
       roof : {
         roofImg: [],
@@ -22,26 +21,26 @@ class EditRoof extends Component {
       preview: null,
       selectedFile : null,
     }
-  }
+  };
 
   componentDidMount(){
-    this.getHouseInfo()
+    this.getHouseInfo();
   };
 
   getHouseInfo = async() => {
     const userId = sessionStorage.getItem('userId');
 
-    try{
+    try {
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/${userId}`,  {
         credentials: 'include'
-      })
+      });
 
       if(!response.ok){
         throw Error(response.statusText)
-      }
+      };
 
       const userParsed = await response.json();
-      console.log(userParsed.roof.roofImg);
+
       this.setState({
           roof: {
             roofImg: userParsed.roof.roofImg,
@@ -51,34 +50,38 @@ class EditRoof extends Component {
             panels: userParsed.roof.panels,
             dcCapacity: userParsed.roof.dcCapacity
           }
-        })
-    }catch(err){
+      });
+    } catch(err) {
       return err
-    }
-  }
+    };
+  };
 
-  handleInput = (e) => {
+  handleInput = e => {
     const updatedChange = {
       ...this.state.roof
-    }
+    };
+
     updatedChange[e.target.name] = e.target.value;
+
     this.setState({
       roof: updatedChange
-    })
-  }
+    });
+  };
 
-  handleClick = (e) => {
-    var frame = document.getElementById(`input-${e.target.id}`)
+  handleClick = e => {
+    var frame = document.getElementById(`input-${e.target.id}`);
     frame.click();
-  }
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
+
     const updatedRoof = {
       ...this.state.roof
-    }
+    };
 
-    this.editRoof(updatedRoof)
+    this.editRoof(updatedRoof);
+
     this.setState({
       roof : {
         roofImg: null,
@@ -89,11 +92,12 @@ class EditRoof extends Component {
         dcCapacity: '',
         userId: '',
       }
-    })
-  }
+    });
+  };
 
-  fileSelectHandler = (e) => {
-    var file1
+  fileSelectHandler = e => {
+    var file1;
+
     switch (e.target.id) {
       case 'input-photoOne':
           file1 = e.target.files[0];
@@ -102,87 +106,79 @@ class EditRoof extends Component {
       default:
         console.log('error');
         return 0;
-    }
+    };
 
     var reader1 = new FileReader();
     var url1 = typeof file1 !== 'undefined'? reader1.readAsDataURL(file1):null;
 
     reader1.onloadend = function(e){
-
-    this.setState({
-        preview1: [reader1.result || null],
-      })
-    }.bind(this)
+      this.setState({
+          preview1: [reader1.result || null],
+        })
+    }.bind(this);
 
     this.setState({
       roof: {
         ...this.state.roof,
         roofImg: e.target.files[0]
       }
-    })
-  }
+    });
+  };
 
-  handleEditFormInput = (e) => {
+  handleEditFormInput = e => {
     this.setState({
       roof: {
         ...this.state.roof,
         [e.target.name]:  e.target.value
       }
-    })
-  }
+    });
+  };
 
-    editRoof = async(e) => {
-      e.preventDefault();
-      const data = new FormData();
-      data.append('roofImg', this.state.roof.roofImg);
-      data.append('exterior', this.state.roof.exterior);
-      data.append('roofColor', this.state.roof.roofColor);
-      data.append('pvSystem', this.state.roof.pvSystem);
-      data.append('panels', this.state.roof.panels);
-      data.append('dcCapacity', this.state.roof.dcCapacity);
-      // data.append('time', this.state.house.time);
+  editRoof = async(e) => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append('roofImg', this.state.roof.roofImg);
+    data.append('exterior', this.state.roof.exterior);
+    data.append('roofColor', this.state.roof.roofColor);
+    data.append('pvSystem', this.state.roof.pvSystem);
+    data.append('panels', this.state.roof.panels);
+    data.append('dcCapacity', this.state.roof.dcCapacity);
+    // data.append('time', this.state.house.time);
 
-      let userId = sessionStorage.getItem('userId');
-      data.append('userId', userId)
-      // const time = new Date();
-      // data.append('postingTime', time)
-      console.log('before put request', data);
-      axios.put(`${process.env.REACT_APP_API}/api/v1/roof/${userId}`, data, {
-        headers: {
-          'Content-type': 'multipart/form-data'
-        }
-      })
-      .then(res => {
-        console.log(userId);
-        this.props.history.push(`/mycasa/${userId}` );
-      })
-    }
-
-    deleteMyRoof = async(id, e) => {
-      e.preventDefault()
-
-      try{
-
-
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/roof/` + `${id}`, {
-          method: 'DELETE',
-          credentials: 'include'
-        });
-
-        if(!response.ok){
-          throw Error(response.statusText)
-        }
-
-        // this.setState({
-        //   roof : null
-        // })
-         this.props.history.push('/mycasa/' + id);
-
-      }catch(err){
-        alert('Something went wrong. Please try again')
+    let userId = sessionStorage.getItem('userId');
+    data.append('userId', userId);
+    // const time = new Date();
+    // data.append('postingTime', time)
+    axios.put(`${process.env.REACT_APP_API}/api/v1/roof/${userId}`, data, {
+      headers: {
+        'Content-type': 'multipart/form-data'
       }
+    })
+    .then(res => {
+      this.props.history.push(`/mycasa/${userId}` );
+    })
+  };
 
-    }
+  deleteMyRoof = async(id, e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/roof/` + `${id}`, {
+        method: 'DELETE',
+        credentials: 'include'
+      });
+
+      if(!response.ok){
+        throw Error(response.statusText)
+      };
+
+      this.props.history.push('/mycasa/' + id);
+
+    } catch(err) {
+      alert('Something went wrong. Please try again')
+    };
+  };
+
   render(){
     const userId = sessionStorage.getItem('userId');
     const extriorOptions = ["Select", "Composition Shingles or Metal", "Wood Shakes", "Clay Title", "Concreate Title", "Tar & Gravel"];
@@ -190,7 +186,6 @@ class EditRoof extends Component {
     const roofImgState = `${process.env.REACT_APP_API}/` + this.state.roof.roofImg;
     const upload = "./../../../upload.svg";
     const sampleRoofImg = "./../../SampleImages/RoofSample.jpg";
-
 
     return(
       <div>
@@ -254,7 +249,8 @@ class EditRoof extends Component {
           </form>
         </div>
       </div>
-    )
-  }
-}
-export default withRouter(EditRoof)
+    );
+  };
+};
+
+export default withRouter(EditRoof);

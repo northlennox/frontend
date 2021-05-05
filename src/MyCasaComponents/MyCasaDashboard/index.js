@@ -1,4 +1,3 @@
-//this is where we can create Casa
 import React, { Component } from 'react';
 import Nav from './../../Nav';
 import { Link } from 'react-router-dom';
@@ -13,8 +12,6 @@ import { Button, Card, Accordion } from 'react-bootstrap';
 // import axios from 'axios'
 // import Moment from 'react-moment';
 
-
-
 class MyCasaDashboard extends Component {
   constructor(){
     super()
@@ -25,47 +22,41 @@ class MyCasaDashboard extends Component {
       attic:'',
       house: '',
       utility: '',
-      myHouse: [],
-
+      myHouse: []
     }
-  }
+  };
 
   componentDidMount(){
     this.getHouseInfo();
-  }
+  };
 
+  getHouseInfo = async() => {
+    const userId = sessionStorage.getItem('userId');
 
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
+        credentials: 'include'
+      });
 
+      if(!response.ok){
+        throw Error(response.statusText)
+      };
 
-    getHouseInfo = async() => {
-      // const userId = window.location.pathname.split('/')[2];
-      const userId = sessionStorage.getItem('userId')
+      const userParsed = await response.json();
 
-      try{
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + `${userId}`,  {
-          credentials: 'include'
-        })
-
-
-        if(!response.ok){
-          throw Error(response.statusText)
-        }
-
-        const userParsed = await response.json();
-
-        this.setState({
-            house: userParsed.house,
-            attic: userParsed.attic,
-            roof: userParsed.roof,
-            waHeater: userParsed.waHeater,
-            spHeater: userParsed.spHeater,
-            utility: userParsed.utility,
-            myHouse: userParsed.house
-        });
-      }catch(err){
-        return err
-      }
-    }
+      this.setState({
+        house: userParsed.house,
+        attic: userParsed.attic,
+        roof: userParsed.roof,
+        waHeater: userParsed.waHeater,
+        spHeater: userParsed.spHeater,
+        utility: userParsed.utility,
+        myHouse: userParsed.house
+      });
+    } catch(err) {
+      return err
+    };
+  };
 
   render(){
     const userId = sessionStorage.userId;
@@ -155,9 +146,5 @@ class MyCasaDashboard extends Component {
     )
   }
 }
-export default MyCasaDashboard
 
-
-
-
-// <ShowHouse house={this.state.house} deleteMyHouse={this.deleteMyHouse}/>
+export default MyCasaDashboard;
