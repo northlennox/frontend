@@ -1,0 +1,403 @@
+.projectContainer {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  .addMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    font-size: 0.9rem;
+    color: #979797;
+  }
+}
+
+
+.examContainer {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  .gradeContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    .top {
+      border-bottom: 1px solid #E9E9E9;
+    }
+    .myGrade {
+      // border-bottom: 1px solid #E9E9E9;
+      width: 100%;
+      height: 600px;
+      display: flex;
+
+      .houseProfile {
+        width: 35%;
+        .houseProfileRow {
+          margin-top: 15%;
+          img {
+            width: 80%;
+            border-radius: 10%;
+          }
+          .houseText {
+            margin-top: 10%;
+          }
+        }
+      }
+      .measureContainer {
+        display: flex;
+        flex-direction: column;
+        width: 65%;
+        .measureRow {
+          display: flex;
+          width: 100%;
+          justify-content: space-around;
+          height: 300px;
+          border-bottom: 1px solid #E9E9E9;
+          .measureItem {
+            width: 30%;
+            margin-left: 2%;
+            margin-right: 2%;
+            display: flex;
+            flex-direction: column;
+            // justify-content: center;
+            align-items: center;
+            label {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+            }
+            .atticGrade, .spGradeLetter {
+              font-weight: 800;
+              font-size: 64px;
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+    .componentsMark {
+      // border-bottom: 1px solid #E9E9E9;
+      height: 200px;
+      width: 100%;
+      display: flex;
+      margin-top: 2%;
+      .componentContainer {
+        width: 100%;
+        .componentRow {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-top: 5%;
+          .componentCol {
+            width: 42%;
+            .markContainer {
+              margin-top: 2px;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              .markName {
+                margin-left: 10px;
+                margin-right: 10px;
+              }
+              .markStatus {
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .analysis {
+      margin-top: 5%;
+      border-bottom: 1px solid #E9E9E9;
+      .analysisSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 5%;
+
+        .analysisName {
+          font-weight: 400;
+          align-self: center;
+        }
+      }
+    }
+  }
+}
+.recommendations {
+  padding-top: 5%;
+  .recommendation {
+    margin-top: 10px;
+    .replaceYr {
+      // border: 2px solid #D22E2E;
+      padding: 4px;
+    }
+    .replaceTitle {
+      margin-left: 20px;
+    }
+  }
+}
+
+.marks {
+  height: 20px;
+  width: 20px;
+}
+
+.atticBar {
+  width: 100%;
+  .indicator {
+    width: 2%;
+  }
+  .barContainer {
+    width: 100%;
+    height: 23px;
+    border-radius: 10px;
+    color: white;
+    text-align: left;
+    .barText {
+      transform: skew(-30deg);
+      padding-left: 5%;
+    }
+    .red_level {
+        width: 24%;
+        height: 100%;
+        background-color: #D22E2E;
+        float: left;
+        transform: skew(30deg);
+        margin-right: 1%;
+    }
+    .orange_level {
+        width: 24%;
+        height: 100%;
+        background-color: #FA910B;
+        float: left;
+        transform: skew(30deg);
+        margin-right: 1%;
+    }
+
+    .yellow_level {
+        width: 24%;
+        height: 100%;
+        background-color: #FDC825;
+        float: left;
+        transform: skew(30deg);
+        margin-right: 1%;
+
+    }
+    .green_level {
+        width: 24%;
+        height: 100%;
+        background-color: #139929;
+        float: left;
+        transform: skew(30deg);
+
+    }
+  }
+  .inches {
+    width: 100%;
+    height: 30px;
+    // margin-left: 5%;
+    .redIn {
+        width: 24%;
+        height: 100%;
+        float: left;
+        text-align: center;
+        margin-right: 1%;
+    }
+    .orangeIn {
+        width: 24%;
+        height: 100%;
+        float: left;
+        text-align: center;
+        margin-right: 1%;
+    }
+    .yellowIn {
+        width: 24%;
+        height: 100%;
+        float: left;
+        text-align: center;
+        margin-right: 1%;
+    }
+    .greenIn {
+        width: 24%;
+        height: 100%;
+        float: left;
+        text-align: center;
+    }
+  }
+}
+
+
+.spHeaterBar, .waHeaterBar {
+  width: 100%;
+  .indicator {
+    width: 2%;
+  }
+  .barContainer {
+    width: 100%;
+    height: 23px;
+    border-radius: 10px;
+    color: white;
+    text-align: left;
+    .barText {
+      transform: skew(-30deg);
+      padding-left: 5%;
+    }
+    .red_level {
+        width: 24%;
+        height: 100%;
+        background-color: #D22E2E;
+        float: left;
+        transform: skew(30deg);
+        margin-right: 1%;
+    }
+    .orange_level {
+        width: 24%;
+        height: 100%;
+        background-color: #FA910B;
+        float: left;
+        transform: skew(30deg);
+        margin-right: 1%;
+    }
+    .yellow_level {
+        width: 24%;
+        height: 100%;
+        background-color: #FDC825;
+        float: left;
+        transform: skew(30deg);
+        margin-right: 1%;
+    }
+    .green_level {
+        width: 24%;
+        height: 100%;
+        background-color: #139929;
+        float: left;
+        transform: skew(30deg);
+    }
+  }
+  .inches {
+    width: 100%;
+    height: 30px;
+    .redIn {
+        width: 25%;
+        height: 100%;
+        float: left;
+        text-align: center;
+    }
+    .orangeIn {
+        width: 25%;
+        height: 100%;
+        float: left;
+        text-align: center;
+    }
+    .yellowIn {
+        width: 25%;
+        height: 100%;
+        float: left;
+        text-align: center;
+    }
+    .greenIn {
+        width: 25%;
+        height: 100%;
+        float: left;
+        text-align: center;
+    }
+  }
+}
+
+.progressbar_grade {
+  width: 100%;
+  .indicator {
+    width: 17%;
+  }
+  .bar {
+    width: 100%;
+    height: 23px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    .red {
+        width: 25%;
+        height: 100%;
+        background-color: #D22E2E;
+        float: left;
+    }
+    .orange {
+        width: 25%;
+        height: 100%;
+        background-color: #FA910B;
+        float: left;
+    }
+
+    .yellow {
+        width: 25%;
+        height: 100%;
+        background-color: #FDC825;
+        float: left;
+
+    }
+    .green {
+        width: 25%;
+        height: 100%;
+        background-color: #139929;
+        float: left;
+
+    }
+  }
+}
+
+@media only screen and (max-width: 900px){
+  .examContainer {
+    width: 90%;
+    margin-left: 5%;
+    .gradeContainer {
+      .myGrade {
+
+        display: flex;
+        flex-direction: column;
+        height: 170vh;
+        align-items: center;
+        .houseProfile {
+          text-align: center;
+
+          width: 100%;
+          img {
+            width: 80%;
+          }
+        }
+        .measureContainer {
+          width: 100%;
+          .measureRow {
+            display: flex;
+            flex-direction: row;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            .measureItem {
+              width: 40%;
+            }
+          }
+          .gradeRow {
+            height: auto;
+            padding-top: 5%;
+            padding-bottom: 10%;
+            .componentContainer {
+              .componentRow {
+                display: flex;
+                flex-direction: column;
+                .componentCol {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .barText {
+    font-size: 12px;
+  }
+}

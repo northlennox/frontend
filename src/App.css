@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .submitBtn {
   background: #139929;
   border-radius: 5px;
@@ -13,4 +14,113 @@
 }
 * {
   font-family: "Mulish", sans-serif;
+=======
+/* color palette */
+/* green :  #139929 */
+/* orange : #FA910B */
+
+/* input */
+input {
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 17px;
+  font-size: 16px;
+}
+/* button */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #139929;
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 900;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border: none;
+}
+.btn:hover {
+  color: white;
+}
+
+.deleteBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FA910B;
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 900;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border: none;
+  margin-top: 2%;
+}
+.btn:hover {
+  color: white;
+}
+
+* {
+  font-family: 'Mulish', sans-serif;
+}
+
+/* 28px */
+.h2 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.75rem;
+  line-height: 35px;
+}
+/* 20px */
+.h3 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 25px;
+}
+/* 16px */
+.h4 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 20px;
+}
+
+/* 12px */
+.h5 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.75rem;
+  line-height: 20px;
+}
+
+.titleContainer {
+  align-items: flex-start;
+}
+.subtitle {
+  margin-top: 3vh;
+}
+
+.links {
+  text-decoration: none;
+  color: black;
+}
+
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.textBold {
+  font-weight: bold;
+}
+
+.checkNext {
+  margin-right: 4%;
+>>>>>>> 2fbb785c0c6f29901581b02c45551440a3e4b70c
 }

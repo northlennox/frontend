@@ -1,116 +1,125 @@
-import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
-import Nav from './../../Nav';
-import './MyAccount.scss';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Nav from "../../Nav";
+import "./../MyAccount.scss";
 
-
-class MyAccountContainer extends Component{
-  constructor(){
+class MyAccountContainer extends Component {
+  constructor() {
     super();
     this.state = {
-      myInfo : {},
-    }
+      userinfo: {
+        email: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+        phNumber: "",
+        emailNotice: "",
+        mobileNotice: "",
+      },
+    };
   }
 
-  componentDidMount(){
-    this.getMyInfo()
+  componentDidMount() {
+    this.getMyinfo();
   }
 
-    getMyInfo = async() => {
-      const userId = window.location.pathname.split('/')[2];
+  getMyinfo = async () => {
+    const userId = sessionStorage.getItem("userId");
 
-      try{
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/${userId}`,  {
-          credentials: 'include'
-        })
-
-        if(!response.ok){
-          throw Error(response.statusText)
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API}/api/v1/auth/` + userId,
+        {
+          credentials: "include",
         }
+      );
 
-        const userParsed = await response.json();
-        console.log(userParsed.user);
-        this.setState({
-            myInfo: userParsed.user,
-        })
-
-      }catch(err){
-        return err
+      if (!response.ok) {
+        throw Error(response.statusText);
       }
+
+      const userParsed = await response.json();
+
+      this.setState({
+        userinfo: userParsed.data,
+      });
+    } catch (err) {
+      return err;
+    }
+  };
+
+  render() {
+    const userId = sessionStorage.getItem("userId");
+    if (!userId) {
+      this.props.history.push("/");
     }
 
-    deleteMyacc = async(e) => {
-     e.preventDefault()
-
-     try{
-       const userId = localStorage.getItem('userId');
-       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + userId, {
-         method: 'DELETE',
-         credentials: 'include'
-       });
-
-       if(!response.ok){
-         throw Error(response.statusText)
-       }
-
-       const responseParsed = await response.json();
-
-       if(responseParsed.status === 200){
-         localStorage.removeItem('userId')
-         this.props.history.push('/')
-       }else{
-         console.log('this is fail')
-       }
-
-
-     }catch(err){
-       alert('delete is failed')
-       console.log('delete is fail')
-     }
-
-   }
-
-
-  render(){
-    console.log(this.state.myInfo.email);
-    return(
+    return (
       <div>
         <Nav />
-        <div>
-          <div className="account_container">
-            <div className="account_title">Account</div>
-
-            <div className="row_account">
-              <div className="col_one_account">
-                <div>Personal Information</div>
-                <div>Email</div>
-                <div>Phone Number</div>
-                <div>Email Notice</div>
-                <div>Mobile Notice</div>
-                <div>Account Plan</div>
-                <div>Privacy and Settings</div>
-              </div>
-              <div className="col_two_account">
-                <div>{this.state.myInfo.firstName}<span> </span>{this.state.myInfo.lastName}</div>
-                <div>{this.state.myInfo.email}</div>
-                <div>{this.state.myInfo.phNumber}</div>
-                <div>{this.state.myInfo.emailNotice === 'on' ? <div>ON</div> :  <div>OFF</div>}</div>
-                <div>{this.state.myInfo.mobileNotice === 'on' ? <div>ON</div> :  <div>OFF</div>}</div>
-                <div>Free</div>
-                <div><Link to="/termsofuse">View Terms of Use</Link></div>
-                <form onSubmit={this.deleteMyacc}>
-                  <button type="submit">Delete</button>
-                </form>
-
-              </div>
-
+        <div className="accountContainer">
+          <div className="titleContainer">
+            <div className="title h2">Account</div>
           </div>
-
+          <div className="myInfoContainer">
+            <table>
+              <tr>
+                <th>
+                  <div className="dh">Name:</div>
+                </th>
+                <th>
+                  {this.state.userinfo.firstName +
+                    " " +
+                    this.state.userinfo.lastName}
+                </th>
+                <th>
+                  <Link to={`/myaccount/${userId}/edit`}>Edit</Link>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <div>Email Address:</div>
+                </th>
+                <th>{this.state.userinfo.email}</th>
+              </tr>
+              <tr>
+                <th>
+                  <div>Phone Number:</div>
+                </th>
+                <th>{this.state.userinfo.phNumber}</th>
+              </tr>
+              <tr>
+                <th>
+                  <div>Account Plan:</div>
+                </th>
+                <th>Free Plan</th>
+              </tr>
+              <tr>
+                <th>
+                  <div>Email Notifications:</div>
+                </th>
+                <th>{this.state.userinfo.emailNotice.toUpperCase()}</th>
+              </tr>
+              <tr>
+                <th>
+                  <div>Mobile Notifications:</div>
+                </th>
+                <th>{this.state.userinfo.mobileNotice.toUpperCase()}</th>
+              </tr>
+              <tr>
+                <th>
+                  <div>Privacy and Setting:</div>
+                </th>
+                <th>
+                  <Link to="/agreement">View Terms of Use</Link>
+                </th>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default withRouter(MyAccountContainer);
+export default MyAccountContainer;

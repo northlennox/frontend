@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 15 30" style="enable-background:new 0 0 15 30;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FA910B;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FDC825;}
+	.st2{fill:url(#SVGID_1_);}
+</style>
+<path class="st0" d="M12.5,13.1C14,11.7,15,9.7,15,7.5C15,3.4,11.6,0,7.5,0C3.4,0,0,3.4,0,7.5c0,2.3,1,4.3,2.6,5.7l4.9,16.1
+	L12.5,13.1z"/>
+<path class="st1" d="M7.5,29.2l5-16.2C14,11.7,15,9.7,15,7.5C15,3.4,11.6,0,7.5,0V29.2z"/>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0.375" y1="24.5" x2="13.125" y2="24.5" gradientTransform="matrix(1 0 0 -1 0 32)">
+	<stop  offset="0" style="stop-color:#FDC825"/>
+	<stop  offset="1" style="stop-color:#FA910B"/>
+</linearGradient>
+<circle class="st2" cx="7.5" cy="7.5" r="6.8"/>
+</svg>
