@@ -8,7 +8,7 @@ import ReactTooltip from "react-tooltip";
 
 class CreateSpHeater extends Component {
   constructor(){
-    super()
+    super();
     this.state = {
       spHeater : {
         spHeaterImg: [],
@@ -22,32 +22,32 @@ class CreateSpHeater extends Component {
       preview: null,
       selectedFile : null,
     }
-  }
+  };
 
-
-  handleInput = (e) => {
+  handleInput = e => {
     const updatedChange = {
       ...this.state.spHeater
-    }
+    };
+
     updatedChange[e.target.name] = e.target.value;
 
     this.setState({
       spHeater: updatedChange
-    })
-  }
+    });
+  };
 
-  handleClick = (e) => {
-    var frame = document.getElementById(`input-${e.target.id}`)
+  handleClick = e => {
+    var frame = document.getElementById(`input-${e.target.id}`);
     frame.click();
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     const updatedspHeater = {
       ...this.state.spHeater
     }
 
-    this.addspHeater(updatedspHeater)
+    this.addspHeater(updatedspHeater);
 
     this.setState({
       spHeater : {
@@ -59,41 +59,41 @@ class CreateSpHeater extends Component {
         coolingSystem: '',
         userId: '',
       }
-    })
-  }
+    });
+  };
 
-    fileSelectHandler = (e) => {
-      var file1
+  fileSelectHandler = (e) => {
+    var file1
 
-      switch (e.target.id) {
-        case 'input-photoOne':
-            file1 = e.target.files[0];
-          break;
+    switch (e.target.id) {
+      case 'input-photoOne':
+          file1 = e.target.files[0];
+        break;
 
-        default:
-          console.log('error');
-          return 0;
+      default:
+        console.log('error');
+        return 0;
 
-      }
-
-      var reader1 = new FileReader();
-      var url1 = typeof file1 !== 'undefined'? reader1.readAsDataURL(file1):null;
-
-      reader1.onloadend = function(e){
-
-      this.setState({
-          preview1: [reader1.result || null],
-        })
-      }.bind(this)
-
-
-      this.setState({
-        spHeater: {
-          ...this.state.spHeater,
-          spHeaterImg: [...this.state.spHeater.spHeaterImg, e.target.files[0]]
-        }
-      })
     }
+
+    var reader1 = new FileReader();
+    var url1 = typeof file1 !== 'undefined'? reader1.readAsDataURL(file1):null;
+
+    reader1.onloadend = function(e){
+
+    this.setState({
+        preview1: [reader1.result || null],
+      })
+    }.bind(this);
+
+
+    this.setState({
+      spHeater: {
+        ...this.state.spHeater,
+        spHeaterImg: [...this.state.spHeater.spHeaterImg, e.target.files[0]]
+      }
+    });
+  };
 
 
     addspHeater = async(updatedspHeater) => {
