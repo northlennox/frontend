@@ -1,69 +1,69 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import './Nav.scss';
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import "./Nav.scss";
 
-class Nav extends Component{
-  constructor(){
-    super()
+class Nav extends Component {
+  constructor() {
+    super();
     this.state = {
       userinfo: {
-        email:'',
-        password: '',
-        username:'',
-        name: '',
+        email: "",
+        password: "",
+        username: "",
+        name: "",
       },
-    }
+    };
   }
 
+  getUserInfo = async () => {
+    const userId = localStorage.getItem("userId");
 
-  getUserInfo = async() => {
-      const userId = localStorage.getItem('userId');
-
-      try{
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + userId, {
-          credentials: 'include'
-        })
-
-        if(!response.ok){
-          throw Error(response.statusText)
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API}/api/v1/users/` + userId,
+        {
+          credentials: "include",
         }
+      );
 
-
-        const parsedResponse = await response.json();
-
-        this.setState({
-          userinfo: parsedResponse.data
-        })
-
-      }catch(err){
-        console.log('getuserinfo func fail', err);
+      if (!response.ok) {
+        throw Error(response.statusText);
       }
-  }
 
-  logout = async() => {
-    const userId = localStorage.getItem('userId')
-    try{
-      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/logout`, {
-        credentials: 'include'
+      const parsedResponse = await response.json();
+
+      this.setState({
+        userinfo: parsedResponse.data,
       });
+    } catch (err) {
+      console.log("getuserinfo func fail", err);
+    }
+  };
 
-      if(!response.ok){
-        throw Error(response.statusText)
+  logout = async () => {
+    const userId = localStorage.getItem("userId");
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API}/api/v1/auth/logout`,
+        {
+          credentials: "include",
+        }
+      );
+
+      if (!response.ok) {
+        throw Error(response.statusText);
       }
 
       const responseParsed = await response.json();
 
-      if(response.status === 200){
-        localStorage.removeItem('userId')
-        this.props.history.push('/login')
+      if (response.status === 200) {
+        localStorage.removeItem("userId");
+        this.props.history.push("/login");
       }
-
-    }catch(err){
-      console.log('logout fail', err);
+    } catch (err) {
+      console.log("logout fail", err);
     }
-  }
-
-
+  };
 
   // if (localStorage.getItem('userId') !== null) {
   //   console.log('USER IS LOGGED IN')
@@ -71,65 +71,126 @@ class Nav extends Component{
   //   props.history.push('/')
   // }
 
-  render(){
-    const userId = localStorage.getItem('userId');
-    const home = "/home"
+  render() {
+    const userId = localStorage.getItem("userId");
+    const home = "/home";
 
-    return(
-      <div className="container">
+    return (
+      <div>
         <div className="">
-        { localStorage.getItem('userId') === null ?
-
-
-          <div>
-            <div className="container_nav">
-              <div className="items_nav">
-                <Link to='/'>
-                  <div className="container_logo">
-                    <div className="logo_img"><img src={process.env.PUBLIC_URL + '/logo.png'}/></div>
-                    <div className="logo_text"><img src={process.env.PUBLIC_URL + '/electricasa.png'}/></div>
-                  </div>
-                </Link>
-              </div>
-              <div className="items_nav">
-                <Link to="/login" className="login_btn" style={{textDecoration : 'none', color:'black', fontSize:'16px'}}>Login</Link>
-              </div>
-            </div>
-          </div>
-        :
-          <div>
-            <div className="container_nav">
-              <div className="items_nav">
-                <Link to='/'>
-                  <div className="container_logo">
-                    <div className="logo_img"><img src={process.env.PUBLIC_URL + '/logo.png'}/></div>
-                    <div className="logo_text"><img src={process.env.PUBLIC_URL + '/electricasa.png'}/></div>
-                  </div>
-                </Link>
-              </div>
-              <div className="items_nav">
-                <div className="item_nav">
-                  <Link to='/home' style={{textDecoration : 'none', color:'black', fontSize:'16px'}}>Electrify</Link>
+          {localStorage.getItem("userId") === null ? (
+            <div>
+              <div className="container_nav">
+                <div className="items_nav">
+                  <Link to="/">
+                    <div className="container_logo">
+                      <div className="logo_img">
+                        <img src={process.env.PUBLIC_URL + "/logo.png"} />
+                      </div>
+                      <div className="logo_text">
+                        <img
+                          src={process.env.PUBLIC_URL + "/electricasa.png"}
+                        />
+                      </div>
+                    </div>
+                  </Link>
                 </div>
-                <div className="item_nav">
-                  <Link to='/mycasa' style={{textDecoration : 'none', color:'black', fontSize:'16px'}}>My Casa</Link>
-                </div>
-                <div className="item_nav">
-                  <Link to='/project' style={{textDecoration : 'none', color:'black', fontSize:'16px'}}>Projects</Link>
-                </div>
-                <div className="item_nav">
-                  <Link to={`/myaccount/${userId}` }style={{textDecoration : 'none', color:'black', fontSize:'16px'}}>Account</Link>
-                </div>
-                <div className="item_nav">
-                  <input type="submit" value="Logout" className="logout_btn" onClick={this.logout} />
+                <div className="items_nav">
+                  <Link
+                    to="/login"
+                    className="login_btn"
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      fontSize: "16px",
+                    }}
+                  >
+                    Login
+                  </Link>
                 </div>
               </div>
             </div>
-          </div>
-        }
+          ) : (
+            <div>
+              <div className="container_nav">
+                <div className="items_nav">
+                  <Link to="/">
+                    <div className="container_logo">
+                      <div className="logo_img">
+                        <img src={process.env.PUBLIC_URL + "/logo.png"} />
+                      </div>
+                      <div className="logo_text">
+                        <img
+                          src={process.env.PUBLIC_URL + "/electricasa.png"}
+                        />
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+                <div className="items_nav">
+                  <div className="item_nav">
+                    <Link
+                      to="/home"
+                      style={{
+                        textDecoration: "none",
+                        color: "black",
+                        fontSize: "16px",
+                      }}
+                    >
+                      Electrify
+                    </Link>
+                  </div>
+                  <div className="item_nav">
+                    <Link
+                      to="/mycasa"
+                      style={{
+                        textDecoration: "none",
+                        color: "black",
+                        fontSize: "16px",
+                      }}
+                    >
+                      My Casa
+                    </Link>
+                  </div>
+                  <div className="item_nav">
+                    <Link
+                      to="/project"
+                      style={{
+                        textDecoration: "none",
+                        color: "black",
+                        fontSize: "16px",
+                      }}
+                    >
+                      Projects
+                    </Link>
+                  </div>
+                  <div className="item_nav">
+                    <Link
+                      to={`/myaccount/${userId}`}
+                      style={{
+                        textDecoration: "none",
+                        color: "black",
+                        fontSize: "16px",
+                      }}
+                    >
+                      Account
+                    </Link>
+                  </div>
+                  <div className="item_nav">
+                    <input
+                      type="submit"
+                      value="Logout"
+                      className="logout_btn"
+                      onClick={this.logout}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
-    )
+    );
   }
 }
 

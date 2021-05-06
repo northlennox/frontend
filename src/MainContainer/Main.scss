@@ -1,6 +1,6 @@
 .readfirst {
   height: 40px;
-  background-color: #007AFF;
+  background-color: #007aff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +31,6 @@
   #text {
     font-size: 16px;
     padding: 7%;
-
   }
   #btn {
     width: 60%;
@@ -41,7 +40,6 @@
     border-radius: 5px;
     background: #139929;
     text-align: center;
-
   }
   .linkBtn {
     color: white;
@@ -56,26 +54,25 @@
   margin-bottom: 100px;
   width: 40%;
   .col_one {
-
   }
   .col_two {
     margin-top: 8%;
     text-align: center;
     #h1 {
-    font-weight: bold;
-    font-size: 28px;
-    width: 80%;
-    margin-left: 10%;
+      font-weight: bold;
+      font-size: 28px;
+      width: 80%;
+      margin-left: 10%;
     }
     #text {
-    margin-top: 8%;
-    margin-left: 10%;
-    text-align: left;
-    width: 80%;
-
+      margin-top: 8%;
+      margin-left: 10%;
+      text-align: left;
+      width: 80%;
     }
   }
 }
+/*
 .left {
   margin-left: 10%;
 }
@@ -83,3 +80,4 @@
 .right  {
   margin-left: 50%;
 }
+*/
