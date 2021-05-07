@@ -13,7 +13,6 @@ class MainContainer extends Component {
   render(){
     return (
       <div className="mainContainer">
-        <Nav />
         <div className="readfirst">
           <Link to="home/welcome" style={{ textDecoration: "none", color: "white", fontWeight: "600"}}>
             Read first >

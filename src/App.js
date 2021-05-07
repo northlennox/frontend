@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import { Route, Switch, withRouter } from "react-router-dom";
 
-// Bootstrap
-import "bootstrap/dist/css/bootstrap.css";
-
-//Landing Page
-import { LandingPage } from "./LandingPage/LandingPage";
-
 //Nav
 import Nav from "./Nav/index";
 // Footer
@@ -60,9 +54,7 @@ const App = (props) => {
   // } else if(props.location.pathname !== '/') {
   //   props.history.push('/')
   // }
-  /** 
- //Landing Page
-
+  /**
 
 */
 
@@ -70,7 +62,7 @@ const App = (props) => {
     <main>
       <Nav />
       <Switch>
-        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/" component={MainContainer} />
         <Route exact path="/login" component={RegisterLoginContainer} />
         <Route exact path="/signup" component={Register} />
         <Route exact path="/home" component={HomeContainer} />
