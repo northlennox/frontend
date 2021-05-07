@@ -1,56 +1,58 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Nav from '../../Nav';
-import './../MyAccount.scss';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Nav from "../../Nav";
+import "./../MyAccount.scss";
 
 class MyAccountContainer extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      userinfo : {
-          email: '',
-          password: '',
-          firstName: '',
-          lastName: '',
-          phNumber: '',
-          emailNotice: '',
-          mobileNotice: ''
-        }
-    }
-  };
+      userinfo: {
+        email: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+        phNumber: "",
+        emailNotice: "",
+        mobileNotice: "",
+      },
+    };
+  }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getMyinfo();
-  };
+  }
 
-  getMyinfo = async() => {
-    const userId = sessionStorage.getItem('userId');
+  getMyinfo = async () => {
+    const userId = sessionStorage.getItem("userId");
 
-    try{
-      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/` + userId, {
-        credentials: 'include'
-      });
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API}/api/v1/auth/` + userId,
+        {
+          credentials: "include",
+        }
+      );
 
-      if(!response.ok){
-        throw Error(response.statusText)
-      };
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
 
       const userParsed = await response.json();
 
       this.setState({
-        userinfo: userParsed.data
+        userinfo: userParsed.data,
       });
-
-    } catch(err) {
-      return err
-    };
+    } catch (err) {
+      return err;
+    }
   };
 
   render() {
-    const userId = sessionStorage.getItem('userId');
-    if(!userId) {
-      this.props.history.push('/');
-    };
+    const userId = sessionStorage.getItem("userId");
+    if (!userId) {
+      this.props.history.push("/");
+    }
 
     return (
       <div>
@@ -62,40 +64,62 @@ class MyAccountContainer extends Component {
           <div className="myInfoContainer">
             <table>
               <tr>
-                <th><div className="dh">Name:</div></th>
-                <th>{this.state.userinfo.firstName + ' ' +this.state.userinfo.lastName}</th>
-                <th><Link to={`/myaccount/${userId}/edit`}>Edit</Link></th>
+                <th>
+                  <div className="dh">Name:</div>
+                </th>
+                <th>
+                  {this.state.userinfo.firstName +
+                    " " +
+                    this.state.userinfo.lastName}
+                </th>
+                <th>
+                  <Link to={`/myaccount/${userId}/edit`}>Edit</Link>
+                </th>
               </tr>
               <tr>
-               <th><div>Email Address:</div></th>
-               <th>{this.state.userinfo.email}</th>
+                <th>
+                  <div>Email Address:</div>
+                </th>
+                <th>{this.state.userinfo.email}</th>
               </tr>
               <tr>
-                <th><div>Phone Number:</div></th>
+                <th>
+                  <div>Phone Number:</div>
+                </th>
                 <th>{this.state.userinfo.phNumber}</th>
               </tr>
               <tr>
-                 <th><div>Account Plan:</div></th>
-                 <th>Free Plan</th>
+                <th>
+                  <div>Account Plan:</div>
+                </th>
+                <th>Free Plan</th>
               </tr>
               <tr>
-                <th><div>Email Notifications:</div></th>
+                <th>
+                  <div>Email Notifications:</div>
+                </th>
                 <th>{this.state.userinfo.emailNotice.toUpperCase()}</th>
               </tr>
               <tr>
-                <th><div>Mobile Notifications:</div></th>
+                <th>
+                  <div>Mobile Notifications:</div>
+                </th>
                 <th>{this.state.userinfo.mobileNotice.toUpperCase()}</th>
               </tr>
               <tr>
-                <th><div>Privacy and Setting:</div></th>
-                <th><Link to="/agreement">View Terms of Use</Link></th>
+                <th>
+                  <div>Privacy and Setting:</div>
+                </th>
+                <th>
+                  <Link to="/agreement">View Terms of Use</Link>
+                </th>
               </tr>
             </table>
           </div>
         </div>
       </div>
     );
-  };
-};
+  }
+}
 
 export default MyAccountContainer;

@@ -1,0 +1,21 @@
+.myCasa_container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5%;
+  padding-left: 5%;
+  width: 70%;
+  margin-left: 10%;
+  .p1 {
+    margin-top: 4%;
+    margin-bottom: 15%;
+  }
+  .text {
+    color: #979797
+  }
+  .center {
+    align-self: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+
+}

@@ -1,0 +1,18 @@
+.footer_container {
+  background-color: #E9E9E9;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  justify-content: center;
+  .footer_items {
+    margin-left: 4%;
+    margin-right: 4%;
+    font-size: 14px;
+    .link {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}

@@ -1,0 +1,144 @@
+/* .container-house {
+  width: 100%;
+  border: 1px solid;
+  display: flex;
+  flex-direction: auto auto;
+} */
+
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+
+.grid {
+  display: grid;
+}
+
+.seeEditDelete {
+  display: grid;
+  height: 40%;
+  margin-top: 78%;
+  align-items:center;
+}
+
+
+.rightBtnborder {
+  border-style: none;
+  font-size: 18px;
+}
+
+.oneHouse-container {
+  border: 1px solid;
+  width: 580px;
+  height: 280px;
+  margin-bottom: 20px;
+}
+
+.oneHouse {
+  /* border: 1px solid; */
+  width: 500px;
+  height: 250px;
+  display: grid;
+  grid-template-columns: 260px 200px 100px ;
+  /* margin-right: 4%; */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.top {
+  padding-top: 8%;
+  padding-left: 8%;
+  height: 230px;
+  width: 225px;
+}
+
+.mainPhoto {
+  width: 220px;
+  height: 220px;
+  border: 1px solid black;
+}
+
+.home-status {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 5%;
+  margin-bottom: 10%;;
+}
+
+#status-t, #status-f {
+  text-transform: capitalize;
+}
+
+#createBtn {
+  /* border: 2px solid blue; */
+  width: 70px;
+  margin-left: 43%;
+  margin-top: 18%;
+}
+
+
+
+.create {
+  width: 580px;
+  height: 280px;
+  border: 1px grey dashed;
+}
+
+.postingTime {
+  font-size: 12px;
+  text-align: center;
+}
+
+.summary {
+  margin-top: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+
+
+#deletepic {
+  border: none;
+  width: 30px;
+}
+
+
+.rightBtnborder {
+  background-color: #2E8B56;
+  /* background-color: #64A466; */
+  border: 1px solid #2E8B56;
+  /* color: #2E8B56; */
+  color: white;
+  width: 103px;
+  height: 28px;
+  border-radius: 45px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 6%;
+  padding-right: 6%;
+  font-size: 16px;
+  /* margin-top: 2%; */
+}
+
+.rightBtnborder:hover {
+  background-color: #64A466;
+  color: white;
+}
+
+.seeLink, .editLink {
+  background-color: #2E8B56;
+  /* background-color: #64A466; */
+  border: 1px solid #2E8B56;
+  height: 25px;
+  /* color: #2E8B56; */
+  color: white;
+  width: 90px;
+  border-radius: 45px;
+  padding-left: 6%;
+  padding-right: 6%;
+  font-size: 17px;
+  text-align: center;
+}
+
+.linkFont {
+  color: white;
+}

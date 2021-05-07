@@ -3,6 +3,11 @@
 /* orange : #FA910B */
 
 /* input */
+
+* {
+  font-family: "Mulish", sans-serif;
+}
+
 input {
   border: 1px solid #979797;
   box-sizing: border-box;
@@ -32,7 +37,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #FA910B;
+  background-color: #fa910b;
   color: white;
   border-radius: 5px;
   font-size: 18px;
@@ -47,7 +52,7 @@ input {
 }
 
 * {
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
 }
 
 /* 28px */
@@ -91,7 +96,6 @@ input {
   text-decoration: none;
   color: black;
 }
-
 
 .inputContainer {
   display: flex;
