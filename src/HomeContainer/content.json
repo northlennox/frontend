@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Weatherization",
+    "img": "./Electrify/Weatherization.svg",
+    "to": "/home/weatherization"
+  },
+  {
+    "title": "Hot Water",
+    "img": "./Electrify/HotWater.svg",
+    "to": "/home/hotwater"
+  }
+]
