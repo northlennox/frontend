@@ -46,21 +46,20 @@ class HomeContainer extends Component {
   };
 
   render() {
-    console.log(content)
     return (
-      <div className="homeContainer container">
-        <div className="homeContainer__titleContainer row">
+      <div className="container homeContainer">
+        <div className="row my-5 homeContainer__titleContainer">
           <h2 className="homeContainer__titleContainer-title">Electrify</h2>
           <p className="homeContainer__titleContainer-subtitle">
             Explore home energy improvements to increase comfort, efficiency, safety and health, and lower carbon footprint.
           </p>
         </div>
-        <div className="homeContainer__contentContainer row">
-          <div className="homeContainer__contentContainer--list">
+        <div className="row border homeContainer__contentContainer">
+          <div className="d-flex fluid homeContainer__contentContainer--list">
             {content.map(( data, i) => {
               return (
-                <Link to={data.to} className="homeContainer__contentContainer--list--item">
-                  <div>
+                <Link to={data.to} key={i} className="links">
+                  <div className="homeContainer__contentContainer--list--item">
                     <img src={data.img} className="homeContainer__contentContainer--list--item-img"/>
                     <div className="homeContainer__contentContainer--list--item-title">{data.title}</div>
                   </div>
@@ -89,82 +88,3 @@ export default HomeContainer;
         //         <div className="iconText">Weatherization</div>
         //       </div>
         //     </Link>
-        //     <Link to="/home/hotwater" className="links">
-        //       <div className="iconContainer">
-        //         <div className="iconBox">
-        //           <img className="iconImg" src="./Electrify/HotWater.svg" />
-        //         </div>
-        //         <div className="iconText">Hot Water</div>
-        //       </div>
-        //     </Link>
-        //     <Link to="/home/heatingcooling" className="links">
-        //       <div className="iconContainer">
-        //         <div className="iconBox">
-        //           <img
-        //             className="iconImg"
-        //             src="./Electrify/HeatingCooling.svg"
-        //           />
-        //         </div>
-        //         <div className="iconText">Heating and Cooling</div>
-        //       </div>
-        //     </Link>
-        //     <Link to="/home/cooking" className="links">
-        //       <div className="iconContainer">
-        //         <div className="iconBox">
-        //           <img className="iconImg" src="./Electrify/Cooking.svg" />
-        //         </div>
-        //         <div className="iconText">Cooking</div>
-        //       </div>
-        //     </Link>
-        //   </div>
-        //   <div className="electrifyRow" id="electrifyBtm">
-        //     <Link to="/home/clothesdrying" className="links">
-        //       <div className="iconContainer">
-        //         <div className="iconBox">
-        //           <img
-        //             img
-        //             className="iconImg"
-        //             src="./Electrify/ClothesDrying.svg"
-        //           />
-        //         </div>
-        //         <div className="iconText">Clothes Drying</div>
-        //       </div>
-        //     </Link>
-        //     <Link to="/home/energygeneration" className="links">
-        //       <div className="iconContainer">
-        //         <div className="iconBox">
-        //           <img
-        //             img
-        //             className="iconImg"
-        //             src="./Electrify/EnergyGeneration.svg"
-        //           />
-        //         </div>
-        //         <div className="iconText">Energy Generation</div>
-        //       </div>
-        //     </Link>
-        //     <Link to="/home/electricalpanel" className="links">
-        //       <div className="iconContainer">
-        //         <div className="iconBox">
-        //           <img
-        //             img
-        //             className="iconImg"
-        //             src="./Electrify/ElectricalPanel.svg"
-        //           />
-        //         </div>
-        //         <div className="iconText">Electrical Panel</div>
-        //       </div>
-        //     </Link>
-        //     <Link to="/home/electrivehicle" className="links">
-        //       <div className="iconContainer">
-        //         <div className="iconBox">
-        //           <img
-        //             img
-        //             className="iconImg"
-        //             src="./Electrify/ElectricVehicle.svg"
-        //           />
-        //         </div>
-        //         <div className="iconText">Electric Vehicle</div>
-        //       </div>
-        //     </Link>
-        //   </div>
-        // </div>

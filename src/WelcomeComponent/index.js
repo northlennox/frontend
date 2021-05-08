@@ -9,6 +9,7 @@ const WelcomeComponent = (props) => {
       <Nav />
       <div className="welcomeContainer">
         <div
+          className="border"
           style={{ fontSize: "28px", marginBottom: "50px", fontWeight: "700" }}
         >
           Dear Homeowner
