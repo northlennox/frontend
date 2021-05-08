@@ -41,7 +41,7 @@ export const LandingPageMid = () => {
         <h2 className="text-center font-weight-bold pt-4">How It Works</h2>
         {compoents}
         <div className="row justify-content-center">
-          <ElButton link="/login" text="sign up" customWidht={"28%"} />
+          <ElButton link="/signup" text="sign up" customWidht={"28%"} />
         </div>
       </div>
     </div>

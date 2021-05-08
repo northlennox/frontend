@@ -18,7 +18,7 @@ export const LandingPageTop = () => {
             actionable plan for electrification
           </p>
           <div className=" row mt-5 justify-content-center align-items-center">
-            <ElButton link="/login" text="sign up" customWidht={"55%"} />
+            <ElButton link="/signup" text="sign up" customWidht={"55%"} />
           </div>
         </div>
         <div className="col">

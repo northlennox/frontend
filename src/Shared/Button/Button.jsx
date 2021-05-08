@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../Button/Button.scss";
 export const ElButton = ({
   text,
-  link,
+  link = "#",
   disabled,
   classes,
   customWidht = "100%",

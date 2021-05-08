@@ -1,143 +1,216 @@
-import React, { Component } from 'react';
-import Nav from '../Nav';
+import React, { Component } from "react";
+import Nav from "../Nav";
+import "./RegisterLoginContainer.scss";
 
 class RegisterLoginContainer extends Component {
-  constructor(){
-    super()
+  constructor() {
+    super();
 
     this.state = {
       register: {
-        email: '',
-        password: '',
-        firstName: '',
-        lastName: '',
-        phNumber: '',
-        emailNotice: '',
-        mobileNotice: ''
-      }
-    }
+        email: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+        phNumber: "",
+        emailNotice: "",
+        mobileNotice: "",
+      },
+    };
   }
-
 
   handleRegisterSubmit = (e) => {
     e.preventDefault();
     const updatedRegister = {
-      ...this.state.register
-    }
+      ...this.state.register,
+    };
 
     //add regex later!
-    const regex =  true;
+    const regex = true;
 
-    if(regex){
-      this.fetchRegister(updatedRegister)
+    if (regex) {
+      this.fetchRegister(updatedRegister);
       this.setState({
         register: {
-          email: '',
-          password: '',
-          firstName: '',
-          lastName: '',
-          phNumber: '',
-          emailNotice: '',
-          mobileNotice: ''
-        }
-      })
-    }else{
-
+          email: "",
+          password: "",
+          firstName: "",
+          lastName: "",
+          phNumber: "",
+          emailNotice: "",
+          mobileNotice: "",
+        },
+      });
+    } else {
       this.setState({
-        register: updatedRegister
-      })
+        register: updatedRegister,
+      });
     }
-  }
+  };
 
   handleRegisterChange = (e) => {
     const updatedChange = {
-      ...this.state.register
-    }
+      ...this.state.register,
+    };
     updatedChange[e.target.name] = e.target.value;
 
     this.setState({
-      register: updatedChange
-    })
-  }
+      register: updatedChange,
+    });
+  };
 
-
-  fetchRegister = async(updatedRegister) => {
-
-    try{
+  fetchRegister = async (updatedRegister) => {
+    try {
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth`, {
-        method: 'POST',
-        credentials: 'include',
+        method: "POST",
+        credentials: "include",
         body: JSON.stringify(updatedRegister),
         headers: {
-          'Content-Type': 'application/json'
-        }
-      })
+          "Content-Type": "application/json",
+        },
+      });
 
-    if(!response.ok){
-      throw Error(response.statusText)
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+
+      const parsedResponse = await response.json();
+
+      sessionStorage.setItem("userId", parsedResponse.userId);
+
+      this.props.history.push("/home");
+    } catch (err) {
+      alert(
+        "This email address has been taken. Do you already have an account?"
+      );
     }
+  };
 
-    const parsedResponse = await response.json();
-
-    sessionStorage.setItem('userId', parsedResponse.userId);
-
-    this.props.history.push('/home')
-
-    }catch(err){
-      alert('This email address has been taken. Do you already have an account?')
-    }
-  }
-
-  render(){
-
-    return(
+  render() {
+    return (
       <div>
         <Nav />
         <div className="registerContainer">
           <form onSubmit={this.handleRegisterSubmit}>
             <div className="formContainer">
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="email">EMAIL</label>
-                <input type="email" name="email" value={this.state.register.email} onChange={this.handleRegisterChange} required/>
+                <label className="inputLabel" htmlFor="email">
+                  EMAIL
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={this.state.register.email}
+                  onChange={this.handleRegisterChange}
+                  required
+                />
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="password">PASSWORD</label>
-                <input type="password" name="password" value={this.state.register.password} onChange={this.handleRegisterChange} required/>
+                <label className="inputLabel" htmlFor="password">
+                  PASSWORD
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  value={this.state.register.password}
+                  onChange={this.handleRegisterChange}
+                  required
+                />
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="firstName">FIRST NAME</label>
-                <input type="text" name="firstName" value={this.state.register.firstName} onChange={this.handleRegisterChange} required/>
+                <label className="inputLabel" htmlFor="firstName">
+                  FIRST NAME
+                </label>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={this.state.register.firstName}
+                  onChange={this.handleRegisterChange}
+                  required
+                />
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="lastName">LAST NAME</label>
-                <input type="text" name="lastName" value={this.state.register.lastName} onChange={this.handleRegisterChange} required/>
+                <label className="inputLabel" htmlFor="lastName">
+                  LAST NAME
+                </label>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={this.state.register.lastName}
+                  onChange={this.handleRegisterChange}
+                  required
+                />
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="phNumber">PHONE NUMBER</label>
-                <input type="text" name="phNumber" value={this.state.register.phNumber} onChange={this.handleRegisterChange} required/>
+                <label className="inputLabel" htmlFor="phNumber">
+                  PHONE NUMBER
+                </label>
+                <input
+                  type="text"
+                  name="phNumber"
+                  value={this.state.register.phNumber}
+                  onChange={this.handleRegisterChange}
+                  required
+                />
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="emailNotice">EMAIL NOTIFICATION</label>
-                <div id="emailNotice" >
-                  <input name="emailNotice" type="radio" checked={this.state.register.emailNotice === "yes"} value="yes" onChange={this.handleRegisterChange}/><span className="radioNext">YES</span>
-                  <input className="radioInput-right" name="emailNotice" type="radio" checked={this.state.register.emailNotice === "no"} value="no" onChange={this.handleRegisterChange}/><span className="radioNext">NO</span>
+                <label className="inputLabel" htmlFor="emailNotice">
+                  EMAIL NOTIFICATION
+                </label>
+                <div id="emailNotice">
+                  <input
+                    name="emailNotice"
+                    type="radio"
+                    checked={this.state.register.emailNotice === "yes"}
+                    value="yes"
+                    onChange={this.handleRegisterChange}
+                  />
+                  <span className="radioNext">YES</span>
+                  <input
+                    className="radioInput-right"
+                    name="emailNotice"
+                    type="radio"
+                    checked={this.state.register.emailNotice === "no"}
+                    value="no"
+                    onChange={this.handleRegisterChange}
+                  />
+                  <span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
-                <label className="inputLabel" htmlFor="mobileNotice">MOBILE NOTIFICATION</label>
-                <div id="mobileNotice" >
-                  <input name="mobileNotice" type="radio" checked={this.state.register.mobileNotice === "yes"} value="yes" onChange={this.handleRegisterChange}/><span className="radioNext">YES</span>
-                  <input className="radioInput-right" name="mobileNotice" type="radio" checked={this.state.register.mobileNotice === "no"} value="no" onChange={this.handleRegisterChange}/><span className="radioNext">NO</span>
+                <label className="inputLabel" htmlFor="mobileNotice">
+                  MOBILE NOTIFICATION
+                </label>
+                <div id="mobileNotice">
+                  <input
+                    name="mobileNotice"
+                    type="radio"
+                    checked={this.state.register.mobileNotice === "yes"}
+                    value="yes"
+                    onChange={this.handleRegisterChange}
+                  />
+                  <span className="radioNext">YES</span>
+                  <input
+                    className="radioInput-right"
+                    name="mobileNotice"
+                    type="radio"
+                    checked={this.state.register.mobileNotice === "no"}
+                    value="no"
+                    onChange={this.handleRegisterChange}
+                  />
+                  <span className="radioNext">NO</span>
                 </div>
               </div>
               <div className="inputContainer">
-                <button className="btn" type="submit">SIGN UP</button>
+                <button className="btn" type="submit">
+                  SIGN UP
+                </button>
               </div>
             </div>
           </form>
         </div>
       </div>
-    )
+    );
   }
 }
-export default RegisterLoginContainer
+export default RegisterLoginContainer;
