@@ -1,5 +1,4 @@
 .container {
-  min-height: 50vh;
   padding-left: 0;
   padding-right: 0;
 }
@@ -10,11 +9,15 @@ h2 {
 
 .top {
   text-align: justify;
-  font-size: 3.8vw;
+  font-size: 48px;
 }
 
 .top:after {
   display: inline-block;
   width: 100%;
   font-weight: 600;
+}
+
+p {
+  font-size: 18px;
 }
