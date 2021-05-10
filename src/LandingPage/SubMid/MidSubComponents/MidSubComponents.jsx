@@ -10,7 +10,9 @@ export const MidSubComponent = ({ imgSrc, orderName, text }) => {
       <div className="col-2 custom-big-text justify-self-start">
         {orderName}
       </div>
-      <div className="col custom-small-text">{text}</div>
+      <div className="col ">
+        <p>{text}</p>
+      </div>
     </div>
   );
 };

@@ -1,10 +1,8 @@
 import React from "react";
-import "./LandingPageMid.scss";
 import { ElButton } from "../../Shared/Button/Button.jsx";
-import { MidSubComponent } from "./MidSubComponents/MidSubComponents.jsx";
-const imgSrc = "";
+import "./MobileLandingMid.scss";
 
-export const LandingPageMid = () => {
+export const MobileLandingMid = () => {
   const info = [
     {
       imgSrc: "./LandingPage/LandingPageMid1.png",
@@ -26,23 +24,27 @@ export const LandingPageMid = () => {
     },
   ];
 
-  const compoents = info.map((el, i) => (
-    <MidSubComponent
-      key={i}
-      imgSrc={el.imgSrc}
-      orderName={el.orderName}
-      text={el.text}
-    />
-  ));
-
   return (
-    <div className="background pt-4 pb-4">
-      <div className="container mt-5">
-        <h2 className="text-center font-weight-bold pt-4">How It Works</h2>
-        {compoents}
-        <div className="row justify-content-center">
-          <ElButton link="/signup" text="sign up" customWidht={"28%"} />
-        </div>
+    <div className="background">
+      <div className="container">
+        <h3 className="text-center">How It Works</h3>
+        <div className="col"></div>
+      </div>
+    </div>
+  );
+};
+
+const MobileMidSub = ({ imgSrc, orderName, text }) => {
+  return (
+    <div className="col">
+      <div className="row">
+        <img src={imgSrc} alt="picture" />
+      </div>
+      <div className="row">
+        <h4>{orderName}</h4>
+      </div>
+      <div className="row">
+        <p>{text}</p>
       </div>
     </div>
   );

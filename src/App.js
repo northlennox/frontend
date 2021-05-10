@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, Component } from "react";
 import "./App.css";
 import { Route, Switch, withRouter } from "react-router-dom";
 
@@ -54,7 +54,15 @@ const My404 = () => {
   return <div>It cho ke!</div>;
 };
 
-const App = (props) => {
+const App = () => {
+  let mql = window.matchMedia("(max-width: 600px)");
+  const [mobileView, setMobileView] = useState(mql.matches);
+
+  mql.addEventListener("change", (e) => {
+    console.log("chagnge ," + e.matches);
+    setMobileView(e.matches);
+  });
+
   // if (sessionStorage.getItem('userId') !== null) {
   //   console.log('USER IS LOGGED IN')
   // } else if(props.location.pathname !== '/') {
@@ -70,7 +78,11 @@ const App = (props) => {
     <main>
       <Nav />
       <Switch>
-        <Route exact path="/" component={LandingPage} />
+        <Route
+          exact
+          path="/"
+          component={() => <LandingPage mobileView={mobileView} />}
+        />
         <Route exact path="/login" component={RegisterLoginContainer} />
         <Route exact path="/signup" component={Register} />
         <Route exact path="/home" component={HomeContainer} />

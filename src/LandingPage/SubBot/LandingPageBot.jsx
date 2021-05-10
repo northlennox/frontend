@@ -1,5 +1,6 @@
 import React from "react";
 import { BotSubComponent } from "./BotSubComponents/BotSubComponent.jsx";
+import "./LandingPageBot.scss";
 
 export const LandingPageBot = () => {
   const info = [
@@ -14,7 +15,7 @@ export const LandingPageBot = () => {
         "41 million gas ranges ",
         "19 million gas dryers ",
       ],
-      colSize: "5",
+      colSize: "4",
     },
 
     {
@@ -22,7 +23,7 @@ export const LandingPageBot = () => {
       p1Text: "",
       p2Text: "",
       liText: [],
-      colSize: "2",
+      colSize: "3",
     },
     {
       imgSrc: "./LandingPage/House2.svg",
@@ -36,7 +37,7 @@ export const LandingPageBot = () => {
         `Induction ranges`,
         `Heat pump drying`,
       ],
-      colSize: "5",
+      colSize: "4",
     },
   ];
 
@@ -54,21 +55,25 @@ export const LandingPageBot = () => {
 
   return (
     <div className="container mt-5">
-      <h2 className="text-center">The Change You Can Achieve</h2>
+      <h2 className="text-center pb-4">The Change You Can Achieve</h2>
       <div
         className="row  align-items-center
         justify-content-around pt-4 "
       >
-        <div className="col-4 offset-1   ">
-          <img src={info[0].imgSrc} alt="" />
+        <div className="col-4  ">
+          <img
+            className="offset-3 custom-small-img "
+            src={info[0].imgSrc}
+            alt="House"
+          />
         </div>
 
         <div className="col-2 ">
-          <img src={info[1].imgSrc} alt="" />
+          <img src={info[1].imgSrc} alt="Arrow" />
         </div>
         <div className="col-1"></div>
-        <div className="col-4 ">
-          <img src={info[2].imgSrc} alt="" />
+        <div className="col-4  ">
+          <img src={info[2].imgSrc} className="custom-small-img" alt="House" />
         </div>
         {components}
       </div>

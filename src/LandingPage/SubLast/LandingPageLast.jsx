@@ -35,9 +35,9 @@ export const LandingPageLast = () => {
   ));
 
   return (
-    <div className="background ">
+    <div className="background pb-5 ">
       <div className="container   ">
-        <h2 className="text-center pt-5">How To Get It</h2>
+        <h2 className="text-center pt-5 pb-5">How To Get It</h2>
         <div className="row  justify-content-around">{containers}</div>
       </div>
     </div>
