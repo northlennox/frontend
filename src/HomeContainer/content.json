@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Weatherization",
+    "img": "./Electrify/Weatherization.svg",
+    "to": "/home/weatherization"
+  },
+  {
+    "title": "Hot Water",
+    "img": "./Electrify/HotWater.svg",
+    "to": "/home/hotwater"
+  },
+  {
+    "title": "Heating and Cooling",
+    "img": "./Electrify/HeatingCooling.svg",
+    "to": "/home/heatingcooling"
+  },
+  {
+    "title": "Cooking",
+    "img": "./Electrify/Cooking.svg",
+    "to": "/home/cooking"
+  },
+  {
+    "title": "Clothes Drying",
+    "img": "./Electrify/EnergyGeneration.svg",
+    "to": "/home/clothesdrying"
+  },
+  {
+    "title": "Energy Generation",
+    "img": "./Electrify/HeatingCooling.svg",
+    "to": "/home/energygeneration"
+  },
+  {
+    "title": "Electrical Panel",
+    "img": "./Electrify/ElectricalPanel.svg",
+    "to": "/home/electricalpanel"
+  },
+  {
+    "title": "Electric Vehicle",
+    "img": "./Electrify/ElectricVehicle.svg",
+    "to": "/home/electrivehicle"
+  }
+]

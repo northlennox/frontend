@@ -5,7 +5,7 @@ import { Route, Switch, withRouter } from "react-router-dom";
 //Nav
 import Nav from "./Nav/index";
 // Footer
-import Footer from "./Footer/index";
+// import Footer from "./Footer/index";
 
 import MainContainer from "./MainContainer";
 import WelcomeComponent from "./WelcomeComponent";
@@ -76,11 +76,7 @@ const App = (props) => {
         <Route exact path="/home/cooking" component={Cooking} />
         <Route exact path="/home/electricalpanel" component={ElectricalPanel} />
         <Route exact path="/home/electrivehicle" component={ElectricVehicle} />
-        <Route
-          exact
-          path="/home/energygeneration"
-          component={EnergyGeneration}
-        />
+        <Route exact path="/home/energygeneration" component={EnergyGeneration} />
         <Route exact path="/home/heatingcooling" component={HeatingCooling} />
         <Route exact path="/home/hotwater" component={HotWater} />
         <Route exact path="/home/weatherization" component={Weatherization} />
@@ -89,16 +85,8 @@ const App = (props) => {
         <Route exact path="/mycasa/house/create" component={CreateHouse} />
         <Route exact path="/mycasa/roof/create" component={CreateRoof} />
         <Route exact path="/mycasa/attic/create" component={CreateAttic} />
-        <Route
-          exact
-          path="/mycasa/waheater/create"
-          component={CreateWaHeater}
-        />
-        <Route
-          exact
-          path="/mycasa/spheater/create"
-          component={CreateSpHeater}
-        />
+        <Route exact path="/mycasa/waheater/create" component={CreateWaHeater} />
+        <Route exact path="/mycasa/spheater/create" component={CreateSpHeater} />
         <Route exact path="/mycasa/utility/create" component={CreateUtility} />
         <Route exact path="/mycasa/house/edit" component={EditHouse} />
         <Route exact path="/mycasa/roof/edit" component={EditRoof} />
@@ -109,7 +97,6 @@ const App = (props) => {
         //MyProject
         <Route exact path="/MyProject/:id" component={MyProjectComponent} />
       </Switch>
-      <Footer />
     </main>
   );
 };
