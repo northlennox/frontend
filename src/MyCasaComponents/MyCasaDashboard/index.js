@@ -63,7 +63,6 @@ class MyCasaDashboard extends Component {
 
     return(
       <>
-        <Nav />
         <div className="myCasaContainer">
           <div className="titleContainer myCasaTitle">
             <div className="title h2">My Casa</div>

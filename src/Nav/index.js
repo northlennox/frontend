@@ -33,7 +33,7 @@ const Nav = (props) => {
   return (
     <>
       {!sessionStorage.getItem("userId") ? (
-        <div className="navContainer">
+        <div className="container navContainer">
           <div className="navRow" id="logo">
             <Link to="/" style={{ textDecoration: "none" }}>
               <div className="logContainer">
@@ -65,8 +65,10 @@ const Nav = (props) => {
           </div>
         </div>
       ) : (
-        <div className="navContainer">
-          <div className="navRow" id="logo">
+
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div className="navbar-brand" id="logo">
             <Link to="/" style={{ textDecoration: "none" }}>
               <div className="logContainer">
                 <div className="logoImg" style={{ marginRight: "20px" }}>
@@ -78,114 +80,30 @@ const Nav = (props) => {
               </div>
             </Link>
           </div>
-          <div className="navRow navSecond">
-            <div className="navItem">
-              <Link
-                to={`/home`}
-                className="links"
-                style={{ textDecoration: "none" }}
-              >
-                {window.location.pathname.split("/")[1] === "home" ? (
-                  <div
-                    className="navItemText"
-                    id="electrify"
-                    style={{ color: "black" }}
-                  >
-                    Electrify
-                  </div>
-                ) : (
-                  <div
-                    className="navItemText"
-                    id="electrify"
-                    style={{ color: "#979797" }}
-                  >
-                    Electrify
-                  </div>
-                )}
-              </Link>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div className="collapse navbar-collapse navContainer__navRow">
+              <div className="navbar-nav">
+                <Link to={`/home`} className="nav-item nav-link links">
+                  <div>Electrify</div>
+                </Link>
+                <Link to={`/mycasa/${userId}`} className="nav-item nav-link links">
+                  <div>My Casa</div>
+                </Link>
+                <Link to={`/myproject/${userId}`} className="nav-item nav-link links">
+                  <div>Projects</div>
+                </Link>
+                <Link to={`/myaccount/${userId}`} className="nav-item nav-link links">
+                  <div>Account</div>
+                </Link>
+                <button onClick={logout} id="logout">
+                  <div className="nav-item nav-link">Log Out</div>
+                </button>
+              </div>
             </div>
-            <div className="navItem">
-              <Link
-                to={`/mycasa/${userId}`}
-                className="links"
-                style={{ textDecoration: "none" }}
-              >
-                {window.location.pathname.split("/")[1] === "mycasa" ? (
-                  <div
-                    className="navItemText"
-                    id="mycasa"
-                    style={{ color: "black" }}
-                  >
-                    My Casa
-                  </div>
-                ) : (
-                  <div
-                    className="navItemText"
-                    id="mycasa"
-                    style={{ color: "#979797" }}
-                  >
-                    My Casa
-                  </div>
-                )}
-              </Link>
-            </div>
-            <div className="navItem">
-              <Link
-                to={`/myproject/${userId}`}
-                className="links"
-                style={{ textDecoration: "none" }}
-              >
-                {window.location.pathname.split("/")[1] === "myproject" ? (
-                  <div
-                    className="navItemText"
-                    id="myproject"
-                    style={{ color: "black" }}
-                  >
-                    Projects
-                  </div>
-                ) : (
-                  <div
-                    className="navItemText"
-                    id="myproject"
-                    style={{ color: "#979797" }}
-                  >
-                    Projects
-                  </div>
-                )}
-              </Link>
-            </div>
-            <div className="navItem">
-              <Link
-                to={`/myaccount/${userId}`}
-                className="links"
-                style={{ textDecoration: "none" }}
-              >
-                {window.location.pathname.split("/")[1] === "myaccount" ? (
-                  <div
-                    className="navItemText"
-                    id="myaccount"
-                    style={{ color: "black" }}
-                  >
-                    Account
-                  </div>
-                ) : (
-                  <div
-                    className="navItemText"
-                    id="myaccount"
-                    style={{ color: "#979797" }}
-                  >
-                    Account
-                  </div>
-                )}
-              </Link>
-            </div>
-            <div className="navItem">
-              <button onClick={logout} id="logout">
-                <div className="navItemText">Log Out</div>
-              </button>
-            </div>
-          </div>
-        </div>
+          </nav>
+
       )}
     </>
   );
