@@ -31,7 +31,7 @@ export const LandingPageMid = () => {
   return (
     <div className="background pt-4 pb-4">
       <div className="container mt-5">
-        <h2 className="text-center font-weight-bold pt-4">How It Works</h2>
+        <h2 className="text-center  pt-4">How It Works</h2>
         {info.map((el, i) => (
           <div
             key={i}
