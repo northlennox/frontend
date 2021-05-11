@@ -55,14 +55,6 @@ const My404 = () => {
 };
 
 const App = () => {
-  let mql = window.matchMedia("(max-width: 600px)");
-  const [mobileView, setMobileView] = useState(mql.matches);
-
-  mql.addEventListener("change", (e) => {
-    console.log("chagnge ," + e.matches);
-    setMobileView(e.matches);
-  });
-
   // if (sessionStorage.getItem('userId') !== null) {
   //   console.log('USER IS LOGGED IN')
   // } else if(props.location.pathname !== '/') {
@@ -78,11 +70,7 @@ const App = () => {
     <main>
       <Nav />
       <Switch>
-        <Route
-          exact
-          path="/"
-          component={() => <LandingPage mobileView={mobileView} />}
-        />
+        <Route exact path="/" component={() => <LandingPage />} />
         <Route exact path="/login" component={RegisterLoginContainer} />
         <Route exact path="/signup" component={Register} />
         <Route exact path="/home" component={HomeContainer} />

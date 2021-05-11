@@ -1,0 +1,27 @@
+$el-background: #fff1c5;
+
+.background {
+  background-color: $el-background;
+}
+h2 {
+  font-size: 48px;
+}
+h3 {
+  font-size: 36px;
+}
+h4 {
+  font-size: 24px;
+}
+.custom-p {
+  font-size: 18px;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.custom-small-img {
+  max-width: 65%;
+  max-height: 65%;
+}

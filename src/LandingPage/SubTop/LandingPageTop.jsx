@@ -6,8 +6,8 @@ export const LandingPageTop = () => {
   const imgSrc = "./LandingPage/LandingTopPic.png";
 
   return (
-    <div className="container mt-5 pb-4">
-      <div className="row top mt-3 mb-5 justify-content-start">
+    <div className="container pt-4 pb-4 ">
+      <div className=" top mt-4 mb-4 justify-content-start">
         Your Home Electrification Advisor
       </div>
       <div className="row align-items-center  justify-content-center">
@@ -21,7 +21,7 @@ export const LandingPageTop = () => {
             <ElButton link="/signup" text="sign up" customWidht={"55%"} />
           </div>
         </div>
-        <div className="col">
+        <div className="col no-phone ">
           <img src={imgSrc} alt="Picture of a House" />
         </div>
       </div>

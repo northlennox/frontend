@@ -8,7 +8,6 @@ h2 {
 }
 
 .top {
-  text-align: justify;
   font-size: 48px;
 }
 
@@ -16,4 +15,10 @@ h2 {
   display: inline-block;
   width: 100%;
   font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .no-phone {
+    display: none;
+  }
 }

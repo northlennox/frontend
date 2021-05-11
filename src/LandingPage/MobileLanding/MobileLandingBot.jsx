@@ -1,9 +1,6 @@
 import React from "react";
-import "./LandingPageBot.scss";
 
-export const LandingPageBot = () => {
-  const mql = window.matchMedia("(max-width: 700px)");
-
+export const MobileLandingBot = () => {
   const info = [
     {
       imgSrc: "./LandingPage/House1.svg",
@@ -16,63 +13,48 @@ export const LandingPageBot = () => {
         "41 million gas ranges ",
         "19 million gas dryers ",
       ],
-      colSize: "4",
+      customPicClass: "pl-5",
     },
-
     {
-      imgSrc: "./LandingPage/LandingPageBot2.png",
+      imgSrc: "./LandingPage/ElectricasaDownArrow.svg",
       p1Text: "",
       p2Text: "",
       liText: [],
-      colSize: "3",
     },
     {
       imgSrc: "./LandingPage/House2.svg",
       p1Text: `New houses are all-electric and produce zero emissions. Existing houses can be retrofitted. 
-        `,
+          `,
       p2Text: `Electricasa will help you identify customized energy improvements and create a plan to switch to all-electric solutions for:
-        `,
+          `,
       liText: [
         `Heat pump heating and cooling`,
         `Heat pump water heating`,
         `Induction ranges`,
         `Heat pump drying`,
       ],
-      colSize: "4",
     },
   ];
 
-  //  align-items-center
-  // justify-content-end
-
   return (
     <div className="container pt-4 pb-4">
-      <h2 className="text-center pb-4">The Change You Can Achieve</h2>
-      <div
-        className="row  align-items-center
-        justify-content-around pt-4 "
-      >
-        <div className="col-md-4  ">
-          <img
-            className="offset-3 custom-small-img "
-            src={info[0].imgSrc}
-            alt="House"
-          />
-        </div>
-
-        <div className="col-md-2 ">
-          <img src={info[1].imgSrc} alt="Arrow" />
-        </div>
-        <div className="col-md-1"></div>
-        <div className="col-md-4  ">
-          <img src={info[2].imgSrc} className="custom-small-img" alt="House" />
-        </div>
-        {info.map((el, i) => (
-          <div key={i} className={"col-md-" + el.colSize + " pt-4"}>
-            <div className="">
+      <h3 className="text-center">The Change You Can Achieve </h3>
+      {info.map((el, i) => (
+        <div key={i} className="col pt-4 pl-4 pr-4">
+          <div className="row justify-content-center pt-2 pb-2">
+            <img
+              className={"custom-small-img " + el.customPicClass}
+              src={el.imgSrc}
+              alt="House"
+            />
+          </div>
+          {el.p1Text ? (
+            <div className="row justify-content-center pt-2 pb-2">
               <p>{el.p1Text}</p>
             </div>
-            <div className="">
+          ) : null}
+          {el.p2Text ? (
+            <div className="row justify-content-center pt-2 pb-2">
               <p>{el.p2Text}</p>
               <ul>
                 {el.liText.length > 0
@@ -80,9 +62,9 @@ export const LandingPageBot = () => {
                   : null}
               </ul>
             </div>
-          </div>
-        ))}
-      </div>
+          ) : null}
+        </div>
+      ))}
     </div>
   );
 };
