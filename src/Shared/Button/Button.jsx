@@ -2,26 +2,42 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "../Button/Button.scss";
-export const ElButton = ({
-  text,
-  link = "#",
-  disabled,
-  classes,
-  customWidht = "100%",
-}) => {
-  let extraClasses = disabled ? "disabled" : "";
-  const buttonWidth = { width: customWidht };
+export const ElLink = (options) => {
+  console.log(options);
+  options = options ? options : {};
+
+  const buttonWidth = { width: options.customWidht || "100%" };
 
   return (
     <Link
-      to={link}
+      to={options.link || "#"}
       className={
-        "custom btn btn-success  text-uppercase mb-4 pb-2 " + extraClasses
+        "custom btn btn-success  text-uppercase mb-4 pb-2 " +
+          options.extraClasses || ""
       }
       style={buttonWidth}
-      disabled={disabled}
+      disabled={options.disabled || null}
     >
-      {text}
+      {options.text || "NO TEXT GIVEN"}
     </Link>
+  );
+};
+
+export const ElButton = (options) => {
+  options = options ? options : {};
+  const buttonWidth = { width: options.customWidht || "100%" };
+
+  return (
+    <button
+      className={
+        "custom btn btn-success  text-uppercase mb-4 pb-2 " +
+          options.extraClasses || ""
+      }
+      style={buttonWidth}
+      disabled={options.disabled || null}
+      type={options.type || "button"}
+    >
+      {options.text || "NO TEXT GIVEN"}
+    </button>
   );
 };

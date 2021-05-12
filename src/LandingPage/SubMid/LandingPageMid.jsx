@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./LandingPageMid.scss";
-import { ElButton } from "../../Shared/Button/Button.jsx";
+import { ElLink } from "../../Shared/Button/Button.jsx";
 
 export const LandingPageMid = () => {
   const info = [
@@ -65,9 +65,9 @@ export const LandingPageMid = () => {
         ))}
         <div className="row justify-content-center">
           {mql.matches ? (
-            <ElButton link="/signup" text="sign up" customWidht={"85%"} />
+            <ElLink link="/signup" text="sign up" customWidht={"85%"} />
           ) : (
-            <ElButton link="/signup" text="sign up" customWidht={"28%"} />
+            <ElLink link="/signup" text="sign up" customWidht={"28%"} />
           )}
         </div>
       </div>

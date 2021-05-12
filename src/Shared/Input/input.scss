@@ -1,0 +1,15 @@
+// Removing the Up and Down arrow of the Number Input
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/*  Removing the Up and Down arrow of the Number Input Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.border-danger {
+  border: 1px solid red;
+}

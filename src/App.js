@@ -16,7 +16,7 @@ import Footer from "./Footer/index";
 import MainContainer from "./MainContainer";
 import WelcomeComponent from "./WelcomeComponent";
 import RegisterLoginContainer from "./RegisterLoginContainer";
-import Register from "./RegisterLoginContainer/Register.js";
+import Register from "./RegisterLoginContainer/Register.jsx";
 import HomeContainer from "./HomeContainer";
 import MyCasaDashboard from "./MyCasaComponents/MyCasaDashboard";
 import MyProjectComponent from "./MyProjectComponents";

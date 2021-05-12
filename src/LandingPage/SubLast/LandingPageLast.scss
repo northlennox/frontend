@@ -1,4 +1,6 @@
 $el-background: #fff1c5;
+$el-black: #333;
+$el-white: #fff;
 
 .background {
   background-color: $el-background;
@@ -10,4 +12,18 @@ h3 {
 
 .card {
   min-height: 100%;
+}
+
+.custom-disabled {
+  opacity: 1 !important;
+  background-color: $el-white !important;
+  color: $el-black !important;
+  cursor: default !important;
+  pointer-events: none;
+}
+
+.custom-disabled:hover {
+  background-color: $el-white;
+  color: $el-black;
+  cursor: default;
 }
