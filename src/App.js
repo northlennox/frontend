@@ -15,7 +15,7 @@ import Footer from "./Footer/index";
 
 import MainContainer from "./MainContainer";
 import WelcomeComponent from "./WelcomeComponent";
-import RegisterLoginContainer from "./RegisterLoginContainer";
+import Login from "./RegisterLoginContainer/Login";
 import Register from "./RegisterLoginContainer/Register.jsx";
 import HomeContainer from "./HomeContainer";
 import MyCasaDashboard from "./MyCasaComponents/MyCasaDashboard";
@@ -71,7 +71,7 @@ const App = () => {
       <Nav />
       <Switch>
         <Route exact path="/" component={() => <LandingPage />} />
-        <Route exact path="/login" component={RegisterLoginContainer} />
+        <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Register} />
         <Route exact path="/home" component={HomeContainer} />
         <Route exact path="/home/welcome" component={WelcomeComponent} />

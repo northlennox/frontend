@@ -3,7 +3,6 @@ import * as EmailValidator from "email-validator";
 import swal from "sweetalert";
 import { ElForm } from "../Shared/Form/Form";
 
-import Nav from "../Nav";
 import "./Register.scss";
 
 //////////// THIS CODE MUST BE REFACTORED  ///////////////
@@ -62,6 +61,7 @@ class RegisterLoginContainer extends Component {
         handleBlur: this.handleBlur,
       },
     ];
+
     this.checkboxes = [
       {
         id: "emailCheck",
@@ -137,8 +137,12 @@ class RegisterLoginContainer extends Component {
       }
       delete userInfo.errors;
       delete userInfo.loading;
-      console.log("sendng user info ", userInfo);
-    }, 5000);
+      console.log("sendng user info ", {
+        ...userInfo.info,
+        emailNotifications: this.state.emailNotifications,
+        mobileNotifications: this.state.mobileNotifications,
+      });
+    }, 10);
   };
 
   handleInputChange = (e) => {

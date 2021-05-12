@@ -19,7 +19,7 @@ export const ElInput = ({ options }) => {
       {validationError ? (
         <small id={options.errorId} className="form-text text-danger">
           <i className="bi bi-exclamation-circle"> </i>
-          {options.errorText}
+          {options.errorText || "No Text Given"}
         </small>
       ) : null}
     </div>
