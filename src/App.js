@@ -117,7 +117,6 @@ const App = () => {
         //MyProject
         <Route exact path="/MyProject/:id" component={MyProjectComponent} />
       </Switch>
-      <Footer />
     </main>
   );
 };

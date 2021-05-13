@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from "../Footer/index";
 import { LandingPageTop } from "./SubTop/LandingPageTop";
 import { LandingPageMid } from "./SubMid/LandingPageMid";
 import { LandingPageBot } from "./SubBot/LandingPageBot";
@@ -19,6 +20,7 @@ export const LandingPage = () => {
       <LandingPageMid />
       {mobileView ? <MobileLandingBot /> : <LandingPageBot />}
       <LandingPageLast />
+      <Footer />
     </>
   );
 };

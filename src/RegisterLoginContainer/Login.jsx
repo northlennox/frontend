@@ -129,7 +129,7 @@ class Login extends Component {
             extraAfterSubmit: (
               <div className="row justify-content-center  align-items-center singup-background mt-3 ">
                 <p className="pt-2">
-                  Don’t have an account ? <Link to="/signup"> Sign up </Link>
+                  Don’t have an account? <Link to="/signup"> Sign up </Link>
                 </p>
               </div>
             ),
